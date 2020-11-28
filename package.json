@@ -1,0 +1,28 @@
+{
+  "name": "pchordb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "fs": "^0.0.1-security",
+    "mongoose": "^5.10.15",
+    "ms": "^2.1.2",
+    "parse-ms": "^2.1.0",
+    "weather-js": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabletownn/pchordb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabletownn/pchordb/issues"
+  },
+  "homepage": "https://github.com/Fabletownn/pchordb#readme"
+}
