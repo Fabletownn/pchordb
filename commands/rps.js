@@ -1,0 +1,64 @@
+const Discord = require("discord.js")
+const client = new Discord.Client();
+
+module.exports = {
+    name: 'rps',
+    description: '[GENERAL] This will allow you to play "Rock Paper Scissors" with the member you mentioned. <[setPrefix]rps <@member>>',
+    execute(message, args) {
+        message.delete();
+        var i = 0;
+
+        var duelUser = message.mentions.users.first();
+        const choices = ["rock 🪨", "paper 📰", "scissors ✂️"];
+
+        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+
+        if (!duelUser) return message.channel.send(`**[✂️] ${message.author.username}**, please ensure you're @mentioning a user you're dueling (e.g. +rps @Fevenir#0001)!`).then(m => m.delete({
+            timeout: 5000
+        }));
+        if (duelUser === message.author || duelUser.bot) return message.channel.send(`**[🪨] ${message.author.username}**, play with somebody other than yourself or a bot user. :(`).then(m => m.delete({
+            timeout: 5000
+        }));
+
+        message.channel.send(`**[🥊] ${message.author.tag}** and **${duelUser.tag}** are dueling in a game of "Rock Paper Scissors"!`).then(duelMsg => {
+            setTimeout(() => {
+                duelMsg.edit(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`)
+                setTimeout(() => {
+                    const duelResult = choices[Math.floor(Math.random() * choices.length)];
+                    const duelResult2 = choices[Math.floor(Math.random() * choices.length)];
+
+                    if (duelResult === duelResult2) {
+                        const resultEmbed = new Discord.MessageEmbed()
+                            .setTitle(`Rock Paper Scissors`)
+                            .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\nIt's a tie!`)
+                            .setFooter(`Game Started by ${message.author.tag}.`)
+                            .setTimestamp()
+                            .setColor('fa8812')
+
+                        return message.channel.send(resultEmbed);
+                    }
+                    if (duelResult === "paper 📰" && duelResult2 === "rock 🪨" || duelResult === "rock 🪨" && duelResult2 === "scissors ✂️" || duelResult === "scissors ✂️" && duelResult2 === "paper 📰") {
+                        const resultEmbed = new Discord.MessageEmbed()
+                            .setTitle(`Rock Paper Scissors`)
+                            .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\n${message.author} wins!`)
+                            .setFooter(`Game Started by ${message.author.tag}.`)
+                            .setTimestamp()
+                            .setColor('6dff48')
+
+                        return message.channel.send(resultEmbed);
+                    } else {
+                        const resultEmbed = new Discord.MessageEmbed()
+                            .setTitle(`Rock Paper Scissors`)
+                            .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\n${duelUser} wins!`)
+                            .setFooter(`Game Started by ${message.author.tag}.`)
+                            .setTimestamp()
+                            .setColor('ff0000')
+
+                        return message.channel.send(resultEmbed);
+                    }
+                });
+            }, 5000);
+        });
+    }
+}

@@ -1,0 +1,39 @@
+const Discord = require("discord.js")
+const client = new Discord.Client();
+
+module.exports = {
+    name: 'ping',
+    description: '[ONE-STEP] This command fetches API data and reports back. <[setPrefix]ping>',
+    execute(message, args) {
+        message.delete();
+
+        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+
+        message.channel.send('Fetching..').then(msg => {
+            const latency = msg.createdTimestamp - message.createdTimestamp;
+            const ping = Math.round(latency);
+            var status;
+
+            if (ping < 50) {
+                status = "great";
+            } else if (ping > 50 && ping < 100) {
+                status = "fine";
+            } else if (ping > 100 && ping < 150) {
+                status = "OK";
+            } else {
+                status = "bad";
+            }
+
+            const embed = new Discord.MessageEmbed()
+                .setColor('eb4bc9')
+                .setDescription(`**Status**: Online and performing ${status}.\n**Bot Latency**: ${Math.round(latency)} milliseconds.\n**API Latency**: ${Math.round(message.client.ws.ping)} milliseconds.`)
+
+            msg.edit(`Fetched.`).then(() => {
+                msg.edit(embed)
+            }).then(msg.delete({
+                timeout: 30000
+            }));
+        });
+    }
+}
