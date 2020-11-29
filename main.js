@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
     console.log("Application is successfully running: server is listening on PORT ", app.get('port'));
 });
 
-mongoose.connect(process.env.mongoPass, {
+mongoose.connect(`${process.env.mongoPass}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
