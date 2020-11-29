@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "discord.js": "^12.4.1",
+    "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "mongoose": "^5.10.15",
     "ms": "^2.1.2",
