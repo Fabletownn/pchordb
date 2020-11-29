@@ -21,9 +21,13 @@ app.get('/', function(request, response) {
     console.log("Application is successfully running: server is listening on PORT ", app.get('port'));
 });
 
-mongoose.connect(process.env.mongopass, {
-    useNewUrlParser: true,
+mongoose.connect('mongodb://0.0.0.0/0/PowerChord', {
     useUnifiedTopology: true,
+    useNewUrlParser: true,
+})
+.then(() => console.log('DB Connected!'))
+.catch(err => {
+     console.log('DB Connection Error: ' + err);
 });
 
 client.commands = new Discord.Collection();
