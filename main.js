@@ -9,7 +9,6 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-//For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
     var result = 'App is running'
     response.send(result);
@@ -148,5 +147,6 @@ client.on('message', message => {
             message.pin();
         });
     }
-})
+});
+
 client.login(process.env.token);
