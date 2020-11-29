@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const botconfig = require('./botconfig.json')
 const mongoose = require('mongoose');
 
-const port = Process.env.PORT || 3000 ;
+const port = process.env.PORT || 3000 ;
 server.listen(port,()=>{  // do not add localhost here if you are deploying it
     console.log("server listening to port "+port);
 });
