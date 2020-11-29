@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+require('dotenv').config();
+
 const botconfig = require('./botconfig.json')
 const mongoose = require('mongoose');
 
