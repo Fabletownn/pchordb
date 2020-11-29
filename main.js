@@ -4,8 +4,16 @@ const client = new Discord.Client();
 const botconfig = require('./botconfig.json')
 const mongoose = require('mongoose');
 
+const PRE = require('./models/prefix.js');
+const fs = require("fs");
+
 var express = require('express');
 var app = express();
+
+mongoose.connect(process.env.mongoPass, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,14 +23,6 @@ app.get('/', function(request, response) {
 }).listen(app.get('port'), function() {
     console.log("Application is successfully running: server is listening on PORT ", app.get('port'));
 });
-
-mongoose.connect(`${process.env.mongoPass}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
-const PRE = require('./models/prefix.js');
-const fs = require("fs");
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
