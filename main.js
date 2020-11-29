@@ -1,7 +1,7 @@
+require('dotenv').config();
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
-require('dotenv').config();
 
 const botconfig = require('./botconfig.json')
 const mongoose = require('mongoose');
@@ -21,13 +21,9 @@ app.get('/', function(request, response) {
     console.log("Application is successfully running: server is listening on PORT ", app.get('port'));
 });
 
-mongoose.connect('mongodb://0.0.0.0/0/PowerChord', {
-    useUnifiedTopology: true,
+mongoose.connect(process.env.mongopass, {
     useNewUrlParser: true,
-})
-.then(() => console.log('DB Connected!'))
-.catch(err => {
-     console.log('DB Connection Error: ' + err);
+    useUnifiedTopology: true,
 });
 
 client.commands = new Discord.Collection();
