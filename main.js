@@ -12,8 +12,6 @@ const fs = require("fs");
 var express = require('express');
 var app = express();
 
-console.log('MONGO IS: ' + process.env.mongoPass) 
-
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
@@ -23,7 +21,7 @@ app.get('/', function(request, response) {
     console.log("Application is successfully running: server is listening on PORT ", app.get('port'));
 });
 
-mongoose.connect(process.env.mongoPass, {
+mongoose.createConnection(process.env.mongoPass, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
