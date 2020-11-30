@@ -1,9 +1,8 @@
 const Discord = require("discord.js")
 const client = new Discord.Client();
 const mongoose = require("mongoose");
-const botconfig = require("../botconfig.json");
 
-mongoose.connect(botconfig.mongoPass, {
+mongoose.connect(process.env.mongoPass, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
