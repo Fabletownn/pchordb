@@ -22,6 +22,8 @@ This field is designated to list information about this application (repository)
 - This application uses [Discord.JS](https://discord.js.org/#/) to be able to perform actions in [Discord](https://www.discord.com/), a social-media platform designated to grow communities with members of similar interest (more information @ https://www.discord.com/).
 - The attempt of recreating this bot entirely or using this source code without permission **is not OK**. More information can be found in the 'Important Information' section.
 - This application follows Discord's [Community Guidelines](https://discord.com/guidelines) & [Terms of Service](https://discord.com/terms). Any application of such must follow these.
+
+
 - This application is currently being hosted on [Heroku](https://www.heroku.com/), a \[free] VPS Hosting Service designated for any application for coders.
 - The database being used for this application is [MongoDB](https://www.mongodb.com/).
 - The file you are currently reading (thank you) is written in the Markdown coding language (obviously).
@@ -30,8 +32,12 @@ This field is designated to list information about this application (repository)
 
 - Before deciding to take further action upon yourself, **please** review the [Legal Side of Open Source](https://opensource.guide/legal/). It digs into legal shtuff and has crucial information you need to know about Open Sourced projects.
 - This project is to be viewed only, and is under no Licensing. Please review what it means for a project to have **No License** [here](https://choosealicense.com/no-permission/). If you choose not to, a couple snippets are provided below.
+
+
 - **"Unless you include a license that specifies otherwise, nobody else can copy, distribute, or modify your work without being at risk of take-downs, shake-downs, or litigation."**
 - **"If you find software that doesn’t have a license, that generally means you have no permission from the creators of the software to use, modify, or share the software. Although a code host such as GitHub may allow you to view and fork the code, this does not imply that you are permitted to use, modify, or share the software for any purpose."**
 
 Happy coding!
+
+
 **README TLDR**: There is none. Read it.
