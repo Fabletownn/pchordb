@@ -28,7 +28,7 @@ This field is designated to list information about this application (repository)
 - The database being used for this application is [MongoDB](https://www.mongodb.com/).
 - The file you are currently reading (thank you) is written in the Markdown coding language (obviously).
 
-# Important Information
+# License Information
 
 - Before deciding to take further action upon yourself, **please** review the [Legal Side of Open Source](https://opensource.guide/legal/). It digs into legal shtuff and has crucial information you need to know about Open Sourced projects.
 - This project is to be viewed only, and is under no Licensing. Please review what it means for a project to have **No License** [here](https://choosealicense.com/no-permission/). If you choose not to, a couple snippets are provided below.
