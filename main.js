@@ -129,6 +129,8 @@ client.on('message', message => {
             client.commands.get('8ball').execute(message, args);
         } else if (command === 'roleinfo') {
             client.commands.get('roleinfo').execute(message, args);
+        } else if (command === 'serverinfo') {
+            client.commands.get('serverinfo').execute(message, args);
         }
     });
 });
