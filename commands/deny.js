@@ -5,7 +5,7 @@ module.exports = {
     name: 'deny',
     description: '[MODERATION] This command is restricted to the Appeals guild & channel(s) only. It will deny a ban appeal. <[setPrefix]deny <@user>>',
     execute(message, args) {
-        if (message.guild.id !== '781209099647451166') return;
+        if (message.guild.id !== '685876599199236173') return;
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");

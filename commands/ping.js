@@ -8,7 +8,7 @@ module.exports = {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         message.channel.send('Fetching..').then(msg => {
             const latency = msg.createdTimestamp - message.createdTimestamp;

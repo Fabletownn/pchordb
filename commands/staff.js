@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args) {
         message.delete();
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         const staffEmbed = new Discord.MessageEmbed()
             .setTitle(`Staff Team`)

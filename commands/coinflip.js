@@ -14,7 +14,7 @@ module.exports = {
         const blacklistedWords = ["nigga", "nigger", "nibba", "nibber", "fag", "f4g", "retard", "coon", "cunt", "nazi", "penis", "vagina", "sex", "porn", "anal", "blowjob", "handjob", "nude", "rule34", "r34", "stripper", "bangbro", "brazzer", "faketaxi", "hentai", "naughtyamerica", "onlyfan", "realityking", "xvideo", "milf"];
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         message.channel.send(`**[🪙] ${message.author.username}**, I'm interested: what is the circumstance if it lands on **Heads**?`).then(msg => {
             const headsBet = m => m.author.id === message.author.id && !blacklistedWords.some(v => m.content.includes(v));
