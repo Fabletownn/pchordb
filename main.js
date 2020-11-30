@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const botconfig = require('./botconfig.json')
 const mongoose = require('mongoose');
 
 const PRE = require('./models/prefix.js');
