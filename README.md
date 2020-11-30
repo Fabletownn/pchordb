@@ -29,9 +29,9 @@ This field is designated to list information about this application (repository)
 # Important Information
 
 - Before deciding to take further action upon yourself, **please** review the [Legal Side of Open Source](https://opensource.guide/legal/). It digs into legal shtuff and has crucial information you need to know about Open Sourced projects.
-- This project is to be viewed only, and is under no Licensing. Please review what it means for a project to have **No License** [here](https://choosealicense.com/no-permission/). If you choose not to, a sample of this information is provided below.
+- This project is to be viewed only, and is under no Licensing. Please review what it means for a project to have **No License** [here](https://choosealicense.com/no-permission/). If you choose not to, a couple snippets are provided below.
 - **"Unless you include a license that specifies otherwise, nobody else can copy, distribute, or modify your work without being at risk of take-downs, shake-downs, or litigation."**
+- **"If you find software that doesn’t have a license, that generally means you have no permission from the creators of the software to use, modify, or share the software. Although a code host such as GitHub may allow you to view and fork the code, this does not imply that you are permitted to use, modify, or share the software for any purpose."**
 
 Happy coding!
-
 **README TLDR**: There is none. Read it.
