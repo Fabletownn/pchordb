@@ -17,7 +17,7 @@ module.exports = {
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
-        
+
         LUV.findOne({
             guildID: message.guild.id,
         }, (err, data) => {

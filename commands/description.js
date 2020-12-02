@@ -20,6 +20,7 @@ module.exports = {
         if (!commandName) return message.channel.send(`**[❗] ${message.author.username}, please enter a command name to view the description listed for it.\nCommands are categorized as such: \`GENERAL\`, \`MODERATION\`, \`PROMPT\`, \`ONE-STEP\`.`).then(m => m.delete({
             timeout: 10000
         }));
+
         for (const file of commandFiles) {
             try {
                 const command = require(`./${commandName}.js`);

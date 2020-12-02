@@ -12,7 +12,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
-    var result = "The application is running!";
+    var result = `${client.user.username} is up n' running.`;
     response.send(result);
 }).listen(app.get('port'), function() {
     console.log("Application is successfully running: server is listening on PORT:", app.get('port'));
@@ -33,11 +33,13 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     const dinoCreator = 'aaro#0882';
+
     const farahCreator = 'Fable#0001';
     client.user.setActivity(`Created by ${dinoCreator} & ${farahCreator}.`, {
         type: 'PLAYING'
     });
-    console.log(`${client.user.username} is successfully up and running: ${client.guilds.cache.size} guilds\n`)
+
+    console.log(`${client.user.username} is successfully up and running: ${client.guilds.cache.size} guilds\n`);
 });
 
 client.on('message', message => {

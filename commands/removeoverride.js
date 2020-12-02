@@ -11,6 +11,7 @@ module.exports = {
         const toID = message.content.split("ride ");
         const grantID = toID[1];
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         if (grantID === message.guild.id) {
@@ -18,7 +19,7 @@ module.exports = {
                 timeout: 10000
             }));
         }
-        
+
         const generalChannel = message.guild.channels.cache.get('614193406842765375');
         const general2Channel = message.guild.channels.cache.get('710916484427415602');
         const gamesLFGChannel = message.guild.channels.cache.get('761997427111886908');

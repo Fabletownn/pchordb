@@ -10,6 +10,7 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         var toMute = message.mentions.users.first();
+        
         if (!message.member.voice.channel) {
             return message.channel.send(`**[🗣️] ${message.author.username}**, Please ensure you're in a **voice channel** first!`).then(m => m.delete({
                 timeout: 5000

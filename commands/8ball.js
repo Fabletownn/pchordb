@@ -17,14 +17,20 @@ module.exports = {
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
-        
-        if (!eBallQuestion) return message.channel.send(`**[❓] ${message.author.username}**, please put a question for me to answer (make sure it ends with OR includes a question mark as well)!`).then(m => m.delete({ timeout: 5000 }));
-        if (!eBallQuestion.includes("?")) return message.channel.send(`**[❓] ${message.author.username}**, please put a question for me to answer (make sure it ends with OR includes a question mark as well)!`).then(m => m.delete({ timeout: 5000 }));
+
+        if (!eBallQuestion) return message.channel.send(`**[❓] ${message.author.username}**, please put a question for me to answer (make sure it ends with OR includes a question mark as well)!`).then(m => m.delete({
+            timeout: 5000
+        }));
+        if (!eBallQuestion.includes("?")) return message.channel.send(`**[❓] ${message.author.username}**, please put a question for me to answer (make sure it ends with OR includes a question mark as well)!`).then(m => m.delete({
+            timeout: 5000
+        }));
         if (blacklistedWords.some(v => message.content.includes(v))) return;
 
         message.channel.send(`**[🎱] ${message.author.username}**, my very, very, totally-accurate magical prediction to the question "**${eBallQuestion}**" is...!`).then(eBallMessage => {
             setTimeout(() => {
-                eBallMessage.edit(`**[🎱] ${message.author.username}**, my very, very, totally-accurate magical prediction to the question "**${eBallQuestion}**" is: **${eBallResult}**.`).then(m => m.delete({ timeout: 30000 }));
+                eBallMessage.edit(`**[🎱] ${message.author.username}**, my very, very, totally-accurate magical prediction to the question "**${eBallQuestion}**" is: **${eBallResult}**.`).then(m => m.delete({
+                    timeout: 30000
+                }));
             }, 3000);
         });
     }

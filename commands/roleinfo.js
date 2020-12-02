@@ -94,10 +94,24 @@ module.exports = {
             "color": 2359049
         }
 
-        message.channel.send({ embed: roleEmbed1 }).then(() => {
-            message.channel.send({ embed: roleEmbed2 }).then(message.channel.send({ embed: roleEmbed3 })).then(() => {
-                message.channel.send({ embed: roleEmbed4 }).then(message.channel.send({ embed: roleEmbed7 })).then(() => {
-                    message.channel.send({ embed: roleEmbed5 }).then(message.channel.send({ embed: roleEmbed6 }));
+        message.channel.send({
+            embed: roleEmbed1
+        }).then(() => {
+            message.channel.send({
+                embed: roleEmbed2
+            }).then(message.channel.send({
+                embed: roleEmbed3
+            })).then(() => {
+                message.channel.send({
+                    embed: roleEmbed4
+                }).then(message.channel.send({
+                    embed: roleEmbed7
+                })).then(() => {
+                    message.channel.send({
+                        embed: roleEmbed5
+                    }).then(message.channel.send({
+                        embed: roleEmbed6
+                    }));
                 });
             });
         });

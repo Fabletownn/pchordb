@@ -22,9 +22,11 @@ module.exports = {
 
         var prefixA = message.content.split(" ");
         var toPrefix = prefixA[1];
+        
         if (!toPrefix) return message.channel.send(`**[⚠️] ${message.author.username}**, please enter a prefix to change to the bot's prefix.\n*(This feature is guild-specific. In other guilds, this prefix will be different depending on what it was changed to).*`).then(m => m.delete({
             timeout: 10000
         }));
+
         PRE.findOne({
             guildID: message.guild.id,
         }, (err, data) => {

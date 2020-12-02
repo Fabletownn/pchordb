@@ -6,7 +6,6 @@ module.exports = {
     description: '[GENERAL] This will allow you to play "Rock Paper Scissors" with the member you mentioned. <[setPrefix]rps <@member>>',
     execute(message, args) {
         message.delete();
-        var i = 0;
 
         var duelUser = message.mentions.users.first();
         const choices = ["rock 🪨", "paper 📰", "scissors ✂️"];
