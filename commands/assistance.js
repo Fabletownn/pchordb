@@ -18,6 +18,6 @@ module.exports = {
         }
 
         cooldownVar = Date.now();
-        message.channel.send(`<@&777945247597461514> <@&777945223216758824>\nAssistance has been requested!\n`);
+        message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!\n`);
     }
 }
