@@ -18,7 +18,7 @@ module.exports = {
 
         const serverEmbed2 = {
             "title": "Channel and Category Info",
-            "description": "This server has multiple channels that are divided under categories: each category has channels of similar topics. These categories and their contents are summarized below.\n\n`I TALK INFO` - Important Server Information.\n`I TALK GENERAL` - General Channels.\n`I TALK FORTNITE` - Fortnite-Related Channels.\n`I TALK BOTS` - Bot Commands Channels.\n`I TALK VOICE CHANNELS` - Voice Channels.\n`I TALK EVENTS` - Server Events (Accessible after achieving Level 10 through <#673259309555253290>).\n`I TALK CUSTOMS` - Fortnite Customs (Accessible after achieving Level 10 through <#673259309555253290>).\n\nEach channel serves its own purpose, which is explained in the channel's topic, and any channel-specific rules are pinned in the channel.",
+            "description": "This server has multiple channels that are divided under categories: each category has channels of similar topics. These categories and their contents are summarized below.\n\n`I TALK INFO` - Important Server Information.\n`I TALK GENERAL` - General Channels.\n`I TALK FORTNITE` - Fortnite-Related Channels.\n`I TALK BOTS` - Bot Commands Channels.\n`I TALK VOICE CHANNELS` - Voice Channels.\n`I TALK EVENTS` - Server Events (Accessible after achieving Level 10 through <#673259309555253290>).\n`I TALK CUSTOMS` - Fortnite Customs (Accessible after achieving Level 10 through <#673259309555253290>).\n\nCheck each individual channel's channel topic to know what the channel is about, and channel specific rules (if any). ",
             "color": '23ff09',
         }
 
