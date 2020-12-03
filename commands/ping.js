@@ -27,7 +27,7 @@ module.exports = {
 
             const embed = new Discord.MessageEmbed()
                 .setColor('eb4bc9')
-                .setDescription(`**Status**: Online and performing ${status}.\n**Bot Latency**: ${Math.round(latency)} milliseconds.\n**API Latency**: ${Math.round(message.client.ws.ping)} milliseconds.`)
+                .setDescription(`**Status**: Online and response time is ${status}.\n**Bot Latency**: ${Math.round(latency)} milliseconds.\n**API Latency**: ${Math.round(message.client.ws.ping)} milliseconds.`)
 
             msg.edit(`Fetched.`).then(() => {
                 msg.edit(embed)
