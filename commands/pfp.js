@@ -7,13 +7,15 @@ module.exports = {
     execute(message, args) {
         message.delete();
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
 
         const avatarUser = message.mentions.users.first();
+        const mentionedUser = message.guild.member(avatarUser);
+        
         if (avatarUser) {
             const embed = new Discord.MessageEmbed()
                 .setTitle(avatarUser.tag)
-                .setColor('eb4bc9')
+                .setColor(mentionedUser.displayColor)
                 .setImage(avatarUser.displayAvatarURL({
                     dynamic: true
                 }));
@@ -24,7 +26,7 @@ module.exports = {
         } else {
             const embed2 = new Discord.MessageEmbed()
                 .setTitle(message.author.tag)
-                .setColor('eb4bc9')
+                .setColor(message.member.displayColor)
                 .setImage(message.author.displayAvatarURL({
                     dynamic: true
                 }));
