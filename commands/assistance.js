@@ -12,7 +12,7 @@ module.exports = {
 
         if (timeout - (Date.now() - cooldownVar) > 0) {
             let time = ms(timeout - (Date.now() - cooldownVar));
-            return message.channel.send(`This command is on cooldown. You're able to use this command in ${time.minutes} minute(s) and ${time.seconds} seconds.`).then(m => m.delete({
+            return message.channel.send(`**[🌬️] ${message.author.username}**, due to risk of traffic or spam, this command is on cooldown. You'll be able to use this command in **${time.minutes} minute(s)** and **${time.seconds} seconds**.`).then(m => m.delete({
                 timeout: 10000
             }));
         }
