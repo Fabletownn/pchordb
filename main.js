@@ -133,6 +133,8 @@ client.on('message', message => {
             client.commands.get('roleinfo').execute(message, args);
         } else if (command === 'serverinfo') {
             client.commands.get('serverinfo').execute(message, args);
+        } else if (command === 'colorlock') {
+            client.commands.get('colorlock').execute(message, args);
         }
     });
 });
