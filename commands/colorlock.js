@@ -10,7 +10,7 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-        const serverEmbed1 = {
+        const colorEmbed1 = {
             "content": null,
             "embeds": [
               {
@@ -32,6 +32,6 @@ module.exports = {
               }
             ]
         }          
-        message.channel.send(serverEmbed1);
+        message.channel.send({ embed: colorEmbed1 });
     }
 }
