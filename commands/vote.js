@@ -25,7 +25,7 @@ module.exports = {
         }
 
         message.channel.messages.fetch(messageID[1]).then(m => {
-            m.react(message.guild.emojis.cache.get("778352094876139560")).then(m.react(message.guild.emojis.cache.get("778352093982752828")));
+            m.react(message.guild.emojis.cache.get("778318625328332810")).then(m.react(message.guild.emojis.cache.get("778318624552779776")));
         }).catch(e => {
             return message.channel.send(`**[📰] ${message.author.username}**, please ensure that message is within this channel.`).then(m => m.delete({
                 timeout: 5000
