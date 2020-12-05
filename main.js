@@ -15,7 +15,7 @@ app.get('/', function(request, response) {
     var result = `${client.user.username} is up n' running.`;
     response.send(result);
 }).listen(app.get('port'), function() {
-    console.log("Application is successfully running: server is listening on PORT:", app.get('port'));
+    console.log("Application is attempting to run.. server is listening on PORT:", app.get('port'));
 });
 
 mongoose.connect(process.env.mongoPass, {
