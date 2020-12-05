@@ -11,7 +11,7 @@ module.exports = {
         var side;
 
         const bets = ["Heads", "Tails", "the Side"];
-        const blacklistedWords = ["nigga", "nigger", "nibba", "nibber", "fag", "f4g", "retard", "coon", "cunt", "nazi", "penis", "vagina", "sex", "porn", "anal", "blowjob", "handjob", "nude", "rule34", "r34", "stripper", "bangbro", "brazzer", "faketaxi", "hentai", "naughtyamerica", "onlyfan", "realityking", "xvideo", "milf"];
+        const blacklistedWords = ["nigga", "nigger", "nibba", "nibber", "fag", "f4g", "retard", "coon", "cunt", "nazi", "penis", "vagina", "sex", "porn", "anal", "blowjob", "handjob", "nude", "rule34", "r34", "stripper", "bangbro", "brazzer", "faketaxi", "hentai", "naughtyamerica", "onlyfan", "realityking", "xvideo", "milf", "@everyone", "@here", "<@"];
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;

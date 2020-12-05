@@ -25,7 +25,7 @@ module.exports = {
         message.guild.channels.cache.get(`738863576890081340`).send(appealEmbed).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
 
-            message.member.roles.add('691372147112673441'); // Appeal Received Role
+            message.member.roles.add('691372147112673441');
             message.author.send(`**[${new Date().toLocaleTimeString()}] ${message.author.username}**, you have successfully appealed your ban for the **I Talk Server**. All appeals are reviewed and voted on Saturday, so please be patient.\nYour appeal message was submitted as the following:\n\`\`\`${appealMessage}\`\`\``);
         });
     }
