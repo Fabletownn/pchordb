@@ -37,7 +37,5 @@ This field is designated to list information about this application (repository)
 - **"Unless you include a license that specifies otherwise, nobody else can copy, distribute, or modify your work without being at risk of take-downs, shake-downs, or litigation."**
 - **"If you find software that doesn’t have a license, that generally means you have no permission from the creators of the software to use, modify, or share the software. Although a code host such as GitHub may allow you to view and fork the code, this does not imply that you are permitted to use, modify, or share the software for any purpose."**
 
-Happy coding!
-
 
 **README TLDR**: There is none. Read it.
