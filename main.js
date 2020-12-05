@@ -135,8 +135,6 @@ client.on('message', message => {
             client.commands.get('serverinfo').execute(message, args);
         } else if (command === 'colorlock') {
             client.commands.get('colorlock').execute(message, args);
-        } else if (command === 'correctlock') {
-            client.commands.get('correctlock').execute(message, args);
         }
     });
 });
