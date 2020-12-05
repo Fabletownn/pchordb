@@ -6,6 +6,7 @@ module.exports = {
     description: '[ONE-STEP] This will provide a list of the I Talk Server Staff Team. <[setPrefix]staff>',
     execute(message, args) {
         message.delete();
+        
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 

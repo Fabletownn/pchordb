@@ -7,9 +7,10 @@ module.exports = {
     name: 'assistance',
     description: '[ONE-STEP] This will request assistance from staff members. Please only use this in urgent situations. Misusage of this command will lead to punishment. <[setPrefix]assistance>',
     execute(message, args) {
-        let timeout = 120000;
         message.delete();
 
+        let timeout = 120000;
+        
         if (timeout - (Date.now() - cooldownVar) > 0) {
             let time = ms(timeout - (Date.now() - cooldownVar));
             return message.channel.send(`**[🌬️] ${message.author.username}**, due to risk of traffic or spam, this command is on cooldown. You'll be able to use this command in **${time.minutes} minute(s)** and **${time.seconds} seconds**.`).then(m => m.delete({

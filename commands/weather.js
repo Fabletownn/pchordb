@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'weather',
     description: '[GENERAL] This will provide the live weather information for the location specified. <[setPrefix]weather <location>>',
-    async execute(message, commandPrefix) {
+    async execute(message) {
         message.delete();
 
         var location = message.content.split(`weather `)
@@ -26,6 +26,7 @@ module.exports = {
             if (err) return message.channel.send(`**[🌧️] ${message.author.username}**, location wasn't found. Please make sure that's a **valid location**.`).then(m => m.delete({
                 timeout: 5000
             }));
+            
             if (result === undefined || result.length === 0) return message.channel.send(`**[🌧️] ${message.author.username}**, location wasn't found. Please make sure that's a **valid location**.`).then(m => m.delete({
                 timeout: 5000
             }));
