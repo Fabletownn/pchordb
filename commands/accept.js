@@ -25,8 +25,8 @@ module.exports = {
             if (acceptedMember.roles.cache.has(acceptedR.id)) return message.channel.send(`**[📜] ${message.author.username}**, this member has already been accepted.`).then(m => m.delete({
                 timeout: 10000
             }));
-            
-            acceptedMember.roles.add('700299481672974356') // Appeal Accepted Role
+
+            acceptedMember.roles.add('700299481672974356');
             message.guild.channels.cache.get('700290345954705408').send(`${appealAcceptionMention}`).then(messageSent => {
                 messageSent.delete();
                 message.channel.send(`**[📜] ${message.author.username}**, successfully accepted the appeal!`).then(m => m.delete({
