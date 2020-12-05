@@ -33,8 +33,8 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     const dinoCreator = 'aaro#0882';
-
     const farahCreator = 'Fable#0001';
+    
     client.user.setActivity(`Created by ${dinoCreator} & ${farahCreator}.`, {
         type: 'PLAYING'
     });
