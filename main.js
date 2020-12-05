@@ -34,7 +34,7 @@ for (const file of commandFiles) {
 client.once('ready', () => {
     const dinoCreator = 'aaro#0882';
     const farahCreator = 'Fable#0001';
-    
+
     client.user.setActivity(`Created by ${dinoCreator} & ${farahCreator}.`, {
         type: 'PLAYING'
     });
@@ -62,7 +62,7 @@ client.on('message', message => {
         }
 
         if (!message.content.startsWith(commandPrefix) || message.author.bot) return;
-        if (message.content.startsWith(commandPrefix) && (!moderatorR || !administratorR || !itfR)) return message.channel.send(`Please ensure this guild has the proper roles set up for me to work properly.`).then(m => m.delete({
+        if (message.content.startsWith(commandPrefix) && (!moderatorR || !administratorR || !itfR)) return console.log(`I was run in a server that didn't have the proper roles. Ignoring.`).then(m => m.delete({
             timeout: 10000
         }));
 
