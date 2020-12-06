@@ -6,6 +6,7 @@ module.exports = {
     description: '[MODERATION] If you are in a voice channel, this will server deafen the mentioned member in the same voice channel. If there is no mentioned member, this will server deafen all members within the voice channel. <[setPrefix]vcdeafen (<@member>)>',
     execute(message, args) {
         message.delete();
+        
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 

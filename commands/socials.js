@@ -14,6 +14,6 @@ module.exports = {
             .setDescription(`For his **YouTube** Channel, press [here](http://bit.ly/2Nu6QOG).\nFor his **Twitch** Channel, press [here](http://bit.ly/2KQ1DyN).\nFor his **Twitter** Profile, press [here](http://bit.ly/2Z9CS9H).\nFor his **Instagram** Account, press [here](http://bit.ly/327S5Fa).\nFor his **Spotify** Account, press [here](https://spoti.fi/2TWjhEh).`)
             .setColor('eb4bc9')
 
-        message.channel.send(socialsEmbed);
+        message.channel.send({ embed: socialsEmbed });
     }
 }

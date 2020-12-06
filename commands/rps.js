@@ -13,10 +13,11 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
-        if (!duelUser) return message.channel.send(`**[✂️] ${message.author.username}**, please ensure you're @mentioning a user you're dueling (e.g. +rps @Fevenir#0001)!`).then(m => m.delete({
+        if (!duelUser) return message.channel.send(`**[✂️] ${message.author.username}**, please ensure you're mentioning a user you'd like to duel.`).then(m => m.delete({
             timeout: 5000
         }));
-        if (duelUser === message.author || duelUser.bot) return message.channel.send(`**[🪨] ${message.author.username}**, play with somebody other than yourself or a bot user. :(`).then(m => m.delete({
+        
+        if (duelUser === message.author || duelUser.bot) return message.channel.send(`**[🪨] ${message.author.username}**, play with somebody other than yourself or a bot user.`).then(m => m.delete({
             timeout: 5000
         }));
 
