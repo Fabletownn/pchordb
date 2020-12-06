@@ -20,7 +20,7 @@ This field is designated to list information about this application (repository)
 
 - This application was created entirely in the JavaScript coding language & [Node.JS](https://nodejs.org/en/), and was re-written off a current application via [Visual Studio Code](https://code.visualstudio.com/).
 - This application uses [Discord.JS](https://discord.js.org/#/) to be able to perform actions in [Discord](https://www.discord.com/), a social-media platform designated to grow communities with members of similar interest (more information @ https://www.discord.com/).
-- The attempt of recreating this bot entirely or using this source code without permission **is not OK**. More information can be found in the 'Important Information' section.
+- The attempt of recreating this bot entirely or using this source code without permission **is not OK**. More information can be found in the 'License Information' section.
 - This application follows Discord's [Community Guidelines](https://discord.com/guidelines) & [Terms of Service](https://discord.com/terms). Any application of such must follow these.
 
 
