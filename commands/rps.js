@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'rps',
-    description: '[GENERAL] This will allow you to play "Rock Paper Scissors" with the member you mentioned. <[setPrefix]rps <@member>>',
+    description: '[GENERAL] This will allow you to play Rock Paper Scissors with the member you mentioned. <[setPrefix]rps <@member>>',
     execute(message, args) {
         message.delete();
 
@@ -20,9 +20,9 @@ module.exports = {
             timeout: 5000
         }));
 
-        message.channel.send(`**[🥊] ${message.author.tag}** and **${duelUser.tag}** are dueling in a game of "Rock Paper Scissors"!`).then(duelMsg => {
+        message.channel.send(`**[🥊] ${message.author.tag}** and **${duelUser.tag}** are dueling in a game of Rock Paper Scissors!`).then(duelMsg => {
             setTimeout(() => {
-                duelMsg.edit(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`)
+                duelMsg.delete();
                 setTimeout(() => {
                     const duelResult = choices[Math.floor(Math.random() * choices.length)];
                     const duelResult2 = choices[Math.floor(Math.random() * choices.length)];
@@ -35,7 +35,7 @@ module.exports = {
                             .setTimestamp()
                             .setColor('fa8812')
 
-                        return message.channel.send(resultEmbed);
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
                     }
                     if (duelResult === "paper 📰" && duelResult2 === "rock 🪨" || duelResult === "rock 🪨" && duelResult2 === "scissors ✂️" || duelResult === "scissors ✂️" && duelResult2 === "paper 📰") {
                         const resultEmbed = new Discord.MessageEmbed()
@@ -44,8 +44,8 @@ module.exports = {
                             .setFooter(`Game Started by ${message.author.tag}.`)
                             .setTimestamp()
                             .setColor('6dff48')
-
-                        return message.channel.send(resultEmbed);
+                            
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
                     } else {
                         const resultEmbed = new Discord.MessageEmbed()
                             .setTitle(`Rock Paper Scissors`)
@@ -54,7 +54,7 @@ module.exports = {
                             .setTimestamp()
                             .setColor('ff0000')
 
-                        return message.channel.send(resultEmbed);
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
                     }
                 });
             }, 5000);

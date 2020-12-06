@@ -85,7 +85,7 @@ client.on('message', message => {
             client.commands.get('socials').execute(message, args);
         } else if (command === 'staff') {
             client.commands.get('staff').execute(message, args);
-        } else if (command === 'rps') {
+        } else if (command === 'rps' || command === 'rockpaperscissors') {
             client.commands.get('rps').execute(message, args);
         } else if (command === 'jean') {
             client.commands.get('jean').execute(message, args);

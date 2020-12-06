@@ -22,7 +22,7 @@ module.exports = {
 
             const aliasEmbed = new Discord.MessageEmbed()
                 .setTitle(`Alias Commands`)
-                .setDescription('- **prefix** has `1` other alias: "**setprefix**"\n- **description** has `1` other alias: "**desc**"\n- **vcmute** has `1` other alias: "**vcm**"\n- **vcunmute** has `1` other alias: "**vcun**"\n- **vcdeafen** has `1` other alias: "**vcdeaf**"\n- **vcundeafen** has `1` other alias: "**vcundeaf**"\n- **vote** has `1` other alias: "**reactvote**"\n- **removeoverride** has `2` other aliases: "**roverride** & **rride**"\n\n- **accept** has `2` other aliases: "**acceptappeal** & **appealaccept**"\n- **deny** has `2` other aliases: "**denyappeal** & **appealdeny**"\n\n- **coinflip** has `1` other alias: "**flipcoin**"\n- **love** has `2` other aliases: "**itflove** & **luv**"\n- **suicidehotline** has `1` other alias: "**hotline**"\n- **pfp** has `2` other aliases: "**av** & **avatar**"\n- **socials** has `1` other alias: "**medias**"')
+                .setDescription('- **prefix** has `1` other alias: "**setprefix**"\n- **description** has `1` other alias: "**desc**"\n- **vcmute** has `1` other alias: "**vcm**"\n- **vcunmute** has `1` other alias: "**vcun**"\n- **vcdeafen** has `1` other alias: "**vcdeaf**"\n- **vcundeafen** has `1` other alias: "**vcundeaf**"\n- **vote** has `1` other alias: "**reactvote**"\n- **removeoverride** has `2` other aliases: "**roverride** & **rride**"\n\n- **accept** has `2` other aliases: "**acceptappeal** & **appealaccept**"\n- **deny** has `2` other aliases: "**denyappeal** & **appealdeny**"\n\n- **coinflip** has `1` other alias: "**flipcoin**"\n- **love** has `2` other aliases: "**itflove** & **luv**"\n- **rps** has `1` other alias: "**rockpaperscissors"**\n- **suicidehotline** has `1` other alias: "**hotline**"\n- **pfp** has `2` other aliases: "**av** & **avatar**"\n- **socials** has `1` other alias: "**medias**"')
                 .setColor('e6810a')
 
             const usageEmbed = new Discord.MessageEmbed()
@@ -48,7 +48,7 @@ module.exports = {
 
         const aliasEmbed = new Discord.MessageEmbed()
             .setTitle(`Alias Commands`)
-            .setDescription('- **coinflip** has `1` other alias: "**flipcoin**"\n- **love** has `2` other aliases: "**itflove** & **luv**"\n- **suicidehotline** has `1` other alias: "**hotline**"\n- **pfp** has `2` other aliases: "**av** & **avatar**"\n- **socials** has `1` other alias: "**medias**"')
+            .setDescription('- **coinflip** has `1` other alias: "**flipcoin**"\n- **love** has `2` other aliases: "**itflove** & **luv**"\n- **rps** has `1` other alias: "**rockpaperscissors"**\n- **suicidehotline** has `1` other alias: "**hotline**"\n- **pfp** has `2` other aliases: "**av** & **avatar**"\n- **socials** has `1` other alias: "**medias**"')
             .setColor('e6810a')
 
         const usageEmbed = new Discord.MessageEmbed()
