@@ -35,7 +35,7 @@ module.exports = {
                             .setTimestamp()
                             .setColor('fa8812')
 
-                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embed: resultEmbed });
                     }
                     if (duelResult === "paper 📰" && duelResult2 === "rock 🪨" || duelResult === "rock 🪨" && duelResult2 === "scissors ✂️" || duelResult === "scissors ✂️" && duelResult2 === "paper 📰") {
                         const resultEmbed = new Discord.MessageEmbed()
@@ -45,7 +45,7 @@ module.exports = {
                             .setTimestamp()
                             .setColor('6dff48')
                             
-                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embed: resultEmbed });
                     } else {
                         const resultEmbed = new Discord.MessageEmbed()
                             .setTitle(`Rock Paper Scissors`)
@@ -54,7 +54,7 @@ module.exports = {
                             .setTimestamp()
                             .setColor('ff0000')
 
-                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embeds: resultEmbed });
+                        return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embed: resultEmbed });
                     }
                 });
             }, 5000);
