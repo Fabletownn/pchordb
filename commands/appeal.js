@@ -22,7 +22,7 @@ module.exports = {
 
             const nameArray = attachment.name.split('.');
 
-            const fileType = nameArray[nameArray.length - 1]
+            const fileType = nameArray[nameArray.length - 1];
             const fileTypes = ["png", "jpg", "gif", "txt"];
 
             if (!fileTypes.includes(fileType)) {
