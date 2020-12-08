@@ -135,6 +135,10 @@ client.on('message', message => {
             client.commands.get('serverinfo').execute(message, args);
         } else if (command === 'colorlock') {
             client.commands.get('colorlock').execute(message, args);
+        } else if (command === 'trigger' || command === 'triggered') {
+            client.commands.get('trigger').execute(message, args);
+        } else if (command === 'jumble' || command === 'jumblewords' || command === 'jumblegame') {
+            client.commands.get('jumble').execute(message, args);
         }
     });
 });
