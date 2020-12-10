@@ -145,7 +145,7 @@ client.on('message', message => {
             client.commands.get('gtb-display').execute(message, args);
         } else if (command === 'gtb-leaderboard' || command === 'gtb-lb') {
             client.commands.get('gtb-leaderboard').execute(message, args);
-        } else if (command === 'gtb-addcosmetic' || command === 'gtb-add' || command === 'gtb-cosmetic') {
+        } else if (command === 'gtb-addcosmetic' || command === 'gtb-cosmetic') {
             client.commands.get('gtb-addcosmetic').execute(message, args);
         }
     });

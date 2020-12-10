@@ -12,6 +12,8 @@ module.exports = {
     name: 'gtb-addcosmetic',
     description: '[GTB] This will add any cosmetic with the cosmetic name provided. <[setPrefix]gtb-addcosmetic <cosmetic number> <cosmetic answer/name> { ATTACHMENT }>',
     execute(message) {
+        message.delete();
+        
         var answerC1 = message.content.split("cosmetic ");
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
