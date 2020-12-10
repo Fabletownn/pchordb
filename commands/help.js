@@ -245,7 +245,6 @@ module.exports = {
                 .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into five different categories: **general**, **moderator enforced**, **Guess The Blank**, **fun** and **appeals**.\n\nYou are a staff member, so you have been provided the full list of commands: those who are not part of the staff team will be given a help menu excluding Moderator-restricted commands. 🔨\n<:pcPLACEHOLDER:786598522001817630>`)
                 .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
                 .addField(`🎲 Fun Commands`, `This will provide a list of fun commands you can get a kick out of.`)
-                .addField(`📜 Appeal Commands`, `This will provide the command(s) restricted to the I Talk Appeals server, to appeal your ban.`)
                 .addField(`🛰️ Command Aliases`, `This will provide a list of commands that have different names that are able to be used.`)
                 .addField(`🔧 Command Usages`, `This will provide a list of how you're able to use every single command.`)
                 .addField(`ℹ️ Bot Information`, `This will provide information on the Power Chord bot.`, true)
