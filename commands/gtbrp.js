@@ -46,7 +46,7 @@ module.exports = {
             userID: grantTo.id
         }, (err, data) => {
             if (err) {
-                return message.channel.send(`[⚠️] **${message.author.username}**, an error occurred trying to save that user's data. Please report this to Farah ASAP.\n\`\`\`${err}\`\`\``)
+                return message.channel.send(`**[⚠️] ${message.author.username}**, an error occurred trying to save that user's data. Please report this to Farah ASAP.\n\`\`\`${err}\`\`\``)
             }
             if (!data) {
                 const newPNT = new PNT({
@@ -57,18 +57,18 @@ module.exports = {
                     lb: "all"
                 });
                 newPNT.save().catch(err => console.log(err));
-                message.channel.send(`[💸] **${message.author.username}**, revoked ${parseInt(pointsTR).toLocaleString()} points from \`${grantTo.tag}\`; their point balance is now 0.`).then(m => m.delete({
+                message.channel.send(`**[💸] ${message.author.username}**, revoked ${parseInt(pointsTR).toLocaleString()} points from \`${grantTo.tag}\`; their point balance is now 0.`).then(m => m.delete({
                     timeout: 10000
                 }));
             } else {
                 if ((data.points - parseInt(pointsTR) < 0)) {
-                    return message.channel.send(`[⚠️] **${message.author.username}**, please give a **reasonable** amount of points to revoke from this user. Proper syntax would be; \`-rp [@member] [amt of points]\`.\nFor further assistance with syntax, use \`-syntax rp\`.`).then(m => m.delete({
+                    return message.channel.send(`**[⚠️] ${message.author.username}**, please give a **reasonable** amount of points to revoke from this user. Proper syntax would be; \`-rp [@member] [amt of points]\`.\nFor further assistance with syntax, use \`-syntax rp\`.`).then(m => m.delete({
                         timeout: 10000
                     }));
                 }
                 data.points -= parseInt(pointsTR);
                 data.save().catch(err => message.reply(`An error occurred. Please contact Farah ASAP.\n\`\`\`${err}\`\`\``));
-                message.channel.send(`[💸] **${message.author.username}**, revoked ${parseInt(pointsTR).toLocaleString()} points from \`${grantTo.tag}\`; their point balance is now ${data.points.toLocaleString()}.`).then(m => m.delete({
+                message.channel.send(`**[💸] ${message.author.username}**, revoked ${parseInt(pointsTR).toLocaleString()} points from \`${grantTo.tag}\`; their point balance is now ${data.points.toLocaleString()}.`).then(m => m.delete({
                     timeout: 10000
                 }));
             }
