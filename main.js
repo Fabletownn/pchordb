@@ -143,6 +143,8 @@ client.on('message', message => {
             client.commands.get('gtb-removepoints').execute(message, args);
         } else if (command === 'gtb-display' || command === 'gtb-displaycosmetics') {
             client.commands.get('gtb-display').execute(message, args);
+        } else if (command === 'gtb-leaderboard' || command === 'gtb-lb') {
+            client.commands.get('gtb-leaderboard').execute(message, args);
         }
     });
 });
