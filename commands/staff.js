@@ -18,6 +18,6 @@ module.exports = {
             .setImage("https://images-ext-2.discordapp.net/external/j0A1e-jilOSPL5904vjRmXopKIFRz6pGwxxg1Ly6yN0/%3Fformat%3Djpg%26name%3Dlarge/https/pbs.twimg.com/media/EmgbvAtXIAAIvM1?width=1204&height=677")
             .setColor('eb4bc9')
 
-        message.channel.send(staffEmbed);
+        message.channel.send({ embed: staffEmbed });
     }
 }

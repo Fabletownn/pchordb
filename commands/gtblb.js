@@ -26,7 +26,7 @@ module.exports = {
                 .setTitle(`GUESS THE BLANK : Points Leaderboard`)
                 .setThumbnail('https://alphanerdsguild.com/wp-content/uploads/2018/03/11724-video-game.png')
                 .setAuthor(`Showcased : ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
-                .setColor('2f3040')
+                .setColor('eb4bc9')
                 .setTimestamp()
 
             let pgLB = parseInt(args[0]);
@@ -54,7 +54,7 @@ module.exports = {
                     leaderEmbed.addField(`[#${i + 1}] ${res[i].name}`, `${res[i].points.toLocaleString()} points`);
                 }
             }
-            message.channel.send(leaderEmbed).then(m => m.delete({
+            message.channel.send(`The current Guess The Blank leaderboard is shown below.`, { embed: leaderEmbed }).then(m => m.delete({
                 timeout: 15000
             }));
         });
