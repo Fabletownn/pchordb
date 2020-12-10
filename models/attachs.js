@@ -42,6 +42,6 @@ const GTBSchema = mongoose.Schema({
     answer19: String,
     attachs20: String,
     answer20: String
-})
+});
 
 module.exports = mongoose.model("GTB", GTBSchema);

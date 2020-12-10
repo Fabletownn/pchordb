@@ -6,6 +6,6 @@ const PointSchema = mongoose.Schema({
     name: String,
     points: Number,
     lb: String
-})
+});
 
 module.exports = mongoose.model("PNT", PointSchema);

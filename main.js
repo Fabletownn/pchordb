@@ -23,11 +23,6 @@ mongoose.connect(process.env.mongoPass, {
     useUnifiedTopology: true,
 });
 
-mongoose.connect(process.env.mongoPassGTB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
