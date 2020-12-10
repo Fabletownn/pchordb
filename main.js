@@ -137,8 +137,6 @@ client.on('message', message => {
             client.commands.get('colorlock').execute(message, args);
         } else if (command === 'trigger' || command === 'triggered') {
             client.commands.get('trigger').execute(message, args);
-        } else if (command === 'gtb-addpoints' || command === 'gtb-ap') {
-            client.commands.get('gtb-ap').execute(message, args);
         }
     });
 });
