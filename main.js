@@ -138,9 +138,9 @@ client.on('message', message => {
         } else if (command === 'trigger' || command === 'triggered') {
             client.commands.get('trigger').execute(message, args);
         } else if (command === 'gtb-addpoints' || command === 'gtb-grantpoints' || command === 'gtb-ap') {
-            client.commands.get('gtb-ap').execute(message, args);
+            client.commands.get('gtb-addpoints').execute(message, args);
         } else if (command === 'gtb-removepoints' || command === 'gtb-revokepoints' || command === 'gtb-rp') {
-            client.commands.get('gtb-rp').execute(message, args);
+            client.commands.get('gtb-removepoints').execute(message, args);
         }
     });
 });
