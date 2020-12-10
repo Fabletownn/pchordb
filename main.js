@@ -141,6 +141,8 @@ client.on('message', message => {
             client.commands.get('gtb-addpoints').execute(message, args);
         } else if (command === 'gtb-removepoints' || command === 'gtb-revokepoints' || command === 'gtb-rp') {
             client.commands.get('gtb-removepoints').execute(message, args);
+        } else if (command === 'gtb-display' || command === 'gtb-displaycosmetics') {
+            client.commands.get('gtb-display').execute(message, args);
         }
     });
 });

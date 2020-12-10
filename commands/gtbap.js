@@ -56,13 +56,13 @@ module.exports = {
                     lb: "all"
                 });
                 newPNT.save().catch(err => console.log(err));
-                message.channel.send(`**[💵] ${message.author.username}**, granted ${parseInt(pointsTG).toLocaleString()} points to \`${grantTo.tag}\`; their point balance is now ${parseInt(pointsTG).toLocaleString()}.`).then(m => m.delete({
+                message.channel.send(`**[💵] ${message.author.username}**, granted ${parseInt(pointsTG).toLocaleString()} points to \`${grantTo.tag}\`: their point balance is now ${parseInt(pointsTG).toLocaleString()}.`).then(m => m.delete({
                     timeout: 10000
                 }));
             } else {
                 data.points += parseInt(pointsTG);
                 data.save().catch(err => message.reply(`An error occurred. Please contact creators ASAP.\n\`\`\`${err}\`\`\``));
-                message.channel.send(`**[💵] ${message.author.username}**, granted ${parseInt(pointsTG).toLocaleString()} points to \`${grantTo.tag}\`; their point balance is now ${data.points.toLocaleString()}.`).then(m => m.delete({
+                message.channel.send(`**[💵] ${message.author.username}**, granted ${parseInt(pointsTG).toLocaleString()} points to \`${grantTo.tag}\`: their point balance is now ${data.points.toLocaleString()}.`).then(m => m.delete({
                     timeout: 10000
                 }));
             }
