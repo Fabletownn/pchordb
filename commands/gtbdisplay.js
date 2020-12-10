@@ -9,8 +9,6 @@ module.exports = {
     name: 'gtb-display',
     description: '[GTB] This will display all cosmetics ready to be used in a game (via DMs). <[setPrefix]gtb-display>',
     execute(message, args) {
-        message.delete();
-
         let timeout = 30000;
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
