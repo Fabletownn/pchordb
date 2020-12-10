@@ -2,11 +2,6 @@ const Discord = require("discord.js")
 const client = new Discord.Client();
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.mongoPass, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
 const LUV = require("../models/love.js");
 
 module.exports = {
