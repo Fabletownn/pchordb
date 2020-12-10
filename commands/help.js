@@ -231,7 +231,6 @@ module.exports = {
                 .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into five different categories: **general**, **moderator enforced**, **Guess The Blank**, **fun** and **appeals**.\n\nYou are a staff member, so you have been provided the full list of commands: those who are not part of the staff team will be given a help menu excluding Moderator-restricted commands. 🔨\n<:pcPLACEHOLDER:786598522001817630>`)
                 .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
                 .addField(`🎲 Fun Commands`, `This will provide a list of fun commands you can get a kick out of.`)
-                .addField(`📜 Appeal Commands`, `This will provide the command(s) restricted to the I Talk Appeals server, to appeal your ban.`)
                 .addField(`🛰️ Command Aliases`, `This will provide a list of commands that have different names that are able to be used.`)
                 .addField(`🔧 Command Usages`, `This will provide a list of how you're able to use every single command.`)
                 .addField(`ℹ️ Bot Information`, `This will provide information on the Power Chord bot.`, true)
@@ -271,14 +270,6 @@ module.exports = {
                 .setFooter(`Page 3 of 7`)
                 .setTimestamp();
 
-            const appealEmbed = new Discord.MessageEmbed()
-                .setAuthor(`Power Chord Help Menu`, `https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg`)
-                .setTitle(`Appeal Commands`)
-                .setDescription(`This command is **restricted to the "I Talk Server Appeals"** guild. This command cannot be used outside of said server, and is restricted to it's respective channel.\n\n- **appeal**: will allow you to provide an appeal message to appeal for a ban.`)
-                .setColor('ffde96')
-                .setFooter(`Page 4 of 7`)
-                .setTimestamp();
-
             const aliasEmbed = new Discord.MessageEmbed()
                 .setAuthor(`Power Chord Help Menu`, `https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg`)
                 .setTitle(`Command Aliases`)
@@ -313,7 +304,6 @@ module.exports = {
                     msg.react('⬛');
                     msg.react('🌍');
                     msg.react('🎲');
-                    msg.react('📜');
                     msg.react('🛰️');
                     msg.react('🔧');
                     msg.react('ℹ️');
@@ -321,7 +311,6 @@ module.exports = {
 
                     const generalFilter = (reaction, user) => reaction.emoji.name === '🌍' && user.id === message.author.id;
                     const funFilter = (reaction, user) => reaction.emoji.name === '🎲' && user.id === message.author.id;
-                    const appealFilter = (reaction, user) => reaction.emoji.name === '📜' && user.id === message.author.id;
                     const homeFilter = (reaction, user) => reaction.emoji.name === '🏠' && user.id === message.author.id;
                     const aliasFilter = (reaction, user) => reaction.emoji.name === '🛰️' && user.id === message.author.id;
                     const usageFilter = (reaction, user) => reaction.emoji.name === '🔧' && user.id === message.author.id;
@@ -331,9 +320,6 @@ module.exports = {
                         timer: 99999
                     });
                     const funReaction = msg.createReactionCollector(funFilter, {
-                        timer: 99999
-                    });
-                    const appealReaction = msg.createReactionCollector(appealFilter, {
                         timer: 99999
                     });
                     const homeReaction = msg.createReactionCollector(homeFilter, {
@@ -361,15 +347,9 @@ module.exports = {
                         });
                     });
 
-                    appealReaction.on('collect', r => {
-                        msg.edit({
-                            embed: appealEmbed
-                        });
-                    });
-
                     homeReaction.on('collect', r => {
                         msg.edit({
-                            embed: homeEmbed
+                            embed: homeEmbedEG
                         });
                     });
 
