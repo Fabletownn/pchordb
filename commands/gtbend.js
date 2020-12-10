@@ -59,7 +59,7 @@ module.exports = {
                     }
                 }
 
-                message.channel.send(`[<:gtbFirst:762551496059387924>] This game's **Guess The Blank** leaderboard is below. [${new Date().toLocaleTimeString()}]\n[<:gtbInfo:759011570545066015>] All users with 3 points or higher will be granted the \`Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({ embed: endEmbed }));
+                message.channel.send(`[🏆] This game's **Guess The Blank** leaderboard is below. [${new Date().toLocaleTimeString()}]\n[ℹ️] All users with 3 points or higher will be granted the \`Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({ embed: endEmbed }));
                 setTimeout(() => {
                     message.guild.members.cache.forEach(winners => {
                             PNT.findOne({

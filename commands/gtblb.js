@@ -20,6 +20,8 @@ module.exports = {
             ['points', 'descending']
         ]).exec((err, res) => {
             if (err) console.log(err);
+            if (!data) return message.channel.send(`**[⚠️] ${message.author.username}**, there is no data to showcase.`);
+            
             var page = Math.ceil(res.length / 10);
 
             const leaderEmbed = new MessageEmbed()
