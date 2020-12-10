@@ -142,6 +142,8 @@ client.on('message', message => {
             client.commands.get('colorlock').execute(message, args);
         } else if (command === 'trigger' || command === 'triggered') {
             client.commands.get('trigger').execute(message, args);
+        } else if (command === 'test') {
+            client.commands.get('test').execute(message, args);
         }
     });
 });
