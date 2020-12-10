@@ -137,8 +137,10 @@ client.on('message', message => {
             client.commands.get('colorlock').execute(message, args);
         } else if (command === 'trigger' || command === 'triggered') {
             client.commands.get('trigger').execute(message, args);
-        } else if (command === 'test') {
-            client.commands.get('test').execute(message, args);
+        } else if (command === 'gtb-addpoints' || command === 'gtb-grantpoints' || command === 'gtb-ap') {
+            client.commands.get('gtbap').execute(message, args);
+        } else if (command === 'gtb-removepoints' || command === 'gtb-revokepoints' || command === 'gtb-rp') {
+            client.commands.get('gtbrp').execute(message, args);
         }
     });
 });
