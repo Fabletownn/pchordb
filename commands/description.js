@@ -17,7 +17,7 @@ module.exports = {
         client.commands = new Discord.Collection();
         const commandFiles = fs.readdirSync('./').filter(file => file.endsWith('.js'));
 
-        if (!commandName) return message.channel.send(`**[❗] ${message.author.username}, please enter a command name to view the description listed for it.\nCommands are categorized as such: \`GENERAL\`, \`MODERATION\`, \`PROMPT\`, \`ONE-STEP\`.`).then(m => m.delete({
+        if (!commandName) return message.channel.send(`**[❗] ${message.author.username}, please enter a command name to view the description listed for it.\nCommands are categorized as such: \`GENERAL\`, \`MODERATION\`, \`GTB\`, \`PROMPT\`, \`ONE-STEP\`.`).then(m => m.delete({
             timeout: 10000
         }));
 
