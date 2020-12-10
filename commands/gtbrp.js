@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const mongoose = require('mongoose');
-const botconfig = require("../botconfig.json")
 const ms = require('parse-ms')
 var cooldownVar = "";
 
