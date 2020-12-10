@@ -5,11 +5,6 @@ const botconfig = require("../botconfig.json")
 const ms = require('parse-ms')
 var cooldownVar = "";
 
-mongoose.connect(botconfig.mongoPass, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
 const PNT = require("../models/points.js");
 
 module.exports = {
