@@ -44,12 +44,12 @@ module.exports = {
                 leaderEmbed.addField("ERROR:", "No Pages Found");
                 return;
             } else if (res.length <= end) {
-                embed.setFooter(`PAGE ${pgLB} OF ${page}`);
+                leaderEmbed.setFooter(`PAGE ${pgLB} OF ${page}`);
                 for (i = start; i < res.length; i++) {
                     leaderEmbed.addField(`[#${i + 1}] ${res[i].name}`, `${res[i].points.toLocaleString()} points`);
                 }
             } else {
-                embed.setFooter(`PAGE ${pgLB} OF ${page}`);
+                leaderEmbed.setFooter(`PAGE ${pgLB} OF ${page}`);
                 for (i = start; i < end; i++) {
                     leaderEmbed.addField(`[#${i + 1}] ${res[i].name}`, `${res[i].points.toLocaleString()} points`);
                 }
