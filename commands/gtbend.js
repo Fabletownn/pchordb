@@ -13,7 +13,6 @@ const {
     gameChannel
 } = require('./start.js');
 const endStatus = "";
-const botconfig = require("../botconfig.json")
 const ms = require("parse-ms");
 const {
     count
@@ -21,11 +20,6 @@ const {
 var timeTakenV1 = "";
 var timeTakenV2 = "";
 let feCount = 0
-
-mongoose.connect(botconfig.mongoPass, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
 module.exports = {
     name: 'gtb-end',
