@@ -6,20 +6,8 @@ const {
 const client = new Discord.Client();
 const mongoose = require('mongoose');
 const PNT = require('../models/points.js');
-const {
-    gameStatus
-} = require('./start.js');
-const {
-    gameChannel
-} = require('./start.js');
-const endStatus = "";
-const ms = require("parse-ms");
-const {
-    count
-} = require("console");
-var timeTakenV1 = "";
-var timeTakenV2 = "";
-let feCount = 0
+
+let feCount = 0;
 
 module.exports = {
     name: 'gtb-end',
