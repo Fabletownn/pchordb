@@ -23,8 +23,8 @@ module.exports = {
             var page = Math.ceil(res.length / 10);
 
             const leaderEmbed = new MessageEmbed()
-                .setTitle(`GUESS THE BLANK : Points Leaderboard`)
-                .setThumbnail('https://alphanerdsguild.com/wp-content/uploads/2018/03/11724-video-game.png')
+                .setTitle(`Guess The Blank: Points Leaderboard`)
+                .setThumbnail('https://media.discordapp.net/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg?width=676&height=676')
                 .setAuthor(`Showcased : ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
                 .setColor('eb4bc9')
                 .setTimestamp()

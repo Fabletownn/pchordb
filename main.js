@@ -147,6 +147,10 @@ client.on('message', message => {
             client.commands.get('gtb-leaderboard').execute(message, args);
         } else if (command === 'gtb-addcosmetic' || command === 'gtb-cosmetic') {
             client.commands.get('gtb-addcosmetic').execute(message, args);
+        } else if (command === 'gtb-start' || command === 'gtb-startgame') {
+            client.commands.get('gtb-start').execute(message, args);
+        } else if (command === 'gtb-end' || command === 'gtb-endgame') {
+            client.commands.get('gtb-end').execute(message, args);
         }
     });
 });
