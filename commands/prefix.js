@@ -11,7 +11,6 @@ module.exports = {
         message.delete();
 
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
-        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
 
         if (!message.member.roles.cache.has(administratorR.id)) return;
 

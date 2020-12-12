@@ -30,7 +30,7 @@ module.exports = {
                 return message.author.send(`There was an issue with your attachment, therefore your appeal has not been sent. Your appeal message has been sent below (if submitted).\n\`\`\`${appealMessage || 'None submitted.'}\`\`\``)
             }
         }
-
+        
         const appealEmbed = new Discord.MessageEmbed()
             .setTitle(`Appeal | Ban | ${message.author.tag}`)
             .setDescription(`${appealMessage || 'No appeal message was sent.\nPlease check attachment embeds below for any possible text or image files.'}`)
