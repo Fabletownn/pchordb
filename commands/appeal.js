@@ -5,8 +5,8 @@ module.exports = {
     name: 'appeal',
     description: '[GENERAL] This command is restricted to the Appeals guild & channel(s) only. It will allow a member to appeal their ban punishment. <[setPrefix]appeal <appeal message>>',
     execute(message, args) {
-        if (message.guild.id !== '685876599199236173') return;
-        if (message.channel.id !== '685885174025814049') return;
+        if (message.guild.id !== '685876599199236173') return message.delete();
+        if (message.channel.id !== '685885174025814049') return message.delete();
 
         let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
         if (message.member.roles.cache.has(receivedR.id)) return message.delete();
