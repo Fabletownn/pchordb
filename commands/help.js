@@ -111,7 +111,7 @@ module.exports = {
         const usageEmbed2 = new Discord.MessageEmbed()
             .setAuthor(`Power Chord Help Menu`, `https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg`)
             .setTitle(`⚙️ Command Usages 2`)
-            .setDescription(`The other one was too long as well. The second portion's list of commands and how to use them are listed below.\n\n- **serverinfo**: +serverinfo\n- **roleinfo**: +roleinfo\n- **colorlock**: +colorlock\n\n- **eventstart**: +eventstart\n- **slowmode**: +slowmode <#channel> <seconds>\n**purge**: +purge (<#channel>) (<@member>) <amount>`)
+            .setDescription(`The other one was too long as well. The second portion's list of commands and how to use them are listed below.\n\n- **connect4**: +connect4 <@member>\n\n- **serverinfo**: +serverinfo\n- **roleinfo**: +roleinfo\n- **colorlock**: +colorlock\n\n- **eventstart**: +eventstart\n- **slowmode**: +slowmode <#channel> <seconds>\n- **purge**: +purge (<#channel>) (<@member>) <amount>`)
             .setColor('a9a9a9')
             .setFooter(`Page 10 of 11`)
             .setTimestamp();
