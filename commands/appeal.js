@@ -14,6 +14,8 @@ module.exports = {
         var appealMessageArguments = message.content.split("appeal ");
         var appealMessage = appealMessageArguments[1];
 
+        const modChannel = message.guild.channels.cache.get("738863576890081340");
+
         if (!appealMessage && message.attachments.size === 0) return message.delete();
 
         if (message.attachments.size > 0) {
@@ -30,14 +32,14 @@ module.exports = {
                 return message.author.send(`There was an issue with your attachment, therefore your appeal has not been sent. Your appeal message has been sent below (if submitted).\n\`\`\`${appealMessage || 'None submitted.'}\`\`\``)
             }
         }
-        
+
         const appealEmbed = new Discord.MessageEmbed()
             .setTitle(`Appeal | Ban | ${message.author.tag}`)
             .setDescription(`${appealMessage || 'No appeal message was sent.\nPlease check attachment embeds below for any possible text or image files.'}`)
             .setColor(`ff0000`)
             .setFooter(`ID: ${message.author.id}`)
 
-        message.guild.channels.cache.get(`738863576890081340`).send({ embed: appealEmbed }).then(appealMSG => {
+        modChannel.send({ embed: appealEmbed }).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
 
             message.member.roles.add('691372147112673441');
@@ -67,7 +69,7 @@ module.exports = {
                         .setImage(appealAttachment.url)
                         .setColor(`c66523`)
 
-                    message.guild.channels.cache.get(`738863576890081340`).send({ embed: attachmentEmbed });
+                    modChannel.send({ embed: attachmentEmbed });
                     message.author.send(`Attachment(s) provided with appeal:`, {
                         files: [appealAttachment.url]
                     });
