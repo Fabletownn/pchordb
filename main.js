@@ -153,6 +153,14 @@ client.on('message', message => {
             client.commands.get('gtb-end').execute(message, args);
         } else if (command === 'help') {
             client.commands.get('help').execute(message, args);
+        } else if (command === 'eventstart' || command === 'startevent' || command === 'estart') {
+            client.commands.get('eventstart').execute(message, args);
+        } else if (command === 'slowmode') {
+            client.commands.get('slowmode').execute(message, args);
+        } else if (command === 'purge') {
+            client.commands.get('purge').execute(message, args);
+        } else if (command === 'connect4' || command === 'c4' || command === 'connectfour') {
+            client.commands.get('connect4').execute(message, args);
         }
     });
 });
@@ -162,11 +170,11 @@ client.on('message', message => {
 
     if (message.content) {
         if (message.author.bot) return;
-        if (message.channel.id !== "776804935907147827") return;
+        if (message.channel.id !== "738819371069079622") return;
         if (message.content.toLowerCase() === "s:") return;
         if (!message.content.toLowerCase().startsWith("s:")) return;
 
-        message.react(message.guild.emojis.cache.get("778352094876139560")).then(message.react(message.guild.emojis.cache.get("778352093982752828"))).then(() => {
+        message.react(message.guild.emojis.cache.get("778318625328332810")).then(message.react(message.guild.emojis.cache.get("778318624552779776"))).then(() => {
             message.pin();
         });
     }
