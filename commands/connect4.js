@@ -19,6 +19,9 @@ module.exports = {
     async execute(message, args) {
         message.delete();
 
+        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+
         const challenger = message.member;
         const opponent = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
