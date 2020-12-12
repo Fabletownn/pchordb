@@ -37,7 +37,7 @@ module.exports = {
             .setColor(`ff0000`)
             .setFooter(`ID: ${message.author.id}`)
 
-        message.guild.channels.cache.get(`738863576890081340`).send(appealEmbed).then(appealMSG => {
+        message.guild.channels.cache.get(`738863576890081340`).send({ embed: appealEmbed }).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
 
             message.member.roles.add('691372147112673441');
@@ -67,7 +67,7 @@ module.exports = {
                         .setImage(appealAttachment.url)
                         .setColor(`c66523`)
 
-                    message.guild.channels.cache.get(`738863576890081340`).send(attachmentEmbed);
+                    message.guild.channels.cache.get(`738863576890081340`).send({ embed: attachmentEmbed });
                     message.author.send(`Attachment(s) provided with appeal:`, {
                         files: [appealAttachment.url]
                     });
