@@ -39,7 +39,7 @@ module.exports = {
             .setColor(`ff0000`)
             .setFooter(`ID: ${message.author.id}`)
 
-        client.guilds.get("614193406838571085").channels.get("738863576890081340").send({
+        client.guilds.cache.get("614193406838571085").channels.cache.get("738863576890081340").send({
             embed: appealEmbed
         }).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
