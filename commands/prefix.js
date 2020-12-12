@@ -13,7 +13,7 @@ module.exports = {
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
         let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
 
-        if (!message.member.roles.cache.has(administratorR.id) && !message.member.roles.cache.has(itfR.id)) return;
+        if (!message.member.roles.cache.has(administratorR.id) && !message.member.roles.cache.has(itfR.id) && message.author.id !== '148807073948368896') return;
 
         var prefixA = message.content.split(" ");
         var toPrefix = prefixA[1];
