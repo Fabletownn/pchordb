@@ -159,9 +159,9 @@ module.exports = {
                         try {
                             for (const reaction of userReactions.values()) {
                                 if (user.id === message.author.id) {
-                                    updateMsg.edit(`**[4️⃣]**: ${opponent}, it's your turn!`)
+                                    updateMsg.edit(`**[4️⃣]**: ${opponent}, it's your turn! [you are: 🟡]`)
                                 } else {
-                                    updateMsg.edit(`**[4️⃣]**: ${challenger}, it's your turn!`)
+                                    updateMsg.edit(`**[4️⃣]**: ${challenger}, it's your turn! [you are: 🔴]`)
                                 }
                                 reaction.users.remove(user.id);
                             }
