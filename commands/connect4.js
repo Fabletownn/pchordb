@@ -22,7 +22,7 @@ module.exports = {
         const challenger = message.member;
         const opponent = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        if (!opponent) return message.channel.send(`**[4️⃣] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({
+        if (!opponent || opponent === challenger) return message.channel.send(`**[4️⃣] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({
             timeout: 5000
         }));
 
