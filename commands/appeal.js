@@ -37,7 +37,7 @@ module.exports = {
             .setColor(`ff0000`)
             .setFooter(`ID: ${message.author.id}`)
 
-        client.channels.cache.get(`738863576890081340`).send({ embed: appealEmbed }).then(appealMSG => {
+        message.guild.channels.cache.get(`738863576890081340`).send({ embed: appealEmbed }).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
 
             message.member.roles.add('691372147112673441');

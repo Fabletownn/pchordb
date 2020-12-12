@@ -45,10 +45,6 @@ client.once('ready', () => {
 client.on('message', message => {
     if (message.guild === null) return;
 
-    let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
-    let administratorR = message.guild.roles.cache.find(r => r.name === "Administrator");
-    let itfR = message.guild.roles.cache.find(r => r.name === "I Talk Fortnite");
-
     PRE.findOne({
         guildID: message.guild.id,
     }, (err, data) => {
