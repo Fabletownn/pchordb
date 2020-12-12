@@ -62,9 +62,6 @@ client.on('message', message => {
         }
 
         if (!message.content.startsWith(commandPrefix) || message.author.bot) return;
-        if (message.content.startsWith(commandPrefix) && (!moderatorR || !administratorR || !itfR)) return console.log(`I was run in a server that didn't have the proper roles. Ignoring.`).then(m => m.delete({
-            timeout: 10000
-        }));
 
         const args = message.content.slice(commandPrefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
