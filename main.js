@@ -112,9 +112,9 @@ client.on('message', message => {
             client.commands.get('removeoverride').execute(message, args);
         } else if (command === 'description' || command === 'desc') {
             client.commands.get('description').execute(message, args);
-        } else if (command === 'appeal') {
+        }/* else if (command === 'appeal') {
             client.commands.get('appeal').execute(message, args);
-        } else if (command === 'accept' || command === 'acceptappeal' || command === 'appealaccept') {
+        }*/ else if (command === 'accept' || command === 'acceptappeal' || command === 'appealaccept') {
             client.commands.get('accept').execute(message, args);
         } else if (command === 'deny' || command === 'denyappeal' || command === 'appealdeny') {
             client.commands.get('deny').execute(message, args);
