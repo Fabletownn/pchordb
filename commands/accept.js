@@ -26,13 +26,12 @@ module.exports = {
                 timeout: 10000
             }));
 
-            acceptedMember.roles.add('700299481672974356');
-            
-            message.guild.channels.cache.get('700290345954705408').send(`${appealAcceptionMention}`).then(messageSent => {
-                messageSent.delete();
-                message.channel.send(`**[📜] ${message.author.username}**, successfully accepted the appeal!`).then(m => m.delete({
-                    timeout: 10000
-                }));
+            acceptedMember.send(`**${appealAcceptionMention.username}**, your Ban Appeal has been accepted, and you have been unbanned from the **I Talk Server**.\nMake sure to read the rules upon re-joining to prevent further punishments.\n\nPermanent Invite Link: https://discord.gg/italkfortnite`).then(() => {
+                acceptedMember.kick({ reason: `Appeal was accepted by ${message.author.tag}` }).then(() => {
+                    message.channel.send(`**[📜] ${message.author.username}**, successfully accepted **${acceptedMember.tag}**'s appeal!`).then(m => m.delete({
+                        timeout: 10000
+                    }));
+                });
             });
         }
     }
