@@ -24,7 +24,7 @@ module.exports = {
             const nameArray = attachment.name.split('.');
 
             const fileType = nameArray[nameArray.length - 1];
-            const fileTypes = ["png", "jpg", "gif", "txt"];
+            const fileTypes = ["png", "jpg", "gif"];
 
             if (!fileTypes.includes(fileType)) {
                 message.delete();
