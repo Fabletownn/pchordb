@@ -41,7 +41,7 @@ module.exports = {
         client.channels.cache.get("738863576890081340").send({
             embed: appealEmbed
         }).then(appealMSG => {
-            appealMSG.react('✅').then(appealMSG.react('🚫'));
+            appealMSG.react(`<:zzITFUpvote:778318625328332810>`).then(appealMSG.react(`<:zzITFDownvote:778318624552779776>`));
 
             message.member.roles.add('691372147112673441');
             message.author.send(`**[${new Date().toLocaleTimeString()}] ${message.author.username}**, you have successfully appealed your ban for the **I Talk Server**. All appeals are reviewed and voted on Saturday, so please be patient.\nYour appeal message was submitted as the following:\n\`\`\`${appealMessage || 'No appeal message was sent.'}\`\`\``);

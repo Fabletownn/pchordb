@@ -25,15 +25,15 @@ module.exports = {
         const challenger = message.member;
         const opponent = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        if (!opponent || opponent === challenger || opponent.user.bot) return message.channel.send(`**[4️⃣] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({
+        if (!opponent || opponent === challenger || opponent.user.bot) return message.channel.send(`**[<:zITFGaming:778318624163102723>] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({
             timeout: 5000
         }));
 
-        const question = await message.channel.send(`**[4️⃣]**: **${opponent}**, would you like to play Connect 4 with **${message.author.tag}**? Please interact with the reactions accordingly.`);
+        const question = await message.channel.send(`**[<:zITFGaming:778318624163102723>]**: **${opponent}**, would you like to play Connect 4 with **${message.author.tag}**? Please interact with the reactions accordingly. <:zITFGaming:778318624163102723>`);
 
-        ["✅", "❌"].forEach(async el => await question.react(el));
+        [`<:zzITFUpvote:778318625328332810>`, `<:zzITFDownvote:778318624552779776>`].forEach(async el => await question.react(el));
 
-        const filter = (reaction, user) => ["✅", "❌"].includes(reaction.emoji.name) && user.id === opponent.id;
+        const filter = (reaction, user) => ["zzITFUpvote", "zzITFDownvote"].includes(reaction.emoji.name) && user.id === opponent.id;
 
         const response = await question.awaitReactions(filter, {
             max: 1
@@ -41,7 +41,7 @@ module.exports = {
 
         const reaction = response.first();
 
-        if (reaction.emoji.name === "❌") return question.edit(`**[4️⃣] ${message.author.tag}**, looks like they didn't want to play.`).then(m => m.delete({
+        if (reaction.emoji.name === "zzITFDownvote") return question.edit(`**[<:zITFGaming:778318624163102723>] ${message.author.tag}**, looks like they didn't want to play.`).then(m => m.delete({
             timeout: 10000
         }));
         else {
@@ -159,9 +159,9 @@ module.exports = {
                         try {
                             for (const reaction of userReactions.values()) {
                                 if (user.id === message.author.id) {
-                                    updateMsg.edit(`**[4️⃣]**: ${opponent}, it's your turn! [you are: 🟡]`)
+                                    updateMsg.edit(`**[<:zITFGaming:778318624163102723>]**: ${opponent}, it's your turn! [you are: 🟡]`)
                                 } else {
-                                    updateMsg.edit(`**[4️⃣]**: ${challenger}, it's your turn! [you are: 🔴]`)
+                                    updateMsg.edit(`**[<:zITFGaming:778318624163102723>]**: ${challenger}, it's your turn! [you are: 🔴]`)
                                 }
                                 reaction.users.remove(user.id);
                             }
