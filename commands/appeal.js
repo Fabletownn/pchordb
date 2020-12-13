@@ -4,8 +4,6 @@ module.exports = {
     name: 'appeal',
     description: '[GENERAL] This command is restricted to the Appeals guild & channel(s) only. It will allow a member to appeal their ban punishment. <[setPrefix]appeal <appeal message>>',
     execute(message, args) {
-        message.delete();
-
         const client = message.client;
 
         if (message.guild.id !== '685876599199236173') return message.delete();
