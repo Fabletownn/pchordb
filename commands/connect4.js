@@ -254,7 +254,8 @@ module.exports = {
                             const TieEmbed = new MessageEmbed()
                                 .setDescription(renderBoard(board))
                             gameCollector.stop("Tie Game");
-                            return gameMessage.edit(`**[🎌]**: 'Tis a tied game! GGs.`, {
+                            updateMsg.delete();
+                            return gameMessage.edit(`**[🎌]**: 'Tis a tied game! GGs. <:zITFGG:667854871579590696>`, {
                                 embed: TieEmbed
                             }).then(m => m.delete({
                                 timeout: 30000
@@ -269,6 +270,7 @@ module.exports = {
                                 const WinEmbed = new MessageEmbed()
                                     .setDescription(renderBoard(board))
                                 gameCollector.stop(`${gameData[player].member.id} won`);
+                                updateMsg.delete();
                                 return gameMessage.edit(`**[🏆]: ${gameData[player].member}** won this **Connect 4** game! GGs. <:zITFGG:667854871579590696>`, {
                                     embed: WinEmbed
                                 }).then(m => m.delete({
