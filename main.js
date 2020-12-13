@@ -39,7 +39,7 @@ client.once('ready', () => {
         type: 'PLAYING'
     });
 
-    console.log(`${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
+    console.log(`[${new Date().toLocaleTimeString()}] ${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
 });
 
 client.on('message', message => {
