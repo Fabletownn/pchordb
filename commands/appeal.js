@@ -5,7 +5,7 @@ module.exports = {
     description: '[GENERAL] This command is restricted to the Appeals guild & channel(s) only. It will allow a member to appeal their ban punishment. <[setPrefix]appeal <appeal message>>',
     execute(message, args) {
         message.delete();
-        
+
         const client = message.client;
 
         if (message.guild.id !== '685876599199236173') return message.delete();
@@ -19,7 +19,7 @@ module.exports = {
 
         if (!appealMessage && message.attachments.size === 0) return message.delete();
 
-        /*if (message.attachments.size > 0) {
+        if (message.attachments.size > 0) {
             const attachments = (message.attachments).array();
             const attachment = attachments[0];
 
@@ -32,7 +32,7 @@ module.exports = {
                 message.delete();
                 return message.author.send(`There was an issue with your attachment, therefore your appeal has not been sent. Your appeal message has been sent below (if submitted).\n\`\`\`${appealMessage || 'None submitted.'}\`\`\``)
             }
-        }*/
+        }
 
         const appealEmbed = new Discord.MessageEmbed()
             .setTitle(`Appeal | Ban | ${message.author.tag}`)
@@ -49,7 +49,7 @@ module.exports = {
             message.author.send(`**[${new Date().toLocaleTimeString()}] ${message.author.username}**, you have successfully appealed your ban for the **I Talk Server**. All appeals are reviewed and voted on Saturday, so please be patient.\nYour appeal message was submitted as the following:\n\`\`\`${appealMessage || 'No appeal message was sent.'}\`\`\``);
         });
 
-        /*if (message.attachments.size > 0) {
+        if (message.attachments.size > 0) {
             message.delete({
                 timeout: 2000
             });
@@ -61,7 +61,7 @@ module.exports = {
                 const nameArray = attachment.name.split('.');
 
                 const fileType = nameArray[nameArray.length - 1]
-                const fileTypes = ["png", "jpg", "gif", "txt"];
+                const fileTypes = ["png", "jpg", "gif"];
 
                 if (!fileTypes.includes(fileType)) {
                     return message.delete();
@@ -82,6 +82,6 @@ module.exports = {
             });
         } else {
             message.delete();
-        }*/
+        }
     }
 }
