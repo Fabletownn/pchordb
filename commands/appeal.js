@@ -1,10 +1,11 @@
 const Discord = require("discord.js")
-const client = new Discord.Client();
 
 module.exports = {
     name: 'appeal',
     description: '[GENERAL] This command is restricted to the Appeals guild & channel(s) only. It will allow a member to appeal their ban punishment. <[setPrefix]appeal <appeal message>>',
     execute(message, args) {
+        const client = message.client;
+
         if (message.guild.id !== '685876599199236173') return message.delete();
         if (message.channel.id !== '685885174025814049') return message.delete();
 
@@ -13,8 +14,6 @@ module.exports = {
 
         var appealMessageArguments = message.content.split("appeal ");
         var appealMessage = appealMessageArguments[1];
-
-        const modChannel = message.guild.channels.cache.get("738863576890081340");
 
         if (!appealMessage && message.attachments.size === 0) return message.delete();
 
@@ -39,7 +38,7 @@ module.exports = {
             .setColor(`ff0000`)
             .setFooter(`ID: ${message.author.id}`)
 
-        client.guilds.cache.get("614193406838571085").channels.cache.get("738863576890081340").send({
+        client.channels.cache.get("738863576890081340").send({
             embed: appealEmbed
         }).then(appealMSG => {
             appealMSG.react('✅').then(appealMSG.react('🚫'));
@@ -71,7 +70,7 @@ module.exports = {
                         .setImage(appealAttachment.url)
                         .setColor(`c66523`)
 
-                    client.guilds.get("614193406838571085").channels.get("738863576890081340").send({
+                    client.channels.cache.get("738863576890081340").send({
                         embed: attachmentEmbed
                     });
                     message.author.send(`Attachment(s) provided with appeal:`, {
