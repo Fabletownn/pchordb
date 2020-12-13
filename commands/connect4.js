@@ -29,7 +29,7 @@ module.exports = {
             timeout: 5000
         }));
 
-        const question = await message.channel.send(`**[<:zITFGaming:778318624163102723>]**: **${opponent}**, would you like to play Connect 4 with **${message.author.tag}**? Please interact with the reactions accordingly. <:zITFGaming:778318624163102723>`);
+        const question = await message.channel.send(`**[<:zITFGaming:778318624163102723>]**: **${opponent}**, would you like to play Connect 4 with **${message.author.tag}**? Please interact with the reactions accordingly.`);
 
         [`<:zzITFUpvote:778318625328332810>`, `<:zzITFDownvote:778318624552779776>`].forEach(async el => await question.react(el));
 
