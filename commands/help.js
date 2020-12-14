@@ -125,7 +125,7 @@ module.exports = {
             .setFooter(`Page 11 of 11`)
             .setTimestamp();
 
-        message.channel.send(`**[📨]** Slidin' right into your DMs.`).then(m => m.delete({
+        message.channel.send(`**[📨]** Slidin' right into your DMs.\nIf no message is sent, please ensure your Server DMs are on.`).then(m => m.delete({
             timeout: 5000
         }));
 
