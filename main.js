@@ -49,14 +49,13 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.content === newMessage.content) return;
 
     const editEmbed = new Discord.MessageEmbed()
-        .setTitle(`Message Edited`)
         .addField(`User`, `${newMessage.author}`, true)
         .addField(`Channel`, `${newMessage.channel}`, true)
         .addField(`Before Edit`, `${oldMessage.content}`)
         .addField(`After Edit`, `${newMessage.content}`)
         .setColor('3ba2d4')
         .setFooter(`User ID: ${newMessage.author.id}`)
-        .setThumbnail(newMessage.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
     
     client.channels.cache.get("690601497767182436").send({ embed: editEmbed });
@@ -68,13 +67,12 @@ client.on("messageDelete", (deletedMessage) => {
     if (deletedMessage.author.bot) return;
 
     const deleteEmbed = new Discord.MessageEmbed()
-        .setTitle(`Message Deleted`)
         .addField(`User`, `${deletedMessage.author}`, true)
         .addField(`Channel`, `${deletedMessage.channel}`, true)
         .addField(`Deleted Message`, `${deletedMessage.content}`)
         .setColor('ff0000')
         .setFooter(`User ID: ${deletedMessage.author.id}`)
-        .setThumbnail(deletedMessage.author.displayAvatarURL({ dynamic: true }))
+        .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
 
     client.channels.cache.get("690601497767182436").send({ embed: deleteEmbed });
