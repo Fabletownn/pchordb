@@ -42,6 +42,44 @@ client.once('ready', () => {
     console.log(`[${new Date().toLocaleTimeString()}] ${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
 });
 
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (oldMessage.guild.id !== "614193406838571085") return;
+
+    if (oldMessage.author.bot) return;
+    if (oldMessage.content === newMessage.content) return;
+
+    const editEmbed = new Discord.MessageEmbed()
+        .setTitle(`Message Edited`)
+        .addField(`User`, `${newMessage.author}`, true)
+        .addField(`Channel`, `${newMessage.channel}`, true)
+        .addField(`Before Edit`, `${oldMessage.content}`)
+        .addField(`After Edit`, `${newMessage.content}`)
+        .setColor('3ba2d4')
+        .setFooter(`User ID: ${newMessage.author.id}`)
+        .setThumbnail(newMessage.author.displayAvatarURL({ dynamic: true }))
+        .setTimestamp()
+    
+    client.channels.cache.get("690601497767182436").send({ embed: editEmbed });
+});
+
+client.on("messageDelete", (deletedMessage) => {
+    if (deletedMessage.guild.id !== "614193406838571085") return;
+
+    if (deletedMessage.author.bot) return;
+
+    const deleteEmbed = new Discord.MessageEmbed()
+        .setTitle(`Message Deleted`)
+        .addField(`User`, `${deletedMessage.author}`, true)
+        .addField(`Channel`, `${deletedMessage.channel}`, true)
+        .addField(`Deleted Message`, `${deletedMessage.content}`)
+        .setColor('ff0000')
+        .setFooter(`User ID: ${deletedMessage.author.id}`)
+        .setThumbnail(deletedMessage.author.displayAvatarURL({ dynamic: true }))
+        .setTimestamp()
+
+    client.channels.cache.get("690601497767182436").send({ embed: deleteEmbed });
+});
+
 client.on('message', message => {
     if (message.guild === null) return;
 
