@@ -165,37 +165,37 @@ module.exports = {
                     const infoFilter = (reaction, user) => reaction.emoji.name === 'ℹ️' && user.id === message.author.id;
 
                     const generalReaction = msg.createReactionCollector(generalFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const modReaction = msg.createReactionCollector(moderationFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const mod2Reaction = msg.createReactionCollector(moderationFilter2, {
-                        timer: 99999
+                        time: 600000
                     });
                     const funReaction = msg.createReactionCollector(funFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const appealReaction = msg.createReactionCollector(appealFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const gtbReaction = msg.createReactionCollector(gtbFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const homeReaction = msg.createReactionCollector(homeFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const aliasReaction = msg.createReactionCollector(aliasFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const usageReaction = msg.createReactionCollector(usageFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const usage2Reaction = msg.createReactionCollector(usage2Filter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const infoReaction = msg.createReactionCollector(infoFilter, {
-                        timer: 99999
+                        time: 600000
                     });
 
                     generalReaction.on('collect', r => {
@@ -358,22 +358,22 @@ module.exports = {
                     const infoFilter = (reaction, user) => reaction.emoji.name === 'ℹ️' && user.id === message.author.id;
 
                     const generalReaction = msg.createReactionCollector(generalFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const funReaction = msg.createReactionCollector(funFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const homeReaction = msg.createReactionCollector(homeFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const aliasReaction = msg.createReactionCollector(aliasFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const usageReaction = msg.createReactionCollector(usageFilter, {
-                        timer: 99999
+                        time: 600000
                     });
                     const infoReaction = msg.createReactionCollector(infoFilter, {
-                        timer: 99999
+                        time: 600000
                     });
 
                     generalReaction.on('collect', r => {
