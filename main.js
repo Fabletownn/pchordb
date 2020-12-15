@@ -44,9 +44,9 @@ client.once('ready', () => {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
-    if (oldMessage.author.bot) return;
-
     if (oldMessage.guild.id !== "614193406838571085") return;
+
+    if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
 
     const editEmbed = new Discord.MessageEmbed()
@@ -64,9 +64,9 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("messageDelete", (deletedMessage) => {
     if (deletedMessage.guild === null) return;
-    if (deletedMessage.author.bot) return;
-    
     if (deletedMessage.guild.id !== "614193406838571085") return;
+
+    if (deletedMessage.author.bot) return;
 
     const deleteEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${deletedMessage.author}`, true)
