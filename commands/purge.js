@@ -23,6 +23,14 @@ module.exports = {
             timeout: 5000
         }));
 
+        if ((parseInt(purgeIntA) > 100) || (parseInt(purgeIntB) > 100) || (parseInt(purgeIntC) > 100)) return message.channel.send(`**[🗑️] ${message.author.username}**, please make sure you're inputting an amount more than 0 and less than 101.`).then(m => m.delete({
+            timeout: 5000
+        }));
+
+        if ((parseInt(purgeIntA) < 1) || (parseInt(purgeIntB) < 1) || (parseInt(purgeIntC) < 1)) return message.channel.send(`**[🗑️] ${message.author.username}**, please make sure you're inputting an amount more than 0 and less than 101.`).then(m => m.delete({
+            timeout: 5000
+        }));
+
         if (channelTo && !memberToA && purgeIntA && !isNaN(purgeIntA)) {
             channelTo.bulkDelete(purgeIntA).then(messages => {
                 message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} messages in ${channelTo} were purged.`).then(m => m.delete({
@@ -37,7 +45,9 @@ module.exports = {
                 const filterBy = memberTo ? memberTo.id : client.user.id;
                 messages = messages.filter(m => m.author.id === filterBy).array().slice(0, parseInt(purgeIntA));
                 message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
-                message.channel.send(`**[🗑️] ${message.author.username}**, ${purgeIntA} messages belonging to **${memberToA.tag}** were purged.`).then(m => m.delete({ timeout: 5000 }));
+                message.channel.send(`**[🗑️] ${message.author.username}**, ${purgeIntA} messages belonging to **${memberToA.tag}** were purged.`).then(m => m.delete({
+                    timeout: 5000
+                }));
             });
 
         } else if (!memberToA && channelTo && purgeIntA && !isNaN(purgeIntA)) {
@@ -54,7 +64,9 @@ module.exports = {
                 const filterBy = memberTo ? memberTo.id : client.user.id;
                 messages = messages.filter(m => m.author.id === filterBy).array().slice(0, parseInt(purgeIntB));
                 channelTo.bulkDelete(messages).catch(error => console.log(error.stack));
-                message.channel.send(`**[🗑️] ${message.author.username}**, ${purgeIntB} messages belonging to **${memberToA.tag}** in ${channelTo} were purged.`).then(m => m.delete({ timeout: 5000 }));
+                message.channel.send(`**[🗑️] ${message.author.username}**, ${purgeIntB} messages belonging to **${memberToA.tag}** in ${channelTo} were purged.`).then(m => m.delete({
+                    timeout: 5000
+                }));
             });
 
         } else if (!channelTo && !memberToA && purgeIntC) {
