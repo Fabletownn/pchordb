@@ -76,24 +76,41 @@ client.on("messageDelete", (deletedMessage) => {
 
     if (deletedMessage.author.bot) return;
 
-    try {
-        const deleteEmbed = new Discord.MessageEmbed()
-            .addField(`User`, `${deletedMessage.author}`, true)
-            .addField(`Channel`, `${deletedMessage.channel}`, true)
-            .addField(`Deleted Message`, `${deletedMessage.content}`)
-            .setColor('ff0000')
-            .setFooter(`User ID: ${deletedMessage.author.id}`)
-            .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
-                dynamic: true
-            }))
-            .setTimestamp()
+    if (deletedMessage.attachments.size > 0) {
+        deletedMessage.attachments.forEach(attachmentsSent => {
+            const deleteAttachmentEmbed = new Discord.MessageEmbed()
+                .addField(`User`, `${deletedMessage.author}`, true)
+                .addField(`Channel`, `${deletedMessage.channel}`, true)
+                .addField(`Deleted Message`, `${deletedMessage.content || `There was no content fetched.\n[This was an attachment, which is now inaccessible](${attachmentsSent.url}).`}`)
+                .setColor('ff0000')
+                .setImage(`${attachmentsSent.url}`)
+                .setFooter(`User ID: ${deletedMessage.author.id}`)
+                .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
+                    dynamic: true
+                }))
+                .setTimestamp()
 
-        client.channels.cache.get("690601497767182436").send({
-            embed: deleteEmbed
+            return client.channels.cache.get("690601497767182436").send({
+                embed: deleteAttachmentEmbed
+            });
         });
-    } catch (err) {
-        return console.log(`An error occurred trying to log a deletion:\n${err}`);
+        return;
     }
+
+    const deleteEmbed = new Discord.MessageEmbed()
+        .addField(`User`, `${deletedMessage.author}`, true)
+        .addField(`Channel`, `${deletedMessage.channel}`, true)
+        .addField(`Deleted Message`, `${deletedMessage.content || `There was no content fetched.`}`)
+        .setColor('ff0000')
+        .setFooter(`User ID: ${deletedMessage.author.id}`)
+        .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
+            dynamic: true
+        }))
+        .setTimestamp()
+
+    client.channels.cache.get("690601497767182436").send({
+        embed: deleteEmbed
+    });
 });
 
 client.on('message', message => {
