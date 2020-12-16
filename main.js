@@ -49,17 +49,25 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
 
-    const editEmbed = new Discord.MessageEmbed()
-        .addField(`User`, `${newMessage.author}`, true)
-        .addField(`Channel`, `${newMessage.channel}`, true)
-        .addField(`Before Edit`, `${oldMessage.content}`)
-        .addField(`After Edit`, `${newMessage.content}`)
-        .setColor('3ba2d4')
-        .setFooter(`User ID: ${newMessage.author.id}`)
-        .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({ dynamic: true }))
-        .setTimestamp()
-    
-    client.channels.cache.get("690601497767182436").send({ embed: editEmbed });
+    try {
+        const editEmbed = new Discord.MessageEmbed()
+            .addField(`User`, `${newMessage.author}`, true)
+            .addField(`Channel`, `${newMessage.channel}`, true)
+            .addField(`Before Edit`, `${oldMessage.content}`)
+            .addField(`After Edit`, `${newMessage.content}`)
+            .setColor('3ba2d4')
+            .setFooter(`User ID: ${newMessage.author.id}`)
+            .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .setTimestamp()
+
+        client.channels.cache.get("690601497767182436").send({
+            embed: editEmbed
+        });
+    } catch (err) {
+        return console.log(`An error occurred trying to log an edit:\n${err}`);
+    }
 });
 
 client.on("messageDelete", (deletedMessage) => {
@@ -68,16 +76,24 @@ client.on("messageDelete", (deletedMessage) => {
 
     if (deletedMessage.author.bot) return;
 
-    const deleteEmbed = new Discord.MessageEmbed()
-        .addField(`User`, `${deletedMessage.author}`, true)
-        .addField(`Channel`, `${deletedMessage.channel}`, true)
-        .addField(`Deleted Message`, `${deletedMessage.content || '\u200b'}`)
-        .setColor('ff0000')
-        .setFooter(`User ID: ${deletedMessage.author.id}`)
-        .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({ dynamic: true }))
-        .setTimestamp()
+    try {
+        const deleteEmbed = new Discord.MessageEmbed()
+            .addField(`User`, `${deletedMessage.author}`, true)
+            .addField(`Channel`, `${deletedMessage.channel}`, true)
+            .addField(`Deleted Message`, `${deletedMessage.content || '\u200b'}`)
+            .setColor('ff0000')
+            .setFooter(`User ID: ${deletedMessage.author.id}`)
+            .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .setTimestamp()
 
-    client.channels.cache.get("690601497767182436").send({ embed: deleteEmbed });
+        client.channels.cache.get("690601497767182436").send({
+            embed: deleteEmbed
+        });
+    } catch (err) {
+        return console.log(`An error occurred trying to log a deletion:\n${err}`);
+    }
 });
 
 client.on('message', message => {
