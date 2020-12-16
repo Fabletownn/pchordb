@@ -221,6 +221,10 @@ client.on('message', message => {
             client.commands.get('purge').execute(message, args);
         } else if (command === 'connect4' || command === 'c4' || command === 'connectfour') {
             client.commands.get('connect4').execute(message, args);
+        } else if (command === 'catfact') {
+            client.commands.get('catfact').execute(message, args);
+        } else if (command === 'dogfact') {
+            client.commands.get('dogfact').execute(message, args);
         }
     });
 });
