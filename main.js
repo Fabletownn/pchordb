@@ -80,7 +80,7 @@ client.on("messageDelete", (deletedMessage) => {
         const deleteEmbed = new Discord.MessageEmbed()
             .addField(`User`, `${deletedMessage.author}`, true)
             .addField(`Channel`, `${deletedMessage.channel}`, true)
-            .addField(`Deleted Message`, `${deletedMessage.content || '\u200b'}`)
+            .addField(`Deleted Message`, `${deletedMessage.content}`)
             .setColor('ff0000')
             .setFooter(`User ID: ${deletedMessage.author.id}`)
             .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({

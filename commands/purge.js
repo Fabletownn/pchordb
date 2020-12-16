@@ -76,7 +76,9 @@ module.exports = {
                 }));
             }).catch(console.error);
         } else {
-            return message.reply(`**[🗑️] ${message.author.username}**, an error occurred trying to purge that channel or user.\nPlease ensure the mentioned member is in the guild and the channel is valid: if you think this is an error, please contact either creators.`)
+            return message.reply(`**[🗑️] ${message.author.username}**, an error occurred trying to purge that channel or user.\nPlease ensure the mentioned member is in the guild and the channel is valid: if you think this is an error, please contact either creators.`).then(m => m.delete({
+                timeout: 5000
+            }));
         }
     }
 }
