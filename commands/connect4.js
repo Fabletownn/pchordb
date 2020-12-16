@@ -169,8 +169,6 @@ module.exports = {
                             console.error(error);
                         }
 
-
-    
                         switch (reaction.emoji.name) {
                             case "1️⃣":
                                 for (let i = 5; i > -1; i--) {

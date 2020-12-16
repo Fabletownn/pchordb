@@ -12,6 +12,7 @@
     "mongoose": "^5.10.17",
     "ms": "^2.1.2",
     "parse-ms": "^2.1.0",
+    "superagent": "^6.1.0",
     "weather-js": "^2.0.0"
   },
   "devDependencies": {},
