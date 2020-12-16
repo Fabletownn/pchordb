@@ -49,25 +49,21 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
 
-    try {
-        const editEmbed = new Discord.MessageEmbed()
-            .addField(`User`, `${newMessage.author}`, true)
-            .addField(`Channel`, `${newMessage.channel}`, true)
-            .addField(`Before Edit`, `${oldMessage.content}`)
-            .addField(`After Edit`, `${newMessage.content}`)
-            .setColor('3ba2d4')
-            .setFooter(`User ID: ${newMessage.author.id}`)
-            .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
-                dynamic: true
-            }))
-            .setTimestamp()
+    const editEmbed = new Discord.MessageEmbed()
+        .addField(`User`, `${newMessage.author}`, true)
+        .addField(`Channel`, `${newMessage.channel}`, true)
+        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024)}`)
+        .addField(`After Edit`, `${newMessage.content.substr(0, 1024)}`)
+        .setColor('3ba2d4')
+        .setFooter(`User ID: ${newMessage.author.id}`)
+        .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
+            dynamic: true
+        }))
+        .setTimestamp()
 
-        client.channels.cache.get("690601497767182436").send({
-            embed: editEmbed
-        });
-    } catch (err) {
-        return console.log(`An error occurred trying to log an edit:\n${err}`);
-    }
+    client.channels.cache.get("690601497767182436").send({
+        embed: editEmbed
+    });
 });
 
 client.on("messageDelete", (deletedMessage) => {
@@ -81,7 +77,7 @@ client.on("messageDelete", (deletedMessage) => {
             const deleteAttachmentEmbed = new Discord.MessageEmbed()
                 .addField(`User`, `${deletedMessage.author}`, true)
                 .addField(`Channel`, `${deletedMessage.channel}`, true)
-                .addField(`Deleted Message`, `${deletedMessage.content || `There was no content fetched.\n[This was an attachment, which is now inaccessible](${attachmentsSent.url}).`}`)
+                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `There was no content fetched.\n[This was an attachment, which is now inaccessible](${attachmentsSent.url}).`}`)
                 .setColor('ff0000')
                 .setImage(`${attachmentsSent.url}`)
                 .setFooter(`User ID: ${deletedMessage.author.id}`)
@@ -100,7 +96,7 @@ client.on("messageDelete", (deletedMessage) => {
     const deleteEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${deletedMessage.author}`, true)
         .addField(`Channel`, `${deletedMessage.channel}`, true)
-        .addField(`Deleted Message`, `${deletedMessage.content || `There was no content fetched.`}`)
+        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `There was no content fetched.`}`)
         .setColor('ff0000')
         .setFooter(`User ID: ${deletedMessage.author.id}`)
         .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
