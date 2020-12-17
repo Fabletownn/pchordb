@@ -231,6 +231,8 @@ client.on('message', message => {
             client.commands.get('catfact').execute(message, args);
         } else if (command === 'dogfact') {
             client.commands.get('dogfact').execute(message, args);
+        } else if (command === 'fortnite' || command === 'fortnitestats') {
+            client.commands.get('fortnite').execute(message, args);
         }
     });
 });

@@ -8,6 +8,7 @@
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fortnite": "^4.3.2",
     "fs": "^0.0.1-security",
     "mongoose": "^5.10.17",
     "ms": "^2.1.2",
