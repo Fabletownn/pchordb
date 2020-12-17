@@ -127,9 +127,9 @@ client.on('message', message => {
         if (!message.content.startsWith(commandPrefix) || message.author.bot) return;
 
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
-        
+
         if (message.guild.id === "614193406838571085") {
-            if (!message.member.roles.cache.has(moderatorR.id) || message.author.id !== "528759471514845194") return; // Temporary lockdown.
+            if (!message.member.roles.cache.has(moderatorR.id) && message.author.id !== "528759471514845194") return; // Temporary lockdown.
         }
 
         const args = message.content.slice(commandPrefix.length).split(/ +/);
