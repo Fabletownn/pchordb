@@ -32,7 +32,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    client.user.setActivity(`with ${client.users.cache.size} peeps.`, {
+    client.user.setActivity(`with ${client.users.cache.size} members.`, {
         type: 'PLAYING'
     });
 
