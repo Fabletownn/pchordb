@@ -249,4 +249,8 @@ client.on('message', message => {
     }
 });
 
+client.on('message', message => {
+    if (message.channel.id === "685885174025814049" && !message.content.startsWith(`+appeal `)) return console.log(`Detected a message that would be deleted: ${message.content}`)
+});
+
 client.login(process.env.token);
