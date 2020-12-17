@@ -32,10 +32,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    const dinoCreator = 'aaro#0882';
-    const farahCreator = 'Fable#0001';
-
-    client.user.setActivity(`Created by ${dinoCreator} & ${farahCreator}.`, {
+    client.user.setActivity(`with ${client.users.cache.size} peeps.`, {
         type: 'PLAYING'
     });
 
@@ -129,7 +126,7 @@ client.on('message', message => {
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
 
         if (message.guild.id === "614193406838571085") {
-            if (!message.member.roles.cache.has(moderatorR.id) && message.author.id !== "528759471514845194") return; // Temporary lockdown.
+            if (!message.member.roles.cache.has(moderatorR.id) && message.author.id !== "528759471514845194") return;
         }
 
         const args = message.content.slice(commandPrefix.length).split(/ +/);
