@@ -32,7 +32,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    client.user.setActivity(`with ${client.users.cache.size.toLocaleString()} members.`, {
+    client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').members.cache.filter(member => !member.user.bot).size} members.`, {
         type: 'PLAYING'
     });
 
