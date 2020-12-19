@@ -9,7 +9,7 @@ module.exports = {
 		message.delete();
 		
 		let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 
 		let messageArgs = message.content.split(" ");
 		
