@@ -230,6 +230,10 @@ client.on('message', message => {
             client.commands.get('dogfact').execute(message, args);
         } else if (command === 'fortnite' || command === 'fortnitestats') {
             client.commands.get('fortnite').execute(message, args);
+        } else if (command === 'userinfo' || command === 'userinformation') {
+            client.commands.get('userinfo').execute(message, args);
+        } else if (command === 'jumble' || command === 'jumblewords') {
+            client.commands.get('jumble').execute(message, args);
         }
     });
 });
