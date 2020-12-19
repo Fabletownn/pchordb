@@ -80,7 +80,7 @@ module.exports = {
                     .setTitle(`User Information | ${message.author.tag}`)
                     .addField(`Joined Server`, `📆 ${message.member.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${message.member.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${message.author.createdAt.toUTCString().substr(0, 16)}\n🕛 ${message.author.createdAt.toUTCString().substr(16, 50)}`, true)
-                    .addField(`User Status`, `Server Member`, true)
+                    .addField(`User Status`, `Server Member`)
                     .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
                     .setFooter(`User ID: ${message.author.id}`)
                     .setColor(message.member.displayColor)
