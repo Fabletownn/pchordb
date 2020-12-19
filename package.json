@@ -10,6 +10,7 @@
     "express": "^4.17.1",
     "fortnite": "^4.3.2",
     "fs": "^0.0.1-security",
+    "jumble-words": "^1.0.1",
     "mongoose": "^5.10.17",
     "ms": "^2.1.2",
     "parse-ms": "^2.1.0",
