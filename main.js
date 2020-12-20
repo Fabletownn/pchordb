@@ -254,6 +254,23 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+    if (message.channel.type !== "dm") return;
+
+    if (message.content.startsWith(`+blacklist`) || message.content.startsWith(`+blocklist`)) {
+        const blacklistEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Blacklisted Words`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .setDescription(`**📜 ${message.author.username}**, the list of blacklisted words can be found by [clicking on here](https://i.imgur.com/0r0kU7O.jpg), or viewing the image below.`)
+            .setImage('https://i.imgur.com/0r0kU7O.jpg')
+
+        message.author.send({
+            embed: blacklistEmbed
+        });
+    }
+});
+
+client.on('message', message => {
     if (message.channel.id === "685885174025814049" && !message.content.startsWith(`+appeal `)) return message.delete();
 });
 
