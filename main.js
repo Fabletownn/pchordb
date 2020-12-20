@@ -234,6 +234,8 @@ client.on('message', message => {
             client.commands.get('userinfo').execute(message, args);
         } else if (command === 'jumble' || command === 'jumblewords') {
             client.commands.get('jumble').execute(message, args);
+        } else if (command === 'edit') {
+            client.commands.get('edit').execute(message, args);
         }
     });
 });
