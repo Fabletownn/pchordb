@@ -20,7 +20,7 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 
         if (timeout - (Date.now() - cooldownVariable) > 0) return;
-        const hintList = [word[0].word.substring(0, 3), word[0].word.substring(0, 4), word[0].word.substring(0, 5)];
+        const hintList = [word[0].word.substring(0, 2), word[0].word.substring(0, 3)];
         const hint = hintList[Math.floor(Math.random() * hintList.length)];
 
         cooldownVariable = Date.now();
