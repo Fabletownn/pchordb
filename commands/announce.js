@@ -20,7 +20,7 @@ module.exports = {
         const client = message.client;
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
+        if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         message.channel.send(`**[📢] ${message.author.username}**, do you want this announcement to be an **embed**?\n(\`yes\` for embed <:pcPLACEHOLDER:786598522001817630> \`no\` for plain text <:pcPLACEHOLDER:786598522001817630> \`both\` for text + embed).\n\n**NEW**: Footers are included with embeds.`).then(msg => {
             const embedQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no') || m.content.toLowerCase().startsWith('both'));
