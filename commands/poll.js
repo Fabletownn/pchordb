@@ -81,8 +81,8 @@ module.exports = {
                                             }));
                                             channelTo.send('**If you change your vote (via reactions), that vote is finalized.**')
                                             channelTo.send(pollEmbed).then(msgR => {
-                                                msgR.react(message.guild.emojis.cache.get("778945283735814164")).then(msgR.react(message.guild.emojis.cache.get("778753667268083724")));
-                                                const filter = (reaction, user) => reaction.emoji.id === "778945283735814164" || reaction.emoji.id === "778753667268083724" && !user.bot
+                                                msgR.react(`<:zzITFUpvote:778318625328332810>`).then(`<:zzITFDownvote:778318624552779776>`);
+                                                const filter = (reaction, user) => reaction.emoji.id === "778318625328332810" || reaction.emoji.id === "778318624552779776" && !user.bot
                                                 const collector = msgR.createReactionCollector(filter, {
                                                     time: 999999
                                                 });
@@ -125,8 +125,8 @@ module.exports = {
                                             }));
                                             channelTo.send('**If you change your vote (via reactions), that vote is finalized.**')
                                             channelTo.send(pollEmbed).then(msgR => {
-                                                msgR.react(message.guild.emojis.cache.get("778945283735814164")).then(msgR.react(message.guild.emojis.cache.get("778753667268083724")));
-                                                const filter = (reaction, user) => reaction.emoji.id === "778945283735814164" || reaction.emoji.id === "778753667268083724" && !user.bot
+                                                msgR.react(`<:zzITFUpvote:778318625328332810>`).then(msgR.react(`<:zzITFDownvote:778318624552779776>`));
+                                                const filter = (reaction, user) => reaction.emoji.id === "778318625328332810" || reaction.emoji.id === "778318624552779776" && !user.bot
                                                 const collector = msgR.createReactionCollector(filter, {
                                                     time: 999999
                                                 });
