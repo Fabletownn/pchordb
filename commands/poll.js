@@ -81,7 +81,7 @@ module.exports = {
                                             }));
                                             channelTo.send('**If you change your vote (via reactions), that vote is finalized.**')
                                             channelTo.send(pollEmbed).then(msgR => {
-                                                msgR.react(`<:zzITFUpvote:778318625328332810>`).then(`<:zzITFDownvote:778318624552779776>`);
+                                                msgR.react(`<:zzITFUpvote:778318625328332810>`).then(msg.react(`<:zzITFDownvote:778318624552779776>`));
                                                 const filter = (reaction, user) => reaction.emoji.id === "778318625328332810" || reaction.emoji.id === "778318624552779776" && !user.bot
                                                 const collector = msgR.createReactionCollector(filter, {
                                                     time: 999999
