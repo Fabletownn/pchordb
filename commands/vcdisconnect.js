@@ -1,5 +1,3 @@
-const request = require('superagent');
-
 module.exports = {
     name: 'vcdisconnect',
     description: '[MODERATION] This will kick everybody out of a specific Voice Channel given the ID. <[setPrefix]vcdisconnect <voice channel ID>>',

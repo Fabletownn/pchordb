@@ -3,39 +3,43 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'vcundeafen',
-    description: '[MODERATION] If you are in a voice channel, this will undeafen the mentioned member in the same voice channel. If there is no mentioned member, this will undeafen all server deafened members within the voice channel. <[setPrefix]vcundeafen (<@member>)>',
-    execute(message, args) {
+    description: '[MODERATION] This will either undeafen the mentioned member or all members given the voice channel ID. <[setPrefix]vcundeafen <voice channel ID> (<@member>)>',
+    execute(message) {
         message.delete();
+
+        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
+        let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-        var toMute = message.mentions.users.first();
-        
-        if (!message.member.voice.channel) {
-            return message.channel.send(`**[🗣️] ${message.author.username}**, please make sure you're in a **voice channel** before running this command.`).then(m => m.delete({
-                timeout: 5000
-            }));
-        }
+        let messageArguments = message.content.split(" ");
 
-        if (toMute) {
-            if (!message.guild.member(toMute).voice.channel) {
-                return message.channel.send(`**[🔈] ${message.author.username}**, please make sure that member is in a **voice channel** before running this command.`).then(m => m.delete({
-                    timeout: 5000
-                }));
-            }
+        let channelID = messageArguments[1];
+        let toUndeafen = message.mentions.users.first();
+        let toUndeafenM = message.guild.member(toUndeafen);
 
-            message.guild.members.cache.get(toMute.id).voice.setDeaf(false).then(() => {
-                message.channel.send(`**[👂] ${message.author.username}**, successfully **undeafened ${toMute.tag}** in "${message.member.voice.channel.name}".`).then(m => m.delete({
-                    timeout: 5000
-                }));
-            });
-        } else if (!toMute) {
-            message.channel.members.forEach(member => {
+        let toChannel = message.guild.channels.cache.get(channelID);
+
+        if (!channelID) return message.channel.send(`**[👂] ${message.author.username}**, please ensure you're providing a voice channel ID first.`)
+        if (!toChannel) return message.channel.send(`**[👂] ${message.author.username}**, that channel wasn't found: ensure the ID given is valid.`)
+        if (toChannel.type !== 'voice') return message.channel.send(`**[👂] ${message.author.username}**, that channel isn't a voice channel: please ensure you're providing a voice channel ID.`)
+
+        if (!toUndeafen) {
+            toChannel.members.each((member) => {
                 member.voice.setDeaf(false);
             });
 
-            return message.channel.send(`**[👂] ${message.author.username}**, successfully **undeafened all members** in "${message.member.voice.channel.name}".`).then(m => m.delete({
-                timeout: 5000
+            return message.channel.send(`**[👂] ${message.author.username}**, successfully **undeafened all members** in \`${toChannel.name}\`.`).then(m => m.delete({
+                timeout: 35000
+            }));
+        } else if (toUndeafen) {
+            toChannel.members.each(() => {
+                toUndeafenM.voice.setDeaf(false);
+            });
+
+            return message.channel.send(`**[👂] ${message.author.username}**, successfully **undeafened ${toUndeafen.tag}** in \`${toChannel.name}\`.`).then(m => m.delete({
+                timeout: 35000
             }));
         }
     }
