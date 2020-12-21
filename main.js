@@ -236,7 +236,7 @@ client.on('message', message => {
             client.commands.get('jumble').execute(message, args);
         } else if (command === 'edit') {
             client.commands.get('edit').execute(message, args);
-        } else if (command === 'vcdisconnect') {
+        } else if (command === 'vcdisconnect' || command === 'vckick' || command === 'disconnect' || command === 'vcdc') {
             client.commands.get('vcdisconnect').execute(message, args);
         }
     });

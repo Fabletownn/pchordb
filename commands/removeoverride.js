@@ -10,8 +10,8 @@ module.exports = {
         var toGrantR = message.mentions.roles.first();
         const toID = message.content.split("ride ");
         const grantID = toID[1];
-        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         
+        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         if (grantID === message.guild.id) {

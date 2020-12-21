@@ -11,7 +11,7 @@ module.exports = {
         let voiceChannel = message.guild.channels.cache.get(channelID);
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
+        if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         if (!channelID) return message.channel.send(`**[🔈] ${message.author.username}**, please input a voice channel's ID to disconnect every member from.`).then(m => m.delete({
             timeout: 10000
