@@ -434,7 +434,7 @@ module.exports = {
                                                 msg.delete();
 
                                                 message.channel.send(`**[📜] ${message.author.username}**, I've sent this text and it's contents to ${channelTo}:\n${text}`, {
-                                                    files: attachments4
+                                                    files: [attachments4]
                                                 });
 
                                                 channelTo.send(text, {
