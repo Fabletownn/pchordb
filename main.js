@@ -238,6 +238,8 @@ client.on('message', message => {
             client.commands.get('edit').execute(message, args);
         } else if (command === 'vcdisconnect' || command === 'vckick' || command === 'disconnect' || command === 'vcdc') {
             client.commands.get('vcdisconnect').execute(message, args);
+        } else if (command === 'vcmove' || command === 'movevc') {
+            client.commands.get('movevc').execute(message, args);
         }
     });
 });
@@ -262,13 +264,14 @@ client.on('message', message => {
     if (message.channel.type !== "dm") return;
 
     if (message.content.startsWith(`+blacklist`) || message.content.startsWith(`+blocklist`)) {
-        message.author.send(`**[📜] ${message.author.username}**, the list of blacklisted words in **I Talk Server** can be found below.`, { files: ['https://i.imgur.com/KY50hx2.png'] }).then((messageSent) => {
-            message.author.send({ files: ['https://i.imgur.com/98mgvwY.png']});
+        const blacklistEmbed = new Discord.MessageEmbed()
+            .setTitle(`Blacklisted Words`)
+            .setDescription(`**${message.author.username}**, the following words are banned in the I Talk Server.\n\`\`\`\nnigga, nigger, nibba, nibber, fag, f4g, retard, coon, cunt, nazi, penis, vagina, porn, blowjob, handjob, nude, rule34, r34, stripper, bangbro, brazzer, faketaxi, hentai, naughtyamerica, realityking, xvideo milf, anal, cum\n\`\`\`\n- Sending a message which contains any of these words will be auto-deleted by the Auto-Moderation.\n- Attempting to bypass this auto-moderation filter may lead to a punishment being handed out.`)
+            .setColor('23FF09')
 
-            setTimeout(() => {
-                messageSent.pin();
-            }, 3000);
-        });
+        message.author.send({
+            embed: blacklistEmbed
+        }).then(message => message.pin());
     }
 });
 
