@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'staff',
-    description: '[ONE-STEP] This will provide a list of the I Talk Server Staff Team. <[setPrefix]staff>',
+    description: '[GENERAL] This will provide a list of the I Talk Server Staff Team. <[setPrefix]staff>',
     execute(message, args) {
         message.delete();
         

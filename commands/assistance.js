@@ -5,7 +5,7 @@ var cooldownVar = "";
 
 module.exports = {
     name: 'assistance',
-    description: '[ONE-STEP] This will request assistance from staff members. Please only use this in urgent situations. Misusage of this command will lead to punishment. <[setPrefix]assistance>',
+    description: '[GENERAL] This will request assistance from staff members. Please only use this in urgent situations. Misusage of this command will lead to punishment. <[setPrefix]assistance>',
     execute(message, args) {
         message.delete();
 

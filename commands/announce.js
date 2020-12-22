@@ -1,15 +1,11 @@
 const Discord = require("discord.js");
-const {
-    Client,
-    MessageEmbed
-} = require("discord.js");
 
 module.exports = {
     name: 'announce',
-    description: '[PROMPT] This will announce any message ranging from embeds, plain text, or both. <[setPrefix]announce>',
+    description: '[MODERATION] This will announce any message ranging from embeds, plain text, or both. <[setPrefix]announce>',
     execute(message) {
         message.delete();
-        
+
         var header;
         var description;
         var color;
@@ -22,7 +18,7 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-        message.channel.send(`**[📢] ${message.author.username}**, do you want this announcement to be an **embed**?\n(\`yes\` for embed <:pcPLACEHOLDER:786598522001817630> \`no\` for plain text <:pcPLACEHOLDER:786598522001817630> \`both\` for text + embed).\n\n**NEW**: Footers are included with embeds.`).then(msg => {
+        message.channel.send(`**[📢] ${message.author.username}**, do you want this announcement to be an embed?\n\`yes\` Embed\n\`no\` Regular Text\n\`both\` Regular Text + Embed`).then(msg => {
             const embedQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no') || m.content.toLowerCase().startsWith('both'));
             message.channel.awaitMessages(embedQuestion, {
                 max: 1,
@@ -33,7 +29,7 @@ module.exports = {
                 var answer = collected.first();
 
                 if (answer.content.toLowerCase().startsWith('yes')) {
-                    msg.edit(`**[🔎] ${message.author.username}**, please enter a **title** for your embed (character limit: 256).`)
+                    msg.edit(`**[🔎] ${message.author.username}**, please enter a **title** for your embed.\n\`Character Limit: 256\` `)
 
                     const titleQuestion = m => m.author.id === message.author.id && m.content.length < 256;
                     message.channel.awaitMessages(titleQuestion, {
@@ -44,7 +40,7 @@ module.exports = {
                         collected.first().delete()
                         var answer = collected.first();
                         header = answer.content;
-                        msg.edit(`**[🔎] ${message.author.username}**, please enter a **description** for your embed (character limit: 2,048).`)
+                        msg.edit(`**[🔎] ${message.author.username}**, please enter a **description** for your embed.\n\`Character Limit: 2,048\` `)
 
                         const descQuestion = m => m.author.id === message.author.id && m.content.length < 2048;
                         message.channel.awaitMessages(descQuestion, {
@@ -55,7 +51,7 @@ module.exports = {
                             collected.first().delete()
                             var answer = collected.first();
                             description = answer.content;
-                            msg.edit(`**[🔎] ${message.author.username}**, please enter a **footer** for your embed (95 characters visible) (say "no" if none).`)
+                            msg.edit(`**[🔎] ${message.author.username}**, please enter a footer for your embed. Say \`no\` to skip. `)
 
                             const footQuestion = m => m.author.id === message.author.id;
                             message.channel.awaitMessages(footQuestion, {
@@ -66,7 +62,7 @@ module.exports = {
                                 collected.first().delete()
                                 if (collected.first().content.toLowerCase().startsWith("no")) {
                                     eFooter = collected.first().content;
-                                    msg.edit(`**[🔎] ${message.author.username}**, what **color** would you like this embed to be? **[HEX code]** (7289da for Blurple).`)
+                                    msg.edit(`**[🔎] ${message.author.username}**, select the **border color hex code**. You can put in one of your own, otherwise a couple are provided below.\nBlurple: \`7289da\`\nGreen: \`23ff09\`\nRed: \`ff0000\` `)
 
                                     const colorQuestion = m => m.author.id === message.author.id && m.content.length === 6;
                                     message.channel.awaitMessages(colorQuestion, {
@@ -77,7 +73,7 @@ module.exports = {
                                         collected.first().delete()
                                         var answer = collected.first();
                                         color = answer.content;
-                                        msg.edit(`**[🔎] ${message.author.username}**, are there any **attachments** you would like to add to this embed? Please say "no" if none.\n**(Please do not delete this message while this command is in progress or the image will not show up correctly.)**`)
+                                        msg.edit(`**[🔎] ${message.author.username}**, please enter any attachments to be added to the embed. Say \`no\` to skip.\n**(DO NOT DELETE THE ATTACHMENT AFTER SENDING IT)**`)
 
                                         const imgQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('no') || m.attachments.size > 0);
                                         message.channel.awaitMessages(imgQuestion, {
@@ -94,7 +90,7 @@ module.exports = {
                                                 collected.first().delete()
                                             }
                                             if (answer.content.toLowerCase().startsWith('no')) {
-                                                msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                 const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                 message.channel.awaitMessages(channelQuestion6, {
                                                     max: 1,
@@ -110,7 +106,7 @@ module.exports = {
                                                         .setColor(color)
 
                                                     message.channel.send(customEmbed)
-                                                    msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                    msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                     const confirmationOne = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                     message.channel.awaitMessages(confirmationOne, {
@@ -127,21 +123,25 @@ module.exports = {
                                                                 message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                             }).then(() => {
                                                                 msg.delete();
-                
-                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, { embed: customEmbed });
-                
-                                                                channelTo.send({ embed: customEmbed });
+
+                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, {
+                                                                    embed: customEmbed
+                                                                });
+
+                                                                channelTo.send({
+                                                                    embed: customEmbed
+                                                                });
                                                             });
                                                         }
 
                                                         if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                            return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                                            return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                         }
                                                     });
                                                 });
                                                 return;
                                             }
-                                            msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                            msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                             const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
                                             message.channel.awaitMessages(channelQuestion, {
                                                 max: 1,
@@ -158,7 +158,7 @@ module.exports = {
                                                     .setImage(attachments3)
 
                                                 message.channel.send(customEmbed)
-                                                msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                 const confirmationOne1 = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                 message.channel.awaitMessages(confirmationOne1, {
@@ -175,14 +175,18 @@ module.exports = {
                                                             message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                         }).then(() => {
                                                             msg.delete();
-            
-                                                            message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, { embed: customEmbed });
-            
-                                                            channelTo.send({ embed: customEmbed });
+
+                                                            message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, {
+                                                                embed: customEmbed
+                                                            });
+
+                                                            channelTo.send({
+                                                                embed: customEmbed
+                                                            });
                                                         });
                                                     }
                                                     if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                        return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`);
+                                                        return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                     }
                                                 });
                                             });
@@ -190,7 +194,7 @@ module.exports = {
                                     });
                                 } else {
                                     eFooter = collected.first().content;
-                                    msg.edit(`**[🔎] ${message.author.username}**, what **color** would you like this embed to be? **[HEX code]** (7289da for Blurple).`)
+                                    msg.edit(`**[🔎] ${message.author.username}**, select the **border color hex code**. You can put in one of your own, otherwise a couple are provided below.\nBlurple: \`7289da\`\nGreen: \`23ff09\`\nRed: \`ff0000\` `)
 
                                     const colorQuestion = m => m.author.id === message.author.id && m.content.length === 6;
                                     message.channel.awaitMessages(colorQuestion, {
@@ -201,7 +205,7 @@ module.exports = {
                                         collected.first().delete()
                                         var answer = collected.first();
                                         color = answer.content;
-                                        msg.edit(`**[🔎] ${message.author.username}**, are there any **attachments** you would like to add to this embed? Please say "no" if none.\n**(Please do not delete this message while this command is in progress or the image will not show up correctly.)**`)
+                                        msg.edit(`**[🔎] ${message.author.username}**, please enter any attachments to be added to the embed. Say \`no\` to skip.\n**(DO NOT DELETE THE ATTACHMENT AFTER SENDING IT)**`)
 
                                         const imgQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('no') || m.attachments.size > 0);
                                         message.channel.awaitMessages(imgQuestion, {
@@ -218,7 +222,7 @@ module.exports = {
                                                 collected.first().delete()
                                             }
                                             if (answer.content.toLowerCase().startsWith('no')) {
-                                                msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                 const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                 message.channel.awaitMessages(channelQuestion6, {
                                                     max: 1,
@@ -235,7 +239,7 @@ module.exports = {
                                                         .setFooter(eFooter || ``)
 
                                                     message.channel.send(customEmbed)
-                                                    msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                    msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                     const confirmationOne = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                     message.channel.awaitMessages(confirmationOne, {
@@ -252,21 +256,25 @@ module.exports = {
                                                                 message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                             }).then(() => {
                                                                 msg.delete();
-                
-                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, { embed: customEmbed });
-                
-                                                                channelTo.send({ embed: customEmbed });
+
+                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, {
+                                                                    embed: customEmbed
+                                                                });
+
+                                                                channelTo.send({
+                                                                    embed: customEmbed
+                                                                });
                                                             });
                                                         }
 
                                                         if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                            return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                                            return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                         }
                                                     });
                                                 });
                                                 return;
                                             }
-                                            msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                            msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                             const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
                                             message.channel.awaitMessages(channelQuestion, {
                                                 max: 1,
@@ -284,7 +292,7 @@ module.exports = {
                                                     .setFooter(eFooter || ``)
 
                                                 message.channel.send(customEmbed)
-                                                msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                 const confirmationOne1 = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                 message.channel.awaitMessages(confirmationOne1, {
@@ -302,13 +310,17 @@ module.exports = {
                                                         }).then(() => {
                                                             msg.delete();
 
-                                                            message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, { embed: customEmbed });
-            
-                                                            channelTo.send({ embed: customEmbed });
+                                                            message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:`, {
+                                                                embed: customEmbed
+                                                            });
+
+                                                            channelTo.send({
+                                                                embed: customEmbed
+                                                            });
                                                         });
                                                     }
                                                     if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                        return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`);
+                                                        return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                     }
                                                 });
                                             });
@@ -322,7 +334,7 @@ module.exports = {
                 if (answer.content.toLowerCase().startsWith('no')) {
                     var text;
 
-                    msg.edit(`**[🔎] ${message.author.username}**, please enter the **text** for your announcement.`).then(msg => {
+                    msg.edit(`**[🔎] ${message.author.username}**, please enter the **text** for the announcement.\n\`Character Limit: 2,048\` `).then(msg => {
                         const textQuestion = m => m.author.id === message.author.id;
                         message.channel.awaitMessages(textQuestion, {
                             max: 1,
@@ -332,7 +344,7 @@ module.exports = {
                             collected.first().delete()
                             var answer = collected.first();
                             text = answer.content;
-                            msg.edit(`**[🔎] ${message.author.username}**, are there any **attachments** you would like to add to this announcement? Please say "no" if none.\n**(Please do not delete this message while this command is in progress or the image will not show up correctly.)**`)
+                            msg.edit(`**[🔎] ${message.author.username}**, please enter any attachments to be added to the embed. Say \`no\` to skip.\n**(DO NOT DELETE THE ATTACHMENT AFTER SENDING IT)**`)
 
                             const imgQuestionTwo = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('no') || m.attachments.size > 0);
                             message.channel.awaitMessages(imgQuestionTwo, {
@@ -349,7 +361,7 @@ module.exports = {
                                 }
                                 if (answer.content.toLowerCase().startsWith('no')) {
                                     collected.first().delete()
-                                    msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                    msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
 
                                     const channelQuestion7 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                     message.channel.awaitMessages(channelQuestion7, {
@@ -361,7 +373,7 @@ module.exports = {
                                         var answer = collected.first();
                                         var channelTo = collected.first().mentions.channels.first();
                                         message.channel.send(`${text}`)
-                                        msg.edit(`**[📢] ${message.author.username}**, this **text announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                        msg.edit(`**[📢] ${message.author.username}**, this text announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                         const confirmationTwo = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                         message.channel.awaitMessages(confirmationTwo, {
@@ -378,21 +390,21 @@ module.exports = {
                                                     message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                 }).then(() => {
                                                     msg.delete();
-    
+
                                                     message.channel.send(`**[📜] ${message.author.username}**, I've sent this text and it's contents to ${channelTo}:\n${text}`);
-    
+
                                                     channelTo.send(text);
                                                 });
                                             }
                                             if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                                return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                             }
                                         });
 
                                     });
                                     return;
                                 }
-                                msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                 const channelQuestion8 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                 message.channel.awaitMessages(channelQuestion8, {
                                     max: 1,
@@ -404,7 +416,7 @@ module.exports = {
                                     message.channel.send(text, {
                                         files: [attachments4]
                                     })
-                                    msg.edit(`**[📢] ${message.author.username}**, this **text announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                    msg.edit(`**[📢] ${message.author.username}**, this text announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
                                     const confirmationTwo1 = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                     message.channel.awaitMessages(confirmationTwo1, {
                                         max: 1,
@@ -421,7 +433,9 @@ module.exports = {
                                             }).then(() => {
                                                 msg.delete();
 
-                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this text and it's contents to ${channelTo}:\n${text}`, { files: attachments4 });
+                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this text and it's contents to ${channelTo}:\n${text}`, {
+                                                    files: attachments4
+                                                });
 
                                                 channelTo.send(text, {
                                                     files: [attachments4]
@@ -429,7 +443,7 @@ module.exports = {
                                             });
                                         }
                                         if (collected.first().content.toLowerCase().startsWith('no')) {
-                                            return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                            return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                         }
                                     });
                                 });
@@ -438,7 +452,7 @@ module.exports = {
                     })
                 }
                 if (answer.content.toLowerCase().startsWith('both')) {
-                    msg.edit(`**[🔎] ${message.author.username}**, please enter **text** for your announcement.`)
+                    msg.edit(`**[🔎] ${message.author.username}**, please enter the **text** for the announcement.\n\`Character Limit: 2,048\``)
 
                     const textQuestion = m => m.author.id === message.author.id;
                     message.channel.awaitMessages(textQuestion, {
@@ -449,7 +463,7 @@ module.exports = {
                         collected.first().delete();
                         aText = collected.first().content;
 
-                        msg.edit(`**[🔎] ${message.author.username}**, please enter a **title** for your embed (character limit: 256).`)
+                        msg.edit(`**[🔎] ${message.author.username}**, please enter a **title** for your embed.\n\`Character Limit: 256\` `)
 
                         const titleQuestion = m => m.author.id === message.author.id && m.content.length < 256;
                         message.channel.awaitMessages(titleQuestion, {
@@ -460,7 +474,7 @@ module.exports = {
                             collected.first().delete()
                             var answer = collected.first();
                             header = answer.content;
-                            msg.edit(`**[🔎] ${message.author.username}**, please enter a **description** for your embed (character limit: 2,048).`)
+                            msg.edit(`**[🔎] ${message.author.username}**, please enter a **description** for your embed.\n\`Character Limit: 2,048\` `)
 
                             const descQuestion = m => m.author.id === message.author.id && m.content.length < 2048;
                             message.channel.awaitMessages(descQuestion, {
@@ -471,7 +485,7 @@ module.exports = {
                                 collected.first().delete()
                                 var answer = collected.first();
                                 description = answer.content;
-                                msg.edit(`**[🔎] ${message.author.username}**, please enter a **footer** for your embed (say "no" for none).`)
+                                msg.edit(`**[🔎] ${message.author.username}**, please enter a footer for your embed. Say \`no\` to skip. `)
 
                                 const footQuestion = m => m.author.id === message.author.id;
                                 message.channel.awaitMessages(footQuestion, {
@@ -482,7 +496,7 @@ module.exports = {
                                     collected.first().delete()
                                     if (collected.first().content.toLowerCase().startsWith("no")) {
                                         eFooter = collected.first().content;
-                                        msg.edit(`**[🔎] ${message.author.username}**, what **color** would you like this embed to be? **[HEX code]** (7289da for Blurple).`)
+                                        msg.edit(`**[🔎] ${message.author.username}**, select the **border color hex code**. You can put in one of your own, otherwise a couple are provided below.\nBlurple: \`7289da\`\nGreen: \`23ff09\`\nRed: \`ff0000\` `)
 
                                         const colorQuestion = m => m.author.id === message.author.id && m.content.length === 6;
                                         message.channel.awaitMessages(colorQuestion, {
@@ -493,7 +507,7 @@ module.exports = {
                                             collected.first().delete()
                                             var answer = collected.first();
                                             color = answer.content;
-                                            msg.edit(`**[🔎] ${message.author.username}**, are there any **attachments** you would like to add to this embed? Please say "no" if none.\n**(Please do not delete this message while this command is in progress or the image will not show up correctly.)**`)
+                                            msg.edit(`**[🔎] ${message.author.username}**, please enter any attachments to be added to the embed. Say \`no\` to skip.\n**(DO NOT DELETE THE ATTACHMENT AFTER SENDING IT)**`)
 
                                             const imgQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('no') || m.attachments.size > 0);
                                             message.channel.awaitMessages(imgQuestion, {
@@ -510,7 +524,7 @@ module.exports = {
                                                     collected.first().delete()
                                                 }
                                                 if (answer.content.toLowerCase().startsWith('no')) {
-                                                    msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                    msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                     const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                     message.channel.awaitMessages(channelQuestion6, {
                                                         max: 1,
@@ -528,7 +542,7 @@ module.exports = {
                                                         message.channel.send(`${aText}`, {
                                                             embed: customEmbed
                                                         });
-                                                        msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                        msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                         const confirmationOne = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                         message.channel.awaitMessages(confirmationOne, {
@@ -545,22 +559,24 @@ module.exports = {
                                                                     message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                                 }).then(() => {
                                                                     msg.delete();
-    
-                                                                    message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, { embed: customEmbed });
-    
+
+                                                                    message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, {
+                                                                        embed: customEmbed
+                                                                    });
+
                                                                     channelTo.send(aText, {
                                                                         embed: customEmbed
                                                                     });
                                                                 });
                                                             }
                                                             if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                                return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                                                return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                             }
                                                         });
                                                     });
                                                     return;
                                                 }
-                                                msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                 const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                 message.channel.awaitMessages(channelQuestion, {
                                                     max: 1,
@@ -579,7 +595,7 @@ module.exports = {
                                                     message.channel.send(aText, {
                                                         embed: customEmbed
                                                     });
-                                                    msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                    msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                     const confirmationOne1 = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                     message.channel.awaitMessages(confirmationOne1, {
@@ -597,7 +613,9 @@ module.exports = {
                                                             }).then(() => {
                                                                 msg.delete();
 
-                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, { embed: customEmbed });
+                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, {
+                                                                    embed: customEmbed
+                                                                });
 
                                                                 channelTo.send(aText, {
                                                                     embed: customEmbed
@@ -605,7 +623,7 @@ module.exports = {
                                                             });
                                                         }
                                                         if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                            return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`);
+                                                            return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                         }
                                                     });
                                                 });
@@ -613,7 +631,7 @@ module.exports = {
                                         });
                                     } else {
                                         eFooter = collected.first().content;
-                                        msg.edit(`**[🔎] ${message.author.username}**, what **color** would you like this embed to be? **[HEX code]** (7289da for Blurple).`)
+                                        msg.edit(`**[🔎] ${message.author.username}**, select the **border color hex code**. You can put in one of your own, otherwise a couple are provided below.\nBlurple: \`7289da\`\nGreen: \`23ff09\`\nRed: \`ff0000\` `)
 
                                         const colorQuestion = m => m.author.id === message.author.id && m.content.length === 6;
                                         message.channel.awaitMessages(colorQuestion, {
@@ -624,7 +642,7 @@ module.exports = {
                                             collected.first().delete()
                                             var answer = collected.first();
                                             color = answer.content;
-                                            msg.edit(`**[🔎] ${message.author.username}**, are there any **attachments** you would like to add to this embed? Please say "no" if none.\n**(Please do not delete this message while this command is in progress or the image will not show up correctly.)**`)
+                                            msg.edit(`**[🔎] ${message.author.username}**, please enter any attachments to be added to the embed. Say \`no\` to skip.\n**(DO NOT DELETE THE ATTACHMENT AFTER SENDING IT)**`)
 
                                             const imgQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('no') || m.attachments.size > 0);
                                             message.channel.awaitMessages(imgQuestion, {
@@ -641,7 +659,7 @@ module.exports = {
                                                     collected.first().delete()
                                                 }
                                                 if (answer.content.toLowerCase().startsWith('no')) {
-                                                    msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                    msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                     const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                     message.channel.awaitMessages(channelQuestion6, {
                                                         max: 1,
@@ -660,7 +678,7 @@ module.exports = {
                                                         message.channel.send(aText, {
                                                             embed: customEmbed
                                                         });
-                                                        msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                        msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                         const confirmationOne = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                         message.channel.awaitMessages(confirmationOne, {
@@ -677,9 +695,11 @@ module.exports = {
                                                                     message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
                                                                 }).then(() => {
                                                                     msg.delete();
-    
-                                                                    message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, { embed: customEmbed });
-    
+
+                                                                    message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, {
+                                                                        embed: customEmbed
+                                                                    });
+
                                                                     channelTo.send(aText, {
                                                                         embed: customEmbed
                                                                     });
@@ -687,13 +707,13 @@ module.exports = {
                                                             }
 
                                                             if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                                return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`)
+                                                                return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                             }
                                                         });
                                                     });
                                                     return;
                                                 }
-                                                msg.edit(`**[🔎] ${message.author.username}**, what **channel** would you like this to be sent to? **Please mention it (e.g. "<#614193406842765375>")**.`)
+                                                msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
                                                 const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
                                                 message.channel.awaitMessages(channelQuestion, {
                                                     max: 1,
@@ -713,7 +733,7 @@ module.exports = {
                                                     message.channel.send(aText, {
                                                         embed: customEmbed
                                                     });
-                                                    msg.edit(`**[📢] ${message.author.username}**, this **embed announcement** will be sent to ${channelTo}. Please **confirm** whether or not to send this: say "yes" to send, and "no" to cancel.`)
+                                                    msg.edit(`**[📢] ${message.author.username}**, this embedded announcement will be sent to ${channelTo}.\n\`yes\` Send.\n\`no\` Cancel.`)
 
                                                     const confirmationOne1 = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith('yes') || m.content.toLowerCase().startsWith('no'));
                                                     message.channel.awaitMessages(confirmationOne1, {
@@ -731,7 +751,9 @@ module.exports = {
                                                             }).then(() => {
                                                                 msg.delete();
 
-                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, { embed: customEmbed });
+                                                                message.channel.send(`**[📜] ${message.author.username}**, I've sent this embed and it's contents to ${channelTo}:\n${aText}`, {
+                                                                    embed: customEmbed
+                                                                });
 
                                                                 channelTo.send(aText, {
                                                                     embed: customEmbed
@@ -739,7 +761,7 @@ module.exports = {
                                                             });
                                                         }
                                                         if (collected.first().content.toLowerCase().startsWith('no')) {
-                                                            return message.channel.send(`**[❌] ${message.author.username}**, alrighty! Your request has been cancelled. Please **restart** and feel free to make any adjustments.`);
+                                                            return message.channel.send(`**[❌] ${message.author.username}**, your announcement request has been cancelled: feel free to make any readjustments.`);
                                                         }
                                                     });
                                                 });

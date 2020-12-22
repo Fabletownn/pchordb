@@ -2,7 +2,7 @@ const request = require('superagent');
 
 module.exports = {
     name: 'catfact',
-    description: '[GENERAL] This will generate and provide a random cat fact. <[setPrefix]catfact>',
+    description: '[FUN] This will generate and provide a random cat fact. <[setPrefix]catfact>',
     execute(message) {
         message.delete();
 

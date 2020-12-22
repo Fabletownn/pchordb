@@ -15,7 +15,7 @@ const {
 
 module.exports = {
     name: 'connect4',
-    description: '[GENERAL] This will allow a member to play Connect 4 with the mentioned member (if accepted). <[setPrefix]connect4 <@member>>',
+    description: '[FUN] This will allow a member to play Connect 4 with the mentioned member (if accepted). <[setPrefix]connect4 <@member>>',
     async execute(message, args) {
         message.delete();
 

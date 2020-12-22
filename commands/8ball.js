@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: '8ball',
-    description: '[GENERAL] This will respond to any question with an 8Ball response. <[setPrefix]8ball <question>>',
+    description: '[FUN] This will respond to any question with an 8Ball response. <[setPrefix]8ball <question>>',
     execute(message, args) {
         message.delete();
 

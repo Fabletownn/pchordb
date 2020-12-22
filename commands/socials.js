@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'socials',
-    description: '[ONE-STEP] This will provide a list of all of I Talk Fortnite\'s social medias. <[setPrefix]socials>',
+    description: '[GENERAL] This will provide a list of all of I Talk Fortnite\'s social medias. <[setPrefix]socials>',
     execute(message, args) {
         message.delete();
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");

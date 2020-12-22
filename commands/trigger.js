@@ -9,7 +9,7 @@ var cooldownVariable;
 
 module.exports = {
     name: 'trigger',
-    description: '[GENERAL] This will trigger a mentioned member\'s profile picture (or your own). <[setPrefix]trigger (<@member>)>',
+    description: '[FUN] This will trigger a mentioned member\'s profile picture (or your own). <[setPrefix]trigger (<@member>)>',
     async execute(message, args) {
         message.delete();
 

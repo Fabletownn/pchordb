@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'weather',
-    description: '[GENERAL] This will provide the live weather information for the location specified. <[setPrefix]weather <location>>',
+    description: '[FUN] This will provide the live weather information for the location specified. <[setPrefix]weather <location>>',
     async execute(message) {
         message.delete();
 

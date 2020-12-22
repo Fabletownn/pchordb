@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'ping',
-    description: '[ONE-STEP] This command fetches API data and reports back. <[setPrefix]ping>',
+    description: '[GENERAL] This command fetches API data and reports back. <[setPrefix]ping>',
     execute(message, args) {
         message.delete();
 

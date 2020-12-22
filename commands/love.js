@@ -6,7 +6,7 @@ const LUV = require("../models/love.js");
 
 module.exports = {
     name: 'love',
-    description: '[ONE-STEP] Add one ITF Love to the counter! <[setPrefix]love>',
+    description: '[GENERAL] Add one ITF Love to the counter! <[setPrefix]love>',
     execute(message, args) {
         message.delete();
 

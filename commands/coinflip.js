@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     name: 'coinflip',
-    description: '[PROMPT] This will prompt a coin flipping game: name circumstances for each side, and will roll. <[setPrefix]coinflip>',
+    description: '[FUN] This will prompt a coin flipping game: name circumstances for each side, and will roll. <[setPrefix]coinflip>',
     execute(message, args) {
         message.delete();
         var heads;
