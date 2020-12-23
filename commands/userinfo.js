@@ -13,7 +13,7 @@ module.exports = {
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
         let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
 
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 
         if (!mentionedUser) {
             if (message.member.roles.cache.has(itfR.id)) {
@@ -22,7 +22,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${message.member.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${message.member.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${message.author.createdAt.toUTCString().substr(0, 16)}\n🕛 ${message.author.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Owner`)
-                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${message.author.id}`)
                     .setColor(message.member.displayColor)
                     .setThumbnail(message.author.displayAvatarURL({
@@ -42,7 +42,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${message.member.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${message.member.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${message.author.createdAt.toUTCString().substr(0, 16)}\n🕛 ${message.author.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Administrator`)
-                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${message.author.id}`)
                     .setColor(message.member.displayColor)
                     .setThumbnail(message.author.displayAvatarURL({
@@ -62,7 +62,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${message.member.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${message.member.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${message.author.createdAt.toUTCString().substr(0, 16)}\n🕛 ${message.author.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Moderator`)
-                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${message.author.id}`)
                     .setColor(message.member.displayColor)
                     .setThumbnail(message.author.displayAvatarURL({
@@ -80,8 +80,8 @@ module.exports = {
                     .setTitle(`User Information | ${message.author.tag}`)
                     .addField(`Joined Server`, `📆 ${message.member.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${message.member.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${message.author.createdAt.toUTCString().substr(0, 16)}\n🕛 ${message.author.createdAt.toUTCString().substr(16, 50)}`, true)
-                    .addField(`User Status`, `Server Member`)
-                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`User Status`, `Server Member`, true)
+                    .addField(`Roles`, `${message.member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${message.author.id}`)
                     .setColor(message.member.displayColor)
                     .setThumbnail(message.author.displayAvatarURL({
@@ -104,7 +104,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${mentionedMember.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedMember.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${mentionedUser.createdAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedUser.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Owner`)
-                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${mentionedUser.id}`)
                     .setColor(mentionedMember.displayColor)
                     .setThumbnail(mentionedUser.displayAvatarURL({
@@ -124,7 +124,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${mentionedMember.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedMember.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${mentionedUser.createdAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedUser.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Administrator`)
-                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${mentionedUser.id}`)
                     .setColor(mentionedMember.displayColor)
                     .setThumbnail(mentionedUser.displayAvatarURL({
@@ -144,7 +144,7 @@ module.exports = {
                     .addField(`Joined Server`, `📆 ${mentionedMember.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedMember.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${mentionedUser.createdAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedUser.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Moderator`)
-                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${mentionedUser.id}`)
                     .setColor(mentionedMember.displayColor)
                     .setThumbnail(mentionedUser.displayAvatarURL({
@@ -157,13 +157,33 @@ module.exports = {
                 }).then(m => m.delete({
                     timeout: 30000
                 }));
+            } else
+            if (mentionedUser.bot) {
+                const botInfoEmbed = new Discord.MessageEmbed()
+                    .setTitle(`User Information | ${mentionedUser.tag}`)
+                    .addField(`Joined Server`, `📆 ${mentionedMember.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedMember.joinedAt.toUTCString().substr(16, 50)}`, true)
+                    .addField(`Joined Discord`, `📆 ${mentionedUser.createdAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedUser.createdAt.toUTCString().substr(16, 50)}`, true)
+                    .addField(`User Status`, `Bot`)
+                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
+                    .setFooter(`User ID: ${mentionedUser.id}`)
+                    .setColor(mentionedMember.displayColor)
+                    .setThumbnail(mentionedUser.displayAvatarURL({
+                        dynamic: true
+                    }))
+                    .setTimestamp()
+
+                message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
+                    embed: botInfoEmbed
+                }).then(m => m.delete({
+                    timeout: 30000
+                }));
             } else {
                 const memberInfoEmbed = new Discord.MessageEmbed()
                     .setTitle(`User Information | ${mentionedUser.tag}`)
                     .addField(`Joined Server`, `📆 ${mentionedMember.joinedAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedMember.joinedAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`Joined Discord`, `📆 ${mentionedUser.createdAt.toUTCString().substr(0, 16)}\n🕛 ${mentionedUser.createdAt.toUTCString().substr(16, 50)}`, true)
                     .addField(`User Status`, `Server Member`)
-                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).join(' ')}`)
+                    .addField(`Roles`, `${mentionedMember.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ')}`)
                     .setFooter(`User ID: ${mentionedUser.id}`)
                     .setColor(mentionedMember.displayColor)
                     .setThumbnail(mentionedUser.displayAvatarURL({
