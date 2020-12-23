@@ -277,6 +277,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content.startsWith(`+help -post`)) {
+        
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 

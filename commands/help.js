@@ -23,7 +23,6 @@ module.exports = {
             .addField(`🏠 Home Page`, `Brings you back to here.`, true)
             .setColor('eb4bc9')
             .setFooter(`Page 1 of 7`)
-            .setTimestamp();
 
         const homeEmbedEG = new Discord.MessageEmbed()
             .setAuthor(`Power Chord Help Menu`, `https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg`)
@@ -38,7 +37,6 @@ module.exports = {
             .addField(`<:pcThanosSnap:786691150173962300> Home Page`, `And where did that bring you? Back to me.`, true)
             .setColor('eb4bc9')
             .setFooter(`Page 1 of 7`)
-            .setTimestamp();
 
         const generalEmbed = {
             "title": "🌍 General Commands",
@@ -447,7 +445,6 @@ module.exports = {
                 .addField(`🏠 Home Page`, `Brings you back to here.`, true)
                 .setColor('eb4bc9')
                 .setFooter(`Page 1 of 4`)
-                .setTimestamp();
 
             const homeEmbedEG = new Discord.MessageEmbed()
                 .setAuthor(`Power Chord Help Menu`, `https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg`)
@@ -459,7 +456,6 @@ module.exports = {
                 .addField(`<:pcThanosSnap:786691150173962300> Home Page`, `And where did that bring you? Back to me.`, true)
                 .setColor('eb4bc9')
                 .setFooter(`Page 1 of 4`)
-                .setTimestamp();
 
             const generalEmbed = {
                 "title": "🌍 General Commands",
