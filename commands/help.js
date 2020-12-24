@@ -203,6 +203,10 @@ module.exports = {
                     "value": "This will edit one of Power Chord's messages given the ID."
                 },
                 {
+                    "name": "`+pin {channel} {message ID}`, `+pinmessage {channel} {message ID}",
+                    "value": "This will pin a specific message given the proper parameters.\n**If the message is in a different channel, mention it first**."
+                },
+                {
                     "name": "`+purge {optional channel} {optional user} {amount}`",
                     "value": "This will purge an amount of messages given specific parameter(s).\nYou're able to purge a member's messages if they're still in the guild."
                 },
