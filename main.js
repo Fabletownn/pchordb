@@ -240,6 +240,8 @@ client.on('message', message => {
             client.commands.get('vcdisconnect').execute(message, args);
         } else if (command === 'vcmove' || command === 'movevc') {
             client.commands.get('movevc').execute(message, args);
+        } else if (command === 'pin' || command === 'pinmessage') {
+            client.commands.get('pin').execute(message, args);
         }
     });
 });
