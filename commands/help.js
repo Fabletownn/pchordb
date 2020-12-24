@@ -179,7 +179,7 @@ module.exports = {
                     "value": "This will revoke ADD_REACTIONS permission to specified parameter.\nThis will overwrite in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
                 },
                 {
-                    "name": "`+rride ${user/role}`, `${removeoverride {user/role}`",
+                    "name": "`+rride {user/role}`, `+removeoverride {user/role}`",
                     "value": "This will remove all permission overwrites to specified parameter.\nThis will remove overwrites in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
                 },
                 {
@@ -342,7 +342,7 @@ module.exports = {
             }
         }
 
-        message.channel.send(`**[📨]** Slidin' right into your DMs.`).then(m => m.delete({
+        message.channel.send(`**[📨]** Slidin' right into your DMs.\nIf no DM is sent, ensure "allow direct messages from server members" are on in your Privacy Settings.`).then(m => m.delete({
             timeout: 5000
         }));
 
