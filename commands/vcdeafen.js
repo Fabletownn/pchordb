@@ -35,7 +35,7 @@ module.exports = {
                 member.voice.setDeaf(true);
             });
 
-            return message.channel.send(`**[👂] ${message.author.username}**, successfully **deafened all members** in \`${toChannel.name}\`.`).then(m => m.delete({
+            return message.channel.send(`**[👂] ${message.author.username}**,  currently **deafening all members** in \`${toChannel.name}\`.\n*(For larger VCs, this may take longer due to Discord's ratelimiting)*.`).then(m => m.delete({
                 timeout: 35000
             }));
         } else if (toDeafen) {

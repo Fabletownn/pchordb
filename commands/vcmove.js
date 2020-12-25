@@ -38,7 +38,7 @@ module.exports = {
             member.voice.setChannel(toChannelID);
         });
 
-        message.channel.send(`**[💨] ${message.author.username}**, successfully moved all members from \`${fromVoiceChannel.name}\` to \`${toVoiceChannel.name}\`.`).then(m => m.delete({
+        message.channel.send(`**[💨] ${message.author.username}**, **moving all members** from \`${fromVoiceChannel.name}\` to \`${toVoiceChannel.name}\`.\n*(For larger VCs, this may take longer due to Discord's ratelimiting)*.`).then(m => m.delete({
             timeout: 25000
         }));
     }

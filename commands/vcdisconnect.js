@@ -25,7 +25,7 @@ module.exports = {
             member.voice.kick();
         });
 
-        message.channel.send(`**[🔌] ${message.author.username}**, successfully booted all members out of \`${voiceChannel.name}\`.`).then(m => m.delete({
+        message.channel.send(`**[🔌] ${message.author.username}**, currently **disconnecting all members** out of \`${voiceChannel.name}\`.\n*(For larger VCs, this may take longer due to Discord's ratelimiting)*.`).then(m => m.delete({
             timeout: 25000
         }));
     }
