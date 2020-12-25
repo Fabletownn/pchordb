@@ -21,9 +21,15 @@ module.exports = {
 
         let toChannel = message.guild.channels.cache.get(channelID);
 
-        if (!channelID) return message.channel.send(`**[👂] ${message.author.username}**, please ensure you're providing a voice channel ID first.`)
-        if (!toChannel) return message.channel.send(`**[👂] ${message.author.username}**, that channel wasn't found: ensure the ID given is valid.`)
-        if (toChannel.type !== 'voice') return message.channel.send(`**[👂] ${message.author.username}**, that channel isn't a voice channel: please ensure you're providing a voice channel ID.`)
+        if (!channelID) return message.channel.send(`**[👂] ${message.author.username}**, please ensure you're providing a voice channel ID first.`).then(m => m.delete({
+            timeout: 10000
+        }));
+        if (!toChannel) return message.channel.send(`**[👂] ${message.author.username}**, that channel wasn't found: ensure the ID given is valid.`).then(m => m.delete({
+            timeout: 10000
+        }));
+        if (toChannel.type !== 'voice') return message.channel.send(`**[👂] ${message.author.username}**, that channel isn't a voice channel: please ensure you're providing a voice channel ID.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         if (!toDeafen) {
             toChannel.members.each((member) => {
