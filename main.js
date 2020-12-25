@@ -49,8 +49,8 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     const editEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${newMessage.author}`, true)
         .addField(`Channel`, `${newMessage.channel}`, true)
-        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `There was no content fetched.\nThis was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
-        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `There was no content fetched.\nThis was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
         .setColor('3ba2d4')
         .setFooter(`User ID: ${newMessage.author.id}`)
         .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
@@ -74,7 +74,7 @@ client.on("messageDelete", (deletedMessage) => {
             const deleteAttachmentEmbed = new Discord.MessageEmbed()
                 .addField(`User`, `${deletedMessage.author}`, true)
                 .addField(`Channel`, `${deletedMessage.channel}`, true)
-                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `There was no content fetched.\nThis was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
                 .setColor('ff0000')
                 .setImage(`${attachmentsSent.url}`)
                 .setFooter(`User ID: ${deletedMessage.author.id}`)
@@ -93,7 +93,7 @@ client.on("messageDelete", (deletedMessage) => {
     const deleteEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${deletedMessage.author}`, true)
         .addField(`Channel`, `${deletedMessage.channel}`, true)
-        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `There was no content fetched.`}`)
+        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
         .setColor('ff0000')
         .setFooter(`User ID: ${deletedMessage.author.id}`)
         .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
