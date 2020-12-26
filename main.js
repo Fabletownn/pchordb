@@ -32,7 +32,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    client.user.setActivity(`MERRY CHRISTMAS!`, {
+    client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').members.cache.filter(member => !member.user.bot).size.toLocaleString()} members.`, {
         type: 'PLAYING'
     });
 
