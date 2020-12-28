@@ -275,11 +275,22 @@ client.on('message', message => {
             embed: blacklistEmbed
         }).then(message => message.pin());
     }
+
+    if (message.content.startsWith(`+punishmentlist`) || message.content.startsWith(`+punishlist`)) {
+        const punishEmbed = new Discord.MessageEmbed()
+            .setTitle(`Punishment List`)
+            .setDescription(`**__Minor Toxicity__**: 30m Mute\n**__Toxicity__**: 2h Mute\n**__Bigotry/Racism/Sexism/Homophobia or any other form of Hate Speech__**: Ban\n**__Religious/Political Discussions; Discussion on Sensitive Topics__**: 1h Mute\n\n\n**__Spam/Copypasta; Ghost/Spam Pinging; Spamming Bot Commands__**: 30m Mute\n**__Emoji Spam__**: 15m Mute\n__**Not using channels for their intended purpose (e.g. sharing memes in <#614563325556162572>)**__: 10m Mute\n**__Using Bot Commands in channels other than where intended__**: 10m Mute\n\n**__Nonsense Trolling__**: 90m Mute\n**__Self Promotion__**: 90m Mute\n\n**__Bypassing Punishments (Leaving and Rejoining, using Alts)__**: Ban (both main and alt)\n**__Bypassing/Attempt to Bypass Auto-Moderation__**: 30m Mute\n\n**__Doxx/DDoS Threats/Actions__**: Ban\n**__Sharing Malicious/Phishing Links__**: Ban\n\n__**Skipping Songs for no Reason**__: 30m Mute\n**__Requesting Spam/Troll Songs, or songs long in duration to clog VC__**: 15m Mute\n\n__**Accidental Fortnite Customs Griefing**__: Warn + Suspension from 1 Game\n__**Intentional Fortnite Customs Griefing**__: 3h Mute + 1 Week Suspension from Fortnite Customs\n\n**__Multiple Auto-Moderator Protocols in a Short Duration__**: 30m Mute\n**__Not Listening to Staff Member (e.g. continuing to argue when asked to stop__**: 30m Mute\n**__Impersonation of a Member__**: Strike.\n**__Inappropriate content in PFP/Nickname etc.__**: Strike.\n\n**__Mini-Moderation__**: 30m Mute\n**__Asking for Punishments__**: 30m Mute\n\`\`\` \`\`\`\n1) Multiple punishments can add up. For example: 30m Mute + 90m Mute = 2h Mute\n\n2) This is not 100% required to be followed. A Moderator can hand out a stricter/lenient punishment for an offense if the Moderator feels that it is more appropriate.\n\n3) An offense repeated multiple times can be a stricter punishment every time.\n\n4) It's impossible to list everything in one list. Any action which a Moderator deems unacceptable, even if not listed above, can result in a punishment.`)
+            .setColor('23FF09')
+
+        message.author.send({
+            embed: punishEmbed
+        }).then(message => message.pin());
+    }
 });
 
 client.on('message', message => {
     if (message.content.startsWith(`+help -post`)) {
-        
+
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 
