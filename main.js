@@ -848,35 +848,35 @@ client.on('message', message => {
         i += 1;
         setTimeout(() => {
             messageStored1 = messageStored1.filter(e => e !== message.author.id);
-        }, 3500);
+        }, 1500);
     }
     if (message.content && messageStored4.includes(message.author.id)) {
         i += 1;
         messageStored5.push(message.author.id);
         setTimeout(() => {
             messageStored5 = messageStored5.filter(e => e !== message.author.id);
-        }, 3500);
+        }, 1500);
     } else
     if (message.content && messageStored3.includes(message.author.id)) {
         i += 1;
         messageStored4.push(message.author.id);
         setTimeout(() => {
             messageStored4 = messageStored4.filter(e => e !== message.author.id);
-        }, 3500);
+        }, 1500);
     } else
     if (message.content && messageStored2.includes(message.author.id)) {
         i += 1;
         messageStored3.push(message.author.id);
         setTimeout(() => {
             messageStored3 = messageStored3.filter(e => e !== message.author.id);
-        }, 3500);
+        }, 1500);
     } else
     if (message.content && messageStored1.includes(message.author.id)) {
         i += 1;
         messageStored2.push(message.author.id);
         setTimeout(() => {
             messageStored2 = messageStored2.filter(e => e !== message.author.id);
-        }, 3500);
+        }, 1500);
     }
 });
 
