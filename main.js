@@ -581,6 +581,298 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+    if (message.guild === null) return;
+    if (message.channel.id !== "778502488844140574") return;
+
+    if (message.author.bot) return;
+
+    /*
+
+    Auto Moderation:
+    Guild Invite Prevention
+
+    */
+
+    let messageContentTBS = message.content;
+    let messageContentTB = messageContentTBS.replace(`discord.gg/italkfortnite`, ``);
+    let messageContentT2 = messageContentTB.replace(/[`,*]/g, "");
+
+    let messageArray2 = messageContentT2.split(" ");
+    const messageInvIndex2 = messageArray2.findIndex(detection => detection.includes("discord.gg/"));
+
+    let messageContentT = messageContentTBS.replace(/[0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\?~\s]/g, "");
+    let messageContentW = messageContentT.replace(`discordgg/italkfortnite`, "");
+    let messageContent = messageContentW.replace(`https//`, "");
+
+    let messageArray = messageContentTB.split(" ");
+    const messageInvIndex = messageArray.findIndex(detection => detection.includes("discordgg/"));
+
+    if (messageContent.toLowerCase().includes(`discordgg/`)) {
+        if (message.channel.id !== "778502488844140574") return;
+
+        const inviteLogEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Sharing Server Invites | ${message.author.tag}`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`User`, message.author, true)
+            .addField(`Channel`, message.channel, true)
+            .addField(`Message`, message.content.substr(0, 1024))
+            .addField(`Invite Detected`, `${messageArray[messageInvIndex] || messageArray2[messageInvIndex2] || "Failed to fetch detection."}`)
+            .setFooter(`User ID: ${message.author.id}`)
+            .setColor(`ff0000`)
+
+        const DMEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Message Removed`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`Channel`, message.channel)
+            .addField(`Message`, message.content)
+            .setFooter(`If you think this is a mistake, please contact ModMail.`)
+            .setColor(`eb4bc9`)
+            .setTimestamp()
+
+        message.delete();
+
+        client.channels.cache.get(`793119554259255296`).send({
+            embed: inviteLogEmbed
+        }).then(message.author.send(`**${message.author.username}**, you aren't allowed to share server invites in the I Talk Server.`, {
+            embed: DMEmbed
+        }));
+    }
+
+    /*
+
+    Auto Moderation:
+    Link Prevention
+
+    */
+
+    const urlRegexArray = [/[a-zA-Z]\.com\//g, /[a-zA-Z]\.net\//g, /[a-zA-Z]\.org\//g, /(((https?:\/\/)|(www\.))[^\s]+)/g, /youtu\.be\/[a-zA-Z0-9]/g, /twitch\.tv\//g];
+
+    let messageArray3 = message.content.split(" ");
+    const messageLinkIndex = messageArray3.findIndex(detection => detection.includes(".com"));
+    const messageLinkIndex2 = messageArray3.findIndex(detection => detection.includes(".net"));
+    const messageLinkIndex3 = messageArray3.findIndex(detection => detection.includes(".org"));
+    const messageLinkIndex4 = messageArray3.findIndex(detection => detection.includes("youtu.be"));
+    const messageLinkIndex5 = messageArray3.findIndex(detection => detection.includes("twitch.tv"));
+
+    if (message.channel.id !== "778502488844140574") return;
+
+    if (urlRegexArray.some(detection => message.content.match(detection))) {
+        if (message.channel.id !== "778502488844140574") return;
+
+        const linkLogEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Sharing Links | ${message.author.tag}`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`User`, message.author, true)
+            .addField(`Channel`, message.channel, true)
+            .addField(`Message`, message.content.substr(0, 1024))
+            .addField(`Link Detected`, `${messageArray3[messageLinkIndex] || messageArray3[messageLinkIndex2] || messageArray3[messageLinkIndex3] || messageArray3[messageLinkIndex4] || messageArray3[messageLinkIndex5] || "Failed to fetch detection."}`)
+            .setFooter(`User ID: ${message.author.id}`)
+            .setColor(`ff0000`)
+
+        const DMEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Message Removed`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`Channel`, message.channel)
+            .addField(`Message`, message.content)
+            .setFooter(`If you think this is a mistake, please contact ModMail.`)
+            .setColor(`eb4bc9`)
+            .setTimestamp()
+
+        message.delete();
+
+        client.channels.cache.get(`793119554259255296`).send({
+            embed: linkLogEmbed
+        }).then(message.author.send(`**${message.author.username}**, you aren't allowed to share links in the I Talk Server.`, {
+            embed: DMEmbed
+        }));
+    }
+
+    /*
+
+    Auto Moderation
+    Blacklisted Words
+
+    */
+
+    const wildcardWords = ["nigga", "nigger", "nibba", "nibber", "fag", "f4g", "retard", "coon", "cunt", "nazi", "penis", "vagina", "sex", "porn", "blowjob", "handjob", "nude", "rule34", "r34", "stripper", "bangbro", "brazzer", "faketaxi", "hentai", "naughtyamerica", "onlyfan", "realityking", "xvideo", "milf", "anal", "cum"];
+    const exactWords = [/anal[a-zA-Z]/g, /[a-zA-Z]anal/g, /[a-zA-Z]anal[a-zA-Z]/g, /cum[a-zA-Z]/g, /[a-zA-Z]cum/g, /[a-zA-Z]cum[a-zA-Z]/g];
+
+    let messageArray4 = message.content.split(" ");
+    const messageBlacklistIndex = messageArray4.findIndex(detection => wildcardWords.includes(detection.toLowerCase()));
+
+    if (exactWords.some(safe => message.content.toLowerCase().match(safe))) return;
+
+    if (wildcardWords.some(v => message.content.toLowerCase().includes(v))) {
+        if (message.channel.id !== "778502488844140574") return;
+
+        const blacklistLogEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Blacklisted Words | ${message.author.tag}`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`User`, message.author, true)
+            .addField(`Channel`, message.channel, true)
+            .addField(`Message`, message.content.substr(0, 1024))
+            .addField(`Word Detected`, `${messageArray4[messageBlacklistIndex] || "Failed to fetch detection."}`)
+            .setFooter(`User ID: ${message.author.id}`)
+            .setColor(`ff0000`)
+
+        const DMEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Message Removed`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`Channel`, message.channel)
+            .addField(`Message`, message.content)
+            .setFooter(`If you think this is a mistake, please contact ModMail.`)
+            .setColor(`eb4bc9`)
+            .setTimestamp()
+
+        message.delete();
+
+        client.channels.cache.get(`793119554259255296`).send({
+            embed: blacklistLogEmbed
+        }).then(message.author.send(`**${message.author.username}**, ${messageArray4[messageBlacklistIndex] || `a word you have said`} is blacklisted in the I Talk Server.\nFor a full list of blacklisted words, DM me \`+blacklist\`.`, {
+            embed: DMEmbed
+        }));
+    }
+});
+
+client.on('message', message => {
+    if (message.guild === null) return;
+    if (message.channel.id !== "778502488844140574") return;
+
+    if (message.author.bot) return;
+
+    if (message.content.match(/\n{5}/)) {
+        const spamEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Messages Removed`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`Channel`, message.channel)
+            .addField(`Message Content`, message.content)
+            .setFooter(`If you think this is a mistake, please contact ModMail.`)
+            .setTimestamp()
+            .setColor(`eb4bc9`)
+
+        const spamLogEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Message Spam | ${message.author.tag}`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
+            .addField(`User`, message.author, true)
+            .addField(`Channel`, message.channel, true)
+            .addField(`Message`, message.content)
+            .setFooter(`User ID: ${message.author.id}`)
+            .setColor(`ff0000`)
+
+        message.author.send(`**${message.author.username}**, you've sent a large message with several empty lines. Further spamming may lead to a punishment being handed out.`, {
+            embed: spamEmbed
+        });
+
+        client.channels.cache.get(`793119554259255296`).send({
+            embed: spamLogEmbed
+        });
+
+        return message.delete();
+    }
+
+    if (message.content && messageStored5.includes(message.author.id)) {
+        if (message.channel.id !== "778502488844140574") return;
+
+        let state;
+
+        messageStored1 = messageStored1.filter(e => e !== message.author.id);
+        messageStored2 = messageStored2.filter(e => e !== message.author.id);
+        messageStored3 = messageStored3.filter(e => e !== message.author.id);
+        messageStored4 = messageStored4.filter(e => e !== message.author.id);
+        messageStored5 = messageStored5.filter(e => e !== message.author.id);
+
+        message.channel.messages.fetch({
+            limit: (i / 2 + 1),
+        }).then((messages) => {
+            messages = messages.filter(messages => messages.author.id === message.author.id).array().slice(0, 10);
+            message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+        }).then(() => {
+            var timeEnd = new Date().getTime();
+
+            if (i / 2 < 6 || i === 5) {
+                state = "5";
+            } else {
+                state = "5+";
+            }
+
+            const spamEmbed = new Discord.MessageEmbed()
+                .setAuthor(`Messages Removed`, message.author.displayAvatarURL({
+                    dynamic: true
+                }))
+                .addField(`Channel`, message.channel)
+                .addField(`Recent Message Content`, message.content)
+                .setFooter(`Impacted messages have been removed.`)
+                .setTimestamp()
+                .setColor(`eb4bc9`)
+
+            const spamLogEmbed = new Discord.MessageEmbed()
+                .setAuthor(`Message Spam | ${message.author.tag}`, message.author.displayAvatarURL({
+                    dynamic: true
+                }))
+                .addField(`User`, message.author, true)
+                .addField(`Channel`, message.channel, true)
+                .addField(`Reason of Detection`, `Sent ${state} messages in ${(timeEnd - timeStart)/100} seconds. (NOT ACCURATE ATM)`)
+                .setFooter(`User ID: ${message.author.id}`)
+                .setColor(`ff0000`)
+
+            message.author.send(`**${message.author.username}**, you've sent ${state} messages in ${(timeEnd - timeStart)/100} (not accurate atm- testing) seconds. Further spamming may lead to a punishment being handed out.`, {
+                embed: spamEmbed
+            });
+
+            client.channels.cache.get(`793119554259255296`).send({
+                embed: spamLogEmbed
+            });
+        });
+    }
+    if (message.content) {
+        if (message.channel.id !== "778502488844140574") return;
+
+        messageStored1.push(message.author.id);
+        var timeStart = new Date().getTime();
+        i += 1;
+        setTimeout(() => {
+            messageStored1 = messageStored1.filter(e => e !== message.author.id);
+        }, 3500);
+    }
+    if (message.content && messageStored4.includes(message.author.id)) {
+        i += 1;
+        messageStored5.push(message.author.id);
+        setTimeout(() => {
+            messageStored5 = messageStored5.filter(e => e !== message.author.id);
+        }, 3500);
+    } else
+    if (message.content && messageStored3.includes(message.author.id)) {
+        i += 1;
+        messageStored4.push(message.author.id);
+        setTimeout(() => {
+            messageStored4 = messageStored4.filter(e => e !== message.author.id);
+        }, 3500);
+    } else
+    if (message.content && messageStored2.includes(message.author.id)) {
+        i += 1;
+        messageStored3.push(message.author.id);
+        setTimeout(() => {
+            messageStored3 = messageStored3.filter(e => e !== message.author.id);
+        }, 3500);
+    } else
+    if (message.content && messageStored1.includes(message.author.id)) {
+        i += 1;
+        messageStored2.push(message.author.id);
+        setTimeout(() => {
+            messageStored2 = messageStored2.filter(e => e !== message.author.id);
+        }, 3500);
+    }
+});
+
+client.on('message', message => {
     if (message.channel.id === "685885174025814049" && !message.content.startsWith(`+appeal `)) return message.delete();
 });
 
