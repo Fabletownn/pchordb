@@ -707,7 +707,7 @@ client.on('message', message => {
     */
 
     const wildcardWords = ["nigga", "nigger", "nibba", "nibber", "fag", "f4g", "retard", "coon", "cunt", "nazi", "penis", "vagina", "sex", "porn", "blowjob", "handjob", "nude", "rule34", "r34", "stripper", "bangbro", "brazzer", "faketaxi", "hentai", "naughtyamerica", "onlyfan", "realityking", "xvideo", "milf", "anal", "cum"];
-    const exactWords = [/anal[a-zA-Z]/g, /[a-zA-Z]anal/g, /[a-zA-Z]anal[a-zA-Z]/g, /cum[a-zA-Z]/g, /[a-zA-Z]cum/g, /[a-zA-Z]cum[a-zA-Z]/g];
+    const exactWords = [/anal[a-zA-Z]/g, /[a-zA-Z]anal/g, /[a-zA-Z]anal[a-zA-Z]/g, /cum[a-zA-Z]/g, /[a-zA-Z]cum/g, /[a-zA-Z]cum[a-zA-Z]/g, /coon[a-zA-Z]/g, /[a-zA-Z]coon/g, /[a-zA-Z]coon[a-zA-Z]/g];
 
     let messageArray4 = message.content.split(" ");
     const messageBlacklistIndex = messageArray4.findIndex(detection => wildcardWords.includes(detection.toLowerCase()));
