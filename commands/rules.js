@@ -19,11 +19,11 @@ module.exports = {
                 },
                 {
                     "name": "2) __No Bigotry, Racism, Sexism, Homophobia, Transphobia, Xenophobia, or any other form of Hate Speech.__",
-                    "value": "```\nPeople are diverse, respect their diversity.  Hate speech, using slurs etc. is prohibited. Violation of this rule will lead to a straightaway ban.\n```\n_ _"
+                    "value": "```\nPeople are diverse, respect their diversity.\nHate speech, using slurs etc. is prohibited. Violation of this rule will lead to a straightaway ban.\n```\n_ _"
                 },
                 {
                     "name": "3) __No Discussions on Religion and Politics.__",
-                    "value": "```\nWe respect everyone's beliefs and opinions, however, this server is not the correct place to discuss these.  These topics should not be picked up in chat, even if discussed in a civil manner.\n```\n_ _"
+                    "value": "```\nWe respect everyone's beliefs and opinions, however, this server is not the correct place to discuss these. These topics should not be picked up in chat, even if discussed in a civil manner.\n```\n_ _"
                 },
                 {
                     "name": "4) __No NSFW/NSFL Content/Discussion.__",
@@ -31,7 +31,7 @@ module.exports = {
                 },
                 {
                     "name": "5) __No Spam.__",
-                    "value": "```\nSpam only clogs up chat and doesn't add to the conversation. There are no spam channels in the server. Copypastas, Chain Spam, Emoji Spam, Spamming all caps messages, Ghost/Spam Pinging others,  unnecessary spoiler tags, etc. are not allowed under this rule.\n```\n_ _"
+                    "value": "```\nSpam only clogs up chat and doesn't add to the conversation. There are no spam channels in the server. Copypastas, Chain Spam, Emoji Spam, Spamming all caps messages, Ghost/Spam Pinging others, unnecessary spoiler tags, etc. are not allowed under this rule.\n```\n_ _"
                 },
                 {
                     "name": "6) __No Trolling.__",
@@ -43,7 +43,7 @@ module.exports = {
                 },
                 {
                     "name": "8) __No Buying/Selling/Trading/Begging.__",
-                    "value": "```\nBuying/Selling/Trading/Begging of virtual currency, accounts, redeemable codes, Discord Roles, subscription services etc. is not allowed.  Redeemable codes are allowed to be shared if a staff member allows.\n```\n_ _"
+                    "value": "```\nBuying/Selling/Trading/Begging of virtual currency, accounts, redeemable codes, Discord Roles, subscription services etc. is not allowed. Redeemable codes are allowed to be shared if a staff member allows.\n```\n_ _"
                 },
                 {
                     "name": "9) __No Self Promotion.__",
@@ -51,7 +51,7 @@ module.exports = {
                 },
                 {
                     "name": "10) __No Impersonation.__",
-                    "value": "```\nDon't impersonate server members, server staff, other content creators, or people outside the server.  Impersonation using one's PFP/Username; Changing Nickname, etc. is against the rules.\n```\n_ _"
+                    "value": "```\nDon't impersonate server members, server staff, other content creators, or people outside the server. Impersonation using one's PFP/Username; Changing Nickname, etc. is against the rules.\n```\n_ _"
                 },
                 {
                     "name": "11) __No Bypassing Punishments/Auto-Moderation.__",
@@ -59,7 +59,7 @@ module.exports = {
                 },
                 {
                     "name": "12) __No Alt Accounts.__",
-                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked. `Exception`: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n```\n_ _"
+                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked.\nException: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n```\n_ _"
                 },
                 {
                     "name": "13) __Rules Regarding Sharing Fortnite Leaks.__",
