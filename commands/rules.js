@@ -63,7 +63,7 @@ module.exports = {
                 },
                 {
                     "name": "13) __Rules Regarding Sharing Fortnite Leaks.__",
-                    "value": "```\nSharing leaks such as cosmetic leaks is allowed across the server. \nSharing of In-Game Fortnite Leaks is prohibited across the server. \nSharing false/troll leaks is prohibited. Unsure if a leak is genuine or not? Don't post it.\n```\n_ _"
+                    "value": "```\nSharing leaks such as cosmetic leaks is allowed across the server. \nSharing of In-Game Fortnite Event Leaks is prohibited across the server. \nSharing false/troll leaks is prohibited. Unsure if a leak is genuine or not? Don't post it.\n```\n_ _"
                 },
                 {
                     "name": "14) __Use Channels for their Intended Purpose.__",
