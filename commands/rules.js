@@ -59,10 +59,10 @@ module.exports = {
                 },
                 {
                     "name": "12) __No Alt Accounts.__",
-                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked. `Exception`: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n```"
+                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked. `Exception`: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n_ _```"
                 },
                 {
-                    "name": "13) __Rules regarding sharing Fortnite Leaks.__",
+                    "name": "13) __Rules Regarding Sharing Fortnite Leaks.__",
                     "value": "```\nSharing leaks such as cosmetic leaks is allowed across the server. \nSharing of In-Game Fortnite Leaks is prohibited across the server. \nSharing false/troll leaks is prohibited. Unsure if a leak is genuine or not? Don't post it.\n```\n_ _"
                 },
                 {
@@ -70,7 +70,7 @@ module.exports = {
                     "value": "```\nCertain channels are intended for specific purposes. Each channel's topic contains info on what the channel is for, role permissions for the channel, and channel rules (if any). Before using a channel, we have assumed that you have read this info.\n```\n_ _"
                 },
                 {
-                    "name": "15) __Listen to Staff, and no Mini -Moderation.__",
+                    "name": "15) __Listen to Staff, and no Mini-Moderation.__",
                     "value": "```\nActions deemed unacceptable by a staff member - listed in the rules or not - are liable to punishment. If a staff member asks you to stop, stop immediately. Furthermore, you must not mini-mod and enforce rules as if you are a staff member.\t\n\n```\n_ _"
                 },
                 {
