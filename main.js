@@ -634,7 +634,7 @@ client.on('message', message => {
                 dynamic: true
             }))
             .addField(`Channel`, message.channel)
-            .addField(`Message`, message.content)
+            .addField(`Message`, message.content.substr(0, 1024))
             .setFooter(`If you think this is a mistake, please contact ModMail.`)
             .setColor(`eb4bc9`)
             .setTimestamp()
@@ -685,7 +685,7 @@ client.on('message', message => {
                 dynamic: true
             }))
             .addField(`Channel`, message.channel)
-            .addField(`Message`, message.content)
+            .addField(`Message`, message.content.substr(0, 1024))
             .setFooter(`If you think this is a mistake, please contact ModMail.`)
             .setColor(`eb4bc9`)
             .setTimestamp()
@@ -733,7 +733,7 @@ client.on('message', message => {
                 dynamic: true
             }))
             .addField(`Channel`, message.channel)
-            .addField(`Message`, message.content)
+            .addField(`Message`, message.content.substr(0, 1024))
             .setFooter(`If you think this is a mistake, please contact ModMail.`)
             .setColor(`eb4bc9`)
             .setTimestamp()
@@ -760,7 +760,7 @@ client.on('message', message => {
                 dynamic: true
             }))
             .addField(`Channel`, message.channel)
-            .addField(`Message Content`, message.content)
+            .addField(`Message Content`, message.content.substr(0, 1024))
             .setFooter(`If you think this is a mistake, please contact ModMail.`)
             .setTimestamp()
             .setColor(`eb4bc9`)
@@ -771,7 +771,7 @@ client.on('message', message => {
             }))
             .addField(`User`, message.author, true)
             .addField(`Channel`, message.channel, true)
-            .addField(`Message`, message.content)
+            .addField(`Message`, message.content.substr(0, 1024))
             .setFooter(`User ID: ${message.author.id}`)
             .setColor(`ff0000`)
 
@@ -816,7 +816,7 @@ client.on('message', message => {
                     dynamic: true
                 }))
                 .addField(`Channel`, message.channel)
-                .addField(`Recent Message Content`, message.content)
+                .addField(`Recent Message Content`, message.content.substr(0, 1024))
                 .setFooter(`Impacted messages have been removed.`)
                 .setTimestamp()
                 .setColor(`eb4bc9`)
