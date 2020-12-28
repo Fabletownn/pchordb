@@ -59,7 +59,7 @@ module.exports = {
                 },
                 {
                     "name": "12) __No Alt Accounts.__",
-                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked. `Exception`: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n_ _```"
+                    "value": "```\nAlts can allow for bypassing of punishments, which is why they are not allowed in the server. Alt accounts found will be kicked. `Exception`: In case you cannot access your main account, you are allowed to use an alt. You must give prior information to staff regarding this.\n```\n_ _"
                 },
                 {
                     "name": "13) __Rules Regarding Sharing Fortnite Leaks.__",
