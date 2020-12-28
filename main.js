@@ -23,6 +23,14 @@ mongoose.connect(process.env.mongoPass, {
     useUnifiedTopology: true,
 });
 
+let messageStored1 = [];
+let messageStored2 = [];
+let messageStored3 = [];
+let messageStored4 = [];
+let messageStored5 = [];
+
+let i = 0;
+
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
