@@ -798,7 +798,7 @@ client.on('message', message => {
         messageStored5 = messageStored5.filter(e => e !== message.author.id);
 
         message.channel.messages.fetch({
-            limit: (i / 2 + 1),
+            limit: 5,
         }).then((messages) => {
             messages = messages.filter(messages => messages.author.id === message.author.id).array().slice(0, 10);
             message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
