@@ -18,7 +18,7 @@ module.exports = {
                     "inline": true
                 },
                 {
-                    "name": "I Talk Christmas Trailers",
+                    "name": "I Talk Christmas Trailers 2020",
                     "value": "<@241687257931710467> & <@303164850736070666>",
                     "inline": true
                 },
