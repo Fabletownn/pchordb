@@ -179,6 +179,10 @@ module.exports = {
                     "value": "This will provide the command description for the specified name.\n**Please refrain from using alias names**."
                 },
                 {
+                    "name": "`+help -post`",
+                    "value": "This will post all member help embeds/menus in chat (General and Fun).\nThe regular `+help` command remains **unchanged**."
+                },
+                {
                     "name": "`+greact {user/role}`",
                     "value": "This will grant ADD_REACTIONS permission to specified parameter.\nThis will overwrite in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
                 },

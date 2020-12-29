@@ -4,13 +4,13 @@ const client = new Discord.Client();
 module.exports = {
     name: 'colorlock',
     description: '[MODERATION] Will send the entire list of embeds regarding Color Lock in chat. Please use at your own discretion: it is **LONG**. <[setPrefix]colorlock>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-        const colorEmbed1 = {
+        const colorEmbed = {
             "title": "Color Lock",
             "description": ":tada: Congratulations on unlocking Color Lock! :tada:\n\nYou can choose between any of the following 40 colors to be your name color on the server. Simply click on the corresponding reaction to get the color!\nFeel free to change your role at anytime by simply clicking a different reaction!",
             "color": 2359049,
@@ -26,8 +26,9 @@ module.exports = {
                 }
             ]
         }
+        
         message.channel.send({
-            embed: colorEmbed1
+            embed: colorEmbed
         });
     }
 }

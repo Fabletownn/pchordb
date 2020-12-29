@@ -258,6 +258,8 @@ client.on('message', message => {
             client.commands.get('botpfp').execute(message, args);
         } else if (command === 'autopublish' || command === 'apublish') {
             client.commands.get('autopublish').execute(message, args);
+        } else if (command === 'credits') {
+            client.commands.get('credits').execute(message, args);
         }
     });
 });
