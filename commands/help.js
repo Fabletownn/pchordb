@@ -351,7 +351,7 @@ module.exports = {
         }
 
         if (message.content.includes(`-post`)) {
-            if (message.member.roles.cache.has(moderatorR.id)) return;
+            if (!message.member.roles.cache.has(moderatorR.id)) return;
 
             message.channel.send({ embed: generalEmbed });
             message.channel.send({ embed: funEmbed });
