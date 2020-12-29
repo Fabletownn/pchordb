@@ -32,12 +32,10 @@ module.exports = {
             }, (err, data) => {
                 if (err) return console.log(err)
                 if (!data) {
-
                     const newPUBData = new PUB({
                         guildID: message.guild.id,
                         channelList: ` ${toChannel.id}`
                     });
-
                     newPUBData.save().catch(err => console.log(err)).then(() => {
                         const publishEmbed = new Discord.MessageEmbed()
                             .setAuthor(`Auto Publishing Channels | Add`, client.user.displayAvatarURL())

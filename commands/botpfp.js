@@ -18,18 +18,18 @@ module.exports = {
         let givenXP = message.content.split(" ")[1];
 
         const nXPEmbed = new Discord.MessageEmbed()
-            .setAuthor(`Server Settings`, 'https://cdn.discordapp.com/attachments/752099729130782760/793029555618185226/EqH9dyHXMAEJdIG.png')
+            .setAuthor(`Server Settings`, 'https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png')
             .addField(`Role Color`, `#c020cf (Border)`, true)
-            .addField(`Server & Bot Icons`, `[View image here](https://cdn.discordapp.com/attachments/752099729130782760/793029555618185226/EqH9dyHXMAEJdIG.png).`, true)
-            .setThumbnail('https://cdn.discordapp.com/attachments/752099729130782760/793029555618185226/EqH9dyHXMAEJdIG.png')
+            .addField(`Server & Bot Icons`, `[View image here](https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png).`, true)
+            .setThumbnail('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png')
             .setFooter(`These changes may take a while to appear. Reload your client to get the effect sooner.`)
             .setColor('c020cf')
 
         const dXPEmbed = new Discord.MessageEmbed()
-            .setAuthor(`Server Settings`, 'https://cdn.discordapp.com/attachments/752099729130782760/793029587419660308/EqH9R-xXEAAgim7.png')
+            .setAuthor(`Server Settings`, 'https://cdn.discordapp.com/attachments/730960122221690954/793177650810191932/PWRVer.png')
             .addField(`Role Color`, `#90e75c (Border)`, true)
-            .addField(`Server & Bot Icons`, `[View image here](https://cdn.discordapp.com/attachments/752099729130782760/793029587419660308/EqH9R-xXEAAgim7.png).`, true)
-            .setThumbnail('https://cdn.discordapp.com/attachments/752099729130782760/793029587419660308/EqH9R-xXEAAgim7.png')
+            .addField(`Server & Bot Icons`, `[View image here](https://cdn.discordapp.com/attachments/730960122221690954/793177650810191932/PWRVer.png).`, true)
+            .setThumbnail('https://cdn.discordapp.com/attachments/730960122221690954/793177650810191932/PWRVer.png')
             .setFooter(`These changes may take a while to appear. Reload your client to get the effect sooner.`)
             .setColor('90e75c')
 
@@ -46,13 +46,13 @@ module.exports = {
         if (givenXP === "1") {
             cooldownVar = Date.now();
 
-            message.guild.setIcon('https://cdn.discordapp.com/attachments/752099729130782760/793029555618185226/EqH9dyHXMAEJdIG.png');
-            client.user.setAvatar('https://cdn.discordapp.com/attachments/752099729130782760/793029555618185226/EqH9dyHXMAEJdIG.png');
+            message.guild.setIcon('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png');
+            client.user.setAvatar('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png');
             client.user.setActivity(`with ${client.guilds.cache.get('694073431380983839').members.cache.filter(member => !member.user.bot).size.toLocaleString()} members.`, {
                 type: 'PLAYING'
             });
 
-            message.guild.roles.cache.get('776807540540833803').edit({
+            message.guild.roles.cache.get('681109347790487563').edit({
                 color: "#c020cf"
             }).then(() => {
                 return message.channel.send(`**[⚡] ${message.author.username}**, all x2 XP settings have been reverted! The server's settings have been adjusted accordingly. <:statsChordSixString:788870454035087370>`, {
@@ -64,13 +64,13 @@ module.exports = {
         } else if (givenXP === "2") {
             cooldownVar = Date.now();
 
-            message.guild.setIcon('https://cdn.discordapp.com/attachments/752099729130782760/793029587419660308/EqH9R-xXEAAgim7.png');
-            client.user.setAvatar('https://cdn.discordapp.com/attachments/752099729130782760/793029587419660308/EqH9R-xXEAAgim7.png');
+            message.guild.setIcon('https://cdn.discordapp.com/attachments/730960122221690954/793177650810191932/PWRVer.png');
+            client.user.setAvatar('https://cdn.discordapp.com/attachments/730960122221690954/793177650810191932/PWRVer.png');
             client.user.setActivity(`MEE6 x2 XP is active in I Talk Server!`, {
                 type: 'PLAYING'
             });
 
-            message.guild.roles.cache.get('776807540540833803').edit({
+            message.guild.roles.cache.get('681109347790487563').edit({
                 color: "#90e75c"
             }).then(() => {
                 return message.channel.send(`**[⚡] ${message.author.username}**, x2 XP server settings have been activated! The server's settings have been adjusted accordingly. <:budgetgreen:793031187294584875>`, {
