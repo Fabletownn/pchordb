@@ -355,10 +355,6 @@ module.exports = {
 
             message.channel.send({ embed: generalEmbed });
             message.channel.send({ embed: funEmbed });
-            message.channel.send({ embed: modEmbed });
-            message.channel.send({ embed: gtbEmbed });
-            message.channel.send({ embed: appealEmbed });
-            message.channel.send({ embed: infoEmbed });
 
             return;
         }

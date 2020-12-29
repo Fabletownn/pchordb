@@ -284,7 +284,7 @@ client.on('message', message => {
     if (message.content.startsWith(`+blacklist`) || message.content.startsWith(`+blocklist`)) {
         const blacklistEmbed = new Discord.MessageEmbed()
             .setTitle(`Blacklisted Words`)
-            .setDescription(`**${message.author.username}**, the following words are banned in the I Talk Server.\n\`\`\`\nnigga, nigger, nibba, nibber, fag, f4g, retard, coon, cunt, nazi, penis, vagina, porn, blowjob, handjob, nude, rule34, r34, stripper, bangbro, brazzer, faketaxi, hentai, naughtyamerica, realityking, xvideo milf, anal, cum\n\`\`\`\n- Sending a message which contains any of these words will be auto-deleted by the Auto-Moderation.\n- Attempting to bypass this auto-moderation filter may lead to a punishment being handed out.`)
+            .setDescription(`**${message.author.username}**, the following words are banned in the I Talk Server.\n\`\`\`\nnigga, nigger, nibba, nibber, fag, f4g, retard, coon, cunt, nazi, penis, vagina, porn, blowjob, handjob, nude, rule34, r34, stripper, bangbro, brazzer, faketaxi, hentai, naughtyamerica, realityking, xvideo, milf, anal, cum\n\`\`\`\n- Sending a message which contains any of these words will be auto-deleted by the Auto-Moderation.\n- Attempting to bypass this auto-moderation filter may lead to a punishment being handed out.`)
             .setColor('23FF09')
 
         message.author.send({
