@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const mongoose = require('mongoose');
 
 const PRE = require('./models/prefix.js');
+const PUB = require('./models/publish.js');
+
 const fs = require("fs");
 
 var express = require('express');
@@ -252,6 +254,10 @@ client.on('message', message => {
             client.commands.get('pin').execute(message, args);
         } else if (command === 'rules') {
             client.commands.get('rules').execute(message, args);
+        } else if (command === 'botpfp' || command === 'botxp') {
+            client.commands.get('botpfp').execute(message, args);
+        } else if (command === 'autopublish' || command === 'apublish') {
+            client.commands.get('autopublish').execute(message, args);
         }
     });
 });
@@ -299,293 +305,20 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith(`+help -post`)) {
+    if (message.guild === null) return;
+    PUB.findOne({
+        guildID: message.guild.id
+    }, (err, data) => {
+        if (err) return console.log(err);
+        if (!data) return;
 
-        let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
-
-        const generalEmbed = {
-            "title": "🌍 General Commands",
-            "description": "All specified commands will only work in the <#615594300108963867> channel.\nExclusions include: `+assistance`, `+hotline`.\n``` ```",
-            "color": 2359049,
-            "fields": [{
-                    "name": "`+ahelp`",
-                    "value": "This will provide a list of all commands at once (6+ embeds)."
-                },
-                {
-                    "name": "`+help`",
-                    "value": "This will provide you this exact command list."
-                },
-                {
-                    "name": "`+assistance`",
-                    "value": "This will call for Staff Member assistance **(only use in urgent situations)**."
-                },
-                {
-                    "name": "`+ping`",
-                    "value": "This will provide the Bot and API Latency."
-                },
-                {
-                    "name": "`+hotline`, `+suicidehotline`",
-                    "value": "This will provide Suicide Prevention Hotlines for those in need."
-                },
-                {
-                    "name": "`+userinfo {user}`, `+userinformation {user}`",
-                    "value": "This will provide the user information of the member mentioned.\nMention a member to get their information, and don't to get yours."
-                },
-                {
-                    "name": "`+socials`, `+medias`",
-                    "value": "This will provide I Talk Fortnite's social media links."
-                },
-                {
-                    "name": "`+staff`",
-                    "value": "This will showcase the I Talk Server's Staff Team."
-                }
-            ],
+        if (data.channelList.includes(message.channel.id)) {
+            if (message.channel.type !== "news") return;
+            message.crosspost();
+        } else {
+            return;
         }
-
-        const funEmbed = {
-            "title": "🎲 Fun Commands",
-            "description": "All specified commands will only work in the <#615594300108963867> channel.\n```\n \n```",
-            "color": 356087,
-            "fields": [{
-                    "name": "`+8ball {question}`, `+eball {question}`",
-                    "value": "This will give a standard 8Ball prediction to the specified question."
-                },
-                {
-                    "name": "`+coinflip`, `+flipcoin`",
-                    "value": "This will flip a coin and allow you to give the bets for each side."
-                },
-                {
-                    "name": "`+connect4 {user}`, `+c4 {user}`",
-                    "value": "This will allow you to play Connect 4 with another member."
-                },
-                {
-                    "name": "`+jumble`, `+jumblewords`, `+jumblegame`",
-                    "value": "A minigame to unjumble the jumbled word."
-                },
-                {
-                    "name": "`+rps {user}`",
-                    "value": "This will allow you to play Rock Paper Scissors with another member."
-                },
-                {
-                    "name": "`+pfp {optional user}`, `+avatar {optional user}`, `+av {optional user}`",
-                    "value": "This will get the preview of a member's profile picture in an enlarged image format.\nMention a member to get their profile picture, and don't to get yours."
-                },
-                {
-                    "name": "`+trigger {user}`, `+triggered {user}`",
-                    "value": "This will generate a triggered profile picture of the mentioned member.\nMention a user to get their triggered profile picture, and don't to get yours."
-                },
-                {
-                    "name": "`+catfact`",
-                    "value": "Learn a new random cat fact!"
-                },
-                {
-                    "name": "`+dogfact`",
-                    "value": "Learn a new random dog fact!"
-                },
-                {
-                    "name": "`+fortnitestats {EPIC Games Account Name} {platform}`",
-                    "value": "This will provide Fortnite Statistics from the EPIC account's username."
-                },
-                {
-                    "name": "`+weather {location}`",
-                    "value": "This will provide the weather of the specified location."
-                },
-                {
-                    "name": "`+itflove`, `+love`, `+luv`",
-                    "value": "This will add 1 ITF Love to the counter!"
-                },
-                {
-                    "name": "`+peaceandlove`",
-                    "value": "☮️ and ❤️!"
-                },
-                {
-                    "name": "`+no`",
-                    "value": "No."
-                },
-                {
-                    "name": "`+jean`",
-                    "value": "Jenna go back to modding!"
-                }
-            ],
-        }
-
-        const modEmbed = {
-            "title": "🔨 Moderator Enforced Commands",
-            "description": "All specified commands will work anywhere in the server.\nThis command menu will not be provided to regular members.\n``` ```",
-            "color": 16711680,
-            "fields": [{
-                    "name": "`+prefix {prefix}`, `+setprefix {prefix}`",
-                    "value": "This will set the prefix for Power Chord (guild specific).\n**This command is restricted to Administrators only**."
-                },
-                {
-                    "name": "`+description {command name}`, `+desc {command name}`",
-                    "value": "This will provide the command description for the specified name.\n**Please refrain from using alias names**."
-                },
-                {
-                    "name": "`+greact {user/role}`",
-                    "value": "This will grant ADD_REACTIONS permission to specified parameter.\nThis will overwrite in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
-                },
-                {
-                    "name": "`+rreact {user/role}`",
-                    "value": "This will revoke ADD_REACTIONS permission to specified parameter.\nThis will overwrite in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
-                },
-                {
-                    "name": "`+rride {user/role}`, `+removeoverride {user/role}`",
-                    "value": "This will remove all permission overwrites to specified parameter.\nThis will remove overwrites in all channels under:\n- I TALK GENERAL\n- I TALK FORTNITE"
-                },
-                {
-                    "name": "`+announce`",
-                    "value": "This will prompt instructions for announcing messages.\nYou may announce with embeds, plain text, or both given details."
-                },
-                {
-                    "name": "`+poll`",
-                    "value": "This will prompt instructions to create a poll."
-                },
-                {
-                    "name": "`+eventstart`",
-                    "value": "This will do the following **in order**:\n- Open Events Voice Channel for MEE6 Level 30+.\n- Announce a new event.\n- After 15 minutes, open the channel up to MEE6 Level 10+."
-                },
-                {
-                    "name": "`+vote {message ID}`, `+reactvote {message ID}`",
-                    "value": "This will add Power Chord upvote and downvote emotes under specified message given the message ID."
-                },
-                {
-                    "name": "`+edit {channel} {message ID} {edited content}`",
-                    "value": "This will edit one of Power Chord's messages given the ID."
-                },
-                {
-                    "name": "`+purge {optional channel} {optional user} {amount}`",
-                    "value": "This will purge an amount of messages given specific parameter(s).\nYou're able to purge a member's messages if they're still in the guild."
-                },
-                {
-                    "name": "`+slowmode {channel} {amount}`",
-                    "value": "This will enable (or disable) slowmode given specific parameters.\nSlowmode will be disabled if given a `0` argument for \"amount.\""
-                },
-                {
-                    "name": "`+vcmute {user}`, `vcm {user}`",
-                    "value": "This will mute a member or a channel given specified parameters.\nMention a member to mute them specifically, and don't to mute the entire voice channel."
-                },
-                {
-                    "name": "`+vcunmute {user}`, `+vcun {user}`",
-                    "value": "This will unmute a member or a channel given specified parameters.\nMention a member to unmute them specifically, and don't to unmute the entire voice channel."
-                },
-                {
-                    "name": "`+vcdeafen {user}`, `+vcdeaf {user}`",
-                    "value": "This will deafen a member or a channel given specified parameters.\nMention a member to deafen them specifically, and don't to deafen the entire voice channel."
-                },
-                {
-                    "name": "`+vcundeafen {user}`, `+vcundeaf {user}`",
-                    "value": "This will undeafen a member or a channel given specified parameters.\nMention a member to undeafen them specifically, and don't to undeafen the entire voice channel."
-                },
-                {
-                    "name": "`+vcdisconnect {channel ID}`, `+disconnect {channel ID}`",
-                    "value": "This will boot everybody out of a voice channel given the ID."
-                },
-                {
-                    "name": "`+vcmove {from channel ID} {to channel ID}`",
-                    "value": "This will move everybody from one voice channel to another.\n**Please provide valid voice channel IDs for both channels**."
-                }
-            ],
-        }
-
-        const gtbEmbed = {
-            "title": "🎮 Guess The Blank Commands",
-            "description": "These commands are able to be used anywhere in the server.\nAll specified commands are prefixed with `gtb-` for organization.\n``` ```",
-            "color": null,
-            "fields": [{
-                    "name": "`+gtb-start`, `+gtb-startgame`",
-                    "value": "This will start a Guess The Blank minigame.\nThis minigame will use the provided cosmetics & answers.\n**Do not start a game without providing cosmetics beforehand**."
-                },
-                {
-                    "name": "`+gtb-end`, `+gtb-endgame`",
-                    "value": "This will send the Guess The Blank leaderboard in chat, wipe it, and reward all members with 3+ points the \"Guess The Blank Champion\" role."
-                },
-                {
-                    "name": "`+gtb-addpoints {user} {amount}`, `+gtb-ap {user} {amount}`",
-                    "value": "This will grant the specified amount of points to the mentioned member."
-                },
-                {
-                    "name": "`+gtb-removepoints {user} {amount}`, `+gtb-rp {user} {amount}`",
-                    "value": "This will revoke the specified amount of points from the mentioned member."
-                },
-                {
-                    "name": "`+gtb-display`, `+gtb-displaycosmetics`",
-                    "value": "This will display all current provided cosmetics that will be used to initiate a Guess The Blank game.\nThis will provide the answers to the images, and the question #."
-                },
-                {
-                    "name": "`+gtb-leaderboard`, `+gtb-lb`",
-                    "value": "This will display the current Guess The Blank points leaderboard."
-                },
-                {
-                    "name": "`+gtb-addcosmetic {question #} {question answer} {image}`",
-                    "value": "This will add the cosmetic using specified question number, image, and answer.\n**Answers are not case-sensitive, and will be marked correct if so**."
-                }
-            ],
-        }
-
-        const appealEmbed = {
-            "title": "📜 Appeal Commands",
-            "description": "All specified commands will only work in I Talk Server Appeals.\n``` ```",
-            "color": 16768662,
-            "fields": [{
-                    "name": "`+appeal {appeal message}`",
-                    "value": "This will allow a member to provide an appeal message.\nThis will be used for their ban appeal process."
-                },
-                {
-                    "name": "`+accept {user}`, `acceptappeal {user}`, `appealaccept {user}`",
-                    "value": "This will accept the mentioned member's appeal, DM them an invite to the I Talk Server, and kick them from the Appeals guild."
-                },
-                {
-                    "name": "`+deny {user}`, `denyappeal {user}`, `appealdeny {user}`",
-                    "value": "This will deny the mentioned member's appeal, DM them informing of such, and ban them from the Appeals guild."
-                }
-            ],
-        }
-
-        const infoEmbed = {
-            "title": "ℹ️ Bot Information",
-            "description": "Power Chord was created specifically for  the I Talk Server.\n``` ```",
-            "color": 15420361,
-            "fields": [{
-                    "name": "Creators",
-                    "value": "This bot is a collaboration between <@148807073948368896> and <@528759471514845194>.\nThe original Power Chord bot was created by <@148807073948368896>."
-                },
-                {
-                    "name": "Information",
-                    "value": "If a regular member runs a Moderator Enforced command, the bot will not respond. Likewise for all incorrectly used commands.\n\nAll commands will self-destruct after some time, and most bot responses are deleted after a short time period as well."
-                },
-                {
-                    "name": "Contact & Repository",
-                    "value": "If you have any issues, concerns, __or__ feature suggestions, do not hesitate to contact either creators. We'd love to hear it.\n\nThe Power Chord bot has a GitHub Repository!\nThe code in the repository is what's used to run the bot on it's host.\n\nYou can access the source code [here](https://github.com/Fabletownn/pchordb).\n**Do not share this link with any member outside of the staff team**."
-                }
-            ],
-            "author": {
-                "name": "Power Chord Help Menu",
-                "icon_url": "https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg"
-            },
-        }
-
-        return message.channel.send({
-            embed: generalEmbed
-        }).then(() => {
-            message.channel.send({
-                embed: funEmbed
-            });
-            message.channel.send({
-                embed: modEmbed
-            });
-            message.channel.send({
-                embed: gtbEmbed
-            });
-            message.channel.send({
-                embed: appealEmbed
-            });
-            message.channel.send({
-                embed: infoEmbed
-            });
-        });
-    }
+    });
 });
 
 client.on('message', message => {

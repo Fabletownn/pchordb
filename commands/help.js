@@ -167,6 +167,14 @@ module.exports = {
                     "value": "This will set the prefix for Power Chord (guild specific).\n**This command is restricted to Administrators only**."
                 },
                 {
+                    "name": "`+autopublish {add/remove/view/clear} {channel}`",
+                    "value": "This will add or remove the mentioned channel to the Auto Publisher system.\nViewing or clearing the list will not require a channel parameter."
+                },
+                {
+                    "name": "`+botpfp {1/2}`, `+botxp {1/2}`",
+                    "value": "This will change the following:\n- bot's profile picture\n- bot's status\n- bot's role color\n- server icon.\n\nThe `1` parameter will set the listed items to normal.\nThe `2` parameter will set the listed items to x2 XP (or charged) mode.\n**This command is restricted for Administrator use only**."
+                },
+                {
                     "name": "`+description {command name}`, `+desc {command name}`",
                     "value": "This will provide the command description for the specified name.\n**Please refrain from using alias names**."
                 },
@@ -340,6 +348,19 @@ module.exports = {
             "footer": {
                 "text": "Page 7 of 7"
             }
+        }
+
+        if (message.content.includes(`-post`)) {
+            if (message.member.roles.cache.has(moderatorR.id)) return;
+
+            message.channel.send({ embed: generalEmbed });
+            message.channel.send({ embed: funEmbed });
+            message.channel.send({ embed: modEmbed });
+            message.channel.send({ embed: gtbEmbed });
+            message.channel.send({ embed: appealEmbed });
+            message.channel.send({ embed: infoEmbed });
+
+            return;
         }
 
         message.channel.send(`**[📨]** Slidin' right into your DMs.\nIf no DM is sent, ensure "allow direct messages from server members" are on in your Privacy Settings.`).then(m => m.delete({
