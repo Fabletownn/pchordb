@@ -48,7 +48,7 @@ module.exports = {
 
             message.guild.setIcon('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png');
             client.user.setAvatar('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png');
-            client.user.setActivity(`with ${client.guilds.cache.get('694073431380983839').members.cache.filter(member => !member.user.bot).size.toLocaleString()} members.`, {
+            client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').members.cache.filter(member => !member.user.bot).size.toLocaleString()} members.`, {
                 type: 'PLAYING'
             });
 
