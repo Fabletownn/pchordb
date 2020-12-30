@@ -11,6 +11,9 @@ module.exports = {
         var anonymousMode;
         var attachment;
 
+        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        if (!message.member.roles.cache.has(moderatorR.id)) return;
+
         message.channel.send(`**[📬] ${message.author.username}**, who would you like to privately message?\nEither mention a member, or provide a member's ID. **All messages are logged**.`).then(msg => {
             const userQuestion = m => m.author.id === message.author.id
             message.channel.awaitMessages(userQuestion, {
