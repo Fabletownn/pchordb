@@ -15,7 +15,7 @@ module.exports = {
             .addField(`Owner`, `<@152597531824619521>`, true)
             .addField(`Administrators`, `<@340877462047031296>\n<@110215616891207680>\n<@550384455613677571>`, true)
             .addField(`Moderators`, `<@148807073948368896>\n<@99299332494200832>\n<@328246480387440642>\n<@276443499690459146>\n<@467879214771863563>\n<@484351467554340874>`, true)
-            .setImage("https://images-ext-2.discordapp.net/external/j0A1e-jilOSPL5904vjRmXopKIFRz6pGwxxg1Ly6yN0/%3Fformat%3Djpg%26name%3Dlarge/https/pbs.twimg.com/media/EmgbvAtXIAAIvM1?width=1204&height=677")
+            .setImage("https://cdn.discordapp.com/attachments/793520414143676417/793523674711719977/ServerBanner.png")
             .setColor('eb4bc9')
 
         message.channel.send({ embed: staffEmbed });
