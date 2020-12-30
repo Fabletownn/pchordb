@@ -40,8 +40,8 @@ module.exports = {
                     dynamic: true
                 }))
                 .setDescription(`Message successfully edited (embeds not impacted).`)
-                .addField(`Before Edited Content(s)`, toEdit.content)
-                .addField(`After Edited Content(s)`, editContent)
+                .addField(`Before Edited Content(s)`, toEdit.content || `No content.`)
+                .addField(`After Edited Content(s)`, editContent || `No content (?).`)
                 .setFooter(`Content(s) edited by ${message.author.tag}`)
                 .setTimestamp()
                 .setColor(`eb4bc9`)
