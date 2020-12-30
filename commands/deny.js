@@ -35,7 +35,9 @@ module.exports = {
             }));
 
             deniedMember.send(`**[${new Date().toLocaleTimeString()}] ${appealDenialMention.username}**, your Ban Appeal has been **rejected**. You have been banned from both the **I Talk Server** and the **Appeals Server**.\n\nAs a result, you can no longer appeal or be unbanned from the **I Talk Server**.`);
-            deniedMember.ban(`Appeal was denied by ${message.author.tag}.`).then(() => {
+            deniedMember.ban({
+                reason: `Appeal was denied by ${message.author.tag}.`
+            }).then(() => {
                 message.channel.send(`**[📜] ${message.author.username}**, successfully denied the appeal. Proper action has been taken.`).then(m => m.delete({
                     timeout: 10000
                 }));
