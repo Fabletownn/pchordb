@@ -354,11 +354,129 @@ module.exports = {
             }
         }
 
+        const generalEmbedPost = {
+            "title": "🌍 General Commands",
+            "description": "All specified commands will only work in the <#615594300108963867> channel.\nExclusions include: `+assistance`, `+hotline`.\n``` ```",
+            "color": 2359049,
+            "fields": [{
+                    "name": "`+ahelp`",
+                    "value": "This will provide a list of all commands at once (6+ embeds)."
+                },
+                {
+                    "name": "`+help`",
+                    "value": "This will provide you this exact command list."
+                },
+                {
+                    "name": "`+assistance`",
+                    "value": "This will call for Staff Member assistance **(only use in urgent situations)**."
+                },
+                {
+                    "name": "`+ping`",
+                    "value": "This will provide the Bot and API Latency."
+                },
+                {
+                    "name": "`+hotline`, `+suicidehotline`",
+                    "value": "This will provide Suicide Prevention Hotlines for those in need."
+                },
+                {
+                    "name": "`+userinfo {user}`, `+userinformation {user}`",
+                    "value": "This will provide the user information of the member mentioned.\nMention a member to get their information, and don't to get yours."
+                },
+                {
+                    "name": "`+socials`, `+medias`",
+                    "value": "This will provide I Talk Fortnite's social media links."
+                },
+                {
+                    "name": "`+staff`",
+                    "value": "This will showcase the I Talk Server's Staff Team."
+                }
+            ],
+            "author": {
+                "name": "Power Chord Help Menu",
+                "icon_url": "https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg"
+            }
+        }
+
+        const funEmbedPost = {
+            "title": "🎲 Fun Commands",
+            "description": "All specified commands will only work in the <#615594300108963867> channel.\n```\n \n```",
+            "color": 356087,
+            "fields": [{
+                    "name": "`+8ball {question}`, `+eball {question}`",
+                    "value": "This will give a standard 8Ball prediction to the specified question."
+                },
+                {
+                    "name": "`+coinflip`, `+flipcoin`",
+                    "value": "This will flip a coin and allow you to give the bets for each side."
+                },
+                {
+                    "name": "`+connect4 {user}`, `+c4 {user}`",
+                    "value": "This will allow you to play Connect 4 with another member."
+                },
+                {
+                    "name": "`+jumble`, `+jumblewords`, `+jumblegame`",
+                    "value": "A minigame to unjumble the jumbled word."
+                },
+                {
+                    "name": "`+rps {user}`",
+                    "value": "This will allow you to play Rock Paper Scissors with another member."
+                },
+                {
+                    "name": "`+pfp {optional user}`, `+avatar {optional user}`, `+av {optional user}`",
+                    "value": "This will get the preview of a member's profile picture in an enlarged image format.\nMention a member to get their profile picture, and don't to get yours."
+                },
+                {
+                    "name": "`+trigger {user}`, `+triggered {user}`",
+                    "value": "This will generate a triggered profile picture of the mentioned member.\nMention a user to get their triggered profile picture, and don't to get yours."
+                },
+                {
+                    "name": "`+catfact`",
+                    "value": "Learn a new random cat fact!"
+                },
+                {
+                    "name": "`+dogfact`",
+                    "value": "Learn a new random dog fact!"
+                },
+                {
+                    "name": "`+fortnitestats {EPIC Games Account Name} {platform}`",
+                    "value": "This will provide Fortnite Statistics from the EPIC account's username."
+                },
+                {
+                    "name": "`+weather {location}`",
+                    "value": "This will provide the weather of the specified location."
+                },
+                {
+                    "name": "`+itflove`, `+love`, `+luv`",
+                    "value": "This will add 1 ITF Love to the counter!"
+                },
+                {
+                    "name": "`+peaceandlove`",
+                    "value": "☮️ and ❤️!"
+                },
+                {
+                    "name": "`+no`",
+                    "value": "No."
+                },
+                {
+                    "name": "`+jean`",
+                    "value": "Jenna go back to modding!"
+                }
+            ],
+            "author": {
+                "name": "Power Chord Help Menu",
+                "icon_url": "https://cdn.discordapp.com/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg"
+            }
+        }
+
         if (message.content.includes(`-post`)) {
             if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-            message.channel.send({ embed: generalEmbed });
-            message.channel.send({ embed: funEmbed });
+            message.channel.send({
+                embed: generalEmbedPost
+            });
+            message.channel.send({
+                embed: funEmbedPost
+            });
 
             return;
         }
