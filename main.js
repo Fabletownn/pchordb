@@ -260,6 +260,8 @@ client.on('message', message => {
             client.commands.get('autopublish').execute(message, args);
         } else if (command === 'credits') {
             client.commands.get('credits').execute(message, args);
+        } else if (command === 'appealsserver') {
+            client.commands.get('appealsserver').execute(message, args);
         }
     });
 });
