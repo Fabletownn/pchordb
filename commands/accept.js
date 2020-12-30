@@ -27,9 +27,7 @@ module.exports = {
             }));
 
             acceptedMember.send(`**${appealAcceptionMention.username}**, your Ban Appeal has been accepted, and you have been unbanned from the **I Talk Server**.\nMake sure to read the rules upon re-joining to prevent further punishments.\n\nPermanent Invite Link: https://discord.gg/italkfortnite`).then(() => {
-                acceptedMember.kick({
-                    reason: `Appeal was accepted by ${message.author.tag}.`
-                }).then(() => {
+                acceptedMember.kick(`Appeal was accepted by ${message.author.tag}.`).then(() => {
                     message.channel.send(`**[📜] ${message.author.username}**, successfully accepted **${appealAcceptionMention.tag}**'s appeal!`).then(m => m.delete({
                         timeout: 10000
                     }));
