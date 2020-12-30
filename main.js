@@ -261,7 +261,7 @@ client.on('message', message => {
         } else if (command === 'credits') {
             client.commands.get('credits').execute(message, args);
         } else if (command === 'appealsserver') {
-            client.commands.get('appealsserver').execute(message, args);
+            client.commands.get('appealsrules').execute(message, args);
         }
     });
 });
