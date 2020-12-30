@@ -254,6 +254,8 @@ client.on('message', message => {
             client.commands.get('credits').execute(message, args);
         } else if (command === 'say') {
             client.commands.get('say').execute(message, args);
+        } else if (command === 'dm' || command === 'dmuser') {
+            client.commands.get('dm').execute(message, args);
         }
     });
 });

@@ -203,6 +203,10 @@ module.exports = {
                     "value": "This will prompt instructions to create a poll."
                 },
                 {
+                    "name": "`+dm`, `+dmuser`",
+                    "value": "This will prompt instructions to privately message a member.\nAll messages sent are **logged**."
+                },
+                {
                     "name": "`+eventstart`",
                     "value": "This will do the following **in order**:\n- Open Events Voice Channel for MEE6 Level 30+.\n- Announce a new event.\n- After 15 minutes, open the channel up to MEE6 Level 10+."
                 },
