@@ -25,14 +25,6 @@ mongoose.connect(process.env.mongoPass, {
     useUnifiedTopology: true,
 });
 
-let messageStored1 = [];
-let messageStored2 = [];
-let messageStored3 = [];
-let messageStored4 = [];
-let messageStored5 = [];
-
-let i = 0;
-
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
@@ -260,6 +252,8 @@ client.on('message', message => {
             client.commands.get('autopublish').execute(message, args);
         } else if (command === 'credits') {
             client.commands.get('credits').execute(message, args);
+        } else if (command === 'say') {
+            client.commands.get('say').execute(message, args);
         }
     });
 });

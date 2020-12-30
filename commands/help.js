@@ -207,6 +207,10 @@ module.exports = {
                     "value": "This will do the following **in order**:\n- Open Events Voice Channel for MEE6 Level 30+.\n- Announce a new event.\n- After 15 minutes, open the channel up to MEE6 Level 10+."
                 },
                 {
+                    "name": "`+say {channel} {message} ({attachment})`",
+                    "value": "This will simply make Power Chord say the message you give it, given the proper parameters (channel, message).\nThis command includes attachments, and is easier for simple text instead of `+announce`."
+                },
+                {
                     "name": "`+vote {message ID}`, `+reactvote {message ID}`",
                     "value": "This will add Power Chord upvote and downvote emotes under specified message given the message ID."
                 },
