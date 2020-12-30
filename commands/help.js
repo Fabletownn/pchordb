@@ -172,7 +172,7 @@ module.exports = {
                 },
                 {
                     "name": "`+botpfp {1/2}`, `+botxp {1/2}`",
-                    "value": "This will change the following:\n- bot's profile picture\n- bot's status\n- bot's role color\n- server icon.\n\nThe `1` parameter will set the listed items to normal.\nThe `2` parameter will set the listed items to x2 XP (or charged) mode.\n**This command is restricted for Administrator use only**."
+                    "value": "This will change the following:\n- bot's profile picture\n- bot's status\n- bot's role color\n- server icon.\nThe **1** parameter will set the listed items to normal.\nThe **2** parameter will set the listed items to x2 XP (or charged) mode.\n**This command is restricted for Administrator use only**."
                 },
                 {
                     "name": "`+description {command name}`, `+desc {command name}`",
@@ -204,7 +204,7 @@ module.exports = {
                 },
                 {
                     "name": "`+dm`, `+dmuser`",
-                    "value": "This will prompt instructions to privately message a member.\nAll messages sent are **logged**."
+                    "value": "This will prompt instructions to privately message a member.\n**All messages sent are logged**."
                 },
                 {
                     "name": "`+eventstart`",
@@ -212,7 +212,7 @@ module.exports = {
                 },
                 {
                     "name": "`+say {channel} {message} ({attachment})`",
-                    "value": "This will simply make Power Chord say the message you give it, given the proper parameters (channel, message).\nThis command includes attachments, and is easier for simple text instead of `+announce`."
+                    "value": "This will simply make Power Chord say any message, given proper parameters.\nThis command includes attachments, and is easier for simple text instead of '+announce'."
                 },
                 {
                     "name": "`+vote {message ID}`, `+reactvote {message ID}`",
