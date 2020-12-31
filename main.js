@@ -147,8 +147,10 @@ client.on('message', message => {
 
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
 
-        if (message.guild.id === "614193406838571085") {
-            if (!message.member.roles.cache.has(moderatorR.id) && message.author.id !== "528759471514845194") return;
+        if (message.guild.id === "614193406838571085" && message.content.startsWith(commandPrefix)) {
+            if (!message.content.startsWith(`+test`)) {
+                if (!message.member.roles.cache.has(moderatorR.id)) return;
+            }
         }
 
         const args = message.content.slice(commandPrefix.length).split(/ +/);
@@ -278,6 +280,8 @@ client.on('message', message => {
             client.commands.get('dm').execute(message, args);
         } else if (command === 'welcome' || command === 'welcomemessage') {
             client.commands.get('welcome').execute(message, args);
+        } else if (command === 'test') {
+            client.commands.get('test').execute(message, args);
         }
     });
 });
