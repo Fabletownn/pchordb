@@ -4,7 +4,6 @@ const client = new Discord.Client();
 const mongoose = require('mongoose');
 
 const PRE = require('./models/prefix.js');
-const PUB = require('./models/publish.js');
 const WEL = require('./models/welcome.js');
 
 const fs = require("fs");
