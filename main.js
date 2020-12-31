@@ -270,8 +270,6 @@ client.on('message', message => {
             client.commands.get('rules').execute(message, args);
         } else if (command === 'botpfp' || command === 'botxp') {
             client.commands.get('botpfp').execute(message, args);
-        } else if (command === 'autopublish' || command === 'apublish') {
-            client.commands.get('autopublish').execute(message, args);
         } else if (command === 'credits') {
             client.commands.get('credits').execute(message, args);
         } else if (command === 'say') {
@@ -327,20 +325,8 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.guild === null) return;
-    PUB.findOne({
-        guildID: message.guild.id
-    }, (err, data) => {
-        if (err) return console.log(err);
-        if (!data) return;
-
-        if (data.channelList.includes(message.channel.id)) {
-            if (message.channel.type !== "news") return;
-            message.crosspost();
-        } else {
-            return;
-        }
-    });
+    if (message.channel.type !== "news") return;
+    message.crosspost();
 });
 
 client.on('message', message => {
