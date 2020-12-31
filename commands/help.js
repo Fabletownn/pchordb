@@ -171,6 +171,10 @@ module.exports = {
                     "value": "This will add or remove the mentioned channel to the Auto Publisher system.\nViewing or clearing the list will not require a channel parameter."
                 },
                 {
+                    "name": "`+welcome ({clear/show}) {welcome message}`",
+                    "value": "This will either set up or update the current message used to welcome new members.\nVariables able to be used are as follows:\n- {user}\n- {user.tag}\n- {user.id}\n- {guild.name}\n- {member.count}\nAll messages are sent directly to <#614193679778709517>."
+                },
+                {
                     "name": "`+botpfp {1/2}`, `+botxp {1/2}`",
                     "value": "This will change the following:\n- bot's profile picture\n- bot's status\n- bot's role color\n- server icon.\nThe **1** parameter will set the listed items to normal.\nThe **2** parameter will set the listed items to x2 XP (or charged) mode.\n**This command is restricted for Administrator use only**."
                 },

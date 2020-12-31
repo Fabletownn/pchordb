@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const PRE = require('./models/prefix.js');
 const PUB = require('./models/publish.js');
+const WEL = require('./models/welcome.js');
 
 const fs = require("fs");
 
@@ -39,6 +40,25 @@ client.once('ready', () => {
     });
 
     console.log(`[${new Date().toLocaleTimeString()}] ${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
+});
+
+client.on('guildMemberAdd', member => {
+    WEL.findOne({
+        guildID: member.guild.id,
+    }, (err, data) => {
+        if (err) return console.log(err);
+        if (!data) return console.log(`A new member joined, however, no welcome message is currently set up.`);
+
+        if (data) {
+            let welcomeMessageUserTag = data.welcomeMessage.replace(`{user.tag}`, client.users.cache.get(member.id).tag);
+            let welcomeMessageUser = welcomeMessageUserTag.replace(`{user}`, member);
+            let welcomeMessageUserID = welcomeMessageUser.replace(`{user.id}`, member.id);
+            let welcomeMessageGuildNameA = welcomeMessageUserID.replace(`{guild.name}`, member.guild.name);
+            let welcomeMessageContent = welcomeMessageGuildNameA.replace(`{member.count}`, client.guilds.cache.get(member.guild.id).members.cache.filter(member => !member.user.bot).size.toLocaleString());
+
+            client.channels.cache.get('614193679778709517').send(welcomeMessageContent);
+        }
+    });
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
@@ -256,6 +276,8 @@ client.on('message', message => {
             client.commands.get('say').execute(message, args);
         } else if (command === 'dm' || command === 'dmuser') {
             client.commands.get('dm').execute(message, args);
+        } else if (command === 'welcome' || command === 'welcomemessage') {
+            client.commands.get('welcome').execute(message, args);
         }
     });
 });
