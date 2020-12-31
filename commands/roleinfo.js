@@ -79,8 +79,31 @@ module.exports = {
 
         const roleEmbed6 = {
             "title": "Event Winner Roles",
-            "description": "<@&708383263927828542> - Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame.",
-            "color": 2359049
+            "color": 2359049,
+            "fields": [{
+                    "name": "Winners",
+                    "value": "<@&708699777226899507>\n<@&728185818510000180>\n<@&790619688086011905>\n<@&771395161129353248>",
+                    "inline": true
+                },
+                {
+                    "name": "Runner Ups",
+                    "value": "<@&708699987088900097>\n<@&728185982662475786>\n<@&790619720549793812>",
+                    "inline": true
+                },
+                {
+                    "name": "2nd Runner Ups",
+                    "value": "<@&708700113148575837>\n<@&728186069123727390>\n<@&790619723242536961>",
+                    "inline": true
+                },
+                {
+                    "name": "Tournament Qualifiers",
+                    "value": "<@&706196460437241916>\n<@&728185556051165274>\n<@&789590423492493403>"
+                },
+                {
+                    "name": "General Event Roles",
+                    "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
+                }
+            ]
         }
 
         const roleEmbed7 = {
@@ -109,9 +132,11 @@ module.exports = {
                 })).then(() => {
                     message.channel.send({
                         embed: roleEmbed5
-                    }).then(message.channel.send({
-                        embed: roleEmbed6
-                    }));
+                    }).then(() => {
+                        message.channel.send({
+                            embed: roleEmbed6
+                        });
+                    })
                 });
             });
         });
