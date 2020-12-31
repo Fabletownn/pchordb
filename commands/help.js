@@ -167,10 +167,6 @@ module.exports = {
                     "value": "This will set the prefix for Power Chord (guild specific).\n**This command is restricted to Administrators only**."
                 },
                 {
-                    "name": "`+autopublish {add/remove/view/clear} {channel}`",
-                    "value": "This will add or remove the mentioned channel to the Auto Publisher system.\nViewing or clearing the list will not require a channel parameter."
-                },
-                {
                     "name": "`+welcome ({clear/show}) {welcome message}`",
                     "value": "This will either set up or update the current message used to welcome new members.\nVariables able to be used are as follows:\n- {user}\n- {user.tag}\n- {user.id}\n- {guild.name}\n- {member.count}\nAll messages are sent directly to <#614193679778709517>."
                 },
