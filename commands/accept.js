@@ -33,7 +33,7 @@ module.exports = {
                         .setAuthor(`Appeal Accepted | ${message.author.tag}`, message.author.displayAvatarURL({
                             dynamic: true
                         }))
-                        .addField(`User`, appealAcceptionMention.tag, true)
+                        .addField(`User`, `${appealAcceptionMention.tag} (${appealAcceptionMention})`, true)
                         .addField(`Time Accepted`, `${new Date().toLocaleTimeString()} UTC\n${new Date()}`)
                         .setThumbnail(appealAcceptionMention.displayAvatarURL({
                             dynamic: true

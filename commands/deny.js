@@ -36,7 +36,7 @@ module.exports = {
             }));
 
             deniedMember.send(`**${appealDenialMention.username}**, your Ban Appeal has been **rejected**. You have been banned from both the **I Talk Server** and the **Appeals Server**.\n\nAs a result, you can no longer appeal or be unbanned from the **I Talk Server**.`);
-            
+
             deniedMember.ban({
                 reason: `Appeal was denied by ${message.author.tag}.`
             }).then(() => {
@@ -44,7 +44,7 @@ module.exports = {
                     .setAuthor(`Appeal Denied | ${message.author.tag}`, message.author.displayAvatarURL({
                         dynamic: true
                     }))
-                    .addField(`User`, appealDenialMention.tag, true)
+                    .addField(`User`, `${appealDenialMention.tag} (${appealDenialMention})`, true)
                     .addField(`Time Denied`, `${new Date().toLocaleTimeString()} UTC\n${new Date()}`)
                     .setThumbnail(appealDenialMention.displayAvatarURL({
                         dynamic: true
