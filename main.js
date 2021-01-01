@@ -55,7 +55,13 @@ client.on('guildMemberAdd', member => {
             let welcomeMessageGuildNameA = welcomeMessageUserID.replace(`{guild.name}`, member.guild.name);
             let welcomeMessageContent = welcomeMessageGuildNameA.replace(`{member.count}`, client.guilds.cache.get(member.guild.id).members.cache.filter(member => !member.user.bot).size.toLocaleString());
 
-            client.channels.cache.get('614193679778709517').send(welcomeMessageContent);
+            if (member.guild.id === "614193406838571085") {
+                client.channels.cache.get('614193679778709517').send(welcomeMessageContent);
+            } else if (member.guild.id === "685876599199236173") {
+                client.channels.cache.get('685889245570924580').send(welcomeMessageContent);
+            } else {
+                return console.log(`Couldn't send message! Channel not found.`)
+            }
         }
     });
 });
