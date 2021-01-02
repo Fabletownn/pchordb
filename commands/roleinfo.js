@@ -82,7 +82,7 @@ module.exports = {
             "color": 2359049,
             "fields": [{
                     "name": "Winners",
-                    "value": "<@&708699777226899507>\n<@&728185818510000180>\n<@&790619688086011905>\n<@&771395161129353248>",
+                    "value": "<@&708699777226899507>\n<@&728185818510000180>\n<@&790619688086011905>",
                     "inline": true
                 },
                 {
@@ -101,7 +101,7 @@ module.exports = {
                 },
                 {
                     "name": "General Event Roles",
-                    "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
+                    "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&771395161129353248> - Winners of Fortnite Customs during the I Talk Christmas Event.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
                 }
             ]
         }
