@@ -60,7 +60,7 @@ module.exports = {
                 },
                 {
                     "name": "> __**How do I get a specific Color role? How do I level up under MEE6?**__",
-                    "value": "You gain 15-25 XP per minute for talking in a text channel. You get a new Level role every 5 levels. \nAs for color roles, at MEE6 Level 40 you unlock <#711435929537085450>, where you can choose between 20 different colors."
+                    "value": "You gain 15-25 XP per minute for talking in a text channel. You get a new Level role every 5 levels. \nAs for color roles, at MEE6 Level 40 you unlock <#711435929537085450>, where you can choose between 40 different colors."
                 },
                 {
                     "name": "> __**Can I appeal a Warn/Mute/Kick/Ban?**__",
