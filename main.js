@@ -287,8 +287,8 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.guild === null || message.author.bot) return;
-    if (message.content === `+assistancetest`) {
-        message.channel.send(`(pretend role 1) (pretend role 2)\nAssistance has been requested!\n`);
+    if (message.content === `+assistance`) { // TEMPORARY
+        message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!\n`);
     }
 });
 
