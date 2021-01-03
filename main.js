@@ -161,9 +161,7 @@ client.on('message', message => {
         const args = message.content.slice(commandPrefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
 
-        if (command === 'assistance') {
-            client.commands.get('assistance').execute(message, args);
-        } else if (command === 'vote' || command === 'reactvote') {
+        if (command === 'vote' || command === 'reactvote') {
             client.commands.get('vote').execute(message, args);
         } else if (command === 'poll') {
             client.commands.get('poll').execute(message, args);
@@ -285,6 +283,13 @@ client.on('message', message => {
             client.commands.get('welcome').execute(message, args);
         }
     });
+});
+
+client.on('message', message => {
+    if (message.guild === null || message.author.bot) return;
+    if (message.content === `+assistancetest`) {
+        message.channel.send(`(pretend role 1) (pretend role 2)\nAssistance has been requested!\n`);
+    }
 });
 
 client.on('message', message => {
