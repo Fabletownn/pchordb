@@ -122,21 +122,25 @@ module.exports = {
         }).then(() => {
             message.channel.send({
                 embed: roleEmbed2
-            }).then(message.channel.send({
-                embed: roleEmbed3
-            })).then(() => {
+            }).then(() => {
                 message.channel.send({
-                    embed: roleEmbed4
-                }).then(message.channel.send({
-                    embed: roleEmbed7
-                })).then(() => {
+                    embed: roleEmbed3
+                }).then(() => {
                     message.channel.send({
-                        embed: roleEmbed5
+                        embed: roleEmbed4
                     }).then(() => {
                         message.channel.send({
-                            embed: roleEmbed6
+                            embed: roleEmbed7
+                        }).then(() => {
+                            message.channel.send({
+                                embed: roleEmbed5
+                            }).then(() => {
+                                message.channel.send({
+                                    embed: roleEmbed6
+                                });
+                            });
                         });
-                    })
+                    });
                 });
             });
         });

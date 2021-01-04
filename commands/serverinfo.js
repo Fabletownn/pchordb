@@ -98,9 +98,11 @@ module.exports = {
         }).then(() => {
             message.channel.send({
                 embed: serverEmbed2
-            }).then(message.channel.send({
-                embed: serverEmbed3
-            }));
+            }).then(() => {
+                message.channel.send({
+                    embed: serverEmbed3
+                });
+            });
         });
     }
 }
