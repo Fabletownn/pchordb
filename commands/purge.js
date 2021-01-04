@@ -10,8 +10,6 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
-        if (message.author.id === "467879214771863563" && message.content.startsWith(`+purge`)) return message.channel.send(`__NO__MEGALUL`)
-
         let channelTo = message.mentions.channels.first();
         let memberToA = message.mentions.users.first();
         let memberTo = message.guild.member(memberToA);
