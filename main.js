@@ -281,6 +281,8 @@ client.on('message', message => {
             client.commands.get('dm').execute(message, args);
         } else if (command === 'welcome' || command === 'welcomemessage') {
             client.commands.get('welcome').execute(message, args);
+        } else if (command === 'serverspotlight' || command === 'spotlight') {
+            client.commands.get('spotlight').execute(message, args);
         }
     });
 });
