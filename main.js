@@ -69,6 +69,8 @@ client.on('guildMemberAdd', member => {
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
+    if (client.users.cache.get(oldState.member.id).bot) return;
+    if (client.users.cache.get(newState.member.id).bot) return;
 
     var oldVoiceChannel = oldState.channel;
     var newVoiceChannel = newState.channel;
@@ -76,8 +78,10 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (!oldVoiceChannel && !newVoiceChannel) return;
 
     if (oldState.channel !== null && newState.channel !== null) {
-        const voiceChannel = newState.guild.channels.cache.get(oldVoiceChannel.id);
-        const voiceChannel2 = newState.guild.channels.cache.get(newVoiceChannel.id);
+        const voiceChannel2 = newState.guild.channels.cache.get(oldVoiceChannel.id);
+        const voiceChannel = newState.guild.channels.cache.get(newVoiceChannel.id);
+
+        console.log(`fr: ${oldVoiceChannel.id}\nto: ${newVoiceChannel}`)
 
         if (oldVoiceChannel.id !== "774362075618869270" || oldVoiceChannel.id !== "614484127722373120" || oldVoiceChannel.id !== "757301388840665248" || oldVoiceChannel.id !== "664593167420489730" || oldVoiceChannel.id !== "744952618878763088") return;
         if (newVoiceChannel.id !== "774362075618869270" || newVoiceChannel.id !== "614484127722373120" || newVoiceChannel.id !== "757301388840665248" || newVoiceChannel.id !== "664593167420489730" || newVoiceChannel.id !== "744952618878763088") return;
