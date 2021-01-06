@@ -75,8 +75,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
 
-    if (!oldUserChannel === undefined && !newUserChannel !== undefined) return;
-    if (!newUserChannel === undefined) return;
+    if (!oldVoiceChannel === undefined && !newVoiceChannel !== undefined) return;
+    if (!newVoiceChannel === undefined) return;
 
     if (oldState.channel !== null && newState.channel === null) {
         const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
