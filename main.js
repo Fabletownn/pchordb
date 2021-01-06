@@ -298,7 +298,7 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.guild === null || message.author.bot) return;
 
-    if (message.content.includes(`<@!550384455613677571>`)) {
+    if (message.content.includes(`<@!550384455613677571>`) || message.content.includes(`<@550384455613677571>`)) {
         ANG.findOne({
             guildID: message.guild.id
         }, (err, data) => {
@@ -315,7 +315,7 @@ client.on('message', message => {
                 data.angelPings += 1;
 
                 data.save().catch(err => console.log(err));
-                message.channel.send(`You pinged Angel! <:yCrystalHeart:778318624032555039>\n**Angel Ping Count**: ${data.angelPings}`);
+                message.channel.send(`You pinged Angel! <:yCrystalHeart:778318624032555039>\n**Angel Ping Count**: ${data.angelPings.toLocaleString()}`);
             }
         });
     }
