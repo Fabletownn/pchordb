@@ -75,11 +75,11 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var oldVoiceChannel = oldState.channel;
     var newVoiceChannel = newState.channel;
 
-    if (!oldVoiceChannel && !newVoiceChannel) return;
+    if (!oldVoiceChannel && !newVoiceChannel) return console.log(`Was neither old or new.`)
 
     if (oldState.channel !== null && newState.channel !== null) {
-        const voiceChannel2 = newState.guild.channels.cache.get(oldVoiceChannel.id);
         const voiceChannel = newState.guild.channels.cache.get(newVoiceChannel.id);
+        const voiceChannel2 = oldState.guild.channels.cache.get(oldVoiceChannel.id);
 
         if (oldVoiceChannel.id !== "774362075618869270" || oldVoiceChannel.id !== "614484127722373120" || oldVoiceChannel.id !== "757301388840665248" || oldVoiceChannel.id !== "664593167420489730" || oldVoiceChannel.id !== "744952618878763088") return;
         if (newVoiceChannel.id !== "774362075618869270" || newVoiceChannel.id !== "614484127722373120" || newVoiceChannel.id !== "757301388840665248" || newVoiceChannel.id !== "664593167420489730" || newVoiceChannel.id !== "744952618878763088") return;
@@ -94,6 +94,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         } catch (err) {
             return console.log(`No override found. Ignoring! [Moving VC]`)
         }
+        return;
     }
 
     if (oldVoiceChannel === null && newVoiceChannel !== null) {
@@ -187,7 +188,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                     return console.log(`No override found. Ignoring.`)
                 }
             } else {
-                return;
+                return console.log(`Return functions returned nothing.`)
             }
         }
 });
