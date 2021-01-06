@@ -76,8 +76,11 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (!oldVoiceChannel && !newVoiceChannel) return;
 
     if (oldState.channel !== null && newState.channel !== null) {
-        const voiceChannel = newState.guild.channels.cache.get(oldState.channelID);
-        const voiceChannel2 = newState.guild.channels.cache.get(newState.channelID);
+        const voiceChannel = newState.guild.channels.cache.get(oldVoiceChannel.id);
+        const voiceChannel2 = newState.guild.channels.cache.get(newVoiceChannel.id);
+
+        if (oldVoiceChannel.id !== "774362075618869270" || oldVoiceChannel.id !== "614484127722373120" || oldVoiceChannel.id !== "757301388840665248" || oldVoiceChannel.id !== "664593167420489730" || oldVoiceChannel.id !== "744952618878763088") return;
+        if (newVoiceChannel.id !== "774362075618869270" || newVoiceChannel.id !== "614484127722373120" || newVoiceChannel.id !== "757301388840665248" || newVoiceChannel.id !== "664593167420489730" || newVoiceChannel.id !== "744952618878763088") return;
 
         try {
             voiceChannel.updateOverwrite(newState.member.id, {
@@ -93,7 +96,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         } catch (err) {
             return console.log(`No override found. Ignoring!`)
         }
-    } else
+    }
 
     if (oldVoiceChannel === null && newVoiceChannel !== null) {
         if (newVoiceChannel.id === "774362075618869270") {
@@ -102,7 +105,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
             }, `User joined Voice Channel.`);
-    
+
             client.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the General Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
@@ -112,7 +115,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
             }, `User joined Voice Channel.`);
-    
+
             client.channels.cache.get('777842963954270228').send(`${newState.member}, use this channel for text communication for the Music 1 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
                 timeout: 10000
             }));
@@ -122,7 +125,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
             }, `User joined Voice Channel.`);
-    
+
             client.channels.cache.get('777842977375780894').send(`${newState.member}, use this channel for text communication for the Music 2 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
                 timeout: 10000
             }));
@@ -132,7 +135,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
             }, `User joined Voice Channel.`);
-    
+
             client.channels.cache.get('794626473734570025').send(`${newState.member}, use this channel for text communication for the Livestream Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
@@ -142,7 +145,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
             }, `User joined Voice Channel.`);
-    
+
             client.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
