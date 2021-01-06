@@ -67,7 +67,7 @@ client.on('guildMemberAdd', member => {
     });
 });
 
-client.on('voiceStateUpdate', (oldState, newState) => {
+/*client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
     if (client.users.cache.get(oldState.member.id).bot) return;
     if (client.users.cache.get(newState.member.id).bot) return;
@@ -171,7 +171,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 return console.log(`Return functions returned nothing.`)
             }
         }
-});
+});*/
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
