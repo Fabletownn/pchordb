@@ -74,45 +74,9 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newVoiceChannel = newState.channel;
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
-    if (!oldVoiceChannel === null && !newVoiceChannel === null && ((oldVoiceChannel !== null && newVoiceChannel !== null) === false)) return;
-    
-    if (oldState.channel !== null && newState.channel === null) {
-        const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
-        const voiceChannel2 = newState.guild.channels.cache.get('777842963954270228');
-        const voiceChannel3 = newState.guild.channels.cache.get('777842977375780894');
-        const voiceChannel4 = newState.guild.channels.cache.get('794626473734570025');
-        const voiceChannel5 = newState.guild.channels.cache.get('789057097508716555');
-
-        try {
-            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-        } catch (err) {
-            return console.log(`No override found. Ignoring.`)
-        }
-        try {
-            voiceChannel2.permissionOverwrites.get(newState.member.id).delete();
-        } catch (err) {
-            return console.log(`No override found. Ignoring.`)
-        }
-        try {
-            voiceChannel3.permissionOverwrites.get(newState.member.id).delete();
-        } catch (err) {
-            return console.log(`No override found. Ignoring.`)
-        }
-        try {
-            voiceChannel4.permissionOverwrites.get(newState.member.id).delete();
-        } catch (err) {
-            return console.log(`No override found. Ignoring.`)
-        }
-        try {
-            voiceChannel5.permissionOverwrites.get(newState.member.id).delete();
-        } catch (err) {
-            return console.log(`No override found. Ignoring.`)
-        }
-    }
-
     if (!newVoiceChannel) return;
 
-    if (newVoiceChannel.id === "774362075618869270") {
+    if (newState.channel && oldState.channelID === "774362075618869270") {
         const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
