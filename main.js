@@ -75,8 +75,9 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
     if (!newVoiceChannel) return;
+    
 
-    if (newState.channel && oldState.channelID === "774362075618869270") {
+    if ((oldUserChannel === undefined && newUserChannel !== undefined) && newState.channelID === "774362075618869270") {
         const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
