@@ -81,8 +81,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         const voiceChannel = newState.guild.channels.cache.get(newVoiceChannel.id);
         const voiceChannel2 = oldState.guild.channels.cache.get(oldVoiceChannel.id);
 
-        if (oldVoiceChannel.id !== "774362075618869270" || oldVoiceChannel.id !== "614484127722373120" || oldVoiceChannel.id !== "757301388840665248" || oldVoiceChannel.id !== "664593167420489730" || oldVoiceChannel.id !== "744952618878763088") return console.log(`Wasn't a valid ID!`);
-        if (newVoiceChannel.id !== "774362075618869270" || newVoiceChannel.id !== "614484127722373120" || newVoiceChannel.id !== "757301388840665248" || newVoiceChannel.id !== "664593167420489730" || newVoiceChannel.id !== "744952618878763088") return console.log(`Wasn't a valid ID!`);
+        if (oldVoiceChannel.id !== "774362075618869270" && oldVoiceChannel.id !== "614484127722373120" && oldVoiceChannel.id !== "757301388840665248" && oldVoiceChannel.id !== "664593167420489730" && oldVoiceChannel.id !== "744952618878763088") return console.log(`Wasn't a valid ID!`);
+        if (newVoiceChannel.id !== "774362075618869270" && newVoiceChannel.id !== "614484127722373120" && newVoiceChannel.id !== "757301388840665248" && newVoiceChannel.id !== "664593167420489730" && newVoiceChannel.id !== "744952618878763088") return console.log(`Wasn't a valid ID!`);
 
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
