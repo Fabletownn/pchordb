@@ -72,8 +72,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     var oldVoiceChannel = oldState.channel;
     var newVoiceChannel = newState.channel;
-    var oldUserChannel = oldState.member.voice.channel
-    var newUserChannel = newState.member.voice.channel
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
 
@@ -111,7 +109,9 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     }
 
-    if (oldUserChannel === undefined && newUserChannel !== undefined) {
+    if (!newVoiceChannel) return console.log(`no new vc`)
+
+    if (oldState.channel === null && newState.channel !== null) {
         if (newVoiceChannel.id === "774362075618869270") {
             const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
             voiceChannel.updateOverwrite(newState.member.id, {
@@ -167,45 +167,45 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     }
 
-    if (newUserChannel === undefined) {
-        if (oldVoiceChannel.id === "774362075618869270") {
-            const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return console.log(`No override found. Ignoring.`)
-            }
-        } else if (oldVoiceChannel.id === "614484127722373120") {
-            const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return console.log(`No override found. Ignoring.`)
-            }
-        } else if (oldVoiceChannel.id === "757301388840665248") {
-            const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return console.log(`No override found. Ignoring.`)
-            }
-        } else if (oldVoiceChannel.id === "664593167420489730") {
-            const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return console.log(`No override found. Ignoring.`)
-            }
-        } else if (oldVoiceChannel.id === "744952618878763088") {
-            const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return console.log(`No override found. Ignoring.`)
-            }
-        } else {
-            return;
+    if (!oldVoiceChannel) return console.log(`no old vc`)
+
+    if (oldVoiceChannel.id === "774362075618869270") {
+        const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
         }
+    } else if (oldVoiceChannel.id === "614484127722373120") {
+        const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+    } else if (oldVoiceChannel.id === "757301388840665248") {
+        const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+    } else if (oldVoiceChannel.id === "664593167420489730") {
+        const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+    } else if (oldVoiceChannel.id === "744952618878763088") {
+        const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+    } else {
+        return;
     }
 });
 
