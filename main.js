@@ -77,7 +77,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 
     if (!oldVoiceChannel && !newVoiceChannel) return console.log(`Was neither old or new.`)
 
-    if (oldState.channel !== null && newState.channel !== null) {
+    if (oldVoiceChannel.id && newVoiceChannel.id) {
         const voiceChannel = newState.guild.channels.cache.get(newVoiceChannel.id);
         const voiceChannel2 = oldState.guild.channels.cache.get(oldVoiceChannel.id);
 
