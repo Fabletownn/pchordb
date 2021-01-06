@@ -70,8 +70,10 @@ client.on('guildMemberAdd', member => {
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
 
-    var oldVoiceChannel = oldState.member.voice.channel
-    var newVoiceChannel = newState.member.voice.channel
+    var oldVoiceChannel = oldState.channel;
+    var newVoiceChannel = newState.channel;
+    var oldUserChannel = oldState.member.voice.channel
+    var newUserChannel = newState.member.voice.channel
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
 
@@ -109,7 +111,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     }
 
-    if (oldVoiceChannel === undefined && newVoiceChannel !== undefined) {
+    if (oldUserChannel === undefined && newUserChannel !== undefined) {
         if (newVoiceChannel.id === "774362075618869270") {
             const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
             voiceChannel.updateOverwrite(newState.member.id, {
@@ -165,7 +167,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     }
 
-    if (newVoiceChannel === undefined) {
+    if (newUserChannel === undefined) {
         if (oldVoiceChannel.id === "774362075618869270") {
             const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
             try {
