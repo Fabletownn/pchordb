@@ -97,8 +97,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
-
-        newState.guild.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the General Voice Channel!`).then(m => m.delete({
+        
+        client.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the General Voice Channel!`).then(m => m.delete({
             timeout: 10000
         }));
     } else if (newVoiceChannel.id === "614484127722373120") {
@@ -107,40 +107,24 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
-
-        newState.guild.channels.cache.get('777842963954270228').send(`${newState.member}, use this channel for text communication and commands for the Music Voice Channel! Check the channel pins for the music bot commands.`).then(m => m.delete({
-            timeout: 10000
-        }));
     } else if (newVoiceChannel.id === "757301388840665248") {
         const voiceChannel = newState.guild.channels.cache.get('777842977375780894');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
-
-        newState.guild.channels.cache.get('757301388840665248').send(`${newState.member}, use this channel for text communication and commands for the Music Voice Channel! Check the channel pins for the music bot commands.`).then(m => m.delete({
-            timeout: 10000
-        }));
     } else if (newVoiceChannel.id === "664593167420489730") {
         const voiceChannel = newState.guild.channels.cache.get('794626473734570025');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
-
-        newState.guild.channels.cache.get('794626473734570025').send(`${newState.member}, use this channel for text communication for the Livestream Voice Channel!`).then(m => m.delete({
-            timeout: 10000
-        }));
     } else if (newVoiceChannel.id === "744952618878763088") {
         const voiceChannel = newState.guild.channels.cache.get('789057097508716555');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
-
-        newState.guild.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
-            timeout: 10000
-        }));
     } else {
         return;
     }
