@@ -74,8 +74,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newVoiceChannel = newState.channel;
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
-    if (oldState.selfMute === true || oldState.selfMute === false || newState.selfMute === true || newState.selfMute === false) return;
-    if (oldState.selfDeaf === true || oldState.selfDeaf === false || newState.selfDeaf === true || newState.selfDeaf === false) return;
+    if (oldState.selfMute || newState.selfMute) return;
+    if (oldState.selfDeaf || newState.selfDeaf) return;
 
     if (oldState.channel !== null && newState.channel === null) {
         const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
