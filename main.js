@@ -67,6 +67,115 @@ client.on('guildMemberAdd', member => {
     });
 });
 
+client.on('voiceStateUpdate', (oldState, newState) => {
+    if (oldState.guild === null || newState.guild === null) return;
+
+    var oldVoiceChannel = oldState.channel;
+    var newVoiceChannel = newState.channel;
+
+    if (!oldVoiceChannel && !newVoiceChannel) return;
+
+    if (oldState.channel !== null && newState.channel === null) {
+        const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left all VCs.`);
+        const voiceChannel2 = newState.guild.channels.cache.get('777842963954270228');
+        voiceChannel2.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left all VCs.`);
+        const voiceChannel3 = newState.guild.channels.cache.get('777842977375780894');
+        voiceChannel3.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left all VCs.`);
+        const voiceChannel4 = newState.guild.channels.cache.get('794626473734570025');
+        voiceChannel4.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left all VCs.`);
+        const voiceChannel5 = newState.guild.channels.cache.get('789057097508716555');
+        voiceChannel5.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left all VCs.`);
+    }
+
+    if (!newVoiceChannel) return;
+
+    if (newVoiceChannel.id === "774362075618869270 ") {
+        const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true
+        }, `User joined Voice Channel.`);
+    } else if (newVoiceChannel.id === "614484127722373120") {
+        const voiceChannel = newState.guild.channels.cache.get('777842963954270228');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true
+        }, `User joined Voice Channel.`);
+    } else if (newVoiceChannel.id === "757301388840665248") {
+        const voiceChannel = newState.guild.channels.cache.get('777842977375780894');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true
+        }, `User joined Voice Channel.`);
+    } else if (newVoiceChannel.id === "664593167420489730") {
+        const voiceChannel = newState.guild.channels.cache.get('794626473734570025');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true
+        }, `User joined Voice Channel.`);
+    } else if (newVoiceChannel.id === "744952618878763088") {
+        const voiceChannel = newState.guild.channels.cache.get('789057097508716555');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true
+        }, `User joined Voice Channel.`);
+    } else {
+        return;
+    }
+
+    if (!oldVoiceChannel) return;
+
+    if (oldVoiceChannel.id === "774362075618869270") {
+        const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left Voice Channel.`);
+    } else if (oldVoiceChannel.id === "614484127722373120") {
+        const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left Voice Channel.`);
+    } else if (oldVoiceChannel.id === "757301388840665248") {
+        const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left Voice Channel.`);
+    } else if (oldVoiceChannel.id === "664593167420489730") {
+        const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left Voice Channel.`);
+    } else if (oldVoiceChannel.id === "744952618878763088") {
+        const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
+        voiceChannel.updateOverwrite(newState.member.id, {
+            VIEW_CHANNEL: false,
+            SEND_MESSAGES: false
+        }, `User left Voice Channel.`);
+    } else {
+        return;
+    }
+});
+
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
     if (oldMessage.guild.id !== "614193406838571085") return;
