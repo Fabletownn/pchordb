@@ -82,11 +82,31 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         const voiceChannel4 = newState.guild.channels.cache.get('794626473734570025');
         const voiceChannel5 = newState.guild.channels.cache.get('789057097508716555');
 
-        voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-        voiceChannel2.permissionOverwrites.get(newState.member.id).delete();
-        voiceChannel3.permissionOverwrites.get(newState.member.id).delete();
-        voiceChannel4.permissionOverwrites.get(newState.member.id).delete();
-        voiceChannel5.permissionOverwrites.get(newState.member.id).delete();
+        try {
+            voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+        try {
+            voiceChannel2.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+        try {
+            voiceChannel3.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+        try {
+            voiceChannel4.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
+        try {
+            voiceChannel5.permissionOverwrites.get(newState.member.id).delete();
+        } catch (err) {
+            return console.log(`No override found. Ignoring.`)
+        }
     }
 
     if (!newVoiceChannel) return;
@@ -107,24 +127,40 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
+
+        client.channels.cache.get('777842963954270228').send(`${newState.member}, use this channel for text communication for the Music 1 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
+            timeout: 10000
+        }));
     } else if (newVoiceChannel.id === "757301388840665248") {
         const voiceChannel = newState.guild.channels.cache.get('777842977375780894');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
+
+        client.channels.cache.get('777842977375780894').send(`${newState.member}, use this channel for text communication for the Music 2 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
+            timeout: 10000
+        }));
     } else if (newVoiceChannel.id === "664593167420489730") {
         const voiceChannel = newState.guild.channels.cache.get('794626473734570025');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
+
+        client.channels.cache.get('794626473734570025').send(`${newState.member}, use this channel for text communication for the Livestream Voice Channel!`).then(m => m.delete({
+            timeout: 10000
+        }));
     } else if (newVoiceChannel.id === "744952618878763088") {
         const voiceChannel = newState.guild.channels.cache.get('789057097508716555');
         voiceChannel.updateOverwrite(newState.member.id, {
             VIEW_CHANNEL: true,
             SEND_MESSAGES: true
         }, `User joined Voice Channel.`);
+
+        client.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
+            timeout: 10000
+        }));
     } else {
         return;
     }
