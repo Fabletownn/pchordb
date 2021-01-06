@@ -95,7 +95,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             return console.log(`No override found. Ignoring! [Moving VC]`)
         }
         return;
-    } else
+    }
 
     if (oldVoiceChannel === null && newVoiceChannel !== null) {
         if (newVoiceChannel.id === "774362075618869270") {
