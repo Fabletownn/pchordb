@@ -69,13 +69,13 @@ client.on('guildMemberAdd', member => {
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
-    if (oldState.selfMute || newState.selfMute) return;
 
     var oldVoiceChannel = oldState.channel;
     var newVoiceChannel = newState.channel;
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
-
+    if (!oldVoiceChannel === null && !newVoiceChannel === null && ((oldVoiceChannel !== null && newVoiceChannel !== null) === false)) return;
+    
     if (oldState.channel !== null && newState.channel === null) {
         const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
         const voiceChannel2 = newState.guild.channels.cache.get('777842963954270228');
