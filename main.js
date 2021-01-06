@@ -295,7 +295,7 @@ client.on('message', message => {
     }
 });
 
-/*client.on('message', message => {
+client.on('message', message => {
     if (message.guild === null || message.author.bot) return;
 
     if (message.content.includes(`<@!550384455613677571>`)) {
@@ -319,7 +319,7 @@ client.on('message', message => {
             }
         });
     }
-});*/
+});
 
 client.on('message', message => {
     if (message.guild === null) return;
