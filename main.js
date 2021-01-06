@@ -109,8 +109,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     }
 
-    if (!newVoiceChannel) return;
-
     if (oldVoiceChannel === undefined && newVoiceChannel !== undefined) {
         if (newVoiceChannel.id === "774362075618869270") {
             const voiceChannel = newState.guild.channels.cache.get('789056873437331456');
@@ -166,8 +164,6 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             return;
         }
     }
-
-    if (!oldVoiceChannel) return;
 
     if (newVoiceChannel === undefined) {
         if (oldVoiceChannel.id === "774362075618869270") {
