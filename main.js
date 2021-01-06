@@ -169,7 +169,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             }
         } else
 
-        if (oldVoiceChannel !== null && newVoiceChannel !== null) {
+        if (oldVoiceChannel.id && newVoiceChannel.id) {
             const voiceChannel = newState.guild.channels.cache.get(newVoiceChannel.id);
             const voiceChannel2 = oldState.guild.channels.cache.get(oldVoiceChannel.id);
 
