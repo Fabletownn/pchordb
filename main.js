@@ -70,14 +70,11 @@ client.on('guildMemberAdd', member => {
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
 
-    var oldVoiceChannel = oldState.channel;
-    var newVoiceChannel = newState.channel;
+    var oldVoiceChannel = oldState.member.voice.channel
+    var newVoiceChannel = newState.member.voice.channel
 
     if (!oldVoiceChannel && !newVoiceChannel) return;
-    let newUserChannel = newMember.voiceChannel
-    let oldUserChannel = oldMember.voiceChannel
-  
-  
+
     if (!oldUserChannel === undefined && !newUserChannel !== undefined) return;
     if (!newUserChannel === undefined) return;
 
