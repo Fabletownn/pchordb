@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const PRE = require('./models/prefix.js');
 const WEL = require('./models/welcome.js');
+const ANG = require("./models/angel.js");
 
 const fs = require("fs");
 
@@ -291,6 +292,32 @@ client.on('message', message => {
     if (message.guild === null || message.author.bot) return;
     if (message.content === `+assistance`) { // TEMPORARY
         message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!\n`);
+    }
+});
+
+client.on('message', message => {
+    if (message.guild === null || message.author.bot) return;
+
+    if (message.content.includes(`<@!550384455613677571>`)) {
+        ANG.findOne({
+            guildID: message.guild.id
+        }, (err, data) => {
+            if (err) return console.log(err);
+            if (!data) {
+                const newANGData = new ANG({
+                    guildID: message.guild.id,
+                    angelPings: 1
+                });
+                newANGData.save().catch(err => console.log(err));
+                message.channel.send(`You pinged Angel! <:yCrystalHeart:778318624032555039>\n**Angel Ping Count**: 1`);
+            } else {
+                data.guildID = message.guild.id;
+                data.angelPings += 1;
+
+                data.save().catch(err => console.log(err));
+                message.channel.send(`You pinged Angel! <:yCrystalHeart:778318624032555039>\n**Angel Ping Count**: ${data.angelPings}`);
+            }
+        });
     }
 });
 
