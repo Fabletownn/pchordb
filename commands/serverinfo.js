@@ -12,7 +12,7 @@ module.exports = {
 
         const serverEmbed1 = {
             "title": "Server Owner",
-            "description": "This server is owned by <@152597531824619521>, a YouTuber who creates commentaries on Fortnite and topics related to it! You can check out his socials by clicking on these links to support him!\n\n- [YouTube](https://www.youtube.com/c/italkfortnite)\n- [Twitch](https://www.twitch.tv/italkfortnite)\n- [Twitter](https://twitter.com/ITalkFortnite)\n- [Instagram](https://www.instagram.com/icantalkfortnite/)\n- [Reddit](https://www.reddit.com/user/ICanTalkFortnite/)\n\nIf you would like to support him when purchasing things from any Epic Games affiliated game, you can use:\n\nSupport-A-Creator Code: __ITF__ **(#ad #EpicPartner)**",
+            "description": "This server is owned by <@152597531824619521>, a YouTuber who creates commentaries on Fortnite and topics related to it! You can check out his socials by clicking on these links to support him!\n\n- [YouTube](https://www.youtube.com/c/italkfortnite)\n- [Twitch](https://www.twitch.tv/italkfortnite)\n- [Twitter](https://twitter.com/ITalkFortnite)\n- [Trello](https://trello.com/b/KbYIp5kZ/videos)\n- [Instagram](https://www.instagram.com/icantalkfortnite/)\n- [Reddit](https://www.reddit.com/user/ICanTalkFortnite/)\n\nIf you would like to support him when purchasing things from any Epic Games affiliated game, you can use:\n\nSupport-A-Creator Code: __ITF__ **(#ad #EpicPartner)**",
             "color": '23ff09',
         }
 
