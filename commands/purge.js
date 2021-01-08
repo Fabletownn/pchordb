@@ -30,6 +30,10 @@ module.exports = {
         }));
 
         if (channelTo && !memberToA && purgeIntA && !isNaN(purgeIntA)) {
+            message.guild.channels.cache.get(channelTo.id).messages.fetch({
+                limit: 100
+            });
+
             message.delete().then(() => {
                 channelTo.bulkDelete(purgeIntA).then(messages => {
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} message(s) in ${channelTo} were purged.`).then(m => m.delete({
@@ -38,9 +42,13 @@ module.exports = {
                 }).catch(console.error);
             });
         } else if (memberToA && !channelTo && purgeIntA && !isNaN(purgeIntA)) {
+            message.channel.messages.fetch({
+                limit: 100
+            });
+
             message.delete().then(() => {
                 message.channel.messages.fetch({
-                    limit: parseInt(purgeIntA),
+                    limit: 100,
                 }).then((messages) => {
                     const filterBy = memberTo ? memberTo.id : client.user.id;
                     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, parseInt(purgeIntA));
@@ -51,6 +59,10 @@ module.exports = {
                 });
             });
         } else if (!memberToA && channelTo && purgeIntA && !isNaN(purgeIntA)) {
+            message.guild.channels.cache.get(channelTo.id).messages.fetch({
+                limit: 100
+            });
+
             message.delete().then(() => {
                 channelTo.bulkDelete(purgeIntA).then(messages => {
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} message(s) in ${channelTo} have been purged.`).then(m => m.delete({
@@ -59,9 +71,13 @@ module.exports = {
                 }).catch(console.error);
             });
         } else if (memberToA && channelTo && purgeIntB && !isNaN(purgeIntB)) {
+            message.guild.channels.cache.get(channelTo.id).messages.fetch({
+                limit: 100
+            });
+
             message.delete().then(() => {
                 channelTo.messages.fetch({
-                    limit: parseInt(purgeIntB),
+                    limit: 100,
                 }).then((messages) => {
                     const filterBy = memberTo ? memberTo.id : client.user.id;
                     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, parseInt(purgeIntB));
@@ -72,6 +88,10 @@ module.exports = {
                 });
             });
         } else if (!channelTo && !memberToA && purgeIntC) {
+            message.channel.messages.fetch({
+                limit: 100
+            });
+
             message.delete().then(() => {
                 message.channel.bulkDelete(purgeIntC).then(messages => {
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} message(s) purged successfully.`).then(m => m.delete({
