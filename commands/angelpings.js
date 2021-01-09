@@ -15,7 +15,7 @@ module.exports = {
             if (err) return console.log(err);
             if (!data) return message.channel.send(`No data.`).then(m => m.delete({ timeout: 5000 }));
 
-            message.channel.send(`**[<:yCrystalHeart:778318624032555039>] AnHEL**, you've been pinged **${data.angelPings.toLowerCase()}** times.`);
+            message.channel.send(`**[<:yCrystalHeart:778318624032555039>] AnHEL**, you've been pinged **${data.angelPings.toLocaleString()}** times.`);
         });
     }
 }
