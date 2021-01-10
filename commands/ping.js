@@ -8,7 +8,13 @@ module.exports = {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+        let moderatorR2 = message.guild.roles.cache.find(role => role.name === "Discord Moderator");
+
+        if (moderatorR2) {
+            if (!message.member.roles.cache.has(moderatorR2.id) && message.channel.id !== '797813892783931402') return;
+        } else {
+            if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
+        }
 
         message.channel.send('Fetching..').then(msg => {
             const latency = msg.createdTimestamp - message.createdTimestamp;
