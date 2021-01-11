@@ -274,6 +274,8 @@ client.on('guildMemberAdd', member => {
                 client.channels.cache.get('614193679778709517').send(welcomeMessageContent);
             } else if (member.guild.id === "685876599199236173") {
                 client.channels.cache.get('685889245570924580').send(welcomeMessageContent);
+            } else if (member.guild.id === "797142251712151583") {
+                client.channels.cache.get('797142832045359155').send(welcomeMessageContent);
             } else {
                 return;
             }
