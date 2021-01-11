@@ -40,6 +40,7 @@ client.once('ready', () => {
     });
 
     console.log(`[${new Date().toLocaleTimeString()}] ${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
+    console.log(client.guilds.cache.get('614193406838571085').memberCount)
 });
 
 client.on('voiceStateUpdate', (oldState, newState) => {
