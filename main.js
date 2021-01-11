@@ -35,12 +35,11 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-    client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').members.cache.filter(member => !member.user.bot).size.toLocaleString()} members.`, {
+    client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').memberCount.toLocaleString()} members.`, {
         type: 'PLAYING'
     });
 
     console.log(`[${new Date().toLocaleTimeString()}] ${client.user.username} is successfully up and running: in ${client.guilds.cache.size} guilds.\n`);
-    console.log(client.guilds.cache.get('614193406838571085').memberCount)
 });
 
 client.on('voiceStateUpdate', (oldState, newState) => {
