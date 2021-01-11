@@ -11,7 +11,7 @@ module.exports = {
         let moderatorR2 = message.guild.roles.cache.find(role => role.name === "Discord Moderator");
 
         if (moderatorR2) {
-            if (!message.member.roles.cache.has(moderatorR.id) && !message.member.roles.cache.has(moderatorR2.id)) return;
+            if (!message.member.roles.cache.has(moderatorR2.id)) return;
         } else {
             if (!message.member.roles.cache.has(moderatorR.id)) return;
         }
