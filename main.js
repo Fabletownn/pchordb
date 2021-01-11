@@ -63,7 +63,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 try {
                     voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
                 } catch (err) {
-                    console.log(err);
+                    return;
                 }
             }
             if (oldVoiceChannel.id === "614484127722373120") {
@@ -71,7 +71,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 try {
                     voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
                 } catch (err) {
-                    console.log(err);
+                    return;
                 }
             }
             if (oldVoiceChannel.id === "757301388840665248") {
@@ -79,7 +79,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 try {
                     voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
                 } catch (err) {
-                    console.log(err);
+                    return;
                 }
             }
             if (oldVoiceChannel.id === "664593167420489730") {
@@ -87,7 +87,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 try {
                     voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
                 } catch (err) {
-                    console.log(err);
+                    return;
                 }
             }
             if (oldVoiceChannel.id === "744952618878763088") {
@@ -95,7 +95,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 try {
                     voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
                 } catch (err) {
-                    console.log(err);
+                    return;
                 }
             }
         }
