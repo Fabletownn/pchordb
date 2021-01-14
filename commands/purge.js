@@ -6,7 +6,13 @@ module.exports = {
     description: '[MODERATION] This will purge the specified amount of messages in the mentioned channel. <[setPrefix]purge (<#channel>) (<@member>) <amount>>',
     execute(message) {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id)) return;
+        let moderatorR2 = message.guild.roles.cache.find(role => role.name === "Discord Moderator");
+
+        if (moderatorR2) {
+            if (!message.member.roles.cache.has(moderatorR2.id)) return;
+        } else {
+            if (!message.member.roles.cache.has(moderatorR.id)) return;
+        }
 
         let channelTo = message.mentions.channels.first();
         let memberToA = message.mentions.users.first();
