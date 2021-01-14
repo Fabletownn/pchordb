@@ -394,11 +394,11 @@ client.on("messageDelete", (deletedMessage) => {
 
             if (deletedMessage.guild.id === "614193406838571085") {
                 return client.channels.cache.get("690601497767182436").send({
-                    embed: deleteEmbed
+                    embed: deleteAttachmentEmbed
                 });
             } else if (deletedMessage.guild.id === "797142251712151583") {
                 return client.channels.cache.get("799329445555077120").send({
-                    embed: deleteEmbed
+                    embed: deleteAttachmentEmbed
                 });
             } else {
                 return;
