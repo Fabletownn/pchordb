@@ -349,6 +349,8 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     } else if (!oldMessage.content.toLowerCase().startsWith(`s:`) && newMessage.content.toLowerCase.startsWith(`s:`)) {
         newMessage.pin();
         newMessage.react(`<:zzITFUpvote:778318625328332810>`).then(newMessage.react(`<:zzITFDownvote:778318624552779776>`));
+    } else {
+        return;
     }
 });
 
