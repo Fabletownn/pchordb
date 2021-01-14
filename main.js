@@ -341,6 +341,18 @@ client.on('guildMemberRemove', member => {
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (oldMessage.channel.id !== "738819371069079622" && newMessage.channel.id !== "738819371069079622") return;
+
+    if (oldMessage.content.toLowerCase().startsWith(`s:`) && !newMessage.content.toLowerCase.startsWith(`s:`)) {
+        newMessage.unpin();
+        newMessage.reactions.removeAll().catch(err => console.log(err));
+    } else if (!oldMessage.content.toLowerCase().startsWith(`s:`) && newMessage.content.toLowerCase.startsWith(`s:`)) {
+        newMessage.pin();
+        newMessage.react(`<:zzITFUpvote:778318625328332810>`).then(newMessage.react(`<:zzITFDownvote:778318624552779776>`));
+    }
+});
+
+client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
     if (oldMessage.guild.id !== "614193406838571085" && oldMessage.guild.id !== "797142251712151583") return;
 
