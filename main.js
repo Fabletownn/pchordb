@@ -291,7 +291,7 @@ client.on('guildMemberAdd', member => {
             let welcomeMessageContent = welcomeMessageGuildNameA.replace(`{member.count}`, client.guilds.cache.get(member.guild.id).members.cache.filter(member => !member.user.bot).size.toLocaleString());
 
             if (member.guild.id === "614193406838571085") {
-                client.channels.cache.get('614193679778709517').send(welcomeMessageContent);
+                client.channels.cache.get('799278127528411197').send(welcomeMessageContent);
             } else if (member.guild.id === "685876599199236173") {
                 client.channels.cache.get('685889245570924580').send(welcomeMessageContent);
             } else if (member.guild.id === "797142251712151583") {
