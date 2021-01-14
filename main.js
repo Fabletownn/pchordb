@@ -342,7 +342,7 @@ client.on('guildMemberRemove', member => {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
-    if (oldMessage.guild.id !== "614193406838571085") return;
+    if (oldMessage.guild.id !== "614193406838571085" && oldMessage.guild.id !== "797142251712151583") return;
 
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
@@ -374,7 +374,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("messageDelete", (deletedMessage) => {
     if (deletedMessage.guild === null) return;
-    if (deletedMessage.guild.id !== "614193406838571085") return;
+    if (deletedMessage.guild.id !== "614193406838571085" && deletedMessage.guild.id !== "797142251712151583") return;
 
     if (deletedMessage.author.bot) return;
 
