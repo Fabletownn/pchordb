@@ -303,7 +303,7 @@ client.on('guildMemberAdd', member => {
     });
 
     const joinEmbed = new Discord.MessageEmbed()
-        .setAuthor(`${member.tag} Joined`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
+        .setAuthor(`${client.users.cache.get(member.id).tag} Joined`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
         .setDescription(`${member} joined the server.`)
         .setFooter(`User ID: ${member.id}`)
         .setColor('23ff09')
@@ -318,7 +318,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
     const leaveEmbed = new Discord.MessageEmbed()
-        .setAuthor(`${member.tag} Left`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
+        .setAuthor(`${client.users.cache.get(member.id).tag} Left`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
         .setDescription(`${member} left the server.`)
         .addField(`Roles`, `${member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ') || `None.`}`)
         .setColor('ff0000')
