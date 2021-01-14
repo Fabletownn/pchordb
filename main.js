@@ -14,10 +14,10 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function(request, response) {
+app.get('/', function (request, response) {
     var result = `${client.user.username} is up n' running.`;
     response.send(result);
-}).listen(app.get('port'), function() {
+}).listen(app.get('port'), function () {
     console.log("Application is attempting to run.. server is listening on PORT:", app.get('port'));
 });
 
@@ -234,46 +234,46 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     } else
 
-    if (oldVoiceChannel !== null && newVoiceChannel === null) {
-        if (oldVoiceChannel.id === "774362075618869270") {
-            const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
+        if (oldVoiceChannel !== null && newVoiceChannel === null) {
+            if (oldVoiceChannel.id === "774362075618869270") {
+                const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
+                try {
+                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            } else if (oldVoiceChannel.id === "614484127722373120") {
+                const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
+                try {
+                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            } else if (oldVoiceChannel.id === "757301388840665248") {
+                const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
+                try {
+                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            } else if (oldVoiceChannel.id === "664593167420489730") {
+                const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
+                try {
+                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            } else if (oldVoiceChannel.id === "744952618878763088") {
+                const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
+                try {
+                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            } else {
                 return;
             }
-        } else if (oldVoiceChannel.id === "614484127722373120") {
-            const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return;
-            }
-        } else if (oldVoiceChannel.id === "757301388840665248") {
-            const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return;
-            }
-        } else if (oldVoiceChannel.id === "664593167420489730") {
-            const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return;
-            }
-        } else if (oldVoiceChannel.id === "744952618878763088") {
-            const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
-            try {
-                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-            } catch (err) {
-                return;
-            }
-        } else {
-            return;
         }
-    }
 });
 
 client.on('guildMemberAdd', member => {
@@ -301,6 +301,35 @@ client.on('guildMemberAdd', member => {
             }
         }
     });
+
+    const joinEmbed = new Discord.MessageEmbed()
+        .setAuthor(`${member.tag} Joined`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
+        .setDescription(`${member} joined the server.`)
+        .setFooter(`User ID: ${member.id}`)
+        .setColor('23ff09')
+        .setTimestamp()
+
+    if (member.guild.id === "797142251712151583") {
+        client.channels.cache.get("799313607020118016").send({ embed: joinEmbed });
+    } else {
+        return;
+    }
+});
+
+client.on('guildMemberRemove', member => {
+    const leaveEmbed = new Discord.MessageEmbed()
+        .setAuthor(`${member.tag} Left`, client.users.cache.get(member.id).displayAvatarURL({ dynamic: true }))
+        .setDescription(`${member} left the server.`)
+        .addField(`Roles`, `${member.roles.cache.map(roleList => `${roleList}`).slice(0,-1).join(' ') || `None.`}`)
+        .setColor('ff0000')
+        .setFooter(`User ID: ${member.id}`)
+        .setTimestamp()
+
+    if (member.guild.id === "797142251712151583") {
+        client.channels.cache.get("799313607020118016").send({ embed: leaveEmbed });
+    } else {
+        return;
+    }
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
