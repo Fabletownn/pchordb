@@ -568,7 +568,7 @@ client.on('message', message => {
 
     if (message.content) {
         if (message.author.bot) return;
-        if (message.channel.id !== "738819371069079622") return;
+        if (message.channel.id !== "738819371069079622" && message.channel.id !== "797575762286215188" && message.channel.id !== "797771341566705665") return;
         if (message.content.toLowerCase() === "s:") return;
         if (!message.content.toLowerCase().startsWith("s:")) return;
 

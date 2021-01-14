@@ -35,7 +35,7 @@ module.exports = {
             });
 
             message.delete().then(() => {
-                channelTo.bulkDelete(purgeIntA).then(messages => {
+                channelTo.bulkDelete(parseInt(purgeIntA)).then(messages => {
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} message(s) in ${channelTo} were purged.`).then(m => m.delete({
                         timeout: 10000
                     }));
@@ -64,7 +64,7 @@ module.exports = {
             });
 
             message.delete().then(() => {
-                channelTo.bulkDelete(purgeIntA).then(messages => {
+                channelTo.bulkDelete(parseInt(purgeIntA)).then(messages => {
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${messages.size} message(s) in ${channelTo} have been purged.`).then(m => m.delete({
                         timeout: 10000
                     }));
