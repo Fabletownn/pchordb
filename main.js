@@ -572,7 +572,7 @@ client.on('message', message => {
         if (message.content.toLowerCase() === "s:") return;
         if (!message.content.toLowerCase().startsWith("s:")) return;
 
-        message.react(message.guild.emojis.cache.get("778318625328332810")).then(message.react(message.guild.emojis.cache.get("778318624552779776"))).then(() => {
+        message.react(`<:zzITFUpvote:778318625328332810>`).then(message.react(`<:zzITFDownvote:778318624552779776>`)).then(() => {
             message.pin();
         });
     }
