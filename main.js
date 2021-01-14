@@ -456,7 +456,7 @@ client.on('message', message => {
             }
         }
 
-        if (message.guild.id === "797142251712151583" && (message.content.startsWith(`${commandPrefix}`) && !message.content.startsWith(`${commandPrefix}purge`) && !message.content.startsWith(`${commandPrefix}ping`) && !message.content.startsWith(`${commandPrefix}announce`) && !message.content.startsWith(`${commandPrefix}assistance`))) return;
+        if (message.guild.id === "797142251712151583" && (message.content.startsWith(`${commandPrefix}`) && !message.content.startsWith(`${commandPrefix}purge`) && !message.content.startsWith(`${commandPrefix}ping`) && !message.content.startsWith(`${commandPrefix}announce`) && !message.content.startsWith(`${commandPrefix}say`) && !message.content.startsWith(`${commandPrefix}assistance`))) return;
 
         const args = message.content.slice(commandPrefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
