@@ -601,6 +601,8 @@ client.on('message', message => {
             client.commands.get('angelpings').execute(message, args);
         } else if (command === 'mcserverinfo') {
             client.commands.get('mcserverinfo').execute(message, args);
+        } else if (command === 'mcrules') {
+            client.commands.get('mcrules').execute(message, args);
         }
     });
 });
