@@ -8,7 +8,13 @@ module.exports = {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id)) return;
+        let moderatorR2 = message.guild.roles.cache.find(role => role.name === "Discord Moderator");
+
+        if (moderatorR2) {
+            if (!message.member.roles.cache.has(moderatorR2.id)) return;
+        } else {
+            if (!message.member.roles.cache.has(moderatorR.id)) return;
+        }
 
         let channelTo = message.mentions.channels.first();
         let messageArgs = message.content.split(" ");
