@@ -106,7 +106,7 @@ module.exports = {
                 }).catch(console.error);
             });
         } else {
-            return message.channel.send(`**[🗑️] ${message.author.username}**, an error occurred trying to purge that channel or user.\nPlease ensure the mentioned member is in the guild and the channel is valid: if you think this is an error, please contact either creators.`).then(m => m.delete({
+            return message.channel.send(`**[🗑️] ${message.author.username}**, please make sure you're providing the required parameters for this command to run.`).then(m => m.delete({
                 timeout: 10000
             }));
         }
