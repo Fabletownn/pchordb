@@ -26,8 +26,8 @@ module.exports = {
                     "value": "```\nWe respect everyone's beliefs and opinions, however, this server is not the correct place to discuss these. These topics should not be picked up in chat, even if discussed in a civil manner.\n```\n_ _"
                 },
                 {
-                    "name": "4) __No NSFW/NSFL Content/Discussion.__",
-                    "value": "```\nThis includes - but is not limited to - Sharing Content/Discussion on violence, pornography, sexually suggestive topics, harm towards animals/humans. There are no NSFW channels in the server. Sharing NSFW Content will lead to a straightaway ban.\n```\n_ _"
+                    "name": "4) __**No NSFW/NSFL Content; No E-Dating or Roleplaying.**__",
+                    "value": "```\nSharing Content/Discussion on violence, pornography, sexually suggestive topics, harm towards animals/humans etc. will result in a straightaway ban. No E-Dating or Roleplaying; this server isn't the correct place for it.\n```\n_ _"
                 },
                 {
                     "name": "5) __No Spam.__",
