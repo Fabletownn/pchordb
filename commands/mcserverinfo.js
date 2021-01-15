@@ -56,7 +56,7 @@ module.exports = {
             "fields": [
                 {
                     "name": "SERVER STAFF ROLES",
-                    "value": "<@&797787761200726016> - <@152597531824619521>, the server owner.\n\n<@&797145089297350736> - Server Staff for this Discord Server.\n<@&797770573778386944> - Server Operators for the Minecraft Server.\n<@&797809139836911666> - All Discord and Minecraft Server Staff Members have this role.\n```\n \n```"
+                    "value": "<@&797787761200726016> - <@152597531824619521>, the server owner.\n<@&797145089297350736> - Server Staff for this Discord Server.\n<@&797770573778386944> - Server Operators for the Minecraft Server.\n<@&797809139836911666> - All Discord and Minecraft Server Staff Members have this role.\n```\n \n```"
                 },
                 {
                     "name": "SELF ASSIGN ROLES",
