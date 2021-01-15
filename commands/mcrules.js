@@ -52,7 +52,7 @@ module.exports = {
                 "value": "** **"
             },
             {
-                "name": "10) Don't attempt to grief other players via destroying or defacing their constructions/creations.",
+                "name": "10) Don't attempt to grief other players via destroying or defacing their constructions/creations, or fighting them in an area not intended for PvP.",
                 "value": "** **"
             },
             {
