@@ -32,7 +32,7 @@ module.exports = {
                 },
                 {
                     "name": "GENERAL CHANNELS",
-                    "value": "<#797788018613551124> - Main channel for conversations in the server.\n<#797788083923582987> - Channel to share media in.\n<#797813892783931402> - Channel to run bot commands in.\n<#797199041795588146> - Synced Minecraft In Game Chat with the Discord Server\n```\n \n```"
+                    "value": "<#797788018613551124> - Main channel for conversations in the server.\n<#797788083923582987> - Channel to share media in.\n<#797813892783931402> - Channel to run bot commands in.\n<#797199041795588146> - Synced In Game Chat between the Minecraft and the Discord Server.\n```\n \n```"
                 },
                 {
                     "name": "FEEDBACK AND QUESTIONS",
@@ -57,10 +57,6 @@ module.exports = {
                 {
                     "name": "SERVER STAFF ROLES",
                     "value": "<@&797787761200726016> - <@152597531824619521>, the server owner.\n\n<@&797145089297350736> - Server Staff for this Discord Server.\n<@&797770573778386944> - Server Operators for the Minecraft Server.\n<@&797809139836911666> - All Discord and Minecraft Server Staff Members have this role.\n```\n \n```"
-                },
-                {
-                    "name": "GENERAL ROLES",
-                    "value": "<@&797790683066662972> - Members who helped build the Minecraft Server.\n```\n \n```"
                 },
                 {
                     "name": "SELF ASSIGN ROLES",
