@@ -81,7 +81,7 @@ module.exports = {
             }
             ],
             "footer": {
-                "text": "Rules Last Updated | 15 January 2020"
+                "text": "Rules Last Updated | 15 January 2021"
             }
         }
 
