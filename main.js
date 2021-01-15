@@ -44,6 +44,205 @@ client.once('ready', () => {
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
+    if (oldState.guild.id !== "797142251712151583") return;
+    if (newState.guild.id !== "797142251712151583") return;
+    if (client.users.cache.get(oldState.member.id).bot) return;
+    if (client.users.cache.get(newState.member.id).bot) return;
+
+    var oldVoiceChannel = oldState.channel;
+    var newVoiceChannel = newState.channel;
+
+    if (!oldVoiceChannel && !newVoiceChannel) return;
+    if (oldState.member.roles.cache.has("797809139836911666")) return;
+    if (newState.member.roles.cache.has("797809139836911666")) return;
+
+    if (oldVoiceChannel !== null && newVoiceChannel !== null) {
+        if (oldVoiceChannel.id === newVoiceChannel.id) return;
+
+        if (oldVoiceChannel.id === "797142252639748097" || oldVoiceChannel.id === "797770795782766623" || oldVoiceChannel.id === "797770809073991700" || oldVoiceChannel.id === "797802749383147530" || newVoiceChannel.id === "797142252639748097" || newVoiceChannel.id === "797770795782766623" || newVoiceChannel.id === "797770809073991700" || newVoiceChannel.id === "797802749383147530") {
+            if (oldVoiceChannel.id === "797142252639748097") {
+                var voiceChannel = oldState.guild.channels.cache.get("799547364796006440");
+                try {
+                    voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            }
+            if (oldVoiceChannel.id === "797770795782766623") {
+                var voiceChannel = oldState.guild.channels.cache.get("799547403711021056");
+                try {
+                    voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            }
+            if (oldVoiceChannel.id === "797770809073991700") {
+                var voiceChannel = oldState.guild.channels.cache.get("799547435390861322");
+                try {
+                    voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            }
+            if (oldVoiceChannel.id === "797802749383147530") {
+                var voiceChannel = oldState.guild.channels.cache.get("799547450574635078");
+                try {
+                    voiceChannel.permissionOverwrites.get(oldState.member.id).delete();
+                } catch (err) {
+                    return;
+                }
+            }
+        }
+
+        if (newVoiceChannel.id === "797142252639748097") {
+            var voiceChannel = newState.guild.channels.cache.get("799547364796006440");
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547364796006440').send(`${newState.member}, use this channel for text communication for the Minecraft 1 Voice Channel!`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+        if (newVoiceChannel.id === "797770795782766623") {
+            var voiceChannel = newState.guild.channels.cache.get("799547403711021056");
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547403711021056').send(`${newState.member}, use this channel for text communication for the Minecraft 2 Voice Channel!`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+        if (newVoiceChannel.id === "797770809073991700") {
+            var voiceChannel = newState.guild.channels.cache.get("799547435390861322");
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547435390861322').send(`${newState.member}, use this channel for text communication for the Livestream 1 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+        if (newVoiceChannel.id === "797802749383147530") {
+            var voiceChannel = newState.guild.channels.cache.get("799547450574635078");
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547450574635078').send(`${newState.member}, use this channel for text communication for the Livestream 2 Voice Channel!`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+    }
+});
+
+client.on('voiceStateUpdate', (oldState, newState) => {
+    if (oldState.guild === null || newState.guild === null) return;
+    if (oldState.guild.id !== "797142251712151583") return;
+    if (newState.guild.id !== "797142251712151583") return;
+    if (client.users.cache.get(oldState.member.id).bot) return;
+    if (client.users.cache.get(newState.member.id).bot) return;
+
+    var oldVoiceChannel = oldState.channel;
+    var newVoiceChannel = newState.channel;
+
+    if (oldState.member.roles.cache.has("797809139836911666")) return;
+    if (newState.member.roles.cache.has("797809139836911666")) return;
+
+    if (oldVoiceChannel === null && newVoiceChannel !== null) {
+        if (newVoiceChannel.id === "797142252639748097") {
+            const voiceChannel = newState.guild.channels.cache.get('799547364796006440');
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547364796006440').send(`${newState.member}, use this channel for text communication for the Minecraft 1 Voice Channel!`).then(m => m.delete({
+                timeout: 10000
+            }));
+        } else if (newVoiceChannel.id === "797770795782766623") {
+            const voiceChannel = newState.guild.channels.cache.get('799547403711021056');
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547403711021056').send(`${newState.member}, use this channel for text communication for the Minecraft 2 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
+                timeout: 10000
+            }));
+        } else if (newVoiceChannel.id === "797770809073991700") {
+            const voiceChannel = newState.guild.channels.cache.get('799547435390861322');
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547435390861322').send(`${newState.member}, use this channel for text communication for the Livestream 1 Voice Channel! Check the pinned messages for the Music Bot Commands.`).then(m => m.delete({
+                timeout: 10000
+            }));
+        } else if (newVoiceChannel.id === "797802749383147530") {
+            const voiceChannel = newState.guild.channels.cache.get('799547450574635078');
+            voiceChannel.updateOverwrite(newState.member.id, {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true
+            }, `User joined Voice Channel.`);
+
+            client.channels.cache.get('799547450574635078').send(`${newState.member}, use this channel for text communication for the Livestream 2 Voice Channel!`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+    } else
+
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "797142252639748097") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547364796006440');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797770795782766623") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547403711021056');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797770809073991700") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547435390861322');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797802749383147530") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547450574635078');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else {
+            return;
+        }
+    }
+});
+
+client.on('voiceStateUpdate', (oldState, newState) => {
+    if (oldState.guild === null || newState.guild === null) return;
     if (client.users.cache.get(oldState.member.id).bot) return;
     if (client.users.cache.get(newState.member.id).bot) return;
 
