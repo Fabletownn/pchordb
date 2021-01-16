@@ -8,7 +8,7 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(r => r.name === "Discord Moderator");
 
         if (message.guild.id !== "797142251712151583") return;
-        if (!message.member.roles.cache.has(moderatorR) || message.author.id !== "528759471514845194") return;
+        if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         mainServer.fetchBans().then(banned => {
             banned.map(ban => {
