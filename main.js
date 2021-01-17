@@ -540,7 +540,7 @@ client.on('guildMemberRemove', member => {
 });
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (oldMessage.channel.id !== "738819371069079622" && newMessage.channel.id !== "738819371069079622") return;
+    if (oldMessage.channel.id !== "738819371069079622" && oldMessage.channel.id !== "797575762286215188" && oldMessage.channel.id !== "797771341566705665" && newMessage.channel.id !== "738819371069079622"  && newMessage.channel.id !== "797575762286215188" && newMessage.channel.id !== "797771341566705665") return;
 
     if (oldMessage.content.toLowerCase().startsWith(`s:`) && !newMessage.content.toLowerCase().startsWith(`s:`)) {
         newMessage.unpin();
