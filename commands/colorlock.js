@@ -12,7 +12,7 @@ module.exports = {
 
         const colorEmbed = {
             "title": "Color Lock",
-            "description": ":tada: Congratulations on unlocking Color Lock! :tada:\n\nYou can choose between any of the following 40 colors to be your name color on the server. Simply click on the corresponding reaction to get the color!\nFeel free to change your role at anytime by simply clicking a different reaction!",
+            "description": "🎉 Congratulations on unlocking Color Lock! 🎉\n\nYou can choose between any of the following 40 colors to be your name color on the server. Simply click on the corresponding reaction to get the color!\nFeel free to change your role at anytime by simply clicking a different reaction!",
             "color": 2359049,
             "fields": [{
                     "name": "\u200b",
