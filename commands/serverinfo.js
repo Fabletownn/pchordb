@@ -12,6 +12,9 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         let infoChannel = message.guild.channels.cache.get("614519517724278837");
+        if (!infoChannel) return message.channel.send(`Channel not found.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         const serverEmbed1 = {
             "title": "Server Owner",
@@ -98,14 +101,23 @@ module.exports = {
 
         infoChannel.messages.fetch("798334900460716062").then(embedOne => {
             embedOne.edit({ embed: serverEmbed1 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            infoChannel.send({ embed: serverEmbed1 });
+            return console.log(err);
+        });
 
         infoChannel.messages.fetch("798334900930347029").then(embedTwo => {
             embedTwo.edit({ embed: serverEmbed2 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            infoChannel.send({ embed: serverEmbed2 });
+            return console.log(err);
+        });
 
-        infoChannel.messages.fetch("798334901480325150").then(embedTwo => {
-            embedTwo.edit({ embed: serverEmbed3 });
-        }).catch(err => console.log(err));
+        infoChannel.messages.fetch("798334901480325150").then(embedThree => {
+            embedThree.edit({ embed: serverEmbed3 });
+        }).catch(err => {
+            infoChannel.send({ embed: serverEmbed3 });
+            return console.log(err);
+        });
     }
 }

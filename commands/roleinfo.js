@@ -12,6 +12,9 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         let roleChannel = message.guild.channels.cache.get("781814866779570236");
+        if (!roleChannel) return message.channel.send(`Channel not found.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         const roleEmbed1 = {
             "fields": [{
@@ -150,30 +153,51 @@ module.exports = {
 
         roleChannel.messages.fetch("794852020871626772").then(embedOne => {
             embedOne.edit({ embed: roleEmbed1 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed1 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852021244133386").then(embedTwo => {
             embedTwo.edit({ embed: roleEmbed2 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed2 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852021428682773").then(embedThree => {
             embedThree.edit({ embed: roleEmbed3 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed3 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852021538390018").then(embedFour => {
             embedFour.edit({ embed: roleEmbed4 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed4 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852037304123393").then(embedFive => {
             embedFive.edit({ embed: roleEmbed5 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed5 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852037758025728").then(embedSix => {
             embedSix.edit({ embed: roleEmbed6 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed6 });
+            return console.log(err);
+        });
 
         roleChannel.messages.fetch("794852036956520468").then(embedSeven => {
             embedSeven.edit({ embed: roleEmbed7 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            roleChannel.send({ embed: roleEmbed7 });
+            return console.log(err);
+        });
     }
 }

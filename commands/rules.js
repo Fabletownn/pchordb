@@ -11,6 +11,9 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         let rulesChannel = message.guild.channels.cache.get("625747090852544532");
+        if (!rulesChannel) return message.channel.send(`Channel not found.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         const ruleEmbed1 = {
             "title": "Server Rules",
@@ -105,10 +108,16 @@ module.exports = {
 
         rulesChannel.messages.fetch("793169334553411645").then(embedOne => {
             embedOne.edit({ embed: ruleEmbed1 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            rulesChannel.send({ embed: ruleEmbed1 });
+            return console.log(err);
+        });
 
         rulesChannel.messages.fetch("793169334985687070").then(embedTwo => {
             embedTwo.edit({ embed: ruleEmbed2 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            rulesChannel.send({ embed: ruleEmbed2 });
+            return console.log(err);
+        });
     }
 }

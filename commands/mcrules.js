@@ -13,6 +13,9 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         let MCRulesChannel = message.guild.channels.cache.get("797154896465494016");
+        if (!MCRulesChannel) return message.channel.send(`Channel not found.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         const ruleEmbed1 = {
             "title": "I Talk Minecraft | Server Rules",
@@ -103,10 +106,16 @@ module.exports = {
 
         MCRulesChannel.messages.fetch("799669632973537330").then(embedOne => {
             embedOne.edit({ embed: ruleEmbed1 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            MCRulesChannel.send({ embed: ruleEmbed1 });
+            return console.log(err);
+        });
 
         MCRulesChannel.messages.fetch("799669633673199656").then(embedTwo => {
             embedTwo.edit({ embed: ruleEmbed2 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            MCRulesChannel.send({ embed: ruleEmbed2 });
+            return console.log(err);
+        });
     }
 }

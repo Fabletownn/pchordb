@@ -12,6 +12,9 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
         let MCInfoChannel = message.guild.channels.cache.get("797769657565839361");
+        if (!MCInfoChannel) return message.channel.send(`Channel not found.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         const serverEmbed1 = {
             "title": "Minecraft | Server Info",
@@ -69,14 +72,23 @@ module.exports = {
 
         MCInfoChannel.messages.fetch("799686749362192485").then(embedOne => {
             embedOne.edit({ embed: serverEmbed1 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            MCInfoChannel.send({ embed: serverEmbed1 });
+            return console.log(err);
+        });
 
         MCInfoChannel.messages.fetch("799686749529178124").then(embedTwo => {
             embedTwo.edit({ embed: serverEmbed2 });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            MCInfoChannel.send({ embed: serverEmbed2 });
+            return console.log(err);
+        });
 
-        MCInfoChannel.messages.fetch("799686750535548988").then(embedTwo => {
-            embedTwo.edit({ embed: serverEmbed3 });
-        }).catch(err => console.log(err));
+        MCInfoChannel.messages.fetch("799686750535548988").then(embedThree => {
+            embedThree.edit({ embed: serverEmbed3 });
+        }).catch(err => {
+            MCInfoChannel.send({ embed: serverEmbed3 });
+            return console.log(err);
+        });
     }
 }
