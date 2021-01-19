@@ -802,6 +802,8 @@ client.on('message', message => {
             client.commands.get('mcrules').execute(message, args);
         } else if (command === 'fetchbans') {
             client.commands.get('fetchbans').execute(message, args);
+        } else if (command === 'mccolorlock') {
+            client.commands.get('mccolorlock').execute(message, args);
         }
     });
 });
