@@ -23,6 +23,8 @@ module.exports = {
         const hintList = [word[0].word.substring(0, 2), word[0].word.substring(0, 3)];
         const hint = hintList[Math.floor(Math.random() * hintList.length)];
 
+        if (word[0].word === "wwwhotels" || word[0].word === "wwwedmundscom") return;
+
         cooldownVariable = Date.now();
         message.channel.send(`**[🕹️] ${message.author.username}**, let's play **Jumble**! Your word will be shown shortly. __Get ready!__`).then(msg => {
             setTimeout(async function() {
@@ -34,6 +36,7 @@ module.exports = {
                     .setTimestamp()
 
                 await msg.edit(`**${message.author.username}**, you have 15 seconds to answer. Get guessin'!`, { embed: gameEmbed });
+                console.log(word[0].word) // don't mind me cheating
 
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, {
