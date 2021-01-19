@@ -12,6 +12,8 @@ module.exports = {
         if (message.guild.id !== "797142251712151583") return;
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
+        let MCRulesChannel = message.guild.channels.cache.get("797154896465494016");
+
         const ruleEmbed1 = {
             "title": "I Talk Minecraft | Server Rules",
             "color": 2359049,
@@ -66,8 +68,19 @@ module.exports = {
             {
                 "name": "13) Avoid finding loopholes to the rules, and use your common sense to know what it allowed in the server and what isn't. Moderators retain the right to punish you, even if the offense isn't listed in the rules.",
                 "value": "** **"
+            },
+            {
+                "name": "14) Teleport-trapping players is prohibited in the server.",
+                "value": "** **"
+            },
+            {
+                "name": "15) Scamming players during 1V1 fights in the Nether is prohibited.",
+                "value": "** **"
             }
-            ]
+            ],
+            "footer": {
+                "text": "Rules Last Updated | 18 January 2021"
+            }
         }
 
         const ruleEmbed2 = {
@@ -88,12 +101,12 @@ module.exports = {
             ]
         }
 
-        message.channel.send({
-            embed: ruleEmbed1
-        }).then(() => {
-            message.channel.send({
-                embed: ruleEmbed2
-            });
-        });
+        MCRulesChannel.messages.fetch("799669632973537330").then(embedOne => {
+            embedOne.edit({ embed: ruleEmbed1 });
+        }).catch(err => console.log(err));
+
+        MCRulesChannel.messages.fetch("799669633673199656").then(embedTwo => {
+            embedTwo.edit({ embed: ruleEmbed2 });
+        }).catch(err => console.log(err));
     }
 }
