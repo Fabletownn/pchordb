@@ -496,7 +496,7 @@ module.exports = {
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
 
         if (message.member.roles.cache.has(moderatorR.id) || message.member.roles.cache.has(administratorR.id)) {
-            message.author.send(`Loading help menu..\n*(If this does not function properly, you may run \`+ahelp\` to get a full list of commands).*`).then(msg => {
+            message.author.send(`Loading help menu..\n*(If this does not function properly, please try again later or contact a staff member).*`).then(msg => {
                 msg.edit(``, {
                     embed: homeEmbed
                 });
@@ -758,7 +758,7 @@ module.exports = {
                 }
             };
 
-            message.author.send(`Loading help menu..\n*(If this does not function properly, you may run \`+ahelp\` to get a full list of commands).*`).then(msg => {
+            message.author.send(`Loading help menu..\n*(If this does not function properly, please try again later or contact a staff member).*`).then(msg => {
                 msg.edit(``, {
                     embed: homeEmbed
                 });

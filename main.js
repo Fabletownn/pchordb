@@ -712,8 +712,6 @@ client.on('message', message => {
             client.commands.get('vcundeafen').execute(message, args);
         } else if (command === 'announce') {
             client.commands.get('announce').execute(message, args);
-        } else if (command === 'ahelp') {
-            client.commands.get('ahelp').execute(message, args);
         } else if (command === 'ping') {
             client.commands.get('ping').execute(message, args);
         } else if (command === 'prefix' || command === 'setprefix') {
