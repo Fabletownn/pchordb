@@ -8,7 +8,10 @@ module.exports = {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+        if (message.guild.id !== "614193406838571085") return;
         if (!message.member.roles.cache.has(moderatorR.id)) return;
+
+        let roleChannel = message.guild.channels.cache.get("781814866779570236");
 
         const roleEmbed1 = {
             "fields": [{
@@ -81,28 +84,28 @@ module.exports = {
             "title": "Event Winner Roles",
             "color": 2359049,
             "fields": [{
-                    "name": "Winners",
-                    "value": "<@&708699777226899507>\n<@&728185818510000180>\n<@&790619688086011905>\n<@&794277061345804338>",
-                    "inline": true
-                },
-                {
-                    "name": "Runner Ups",
-                    "value": "<@&708699987088900097>\n<@&728185982662475786>\n<@&790619720549793812>\n<@&794634607542665226>",
-                    "inline": true
-                },
-                {
-                    "name": "2nd Runner Ups",
-                    "value": "<@&708700113148575837>\n<@&728186069123727390>\n<@&790619723242536961>\n<@&794634828627836938>",
-                    "inline": true
-                },
-                {
-                    "name": "Tournament Qualifiers",
-                    "value": "<@&706196460437241916>\n<@&728185556051165274>\n<@&789590423492493403>\n<@&794634335788728321>"
-                },
-                {
-                    "name": "General Event Roles",
-                    "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&771395161129353248> - Winners of Fortnite Customs during the I Talk Christmas Event.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
-                }
+                "name": "Winners",
+                "value": "<@&708699777226899507>\n<@&728185818510000180>\n<@&790619688086011905>\n<@&794277061345804338>",
+                "inline": true
+            },
+            {
+                "name": "Runner Ups",
+                "value": "<@&708699987088900097>\n<@&728185982662475786>\n<@&790619720549793812>\n<@&794634607542665226>",
+                "inline": true
+            },
+            {
+                "name": "2nd Runner Ups",
+                "value": "<@&708700113148575837>\n<@&728186069123727390>\n<@&790619723242536961>\n<@&794634828627836938>",
+                "inline": true
+            },
+            {
+                "name": "Tournament Qualifiers",
+                "value": "<@&706196460437241916>\n<@&728185556051165274>\n<@&789590423492493403>\n<@&794634335788728321>"
+            },
+            {
+                "name": "General Event Roles",
+                "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&771395161129353248> - Winners of Fortnite Customs during the I Talk Christmas Event.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
+            }
             ]
         }
 
@@ -117,7 +120,7 @@ module.exports = {
             "color": 2359049
         }
 
-        message.channel.send({
+        /*message.channel.send({
             embed: roleEmbed1
         }).then(() => {
             message.channel.send({
@@ -143,6 +146,34 @@ module.exports = {
                     });
                 });
             });
-        });
+        });*/
+
+        roleChannel.messages.fetch("794852020871626772").then(embedOne => {
+            embedOne.edit({ embed: roleEmbed1 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852021244133386").then(embedTwo => {
+            embedTwo.edit({ embed: roleEmbed2 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852021428682773").then(embedThree => {
+            embedThree.edit({ embed: roleEmbed3 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852021538390018").then(embedFour => {
+            embedFour.edit({ embed: roleEmbed4 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852037304123393").then(embedFive => {
+            embedFive.edit({ embed: roleEmbed5 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852037758025728").then(embedSix => {
+            embedSix.edit({ embed: roleEmbed6 });
+        }).catch(err => console.log(err));
+
+        roleChannel.messages.fetch("794852036956520468").then(embedSeven => {
+            embedSeven.edit({ embed: roleEmbed7 });
+        }).catch(err => console.log(err));
     }
 }

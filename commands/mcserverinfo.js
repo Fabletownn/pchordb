@@ -11,6 +11,8 @@ module.exports = {
         if (message.guild.id !== "797142251712151583") return;
         if (!message.member.roles.cache.has(moderatorR.id)) return;
 
+        let MCInfoChannel = message.guild.channels.cache.get("797769657565839361");
+
         const serverEmbed1 = {
             "title": "Minecraft | Server Info",
             "description": "The **I Talk Minecraft Server** is a survival multiplayer server, which is crossplay between Minecraft Java Edition and Minecraft Bedrock Edition players.\n\nIn the future, there are plans to implement Creative into the server as well. All suggestions can go in <#797771341566705665> for the same.  \n\nInformation on how to join the Minecraft Server is in <#797145212321398825>.",
@@ -65,16 +67,16 @@ module.exports = {
             ]
         }
 
-        message.channel.send({
-            embed: serverEmbed1
-        }).then(() => {
-            message.channel.send({
-                embed: serverEmbed2
-            }).then(() => {
-                message.channel.send({
-                    embed: serverEmbed3
-                });
-            });
-        });
+        MCInfoChannel.messages.fetch("799686749362192485").then(embedOne => {
+            embedOne.edit({ embed: serverEmbed1 });
+        }).catch(err => console.log(err));
+
+        MCInfoChannel.messages.fetch("799686749529178124").then(embedTwo => {
+            embedTwo.edit({ embed: serverEmbed2 });
+        }).catch(err => console.log(err));
+
+        MCInfoChannel.messages.fetch("799686750535548988").then(embedTwo => {
+            embedTwo.edit({ embed: serverEmbed3 });
+        }).catch(err => console.log(err));
     }
 }
