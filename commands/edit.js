@@ -15,7 +15,13 @@ module.exports = {
         let editContent = message.content.substr(47, 2048);
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id)) return;
+        let moderatorR2 = message.guild.roles.cache.find(role => role.name === "Discord Moderator");
+
+        if (moderatorR2) {
+            if (!message.member.roles.cache.has(moderatorR2.id)) return;
+        } else {
+            if (!message.member.roles.cache.has(moderatorR.id)) return;
+        }
         
         if (!channel) return message.channel.send(`**[📝] ${message.author.username}**, please ensure you're mentioning the channel to edit in first.`).then(m => m.delete({
             timeout: 10000
