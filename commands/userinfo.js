@@ -11,7 +11,7 @@ module.exports = {
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
-        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
+        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk");
 
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
 

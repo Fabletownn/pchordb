@@ -7,7 +7,7 @@ module.exports = {
     execute(message) {
         message.delete();
 
-        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk Fortnite");
+        let itfR = message.guild.roles.cache.find(role => role.name === "I Talk");
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
 
