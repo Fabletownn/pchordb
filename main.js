@@ -866,7 +866,7 @@ client.on('message', message => {
     if (message.content.startsWith(`+blacklist`) || message.content.startsWith(`+blocklist`)) {
         const blacklistEmbed = new Discord.MessageEmbed()
             .setTitle(`Blacklisted Words`)
-            .setDescription(`**${message.author.username}**, the following words are banned in the I Talk Server.\n\`\`\`\nnigga, nigger, nibba, nibber, fag, f4g, faggot, f4ggot, chingchong, ching chong, retard, cunt, nazi, penis, vagina, porn, blowjob, handjob, footjob, blow job, hand job, foot job, rule34, r34, rule 34, stripper, milf, hentai, incest, naughtyamerica, naughty america, realityking, reality king, xvideo, bangbro, bang bro, brazzer, faketaxi, fake taxi, coon, anal, cum, cumshot, nude, nudes, chink\n\`\`\`\n- Sending a message which contains any of these words will be auto-deleted by the Auto-Moderation.\n- Attempting to bypass this auto-moderation filter may lead to a punishment being handed out.`)
+            .setDescription(`**${message.author.username}**, the following words are banned in the I Talk Server.\n\`\`\`\nnigga, nigger, nibba, nibber, fag, f4g, faggot, f4ggot, chingchong, ching chong, retard, cunt, nazi, penis, vagina, porn, blowjob, handjob, footjob, blow job, hand job, foot job, rule34, r34, rule 34, stripper, milf, hentai, incest, naughtyamerica, naughty america, realityking, reality king, xvideo, bangbro, bang bro, brazzer, faketaxi, fake taxi, coon, anal, cum, cumshot, nude, nudes, chink\n\`\`\`\n- Sending a message which contains any of these words will be auto-deleted by the Auto-Moderation.\n- Attempting to bypass this auto-moderation filter will lead to a punishment being handed out.`)
             .setColor('23FF09')
 
         message.author.send({
