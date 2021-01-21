@@ -97,7 +97,7 @@ module.exports = {
                                             }
                                             if (answer.content.toLowerCase().startsWith('no')) {
                                                 msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                 message.channel.awaitMessages(channelQuestion6, {
                                                     max: 1,
                                                     time: 999999,
@@ -148,7 +148,7 @@ module.exports = {
                                                 return;
                                             }
                                             msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                            const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                            const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                             message.channel.awaitMessages(channelQuestion, {
                                                 max: 1,
                                                 time: 999999,
@@ -229,7 +229,7 @@ module.exports = {
                                             }
                                             if (answer.content.toLowerCase().startsWith('no')) {
                                                 msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                 message.channel.awaitMessages(channelQuestion6, {
                                                     max: 1,
                                                     time: 999999,
@@ -281,7 +281,7 @@ module.exports = {
                                                 return;
                                             }
                                             msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                            const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                            const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                             message.channel.awaitMessages(channelQuestion, {
                                                 max: 1,
                                                 time: 999999,
@@ -369,7 +369,7 @@ module.exports = {
                                     collected.first().delete()
                                     msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
 
-                                    const channelQuestion7 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                    const channelQuestion7 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                     message.channel.awaitMessages(channelQuestion7, {
                                         max: 1,
                                         time: 999999,
@@ -411,7 +411,7 @@ module.exports = {
                                     return;
                                 }
                                 msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                const channelQuestion8 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                const channelQuestion8 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                 message.channel.awaitMessages(channelQuestion8, {
                                     max: 1,
                                     time: 999999,
@@ -531,7 +531,7 @@ module.exports = {
                                                 }
                                                 if (answer.content.toLowerCase().startsWith('no')) {
                                                     msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                    const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                    const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                     message.channel.awaitMessages(channelQuestion6, {
                                                         max: 1,
                                                         time: 999999,
@@ -583,7 +583,7 @@ module.exports = {
                                                     return;
                                                 }
                                                 msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                 message.channel.awaitMessages(channelQuestion, {
                                                     max: 1,
                                                     time: 999999,
@@ -666,7 +666,7 @@ module.exports = {
                                                 }
                                                 if (answer.content.toLowerCase().startsWith('no')) {
                                                     msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                    const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                    const channelQuestion6 = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                     message.channel.awaitMessages(channelQuestion6, {
                                                         max: 1,
                                                         time: 999999,
@@ -720,7 +720,7 @@ module.exports = {
                                                     return;
                                                 }
                                                 msg.edit(`**[🔎] ${message.author.username}**, please mention the **channel** you would like to send the announcement in.`)
-                                                const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first();
+                                                const channelQuestion = m => m.author.id === message.author.id && m.mentions.channels.first() && m.guild.channels.cache.get(m.mentions.channels.first().id);
                                                 message.channel.awaitMessages(channelQuestion, {
                                                     max: 1,
                                                     time: 999999,
