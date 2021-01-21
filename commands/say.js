@@ -16,32 +16,21 @@ module.exports = {
             if (!message.member.roles.cache.has(moderatorR.id)) return;
         }
 
-        if (!toChannel) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're giving a channel for me to speak in first.`).then(m => m.delete({
+        if (!toChannel) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're providing a channel for me to send that message in first.`).then(m => m.delete({
             timeout: 10000
         }));
-        if (!messageContent) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure giving contents for me to send last.`).then(m => m.delete({
+        if (!messageContent) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're giving me a message to send.`).then(m => m.delete({
             timeout: 10000
         }));
 
         if (message.attachments.size > 0) {
             message.attachments.forEach(attachment => {
                 let attachmentURL = attachment.url;
-                const saidEmbedImage = new Discord.MessageEmbed()
-                    .setAuthor(`Message Sent`, message.author.displayAvatarURL({
-                        dynamic: true
-                    }))
-                    .addField(`Message Content`, messageContent || `No content found.`, true)
-                    .addField(`Channel`, `${toChannel} (${toChannel.id})`, true)
-                    .setImage(attachment.url)
-                    .setColor(`eb4bc9`)
-                    .setTimestamp()
 
                 toChannel.send(messageContent, {
                     files: [attachmentURL]
                 }).then(() => {
-                    message.channel.send(`**[🗣️] ${message.author.username}**, I've successfully sent the following message and it's contents to ${toChannel}:`, {
-                        embed: saidEmbedImage
-                    });
+                    message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel} + **${message.attachments.size}** attachment(s).`);
                 });
             });
             return;
@@ -49,19 +38,7 @@ module.exports = {
 
         toChannel.send(messageContent).then(() => {
             message.delete();
-
-            const saidEmbed = new Discord.MessageEmbed()
-                .setAuthor(`Message Sent`, message.author.displayAvatarURL({
-                    dynamic: true
-                }))
-                .addField(`Message Content`, messageContent || `No content found.`, true)
-                .addField(`Channel`, `${toChannel} (${toChannel.id})`, true)
-                .setColor(`eb4bc9`)
-                .setTimestamp()
-
-            message.channel.send(`**[🗣️] ${message.author.username}**, I've successfully sent the following message to ${toChannel}:`, {
-                embed: saidEmbed
-            });
+            message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel}.`);
         });
     }
 }
