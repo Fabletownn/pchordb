@@ -22,6 +22,9 @@ module.exports = {
         if (!messageContent) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're giving me a message to send.`).then(m => m.delete({
             timeout: 10000
         }));
+        if (!message.guild.channels.cache.get(toChannel.id)) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're providing a channel **in this guild** for me to send that message in.`).then(m => m.delete({
+            timeout: 10000
+        }));
 
         if (message.attachments.size > 0) {
             message.attachments.forEach(attachment => {
