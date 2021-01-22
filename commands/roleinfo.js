@@ -42,7 +42,7 @@ module.exports = {
                 "inline": false
             }],
             "title": "Supporter Roles",
-            "description": "<@&802243800458068028> - Automatically granted upon boosting the server.\n<@&614193913707757639> - Automatically granted to members with an active Twitch Subscription to __[itsitalk](https://twitch.tv/itsitalk)__. \n\n_ _",
+            "description": "<@&615597085202317325> - Automatically granted upon boosting the server.\n<@&802243800458068028> - Automatically granted to members with an active Twitch Subscription to __[itsitalk](https://twitch.tv/itsitalk)__. \n\n_ _",
             "color": 2359049
         }
 
