@@ -33,7 +33,9 @@ module.exports = {
                 toChannel.send(messageContent, {
                     files: [attachmentURL]
                 }).then(() => {
-                    message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel} + **${message.attachments.size}** attachment(s).`);
+                    message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel} + **${message.attachments.size}** attachment(s).`).then(m => m.delete({
+                        timeout: 10000
+                    }));
                 });
             });
             return;
@@ -41,7 +43,9 @@ module.exports = {
 
         toChannel.send(messageContent).then(() => {
             message.delete();
-            message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel}.`);
+            message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent message to ${toChannel}.`).then(m => m.delete({
+                timeout: 10000
+            }));
         });
     }
 }
