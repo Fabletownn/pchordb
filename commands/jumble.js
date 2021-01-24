@@ -21,7 +21,7 @@ module.exports = {
 
         if (timeout - (Date.now() - cooldownVariable) > 0) return;
         const hintList = [word[0].word.substring(0, 2), word[0].word.substring(0, 3)];
-        const hint = hintList[Math.floor(Math.random() * hintList.length)];
+        let hint = hintList[Math.floor(Math.random() * hintList.length)];
 
         if (word[0].word.includes("www") || word[0].word.endsWith("com") || word[0].word.includes("phobic") || word[0].word.includes("phobia") || word[0].word.includes("a")) {
             hint = "the man you know and love."
