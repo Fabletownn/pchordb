@@ -30,7 +30,7 @@ module.exports = {
         }
 
         cooldownVariable = Date.now();
-        message.channel.send(`**[🕹️] ${message.author.username}**, let's play **Jumble**! Your word will be shown shortly. __Get ready!__`).then(msg => {
+        message.channel.send(`**[<:zITFGaming:778318624163102723>] ${message.author.username}**, let's play **Jumble**! Your word will be shown shortly. __Get ready!__`).then(msg => {
             setTimeout(async function() {
                 const gameEmbed = new Discord.MessageEmbed()
                     .setAuthor(`Jumble Words | ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -39,8 +39,7 @@ module.exports = {
                     .setFooter(`In case of any concerning words, contact ModMail.`)
                     .setTimestamp()
 
-                await msg.edit(`**${message.author.username}**, you have 15 seconds to answer. Get guessin'!`, { embed: gameEmbed });
-                console.log(word[0].word) // don't mind me cheating
+                await msg.edit(`**${message.author.username}**, you have 15 seconds to answer. Get guessin'! <:zITFGaming:778318624163102723>`, { embed: gameEmbed });
 
                 const filter = m => m.author.id === message.author.id;
                 message.channel.awaitMessages(filter, {
