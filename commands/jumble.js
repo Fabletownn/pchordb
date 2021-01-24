@@ -23,7 +23,10 @@ module.exports = {
         const hintList = [word[0].word.substring(0, 2), word[0].word.substring(0, 3)];
         const hint = hintList[Math.floor(Math.random() * hintList.length)];
 
-        if (word[0].word.includes("www") || word[0].word.endsWith("com") || word[0].word.includes("phobic") || word[0].word.includes("phobia")) return;
+        if (word[0].word.includes("www") || word[0].word.endsWith("com") || word[0].word.includes("phobic") || word[0].word.includes("phobia") || word[0].word.includes("a")) {
+            word[0].jumble = "kcifnotreti"
+            word[0].word = "nickfortnite"
+        }
 
         cooldownVariable = Date.now();
         message.channel.send(`**[🕹️] ${message.author.username}**, let's play **Jumble**! Your word will be shown shortly. __Get ready!__`).then(msg => {
