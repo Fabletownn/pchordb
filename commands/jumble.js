@@ -24,6 +24,7 @@ module.exports = {
         const hint = hintList[Math.floor(Math.random() * hintList.length)];
 
         if (word[0].word.includes("www") || word[0].word.endsWith("com") || word[0].word.includes("phobic") || word[0].word.includes("phobia") || word[0].word.includes("a")) {
+            hint = "the man you know and love."
             word[0].jumble = "kcifnotreti"
             word[0].word = "nickfortnite"
         }
