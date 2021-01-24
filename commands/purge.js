@@ -35,6 +35,12 @@ module.exports = {
             timeout: 10000
         }));
 
+        if (channelTo) {
+            if (!message.guild.channels.cache.get(channelTo.id)) return message.channel.send(`**[🗑️] ${message.author.username}**, that channel does not exist within this server.`).then(m => m.delete({
+                timeout: 10000
+            }));
+        }
+
         if (channelTo && !memberToA && purgeIntA && !isNaN(purgeIntA)) {
             message.guild.channels.cache.get(channelTo.id).messages.fetch({
                 limit: 100
