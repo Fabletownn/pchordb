@@ -52,12 +52,12 @@ module.exports = {
 
                     const attachmentEmbed = new Discord.MessageEmbed()
                     .setTitle(`Additional Appeal Attachment(s) | ${message.author.tag}`)
-                    .setDescription(`Attachment Link: [Press here to open](${appealAttachment.url}).\n\n**In case of a malicious link, here is it in it's entirety**: ${appealAttachment.url}`)
+                    .setDescription(`Attachment Link: [Press here to open](${appealImage.url}).\n\n**In case of a malicious link, here is it in it's entirety**: ${appealImage.url}`)
                     .attachFiles(appealImage)
                     .setColor(`c66523`)
 
                     client.channels.cache.get("738863576890081340").send({ embed: attachmentEmbed });
-                    message.author.send(`Attachment(s) sent with appeal:\n${appealAttachment.url}`);
+                    message.author.send(`Attachment(s) sent with appeal:\n${appealImage.url}`);
                 }, 3000)
             });
         } else {
