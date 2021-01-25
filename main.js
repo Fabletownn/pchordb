@@ -654,7 +654,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
                 if (role.id !== "700290943420727366") return;
 
                 const verifiedEmbed = new Discord.MessageEmbed()
-                    .setAuthor(`Verified | ${newMember.tag}`, newMember.displayAvatarURL({ dynamic: true }))
+                    .setAuthor(`Verified | ${newMember.user.tag}`, newMember.user.displayAvatarURL({ dynamic: true }))
                     .setDescription(`${newMember} has verified into the server, and has obtained the ${role} role.`)
                     .setFooter(`User ID: ${newMember.user.id}`)
                     .setColor(6004451)
