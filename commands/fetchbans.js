@@ -7,8 +7,6 @@ module.exports = {
         const client = message.client;
 
         let mainServer = client.guilds.cache.get("614193406838571085");
-
-        if (message.guild.id !== "797142251712151583") return;
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
 
         let userID = message.content.split(" ")[1];
