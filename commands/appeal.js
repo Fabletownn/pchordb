@@ -1,4 +1,6 @@
 const Discord = require("discord.js")
+const https = require("https");
+const fs = require("fs");
 
 module.exports = {
     name: 'appeal',
