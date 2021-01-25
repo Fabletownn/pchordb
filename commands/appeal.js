@@ -14,7 +14,7 @@ module.exports = {
         let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
         if (message.member.roles.cache.has(receivedR.id)) return message.delete();
 
-        var appealMessageArguments = message.content.split("appeal ");
+        var appealMessageArguments = message.content.split("+appeal ");
         var appealMessage = appealMessageArguments[1];
 
         if (!appealMessage && message.attachments.size === 0) return message.delete();
