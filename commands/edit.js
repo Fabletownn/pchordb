@@ -8,14 +8,14 @@ module.exports = {
 
         const client = message.client;
         let messageArguments = message.content.split(" ");
-        
+
         let channel = message.mentions.channels.first();
         let messageID = messageArguments[2];
-        
+
         let editContent = message.content.substr(47, 2048);
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
-        
+
         if (!channel) return message.channel.send(`**[📝] ${message.author.username}**, please ensure you're mentioning the channel to edit in first.`).then(m => m.delete({
             timeout: 10000
         }));
@@ -28,12 +28,12 @@ module.exports = {
         if (!channel.messages.fetch(messageID)) return message.channel.send(`**[📝] ${message.author.username}**, that message ID wasn't found in the mentioned channel.`).then(m => m.delete({
             timeout: 10000
         }));
-        
+
         channel.messages.fetch(messageID).then(toEdit => {
             if (toEdit.author.id !== client.user.id) return message.channel.send(`**[📝] ${message.author.username}**, that message is **not** my message, therefore I cannot edit it.`).then(m => m.delete({
                 timeout: 10000
             }));
-            
+
             const editEmbed = new Discord.MessageEmbed()
                 .setAuthor(`Power Chord Content Edited`, message.author.displayAvatarURL({
                     dynamic: true
@@ -44,10 +44,14 @@ module.exports = {
                 .setFooter(`Content(s) edited by ${message.author.tag}`)
                 .setTimestamp()
                 .setColor(`eb4bc9`)
-        
-            toEdit.edit(editContent).then(message.channel.send(`**[📝] ${message.author.username}**, the deeeed's been done. You can view the new content(s) below.`, {
-                embed: editEmbed
-            }));
+
+            toEdit.edit(editContent).then(() => {
+                message.channel.send(`**[📝] ${message.author.username}**, the deeeed's been done. You can view the new content(s) below.`, {
+                    embed: editEmbed
+                }).then(m => m.delete({
+                    timeout: 10000
+                }));
+            });
         }).catch(error => {
             message.channel.send(`**[📝] ${message.author.username}**, an error occurred trying to fetch the message & edit it's content(s).`).then(m => m.delete({
                 timeout: 10000
