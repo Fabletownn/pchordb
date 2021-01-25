@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const appeal = require("./appeal");
 
 module.exports = {
     name: 'deny',
@@ -37,14 +38,11 @@ module.exports = {
                 reason: `Appeal was denied by ${message.author.tag}.`
             }).then(() => {
                 const denyEmbed = new Discord.MessageEmbed()
-                    .setAuthor(`Appeal Denied | ${message.author.tag}`, message.author.displayAvatarURL({
+                    .setAuthor(`Appeal Denied | ${appealDenialMention.tag}`, appealDenialMention.displayAvatarURL({
                         dynamic: true
                     }))
                     .addField(`User`, `${appealDenialMention}`, true)
                     .addField(`Moderator`, `${message.author}`, true)
-                    .setThumbnail(appealDenialMention.displayAvatarURL({
-                        dynamic: true
-                    }))
                     .setFooter(`User ID: ${appealDenialMention.id}`)
                     .setTimestamp()
                     .setColor(`ff0000`)
