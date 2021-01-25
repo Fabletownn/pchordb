@@ -20,7 +20,9 @@ module.exports = {
         if (!appealMessage && message.attachments.size === 0) return message.delete();
 
         const filedEmbed = new Discord.MessageEmbed()
-            .setAuthor(`Appeal Filed | ${message.author.tag}`)
+            .setAuthor(`Appeal Filed | ${message.author.tag}`, message.author.displayAvatarURL({
+                dynamic: true
+            }))
             .setDescription(`${message.author} has filed an appeal and obtained the <@&691372147112673441> role.`)
             .setColor(15582289)
             .setFooter(`User ID: ${message.author.id}`)
