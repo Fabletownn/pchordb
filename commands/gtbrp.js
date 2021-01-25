@@ -12,8 +12,7 @@ module.exports = {
     execute(message) {
         message.delete();
 
-        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id)) return;
+        if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
 
         let timeout = 7000;
 

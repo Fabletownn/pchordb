@@ -10,9 +10,7 @@ module.exports = {
     execute(message, args) {
         message.delete();
 
-        let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
-
-        if (!message.member.roles.cache.has(administratorR.id)) return;
+        if (!message.member.roles.cache.has("614195872347062273")) return;
 
         var prefixA = message.content.split(" ");
         var toPrefix = prefixA[1];

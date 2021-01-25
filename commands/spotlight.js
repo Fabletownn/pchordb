@@ -16,8 +16,7 @@ module.exports = {
         const artArray = ["More work!", "More!", "Even more!", "More of their work!"]
         const artResult = artArray[Math.floor(Math.random() * artArray.length)];
 
-        let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
-        if (!message.member.roles.cache.has(administratorR.id)) return;
+        if (!message.member.roles.cache.has("614195872347062273")) return;
 
         message.channel.send(`**[🎭] ${message.author.username}**, who will be the Spotlight for this week? Please ensure you're either mentioning them (<@ID>).`).then(msg => {
             const userQuestion = m => m.author.id === message.author.id && m.mentions.users.first();
