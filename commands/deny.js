@@ -20,14 +20,16 @@ module.exports = {
         }));
 
         if (appealDenialMention) {
+            let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
+            let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
+            let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
+            
             if (deniedMember.roles.cache.has(moderatorR.id)) return message.channel.send(`**[📜] ${message.author.username}**, you cannot deny this member.`).then(m => m.delete({
                 timeout: 10000
             }));
             if (deniedMember.roles.cache.has(administratorR.id)) return message.channel.send(`**[📜] ${message.author.username}**, you cannot deny this member.`).then(m => m.delete({
                 timeout: 10000
             }));
-
-            let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
             if (!deniedMember.roles.cache.has(receivedR.id)) return message.channel.send(`**[📜] ${message.author.username}**, this member does not have a pending appeal.`).then(m => m.delete({
                 timeout: 10000
             }));
