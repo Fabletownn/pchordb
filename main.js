@@ -587,7 +587,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("messageDelete", (deletedMessage) => {
     if (deletedMessage.guild === null) return;
-    if (deletedMessage.guild.id !== "614193406838571085" && deletedMessage.guild.id !== "797142251712151583") return;
+    if (deletedMessage.guild.id !== "614193406838571085" && deletedMessage.guild.id !== "797142251712151583" && deletedMessage.guild.id !== "685876599199236173") return;
 
     if (deletedMessage.author.bot) return;
 
@@ -641,7 +641,7 @@ client.on("messageDelete", (deletedMessage) => {
         });
     } else if (deletedMessage.guild.id === "685876599199236173") {
         if (deletedMessage.channel.id !== "685885174025814049") return;
-        
+
         client.channels.cache.get("803196219396194346").send({
             embed: deleteEmbed
         });
