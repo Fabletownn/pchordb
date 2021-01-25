@@ -7,8 +7,6 @@ module.exports = {
         const client = message.client;
 
         if (message.guild.id !== '685876599199236173') return;
-        let acceptedR = message.guild.roles.cache.find(role => role.name === "Appeal Accepted");
-
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
 
         message.delete();
@@ -20,7 +18,9 @@ module.exports = {
         }));
 
         if (appealAcceptionMention) {
-            if (acceptedMember.roles.cache.has(acceptedR.id)) return message.channel.send(`**[📜] ${message.author.username}**, this member has already been accepted.`).then(m => m.delete({
+            let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
+
+            if (!acceptedMember.roles.cache.has(receivedR.id)) return message.channel.send(`**[📜] ${message.author.username}**, this member does not have a pending appeal.`).then(m => m.delete({
                 timeout: 10000
             }));
 
