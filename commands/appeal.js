@@ -51,13 +51,18 @@ module.exports = {
                     const appealImage = new Discord.MessageAttachment(`./APPEAL_${message.author.username}${message.author.discriminator}_${appealAttachment.name}`);
 
                     const attachmentEmbed = new Discord.MessageEmbed()
-                    .setTitle(`Additional Appeal Attachment(s) | ${message.author.tag}`)
-                    .setDescription(`Attachment Link: [Press here to open](${appealImage.url}).\n\n**In case of a malicious link, here is it in it's entirety**: ${appealImage.url}`)
-                    .attachFiles(appealImage)
-                    .setColor(`c66523`)
+                        .setTitle(`Additional Appeal Attachment(s) | ${message.author.tag}`)
+                        .setDescription(`Above is the attachment(s) submitted with this member's appeal.\n*(If there is no appeal message, there may be a text file to read).*`)
+                        .attachFiles(appealImage)
+                        .setColor(`c66523`)
 
-                    client.channels.cache.get("738863576890081340").send({ embed: attachmentEmbed });
-                    message.author.send(`Attachment(s) sent with appeal:\n${appealImage.url}`);
+                    client.channels.cache.get("738863576890081340").send({
+                        embed: attachmentEmbed
+                    }).then(() => {
+                        message.author.send(`Attachment(s) sent with appeal:`, {
+                            files: [appealImage]
+                        });
+                    });
                 }, 3000)
             });
         } else {
