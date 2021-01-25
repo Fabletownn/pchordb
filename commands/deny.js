@@ -23,7 +23,7 @@ module.exports = {
             let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
             let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
             let receivedR = message.guild.roles.cache.find(role => role.name === "Appeal Received");
-            
+
             if (deniedMember.roles.cache.has(moderatorR.id)) return message.channel.send(`**[📜] ${message.author.username}**, you cannot deny this member.`).then(m => m.delete({
                 timeout: 10000
             }));
@@ -40,7 +40,7 @@ module.exports = {
                 reason: `Appeal was denied by ${message.author.tag}.`
             }).then(() => {
                 const denyEmbed = new Discord.MessageEmbed()
-                    .setAuthor(`Appeal Denied | ${appealDenialMention.tag}`, appealDenialMention.displayAvatarURL({
+                    .setAuthor(`Appeal Rejected | ${appealDenialMention.tag}`, appealDenialMention.displayAvatarURL({
                         dynamic: true
                     }))
                     .addField(`User`, `${appealDenialMention}`, true)
