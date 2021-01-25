@@ -48,8 +48,15 @@ module.exports = {
                 });
 
                 setTimeout(() => {
-                    const appealImage = new Discord.MessageAttachment(`./APPEAL_${message.author.username}${message.author.discriminator}_${appealAttachment.name}`)
-                    client.channels.cache.get("738863576890081340").send(`Additional Appeal Attachment(s) | ${message.author.tag}:`, appealImage);
+                    const appealImage = new Discord.MessageAttachment(`./APPEAL_${message.author.username}${message.author.discriminator}_${appealAttachment.name}`);
+
+                    const attachmentEmbed = new Discord.MessageEmbed()
+                    .setTitle(`Additional Appeal Attachment(s) | ${message.author.tag}`)
+                    .setDescription(`Attachment Link: [Press here to open](${a.url}).\n\n**In case of a malicious link, here is it in it's entirety**: ${a.url}`)
+                    .attachFiles(appealImage)
+                    .setColor(`c66523`)
+
+                    client.channels.cache.get("738863576890081340").send({ embed: attachmentEmbed });
                 }, 3000)
             });
         } else {
