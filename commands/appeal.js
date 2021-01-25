@@ -52,7 +52,7 @@ module.exports = {
 
                     const attachmentEmbed = new Discord.MessageEmbed()
                         .setTitle(`Additional Appeal Attachment(s) | ${message.author.tag}`)
-                        .setDescription(`Above is the attachment(s) submitted with this member's appeal.\n*(If there is no appeal message, there may be a text file to read).*`)
+                        .setDescription(`Above are the attachment(s) submitted with this member's appeal.\n*(If there is no appeal message, there may be a text file to read).*`)
                         .attachFiles(appealImage)
                         .setColor(`c66523`)
 

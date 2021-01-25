@@ -14,10 +14,10 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
     var result = `${client.user.username} is up n' running.`;
     response.send(result);
-}).listen(app.get('port'), function () {
+}).listen(app.get('port'), function() {
     console.log("Application is attempting to run.. server is listening on PORT:", app.get('port'));
 });
 
@@ -206,39 +206,39 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     } else
 
-        if (oldVoiceChannel !== null && newVoiceChannel === null) {
-            if (oldVoiceChannel.id === "797142252639748097") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547364796006440');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797770795782766623") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547403711021056');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797770809073991700") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547435390861322');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797802749383147530") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547450574635078');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else {
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "797142252639748097") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547364796006440');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
                 return;
             }
+        } else if (oldVoiceChannel.id === "797770795782766623") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547403711021056');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797770809073991700") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547435390861322');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797802749383147530") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547450574635078');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else {
+            return;
         }
+    }
 });
 
 client.on('voiceStateUpdate', (oldState, newState) => {
@@ -433,46 +433,46 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     } else
 
-        if (oldVoiceChannel !== null && newVoiceChannel === null) {
-            if (oldVoiceChannel.id === "774362075618869270") {
-                const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "614484127722373120") {
-                const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "757301388840665248") {
-                const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "664593167420489730") {
-                const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "744952618878763088") {
-                const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else {
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "774362075618869270") {
+            const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
                 return;
             }
+        } else if (oldVoiceChannel.id === "614484127722373120") {
+            const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "757301388840665248") {
+            const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "664593167420489730") {
+            const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "744952618878763088") {
+            const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else {
+            return;
         }
+    }
 });
 
 client.on('guildMemberAdd', member => {
@@ -563,8 +563,8 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     const editEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${newMessage.author}`, true)
         .addField(`Channel`, `${newMessage.channel}`, true)
-        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
-        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
         .setColor('3ba2d4')
         .setFooter(`User ID: ${newMessage.author.id}`)
         .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
@@ -596,7 +596,7 @@ client.on("messageDelete", (deletedMessage) => {
             const deleteAttachmentEmbed = new Discord.MessageEmbed()
                 .addField(`User`, `${deletedMessage.author}`, true)
                 .addField(`Channel`, `${deletedMessage.channel}`, true)
-                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
                 .setColor('ff0000')
                 .setImage(`${attachmentsSent.url}`)
                 .setFooter(`User ID: ${deletedMessage.author.id}`)
@@ -623,7 +623,7 @@ client.on("messageDelete", (deletedMessage) => {
     const deleteEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${deletedMessage.author}`, true)
         .addField(`Channel`, `${deletedMessage.channel}`, true)
-        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content fetched. This was one of the following:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
         .setColor('ff0000')
         .setFooter(`User ID: ${deletedMessage.author.id}`)
         .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
