@@ -40,11 +40,13 @@ module.exports = {
                     .setAuthor(`Appeal Denied | ${message.author.tag}`, message.author.displayAvatarURL({
                         dynamic: true
                     }))
-                    .addField(`User`, `${appealDenialMention.tag} (${appealDenialMention})`, true)
-                    .addField(`Time Denied`, `${new Date().toLocaleTimeString()} UTC\n${new Date()}`)
+                    .addField(`User`, `${appealDenialMention}`, true)
+                    .addField(`Moderator`, `${message.author}`, true)
                     .setThumbnail(appealDenialMention.displayAvatarURL({
                         dynamic: true
                     }))
+                    .setFooter(`User ID: ${appealDenialMention.id}`)
+                    .setTimestamp()
                     .setColor(`ff0000`)
 
                 client.channels.cache.get('794486722356183052').send({

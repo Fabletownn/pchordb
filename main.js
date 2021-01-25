@@ -644,6 +644,28 @@ client.on("messageDelete", (deletedMessage) => {
     }
 });
 
+client.on('guildMemberUpdate', (oldMember, newMember) => {
+    if (oldMember.guild.id !== "685876599199236173") return;
+    if (newMember.guild.id !== "685876599199236173") return;
+
+    if (oldMember.roles.cache.size < newMember.roles.cache.size) {
+        newMember.roles.cache.forEach(role => {
+            if (!oldMember.roles.cache.has(role.id)) {
+                if (role.id !== "700290943420727366") return;
+
+                const verifiedEmbed = new Discord.MessageEmbed()
+                    .setAuthor(`Verified | ${newMember.tag}`, newMember.displayAvatarURL({ dynamic: true }))
+                    .setDescription(`${newMember} has verified into the server, and has obtained the ${role} role.`)
+                    .setFooter(`User ID: ${newMember.user.id}`)
+                    .setColor(6004451)
+                    .setTimestamp()
+
+                client.channels.cache.get("803196162952658964").send({ embed: verifiedEmbed });
+            }
+        });
+    }
+});
+
 client.on('message', message => {
     if (message.guild === null) return;
 

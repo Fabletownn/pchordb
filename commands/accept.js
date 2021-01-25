@@ -30,11 +30,13 @@ module.exports = {
                         .setAuthor(`Appeal Accepted | ${message.author.tag}`, message.author.displayAvatarURL({
                             dynamic: true
                         }))
-                        .addField(`User`, `${appealAcceptionMention.tag} (${appealAcceptionMention})`, true)
-                        .addField(`Time Accepted`, `${new Date().toLocaleTimeString()} UTC\n${new Date()}`)
+                        .addField(`User`, `${appealAcceptionMention}`, true)
+                        .addField(`Moderator`, `${message.author}`, true)
                         .setThumbnail(appealAcceptionMention.displayAvatarURL({
                             dynamic: true
                         }))
+                        .setFooter(`User ID: ${appealAcceptionMention.id}`)
+                        .setTimestamp()
                         .setColor(`6dff48`)
 
                     client.channels.cache.get('794486722356183052').send({

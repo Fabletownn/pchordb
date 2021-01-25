@@ -19,11 +19,22 @@ module.exports = {
 
         if (!appealMessage && message.attachments.size === 0) return message.delete();
 
+        const filedEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Appeal Filed | ${message.author.tag}`)
+            .setDescription(`${message.author} has filed an appeal and obtained the <@&691372147112673441> role.`)
+            .setColor(15582289)
+            .setFooter(`User ID: ${message.author.id}`)
+            .setTimestamp()
+
+        client.channels.cache.get("803199322379780117").send({
+            embed: filedEmbed
+        });
+
         const appealEmbed = new Discord.MessageEmbed()
             .setTitle(`Appeal | Ban | ${message.author.tag}`)
             .setDescription(`${appealMessage || 'No appeal message was sent.\nPlease check attachment embeds below for any possible text or image files.'}`)
             .setColor(`ff0000`)
-            .setFooter(`ID: ${message.author.id}`)
+            .setFooter(`User ID: ${message.author.id}`)
 
         client.channels.cache.get("738863576890081340").send({
             embed: appealEmbed
@@ -43,7 +54,7 @@ module.exports = {
                 if (!appealAttachment.name.endsWith("png") && !appealAttachment.name.endsWith("jpg") && !appealAttachment.name.endsWith("gif") && !appealAttachment.name.endsWith("txt")) return message.author.send(`There was an issue with your attachment: therefore, it has not been sent in.`);
 
                 const file = fs.createWriteStream(`APPEAL_${message.author.username}${message.author.discriminator}_${appealAttachment.name}`);
-                const request = https.get(appealAttachment.url, function(response) {
+                const request = https.get(appealAttachment.url, function (response) {
                     response.pipe(file);
                 });
 
