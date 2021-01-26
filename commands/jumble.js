@@ -17,7 +17,7 @@ module.exports = {
         let timeout = 5000;
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '789937524763000832') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         if (timeout - (Date.now() - cooldownVariable) > 0) return;
         const hintList = [word[0].word.substring(0, 2), word[0].word.substring(0, 3)];
