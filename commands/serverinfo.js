@@ -31,7 +31,7 @@ module.exports = {
             },
             {
                 "name": "I TALK GENERAL",
-                "value": "<#614193406842765375> -  Main General Chat of the server, open to everyone.\n<#710916484427415602> -  General Chat for members Level 30 and above.\n<#652578641343152148> -  General Chat for  <@&615597085202317325>s and <@&614193913707757639>s.\n<#761997427111886908> -  Discussion about, and for LFG for games.\n<#693169647217803316> -  Sharing media (images/videos/GIFs).\n<#616739992798232624> -  Discussion about anime.\n<#614550170478051349> -  Sharing memes.\n<#723586295083040769> -  Sharing /Discussion of unpopular opinions.\n<#757307092263501975> -  Submitting intros for <@152597531824619521>'s YouTube.\n<#778502488844140574> - An open platform for having discussions about the server. \n[Unlocked through the <@&655191803858780180> role.]\n```\n \n```"
+                "value": "<#614193406842765375> -  Main General Chat of the server, open to everyone.\n<#710916484427415602> -  General Chat for members Level 30 and above.\n<#652578641343152148> -  General Chat for  <@&615597085202317325>s and <@&802243800458068028>s.\n<#761997427111886908> -  Discussion about, and for LFG for games.\n<#693169647217803316> -  Sharing media (images/videos/GIFs).\n<#616739992798232624> -  Discussion about anime.\n<#614550170478051349> -  Sharing memes.\n<#723586295083040769> -  Sharing /Discussion of unpopular opinions.\n<#757307092263501975> -  Submitting intros for <@152597531824619521>'s YouTube.\n<#778502488844140574> - An open platform for having discussions about the server. \n[Unlocked through the <@&655191803858780180> role.]\n```\n \n```"
             },
             {
                 "name": "I TALK CREATORS",
