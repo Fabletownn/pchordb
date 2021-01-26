@@ -401,7 +401,7 @@ module.exports = {
             ],
             "author": {
                 "name": "Power Chord Help Menu",
-                "icon_url": client.user.displayAvatarURL()
+                "icon_url": "https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png"
             }
         }
 
@@ -472,7 +472,7 @@ module.exports = {
             ],
             "author": {
                 "name": "Power Chord Help Menu",
-                "icon_url": client.user.displayAvatarURL()
+                "icon_url": "https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png"
             }
         }
 
