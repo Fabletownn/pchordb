@@ -100,7 +100,7 @@ module.exports = {
             },
             {
                 "name": "3) __Rule Violations and Punishments.__",
-                "value": "DM the <@363766977585479680> bot `+punishmentlist` to view a more detailed list on how punishments are handed out.\n```\nViolation of a rule will result in you receiving a punishment - ranging from a strike, mute, kick or a ban from the server. \n\nFirst Impressions make Last Impressions. If the first thing you do in the server is violate rules, you will most likely be straightaway banned.\n```"
+                "value": "DM the <@363766977585479680> bot `+punishmentlist` to view a more detailed list on how punishments are handed out.\n```\nViolation of a rule will result in you receiving a punishment - ranging from a strike, mute, kick or a ban from the server.\n```"
             }
             ]
         }

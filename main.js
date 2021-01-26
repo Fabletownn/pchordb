@@ -660,13 +660,17 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
                 if (role.id !== "700290943420727366") return;
 
                 const verifiedEmbed = new Discord.MessageEmbed()
-                    .setAuthor(`Verified | ${newMember.user.tag}`, newMember.user.displayAvatarURL({ dynamic: true }))
+                    .setAuthor(`Verified | ${newMember.user.tag}`, newMember.user.displayAvatarURL({
+                        dynamic: true
+                    }))
                     .setDescription(`${newMember} has verified into the server, and has obtained the ${role} role.`)
                     .setFooter(`User ID: ${newMember.user.id}`)
                     .setColor(6004451)
                     .setTimestamp()
 
-                client.channels.cache.get("803196162952658964").send({ embed: verifiedEmbed });
+                client.channels.cache.get("803196162952658964").send({
+                    embed: verifiedEmbed
+                });
             }
         });
     }
@@ -881,14 +885,65 @@ client.on('message', message => {
     }
 
     if (message.content.startsWith(`+punishmentlist`) || message.content.startsWith(`+punishlist`)) {
-        const punishEmbed = new Discord.MessageEmbed()
-            .setTitle(`Punishment List`)
-            .setDescription(`**__Minor Toxicity__**: 30m Mute\n**__Toxicity__**: 2h Mute\n**__Bigotry/Racism/Sexism/Homophobia or any other form of Hate Speech__**: Ban\n**__Religious/Political Discussions; Discussion on Sensitive Topics__**: 1h Mute\n\n\n**__Spam/Copypasta; Ghost/Spam Pinging; Spamming Bot Commands__**: 30m Mute\n**__Emoji Spam__**: 15m Mute\n__**Not using channels for their intended purpose (e.g. sharing memes in <#614563325556162572>)**__: 10m Mute\n**__Using Bot Commands in channels other than where intended__**: 10m Mute\n\n**__Nonsense Trolling__**: 90m Mute\n**__Self Promotion__**: 90m Mute\n\n**__Bypassing Punishments (Leaving and Rejoining, using Alts)__**: Ban (both main and alt)\n**__Bypassing/Attempt to Bypass Auto-Moderation__**: 30m Mute\n\n**__Doxx/DDoS Threats/Actions__**: Ban\n**__Sharing Malicious/Phishing Links__**: Ban\n\n__**Skipping Songs for no Reason**__: 30m Mute\n**__Requesting Spam/Troll Songs, or songs long in duration to clog VC__**: 15m Mute\n\n__**Accidental Fortnite Customs Griefing**__: Warn + Suspension from 1 Game\n__**Intentional Fortnite Customs Griefing**__: 3h Mute + 1 Week Suspension from Fortnite Customs\n\n**__Multiple Auto-Moderator Protocols in a Short Duration__**: 30m Mute\n**__Not Listening to Staff Member (e.g. continuing to argue when asked to stop__**: 30m Mute\n**__Impersonation of a Member__**: Strike.\n**__Inappropriate content in PFP/Nickname etc.__**: Strike.\n\n**__Mini-Moderation__**: 30m Mute\n**__Asking for Punishments__**: 30m Mute\n\`\`\` \`\`\`\n1) Multiple punishments can add up. For example: 30m Mute + 90m Mute = 2h Mute\n\n2) This is not 100% required to be followed. A Moderator can hand out a stricter/lenient punishment for an offense if the Moderator feels that it is more appropriate.\n\n3) An offense repeated multiple times can be a stricter punishment every time.\n\n4) It's impossible to list everything in one list. Any action which a Moderator deems unacceptable, even if not listed above, can result in a punishment.`)
-            .setColor('23FF09')
+        const punishList1 = {
+            "title": "Manual Moderation",
+            "description": "A violation of the servers rules will result in a punishment being handed out by a server moderator/administrator. The severity of the punishment will be based on how many active infractions you have. \n\nAll strikes are permanent, unless appealed.",
+            "color": 16711680,
+            "fields": [{
+                    "name": "Infractions",
+                    "value": "`Infraction 1`: 15m Mute\n`Infraction 2`: 1h Mute\n`Infraction 3`: 6h Mute\n`Infraction 4`: 24h Mute\n`Infraction 5`: Ban"
+                },
+                {
+                    "name": "Notes:",
+                    "value": "1) Certain rule violations will result in an instant ban from the server.\n\n2) Punishments are up to moderator discretion. Any attempts to find loopholes, bypass the rules or acting in bad faith in the server will result in a punishment as well.\n\n3) A moderator can hand out a different punishment than what is listed here - lenient or strict - based on the context of the situation in the server."
+                }
+            ]
+        }
+
+        const punishList2 = {
+            "title": "Auto-Moderation",
+            "description": "Auto-Moderation filters have been set up in the server in respect to the server's rules. These include\n\n- Blacklisted Words\n- Sharing any Links\n- Sharing any Discord Server Invites\n- Fast Message Spam\n- Mass Mentioning users.\n\nIf an auto-moderation filter is violated, the auto-moderation will delete your message. \nAuto-Moderation infractions **DO NOT** count towards your strike count. However, a Moderator may hand out a manual punishment on your auto-moderation infraction, if you have violated a server rule.",
+            "color": 3447003
+        }
+
+        const punishList3 = {
+            "title": "Appealing",
+            "description": "All Manual Moderation Punishments can be appealed to remove the infraction from your Moderation Logs. You can appeal each punishment ONCE. \nAuto-Moderation Infractions do not count towards your strike count, thus cannot be appealed.",
+            "color": 2359049,
+            "fields": [{
+                    "name": "__Appeal a Strike/Mute/Kick__",
+                    "value": "You must DM the <@575252669443211264> bot the punishment you are appealing for, and your appeal message."
+                },
+                {
+                    "name": "__Appeal a Ban__",
+                    "value": "You must file a ban appeal through the __[Ban Appeals Server](https://discord.gg/d4kCrjt)__."
+                },
+                {
+                    "name": "__What is included in an appeal?__",
+                    "value": "An appeal message can be but is not limited to: An explanation of what happened, an apology, or your justification for your actions if you felt they were fair."
+                },
+                {
+                    "name": "__What happens once the appeal is filed?__",
+                    "value": "Once you file an appeal, it will be gone over by the server staff - Moderators, Administrators and I Talk. \nIf the appeal is accepted, the punishment will be removed from the moderation logs. If it is rejected, it will stay on the logs, and you will be unable to appeal again."
+                }
+            ]
+        }
 
         message.author.send({
-            embed: punishEmbed
-        }).then(message => message.pin());
+            embed: punishList1
+        }).then((message1) => {
+            message1.pin();
+            message.author.send({
+                embed: punishList2
+            }).then((message2) => {
+                message2.pin();
+                message.author.send({
+                    embed: punishList3
+                }).then((message3) => {
+                    message3.pin();
+                });
+            });
+        });
     }
 });
 
