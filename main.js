@@ -895,7 +895,7 @@ client.on('message', message => {
                 },
                 {
                     "name": "Notes:",
-                    "value": "1) Certain rule violations will result in an instant ban from the server.\n\n2) Punishments are up to moderator discretion. Any attempts to find loopholes, bypass the rules or acting in bad faith in the server will result in a punishment as well.\n\n3) A moderator can hand out a different punishment than what is listed here - lenient or strict - based on the context of the situation in the server."
+                    "value": "1) Certain rule violations will result in an instant ban from the server.\n\n2) Punishments are up to moderator discretion. Any attempts to find loopholes, bypass the rules or acting in bad faith in the server will result in a punishment as well.\n\n3) A moderator can hand out a different punishment than what is listed here - lenient or strict - based on the context of the situation in the server.\n\n4) First Impressions make Last Impressions. If the first thing you do in the server is violate rules, you will most likely be straightaway banned."
                 }
             ]
         }
