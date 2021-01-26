@@ -8,7 +8,6 @@ module.exports = {
         let channelID = messageArguments[1];
         let voiceChannel = message.guild.channels.cache.get(channelID);
 
-        let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
 
         if (!channelID) return message.channel.send(`**[🔌] ${message.author.username}**, please input a voice channel's ID to disconnect every member from.`).then(m => m.delete({

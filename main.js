@@ -830,6 +830,8 @@ client.on('message', message => {
             client.commands.get('fetchbans').execute(message, args);
         } else if (command === 'mccolorlock') {
             client.commands.get('mccolorlock').execute(message, args);
+        } else if (command === 'temporarycommandlol') {
+            client.commands.get('temporarycommandlol').execute(message, args);
         }
     });
 });
