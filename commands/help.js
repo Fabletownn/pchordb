@@ -11,7 +11,7 @@ module.exports = {
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         const homeEmbed = new Discord.MessageEmbed()
-            .setAuthor(`Power Chord Help Menu`, client.user.displayAvatarURL({ dynamic: true }))
+            .setAuthor(`Power Chord Help Menu`,"https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png")
             .setTitle(`Main Menu`)
             .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into five different categories: **general**, **moderator enforced**, **Guess The Blank**, **fun** and **appeals**.\n\nYou are a staff member, so you have been provided the full list of commands: those who are not part of the staff team will be given a help menu excluding Moderator-restricted commands. 🔨\n<:pcPLACEHOLDER:786598522001817630>`)
             .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
@@ -25,7 +25,7 @@ module.exports = {
             .setFooter(`Page 1 of 7`)
 
         const homeEmbedEG = new Discord.MessageEmbed()
-            .setAuthor(`Power Chord Help Menu`, client.user.displayAvatarURL({ dynamic: true }))
+            .setAuthor(`Power Chord Help Menu`,"https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png")
             .setTitle(`Main Menu`)
             .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into five different categories: **general**, **moderator enforced**, **Guess The Blank**, **fun** and **appeals**.\n\nYou are a staff member, so you have been provided the full list of commands: those who are not part of the staff team will be given a help menu excluding Moderator-restricted commands. 🔨\n<:pcPLACEHOLDER:786598522001817630>`)
             .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
@@ -587,7 +587,7 @@ module.exports = {
             return;
         } else {
             const homeEmbed = new Discord.MessageEmbed()
-                .setAuthor(`Power Chord Help Menu`, client.user.displayAvatarURL({ dynamic: true }))
+                .setAuthor(`Power Chord Help Menu`,"https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png")
                 .setTitle(`Main Menu`)
                 .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into two different categories: **general** and **fun**. The command's aliases and how to use them are included as well.`)
                 .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
@@ -598,7 +598,7 @@ module.exports = {
                 .setFooter(`Page 1 of 4`)
 
             const homeEmbedEG = new Discord.MessageEmbed()
-                .setAuthor(`Power Chord Help Menu`, client.user.displayAvatarURL({ dynamic: true }))
+                .setAuthor(`Power Chord Help Menu`,"https://cdn.discordapp.com/attachments/778745409434288140/803659778173698068/botIcon.png")
                 .setTitle(`Main Menu`)
                 .setDescription(`This help menu includes all commands that you're able to use.\nThese different types of commands are separated into two different categories: **general** and **fun**. The command's aliases and how to use them are included as well.`)
                 .addField(`🌍 General Commands`, `This will provide a list of commands you're able to use for general use.`)
