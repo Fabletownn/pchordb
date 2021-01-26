@@ -932,15 +932,15 @@ client.on('message', message => {
         message.author.send({
             embed: punishList1
         }).then((message1) => {
-            message1.pin();
             message.author.send({
                 embed: punishList2
             }).then((message2) => {
-                message2.pin();
                 message.author.send({
                     embed: punishList3
                 }).then((message3) => {
                     message3.pin();
+                    message2.pin();
+                    message1.pin();
                 });
             });
         });
