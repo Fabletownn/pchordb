@@ -22,11 +22,11 @@ module.exports = {
         weather.find({
             search: theLocation,
             degreeType: "F"
-        }, function(err, result) {
+        }, function (err, result) {
             if (err) return message.channel.send(`**[🌧️] ${message.author.username}**, location wasn't found. Please make sure that's a **valid location**.`).then(m => m.delete({
                 timeout: 5000
             }));
-            
+
             if (result === undefined || result.length === 0) return message.channel.send(`**[🌧️] ${message.author.username}**, location wasn't found. Please make sure that's a **valid location**.`).then(m => m.delete({
                 timeout: 5000
             }));
@@ -47,7 +47,7 @@ module.exports = {
                 .addField('Humidity', `${current.humidity}%`, true)
                 .setColor('eb4bc9')
 
-            message.channel.send(weatherEmbed);
+            message.channel.send({ embed: weatherEmbed }).then(m => m.delete({ timeout: 30000 }));
         });
     }
 }
