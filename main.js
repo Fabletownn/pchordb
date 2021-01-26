@@ -689,14 +689,6 @@ client.on('message', message => {
 
         if (!message.content.startsWith(commandPrefix) || message.author.bot) return;
 
-        let moderatorR = message.guild.roles.cache.find(r => r.name === "Moderator");
-
-        if (message.guild.id === "614193406838571085" && message.content.startsWith(commandPrefix)) {
-            if (!message.content.startsWith(`+assistance`)) {
-                if (!message.member.roles.cache.has(moderatorR.id) && message.author.id !== "528759471514845194") return;
-            }
-        }
-
         const args = message.content.slice(commandPrefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
 
@@ -832,18 +824,6 @@ client.on('message', message => {
             client.commands.get('mccolorlock').execute(message, args);
         }
     });
-});
-
-client.on('message', message => {
-    if (message.guild === null || message.author.bot) return;
-
-    if (message.content === `+assistance`) {
-        if (message.guild.id === "614193406838571085") {
-            message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!\n`);
-        } else {
-            message.channel.send(`<@&797809139836911666> <@&797145089297350736>\nAssistance has been requested!\n`);
-        }
-    }
 });
 
 client.on('message', message => {
