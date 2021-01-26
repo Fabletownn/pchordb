@@ -6,7 +6,7 @@ const LUV = require("../models/love.js");
 
 module.exports = {
     name: 'love',
-    description: '[GENERAL] Add one ITF Love to the counter! <[setPrefix]love>',
+    description: '[GENERAL] Add one Nick Love to the counter! <[setPrefix]love>',
     execute(message, args) {
         message.delete();
 
@@ -24,9 +24,9 @@ module.exports = {
                     loves: 1
                 });
                 newLUVData.save().catch(err => console.log(err))
-                message.channel.send(`<:zITSBTLove:781301995305959444> **${message.author.tag}** contributed the first ever ITF Love! <:zITSBTLove:781301995305959444>\n\nTotal <:zITSBTLove:781301995305959444>s: 1`);
+                message.channel.send(`<:yNickLove:798240179894222859> **${message.author.tag}** contributed the first ever Nick Love! <:yNickLove:798240179894222859>\n\nTotal <:yNickLove:798240179894222859>s: 1`);
             } else {
-                if (data.latestMember === message.author.id) return message.channel.send(`**[<:zITSBTLove:781301995305959444>] ${message.author.username}**, you cannot give an ITF Love twice in a row!`).then(m => m.delete({
+                if (data.latestMember === message.author.id) return message.channel.send(`**[<:yNickLove:798240179894222859>] ${message.author.username}**, you cannot give an Nick Love twice in a row!`).then(m => m.delete({
                     timeout: 5000
                 }));
 
@@ -35,7 +35,7 @@ module.exports = {
                 data.loves += 1;
 
                 data.save().catch(err => console.log(err))
-                message.channel.send(`<:zITSBTLove:781301995305959444> **${message.author.tag}** contributed 1 ITF Love to the counter! <:zITSBTLove:781301995305959444>\n\nTotal <:zITSBTLove:781301995305959444>s: ${data.loves.toLocaleString()}`);
+                message.channel.send(`<:yNickLove:798240179894222859> **${message.author.tag}** contributed 1 Nick Love to the counter! <:yNickLove:798240179894222859>\n\nTotal <:yNickLove:798240179894222859>s: ${data.loves.toLocaleString()}`);
             }
         });
     }
