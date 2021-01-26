@@ -30,7 +30,7 @@ module.exports = {
 
                     if (duelResult === duelResult2) {
                         const resultEmbed = new Discord.MessageEmbed()
-                            .setTitle(`Rock Paper Scissors`)
+                            .setAuthor(`Rock Paper Scissors`, message.author.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\nIt's a tie!`)
                             .setFooter(`Game Started by ${message.author.tag}.`)
                             .setTimestamp()
@@ -40,7 +40,7 @@ module.exports = {
                     }
                     if (duelResult === "paper 📰" && duelResult2 === "rock 🪨" || duelResult === "rock 🪨" && duelResult2 === "scissors ✂️" || duelResult === "scissors ✂️" && duelResult2 === "paper 📰") {
                         const resultEmbed = new Discord.MessageEmbed()
-                            .setTitle(`Rock Paper Scissors`)
+                            .setAuthor(`Rock Paper Scissors`, message.author.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\n${message.author} wins!`)
                             .setFooter(`Game Started by ${message.author.tag}.`)
                             .setTimestamp()
@@ -49,7 +49,7 @@ module.exports = {
                         return message.channel.send(`**[🪨]** Rock.. paper.. scissors.. *shoot*!`, { embed: resultEmbed });
                     } else {
                         const resultEmbed = new Discord.MessageEmbed()
-                            .setTitle(`Rock Paper Scissors`)
+                            .setAuthor(`Rock Paper Scissors`, duelUser.displayAvatarURL({ dynamic: true }))
                             .setDescription(`${message.author}, you got.. **${duelResult}**.\n${duelUser} got.. **${duelResult2}**.\n\n${duelUser} wins!`)
                             .setFooter(`Game Started by ${message.author.tag}.`)
                             .setTimestamp()
