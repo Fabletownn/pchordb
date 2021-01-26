@@ -35,10 +35,7 @@ module.exports = {
             var location = result[0].location;
 
             const weatherEmbed = new Discord.MessageEmbed()
-                .setAuthor(`Weather Forecast for: "${current.observationpoint}."`)
-                .setThumbnail(message.author.displayAvatarURL({
-                    dynamic: true
-                }))
+                .setAuthor(`Weather Forecast for: "${current.observationpoint}."`, message.author.displayAvatarURL({ dynamic: true }))
                 .addField('Timezone', `UTC${location.timezone}`, true)
                 .addField('Degree Type', 'Fahrenheit', true)
                 .addField('Temperature', `${current.temperature}°`, true)
