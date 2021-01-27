@@ -5,7 +5,7 @@ const fs = require("fs")
 module.exports = {
     name: 'description',
     description: '[MODERATION] This will fetch the command description from within the code. Moderator restricted only for now. <[setPrefix]description <command name>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;

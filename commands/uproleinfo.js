@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'uproleinfo',
     description: '[MODERATION] Will send the entire list of embeds regarding Role Information in chat. Please use at your own discretion: it is **LONG**. <[setPrefix]roleinfo>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         if (message.guild.id !== "614193406838571085") return;

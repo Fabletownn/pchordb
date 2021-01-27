@@ -10,7 +10,7 @@ var cooldownVariable;
 module.exports = {
     name: 'trigger',
     description: '[FUN] This will trigger a mentioned member\'s profile picture (or your own). <[setPrefix]trigger (<@member>)>',
-    async execute(message, args) {
+    async execute(message) {
         message.delete();
 
         let timeout = 30000;

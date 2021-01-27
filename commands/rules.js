@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'rules',
     description: '[MODERATION] Will send the entire list of embeds regarding Rules in chat. Please use at your own discretion: it is **LONG**. <[setPrefix]rules>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;

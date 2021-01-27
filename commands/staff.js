@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'staff',
     description: '[GENERAL] This will provide a list of the I Talk Server Staff Team. <[setPrefix]staff>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
         
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");

@@ -7,8 +7,6 @@ OMEGALUL
 */
 
 const Discord = require("discord.js");
-const client = new Discord.Client();
-const mongoose = require("mongoose");
 const gameStatus = [];
 const gameChannel = [];
 const timeout = [];

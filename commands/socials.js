@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'socials',
     description: '[GENERAL] This will provide a list of all of I Talk\'s social medias. <[setPrefix]socials>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;

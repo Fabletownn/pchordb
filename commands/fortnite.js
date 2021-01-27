@@ -5,7 +5,7 @@ const fortnite = new Client(process.env.FT_apiKey);
 module.exports = {
     name: 'fortnite',
     description: '[FUN] This will search for the Fortnite Statistics of any given EPIC account by username. This information is taken from Fortnite Tracker. Only EPIC usernames with no spaces may be searched for right now. <[setPrefix]fortnite <EPIC username> (<platform>)>',
-    async execute(message, args) {
+    async execute(message) {
 		message.delete();
 		
 		let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");

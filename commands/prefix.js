@@ -7,7 +7,7 @@ const PRE = require("../models/prefix.js");
 module.exports = {
     name: 'prefix',
     description: '[MODERATION] This will adjust Power Chord\'s prefix to the specified character(s). <[setPrefix] prefix <character(s)>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         if (!message.member.roles.cache.has("614195872347062273")) return;

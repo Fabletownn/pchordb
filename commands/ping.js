@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'ping',
     description: '[GENERAL] This command fetches API data and reports back. <[setPrefix]ping>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");

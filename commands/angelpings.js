@@ -5,7 +5,7 @@ const ANG = require("../models/angel.js");
 module.exports = {
     name: 'angelpings',
     description: '[MODERATION] This will check how many times Anhel Freevase has been pinged. <[setPrefix]angelpings>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         if (message.author.id !== "550384455613677571") return message.channel.send(`Anhel only.`).then(m => m.delete({ timeout: 5000 }));

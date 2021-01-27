@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'removeoverride',
     description: '[MODERATION] This will remove specified member/role\'s override permissions in all channels under the \`I TALK GENERAL\` and \`I TALK FORTNITE\` categories. <[setPrefix]removeoverride <@member> // <@role> // <member ID> // <role ID>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
         var toGrant = message.mentions.users.first();
         var toGrantR = message.mentions.roles.first();

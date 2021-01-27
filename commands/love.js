@@ -7,9 +7,7 @@ const LUV = require("../models/love.js");
 module.exports = {
     name: 'love',
     description: '[GENERAL] Add one Nick Love to the counter! <[setPrefix]love>',
-    execute(message, args) {
-        message.delete();
-
+    execute(message) {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 

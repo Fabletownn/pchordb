@@ -8,7 +8,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'poll',
     description: '[MODERATION] This will run a poll using the details you specified. You are able to freely use any Unicode emojis OR Power Chord UPVOTE/DOWNVOTE emotes as your options. <[setPrefix]poll>',
-    execute(message, args) {
+    execute(message) {
         var question;
         var emote1;
         var emote2;

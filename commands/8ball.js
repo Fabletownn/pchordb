@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: '8ball',
     description: '[FUN] This will respond to any question with an 8Ball response. <[setPrefix]8ball <question>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         var eBallArguments = message.content.split("ball ");

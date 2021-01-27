@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'hotline',
     description: '[GENERAL] This will provide you Suicide Prevention Hotlines, websites, and phone numbers to provide for those in need. You are able to add "-d" or "dm" anywhere in the command to have it personally DM\'d to you. <[setPrefix]hotline>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
         
         if (message.content.includes('dm') || message.content.includes('-d')) {

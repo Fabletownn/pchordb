@@ -8,7 +8,7 @@ const ATT = require("../models/attachs.js")
 module.exports = {
     name: 'gtb-display',
     description: '[GTB] This will display all cosmetics ready to be used in a game (via DMs). <[setPrefix]gtb-display>',
-    execute(message, args) {
+    execute(message) {
         let timeout = 30000;
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;

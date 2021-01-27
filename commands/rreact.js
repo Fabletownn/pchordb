@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'rreact',
     description: '[MODERATION] This will revoke ADD_REACTION permissions from specified member/role in all channels under the \`I TALK GENERAL\` and \`I TALK FORTNITE\` categories. <[setPrefix]rreact <@member> // <@role> // <member ID> // <role ID>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
         var toGrant = message.mentions.users.first();
         var toGrantR = message.mentions.roles.first();

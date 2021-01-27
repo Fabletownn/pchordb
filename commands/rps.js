@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     name: 'rps',
     description: '[GENERAL] This will allow you to play Rock Paper Scissors with the member you mentioned. <[setPrefix]rps <@member>>',
-    execute(message, args) {
+    execute(message) {
         message.delete();
 
         var duelUser = message.mentions.users.first();
