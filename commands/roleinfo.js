@@ -20,6 +20,10 @@ module.exports = {
         let hoisted;
 
         if (message.mentions.roles.first()) {
+            if (!message.member.roles.cache.has(moderatorR.id)) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving me a role to give information about!`).then(m => m.delete({
+                timeout: 10000
+            }));
+            
             if (message.mentions.roles.first().mentionable) {
                 mentionable = "Yes"
             } else {
