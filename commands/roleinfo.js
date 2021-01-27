@@ -33,7 +33,7 @@ module.exports = {
         const roleEmbed2 = {
             "fields": [{
                 "name": "__Information__",
-                "value": "- The roles will only be granted to you while your Server Boost/Twitch Subscription is active. Once your Server Boost or Twitch Subscription runs out, you will lose the role and the permissions attached with it.\n- To obtain the <@&614193913707757639> role, make sure your Twitch Account is connected with your Discord Account. \n`Settings --> Connections`\n\n_ _",
+                "value": "- The roles will only be granted to you while your Server Boost/Twitch Subscription is active. Once your Server Boost or Twitch Subscription runs out, you will lose the role and the permissions attached with it.\n- To obtain the <@&802243800458068028> role, make sure your Twitch Account is connected with your Discord Account. \n`Settings --> Connections`\n\n_ _",
                 "inline": false
             }, {
                 "name": "__Permissions__",
