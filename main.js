@@ -961,17 +961,4 @@ client.on('message', message => {
     }
 });
 
-client.on('message', message => {
-    if (!message.guild) return;
-    if (message.author.bot) return;
-    if (message.channel.id !== "778502488844140574") return;
-    if (message.author.id === "528759471514845194") return;
-    
-    if (message.attachments.size > 0) {
-        message.delete().then(() => {
-            message.channel.send(`Reed the Band Kid 🎺 🎻 🎸 says no videos in tweaks!`).then(m => m.delete({ timeout: 5000 }));
-        });
-    }
-}); // temporary lulw
-
 client.login(process.env.token);
