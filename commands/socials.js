@@ -13,7 +13,7 @@ module.exports = {
             .setAuthor(`I Talk: Socials`, message.author.displayAvatarURL({ 
                 dynamic: true
             }))
-            .setDescription(`For his **YouTube** Channel, press [here](http://bit.ly/2Nu6QOG).\nFor his **Twitch** Channel, press [here](https://www.twitch.tv/itsitalk).\nFor his **Twitter** Profile, press [here](https://twitter.com/ThisIsITalk).\nFor his **Trello** Account, press [here](https://trello.com/b/KbYIp5kZ/videos).\nFor his **Instagram** Account, press [here](http://bit.ly/327S5Fa).\nFor his **Reddit** Account, press [here](https://www.reddit.com/user/ICanTalkFortnite/).\nFor his **Spotify** Account, press [here](https://spoti.fi/2TWjhEh).`)
+            .setDescription(`For his **YouTube** Channel, press [here](http://bit.ly/2Nu6QOG).\nFor his **Twitch** Channel, press [here](https://www.twitch.tv/itsitalk).\nFor his **Twitter** Profile, press [here](https://twitter.com/ThisIsITalk).\nFor his **Trello** Account, press [here](https://trello.com/b/KbYIp5kZ/videos).\nFor his **Instagram** Account, press [here](http://bit.ly/327S5Fa).\nFor his **Reddit** Account, press [here](https://www.reddit.com/user/ICanTalkFortnite/).\nFor his **TikTok** Account, press [here](https://www.tiktok.com/@imitalk?).\nFor his **Spotify** Account, press [here](https://spoti.fi/2TWjhEh).`)
             .setColor('eb4bc9')
 
         message.channel.send({ embed: socialsEmbed });
