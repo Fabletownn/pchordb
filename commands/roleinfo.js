@@ -2,17 +2,17 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'roleinfo',
-    description: '[GENERAL] This will give information about the mentioned role, or the given role ID. <[setPrefix]roleinfo <@role>/<role ID>>',
+    description: '[GENERAL] This will give information about the mentioned role, or the given role ID. <[setPrefix]roleinfo <role ID>>',
     execute(message) {
         message.delete();
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
-        if (!message.mentions.roles.first() && !message.content.split(" ")[1]) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving me a role to give information about!`).then(m => m.delete({
+        if (!message.mentions.roles.first() && !message.content.split(" ")[1]) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving providing a role ID for me to give information about.`).then(m => m.delete({
             timeout: 10000
         }));
-        if (!message.mentions.roles.first() && !message.guild.roles.cache.get(message.content.split(" ")[1])) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're providing valid role IDs: wasn't found.`).then(m => m.delete({
+        if (!message.mentions.roles.first() && !message.guild.roles.cache.get(message.content.split(" ")[1])) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're providing a valid role ID: role ID wasn't found.`).then(m => m.delete({
             timeout: 10000
         }));
 
