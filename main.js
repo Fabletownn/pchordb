@@ -555,16 +555,45 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (oldMessage.guild === null) return;
-    if (oldMessage.guild.id !== "614193406838571085" && oldMessage.guild.id !== "797142251712151583") return;
 
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
 
+    if (oldMessage.attachments.size > 0) {
+        oldMessage.attachments.forEach(oldAttachment => {
+            const editEmbed = new Discord.MessageEmbed()
+                .addField(`User`, `${newMessage.author}`, true)
+                .addField(`Channel`, `${newMessage.channel}`, true)
+                .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `No content.`}`)
+                .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `No content.`}`)
+                .addField(`Attachments [${oldMessage.attachments.size}]`, `[View](${oldAttachment.url})`)
+                .setColor('3ba2d4')
+                .setFooter(`User ID: ${newMessage.author.id}`)
+                .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
+                    dynamic: true
+                }))
+                .setTimestamp()
+
+            if (oldMessage.guild.id === "614193406838571085") {
+                client.channels.cache.get("690601497767182436").send({
+                    embed: editEmbed
+                });
+            } else if (oldMessage.guild.id === "797142251712151583") {
+                client.channels.cache.get("799329445555077120").send({
+                    embed: editEmbed
+                });
+            } else {
+                return;
+            }
+        });
+        return;
+    }
+
     const editEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${newMessage.author}`, true)
         .addField(`Channel`, `${newMessage.channel}`, true)
-        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
-        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`Before Edit`, `${oldMessage.content.substr(0, 1024) || `No content.`}`)
+        .addField(`After Edit`, `${newMessage.content.substr(0, 1024) || `No content.`}`)
         .setColor('3ba2d4')
         .setFooter(`User ID: ${newMessage.author.id}`)
         .setAuthor(`Message Edited | ${newMessage.author.tag}`, newMessage.author.displayAvatarURL({
@@ -587,8 +616,6 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("messageDelete", (deletedMessage) => {
     if (deletedMessage.guild === null) return;
-    if (deletedMessage.guild.id !== "614193406838571085" && deletedMessage.guild.id !== "797142251712151583" && deletedMessage.guild.id !== "685876599199236173") return;
-
     if (deletedMessage.author.bot) return;
 
     if (deletedMessage.attachments.size > 0) {
@@ -596,9 +623,9 @@ client.on("messageDelete", (deletedMessage) => {
             const deleteAttachmentEmbed = new Discord.MessageEmbed()
                 .addField(`User`, `${deletedMessage.author}`, true)
                 .addField(`Channel`, `${deletedMessage.channel}`, true)
-                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+                .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content.`}`)
+                .addField(`Attachments [${deletedMessage.attachments.size}]`, `[Inaccessible](${attachmentsSent.url})`)
                 .setColor('ff0000')
-                .setImage(`${attachmentsSent.url}`)
                 .setFooter(`User ID: ${deletedMessage.author.id}`)
                 .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
                     dynamic: true
@@ -606,11 +633,16 @@ client.on("messageDelete", (deletedMessage) => {
                 .setTimestamp()
 
             if (deletedMessage.guild.id === "614193406838571085") {
-                return client.channels.cache.get("690601497767182436").send({
+                client.channels.cache.get("690601497767182436").send({
                     embed: deleteAttachmentEmbed
                 });
             } else if (deletedMessage.guild.id === "797142251712151583") {
-                return client.channels.cache.get("799329445555077120").send({
+                client.channels.cache.get("799329445555077120").send({
+                    embed: deleteAttachmentEmbed
+                });
+            } else if (deletedMessage.guild.id === "685876599199236173") {
+                if (deletedMessage.channel.id !== "685885174025814049") return;
+                client.channels.cache.get("803196219396194346").send({
                     embed: deleteAttachmentEmbed
                 });
             } else {
@@ -623,7 +655,7 @@ client.on("messageDelete", (deletedMessage) => {
     const deleteEmbed = new Discord.MessageEmbed()
         .addField(`User`, `${deletedMessage.author}`, true)
         .addField(`Channel`, `${deletedMessage.channel}`, true)
-        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `**No content fetched. This was one of the following**:\n- an attachment, which is now inaccessible.\n- a Spotify Invite.`}`)
+        .addField(`Deleted Message`, `${deletedMessage.content.substr(0, 1024) || `No content.`}`)
         .setColor('ff0000')
         .setFooter(`User ID: ${deletedMessage.author.id}`)
         .setAuthor(`Message Deleted | ${deletedMessage.author.tag}`, deletedMessage.author.displayAvatarURL({
