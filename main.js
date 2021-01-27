@@ -784,9 +784,9 @@ client.on('message', message => {
             client.commands.get('love').execute(message, args);
         } else if (command === '8ball' || command === 'eball' || command === 'eightball') {
             client.commands.get('8ball').execute(message, args);
-        } else if (command === 'roleinfo') {
+        } else if (command === 'uproleinfo') {
             client.commands.get('roleinfo').execute(message, args);
-        } else if (command === 'serverinfo') {
+        } else if (command === 'upserverinfo') {
             client.commands.get('serverinfo').execute(message, args);
         } else if (command === 'colorlock') {
             client.commands.get('colorlock').execute(message, args);
@@ -858,6 +858,8 @@ client.on('message', message => {
             client.commands.get('fetchbans').execute(message, args);
         } else if (command === 'mccolorlock') {
             client.commands.get('mccolorlock').execute(message, args);
+        } else if (command === 'roleinfo') {
+            client.commands.get('roleinfo').execute(message, args);
         }
     });
 });
