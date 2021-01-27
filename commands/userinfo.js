@@ -5,9 +5,10 @@ module.exports = {
     name: 'userinfo',
     description: '[GENERAL] This will provide information about either you, or a mentioned user. <[setPrefix]userinfo (<@member>)>',
     execute(message) {
+        const client = message.client;
         message.delete();
 
-        var mentionedUser = message.mentions.users.first() || message.guild.member(message.content.split(" ")[1]);
+        var mentionedUser = message.mentions.users.first() || client.users.cache.get(message.content.split(" ")[1]);
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
