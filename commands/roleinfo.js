@@ -84,6 +84,10 @@ module.exports = {
             }).then(m => m.delete({
                 timeout: 30000
             }));
+        } else {
+            return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving me a role to give information about!`).then(m => m.delete({
+                timeout: 10000
+            }));
         }
     }
 }

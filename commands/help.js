@@ -67,6 +67,10 @@ module.exports = {
                 "value": "This will provide the user information of the member mentioned.\nMention a member to get their information, and don't to get yours."
             },
             {
+                "name": "`+roleinfo {role, role ID}`",
+                "value": "This will provide the role information of the role (or role ID) mentioned."
+            },
+            {
                 "name": "`+socials`, `+medias`",
                 "value": "This will provide I Talk Fortnite's social media links."
             },
@@ -391,6 +395,10 @@ module.exports = {
                 "value": "This will provide the user information of the member mentioned.\nMention a member to get their information, and don't to get yours."
             },
             {
+                "name": "`+roleinfo {role, role ID}`",
+                "value": "This will provide the role information of the role (or role ID) mentioned."
+            },
+            {
                 "name": "`+socials`, `+medias`",
                 "value": "This will provide I Talk Fortnite's social media links."
             },
@@ -635,6 +643,10 @@ module.exports = {
                 {
                     "name": "`+userinfo {user}`, `+userinformation {user}`",
                     "value": "This will provide the user information of the member mentioned.\nMention a member to get their information, and don't to get yours."
+                },
+                {
+                    "name": "`+roleinfo {role, role ID}`",
+                    "value": "This will provide the role information of the role (or role ID) mentioned."
                 },
                 {
                     "name": "`+socials`, `+medias`",
