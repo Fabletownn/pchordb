@@ -785,9 +785,9 @@ client.on('message', message => {
         } else if (command === '8ball' || command === 'eball' || command === 'eightball') {
             client.commands.get('8ball').execute(message, args);
         } else if (command === 'uproleinfo') {
-            client.commands.get('roleinfo').execute(message, args);
+            client.commands.get('uproleinfo').execute(message, args);
         } else if (command === 'upserverinfo') {
-            client.commands.get('serverinfo').execute(message, args);
+            client.commands.get('upserverinfo').execute(message, args);
         } else if (command === 'colorlock') {
             client.commands.get('colorlock').execute(message, args);
         } else if (command === 'trigger' || command === 'triggered') {

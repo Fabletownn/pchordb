@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const client = new Discord.Client();
 
 module.exports = {
-    name: 'serverinfo',
+    name: 'upserverinfo',
     description: '[MODERATION] Will send the entire list of embeds regarding Server Information in chat. Please use at your own discretion: it is **LONG**. <[setPrefix]serverinfo>',
     execute(message) {
         message.delete();

@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const client = new Discord.Client();
 
 module.exports = {
-    name: 'roleinfo',
+    name: 'uproleinfo',
     description: '[MODERATION] Will send the entire list of embeds regarding Role Information in chat. Please use at your own discretion: it is **LONG**. <[setPrefix]roleinfo>',
     execute(message, args) {
         message.delete();
