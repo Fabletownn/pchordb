@@ -7,7 +7,7 @@ module.exports = {
     execute(message) {
         message.delete();
 
-        var mentionedUser = message.mentions.users.first();
+        var mentionedUser = message.mentions.users.first() || message.guild.member(message.content.split(" ")[1]);
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         let administratorR = message.guild.roles.cache.find(role => role.name === "Administrator");
