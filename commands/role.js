@@ -49,7 +49,9 @@ module.exports = {
 
             message.channel.send({
                 embed: roleEmbed
-            });
+            }).then(m => m.delete({
+                timeout: 30000
+            }));
         } else if (message.guild.roles.cache.get(message.content.split(" ")[1])) {
             if (message.guild.roles.cache.get(message.content.split(" ")[1]).mentionable) {
                 mentionable = "Yes"
@@ -79,7 +81,9 @@ module.exports = {
 
             message.channel.send({
                 embed: roleEmbed
-            });
+            }).then(m => m.delete({
+                timeout: 30000
+            }));
         }
     }
 }
