@@ -958,7 +958,7 @@ client.on('message', message => {
             },
             {
                 "name": "__What happens once the appeal is filed?__",
-                "value": "Once you file an appeal, it will be gone over by the server staff - Moderators, Administrators and I Talk. \nIf the appeal is accepted, the punishment will be removed from the moderation logs. If it is rejected, it will stay on the logs, and you will be unable to appeal again."
+                "value": "Once you file an appeal, it will be gone over by the server staff - Moderators, Administrators and I Talk. \nIf the appeal is accepted, the punishment will be removed from the moderation logs. If it is rejected, it will stay on the logs, and you will be unable to appeal again.\n\`\`\` \`\`\`\n**You can DM <@575252669443211264> to get a list of your currently active punishments.**"
             }
             ]
         }
