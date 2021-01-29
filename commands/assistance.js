@@ -20,10 +20,10 @@ module.exports = {
 
         if (message.guild.id === "797142251712151583") {
             cooldownVar = Date.now();
-            return message.channel.send(`<@&797809139836911666> <@&797145089297350736>\nAssistance has been requested!\n`);
-        } else {
+            return message.channel.send(`<@&797809139836911666> <@&797145089297350736>\nAssistance has been requested!`);
+        } else if (message.guild.id === "614193406838571085") {
             cooldownVar = Date.now();
-            message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!\n`);
+            message.channel.send(`<@&672857887894274058> <@&614196214078111745>\nAssistance has been requested!`);
         }
     }
 }

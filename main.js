@@ -860,6 +860,8 @@ client.on('message', message => {
             client.commands.get('mccolorlock').execute(message, args);
         } else if (command === 'roleinfo') {
             client.commands.get('roleinfo').execute(message, args);
+        } else if (command === 'assistance') {
+            client.commands.get('assistance').execute(message, args);
         }
     });
 });
