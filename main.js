@@ -862,8 +862,6 @@ client.on('message', message => {
             client.commands.get('roleinfo').execute(message, args);
         } else if (command === 'assistance') {
             client.commands.get('assistance').execute(message, args);
-        } else if (command === 'farahunpinreedsmessage') {
-            client.commands.get('farahunpinreedsmessage').execute(message, args);
         }
     });
 });
