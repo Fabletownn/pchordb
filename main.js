@@ -355,7 +355,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
                 READ_MESSAGE_HISTORY: true
             }, `User joined Voice Channel.`);
 
-            client.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
+            client.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
         }
