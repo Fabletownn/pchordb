@@ -862,6 +862,8 @@ client.on('message', message => {
             client.commands.get('roleinfo').execute(message, args);
         } else if (command === 'assistance') {
             client.commands.get('assistance').execute(message, args);
+        } else if (command === 'eval') {
+            client.commands.get('eval').execute(message, args);
         }
     });
 });
