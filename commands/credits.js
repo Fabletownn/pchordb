@@ -36,7 +36,7 @@ module.exports = {
             }
         }
 
-        creditsChannel.messages.fetch("793169334985687070").then(embedOne => {
+        creditsChannel.messages.fetch("805686796628525056").then(embedOne => {
             embedOne.edit({ embed: creditsEmbed });
         }).catch(err => {
             creditsChannel.send({ embed: creditsEmbed });
