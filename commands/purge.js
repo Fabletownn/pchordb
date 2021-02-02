@@ -84,7 +84,7 @@ module.exports = {
                 channelTo.messages.fetch({
                     limit: 100,
                 }).then((messages) => {
-                    const filterBy = memberTo ? memberTo.id : client.user.id;
+                    const filterBy = memberToA ? memberToA.id : client.user.id;
                     messages = messages.filter(m => m.author.id === filterBy).array().slice(0, parseInt(purgeIntB));
                     channelTo.bulkDelete(messages).catch(error => console.log(error.stack));
                     message.channel.send(`**[🗑️] ${message.author.username}**, ${purgeIntB} message(s) belonging to **${memberToA.tag}** in ${channelTo} were purged.`).then(m => m.delete({
