@@ -19,6 +19,21 @@ module.exports = {
             timeout: 10000
         }));
 
+        if (message.attachments.size > 0 && !message.content) {
+            message.attachments.forEach(attachment => {
+                let attachmentURL = attachment.url;
+
+                toChannel.send({
+                    files: [attachmentURL]
+                }).then(() => {
+                    message.channel.send(`**[🗣️] ${message.author.username}**, successfully sent to ${toChannel} + **${message.attachments.size}** attachment(s).`).then(m => m.delete({
+                        timeout: 10000
+                    }));
+                });
+            });
+            return;
+        }
+
         if (message.attachments.size > 0) {
             message.attachments.forEach(attachment => {
                 let attachmentURL = attachment.url;
