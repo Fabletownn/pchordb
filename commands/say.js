@@ -12,7 +12,7 @@ module.exports = {
         if (!toChannel) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're providing a channel for me to send that message in first.`).then(m => m.delete({
             timeout: 10000
         }));
-        if (!messageContent) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're giving me a message to send.`).then(m => m.delete({
+        if (!messageContent && message.attachments.size === 0) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're giving me a message to send.`).then(m => m.delete({
             timeout: 10000
         }));
         if (!message.guild.channels.cache.get(toChannel.id)) return message.channel.send(`**[🗣️] ${message.author.username}**, please ensure you're providing a channel **in this guild** for me to send that message in.`).then(m => m.delete({
