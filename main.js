@@ -7,6 +7,8 @@ const PRE = require('./models/prefix.js');
 const WEL = require('./models/welcome.js');
 const ANG = require("./models/angel.js");
 
+let disabledCommands = [];
+
 const fs = require("fs");
 
 var express = require('express');
@@ -728,6 +730,8 @@ client.on('message', message => {
         const args = message.content.slice(commandPrefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
 
+        if (disabledCommands.some(disabled => command === disabled)) return;
+
         if (command === 'vote' || command === 'reactvote') {
             client.commands.get('vote').execute(message, args);
         } else if (command === 'poll') {
@@ -1009,6 +1013,32 @@ client.on('message', message => {
 
     if (!message.content.startsWith(`+appeal `)) {
         return message.delete();
+    }
+});
+
+client.on('message', message => {
+    if (message.guild === null) return;
+
+    if (message.content.startsWith(`+disable`) || message.content.startsWith(`+disablecmd`)) {
+        if (message.author.id !== "528759471514845194" && !message.member.roles.cache.has("614195872347062273")) return;
+
+        const command = message.content.split(" ")[1];
+
+        if (!command) return message.channel.send(`**[🚫] ${message.author.username}**, please provide a command name to disable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({ timeout: 5000 }));
+        if (!client.commands.get(command)) return message.channel.send(`**[🚫] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({ timeout: 5000 }));
+
+        disabledCommands.push(command);
+        message.channel.send(`**[🚫] ${message.author.username}**, \`+${command}\` has been disabled and will no longer execute.`);
+    } else if (message.content.startsWith(`+enable`) || message.content.startsWith(`+enablecmd`)) {
+        if (message.author.id !== "528759471514845194" && !message.member.roles.cache.has("614195872347062273")) return;
+
+        const command = message.content.split(" ")[1];
+
+        if (!command) return message.channel.send(`**[✅] ${message.author.username}**, please provide a command name to enable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({ timeout: 5000 }));
+        if (!client.commands.get(command)) return message.channel.send(`**[✅] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({ timeout: 5000 }));
+
+        disabledCommands = disabledCommands.filter(filterE => filterE !== command);
+        message.channel.send(`**[✅] ${message.author.username}**, \`+${command}\` has been enabled.`);
     }
 });
 
