@@ -1018,10 +1018,10 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.guild === null) return;
-    message.delete();
 
     if (message.content.startsWith(`+disable`) || message.content.startsWith(`+disablecmd`)) {
         if (message.author.id !== "528759471514845194" && !message.member.roles.cache.has("614196214078111745")) return;
+        message.delete();
 
         const command = message.content.split(" ")[1];
 
@@ -1032,6 +1032,7 @@ client.on('message', message => {
         message.channel.send(`**[🚫] ${message.author.username}**, \`+${command}\` has been disabled and will no longer execute.`);
     } else if (message.content.startsWith(`+enable`) || message.content.startsWith(`+enablecmd`)) {
         if (message.author.id !== "528759471514845194" && !message.member.roles.cache.has("614196214078111745")) return;
+        message.delete();
 
         const command = message.content.split(" ")[1];
 
