@@ -16,10 +16,10 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (request, response) {
+app.get('/', function(request, response) {
     var result = `${client.user.username} is up n' running.`;
     response.send(result);
-}).listen(app.get('port'), function () {
+}).listen(app.get('port'), function() {
     console.log("Application is attempting to run.. server is listening on PORT:", app.get('port'));
 });
 
@@ -208,39 +208,39 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     } else
 
-        if (oldVoiceChannel !== null && newVoiceChannel === null) {
-            if (oldVoiceChannel.id === "797142252639748097") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547364796006440');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797770795782766623") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547403711021056');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797770809073991700") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547435390861322');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "797802749383147530") {
-                const voiceChannel = oldState.guild.channels.cache.get('799547450574635078');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else {
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "797142252639748097") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547364796006440');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
                 return;
             }
+        } else if (oldVoiceChannel.id === "797770795782766623") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547403711021056');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797770809073991700") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547435390861322');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "797802749383147530") {
+            const voiceChannel = oldState.guild.channels.cache.get('799547450574635078');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else {
+            return;
         }
+    }
 });
 
 client.on('voiceStateUpdate', (oldState, newState) => {
@@ -435,46 +435,46 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         }
     } else
 
-        if (oldVoiceChannel !== null && newVoiceChannel === null) {
-            if (oldVoiceChannel.id === "774362075618869270") {
-                const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "614484127722373120") {
-                const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "757301388840665248") {
-                const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "664593167420489730") {
-                const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else if (oldVoiceChannel.id === "744952618878763088") {
-                const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
-                try {
-                    voiceChannel.permissionOverwrites.get(newState.member.id).delete();
-                } catch (err) {
-                    return;
-                }
-            } else {
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "774362075618869270") {
+            const voiceChannel = oldState.guild.channels.cache.get('789056873437331456');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
                 return;
             }
+        } else if (oldVoiceChannel.id === "614484127722373120") {
+            const voiceChannel = oldState.guild.channels.cache.get('777842963954270228');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "757301388840665248") {
+            const voiceChannel = oldState.guild.channels.cache.get('777842977375780894');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "664593167420489730") {
+            const voiceChannel = oldState.guild.channels.cache.get('794626473734570025');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else if (oldVoiceChannel.id === "744952618878763088") {
+            const voiceChannel = oldState.guild.channels.cache.get('789057097508716555');
+            try {
+                voiceChannel.permissionOverwrites.get(newState.member.id).delete();
+            } catch (err) {
+                return;
+            }
+        } else {
+            return;
         }
+    }
 });
 
 client.on('guildMemberAdd', member => {
@@ -932,13 +932,13 @@ client.on('message', message => {
             "description": "A violation of the servers rules will result in a punishment being handed out by a server moderator/administrator. The severity of the punishment will be based on how many active infractions you have. \n\nAll strikes are permanent, unless appealed.",
             "color": 16711680,
             "fields": [{
-                "name": "Infractions",
-                "value": "`Infraction 1`: 15m Mute\n`Infraction 2`: 1h Mute\n`Infraction 3`: 6h Mute\n`Infraction 4`: 24h Mute\n`Infraction 5`: Ban"
-            },
-            {
-                "name": "Notes:",
-                "value": "1) Certain rule violations will result in an instant ban from the server.\n\n2) Punishments are up to moderator discretion. Any attempts to find loopholes, bypass the rules or acting in bad faith in the server will result in a punishment as well.\n\n3) A moderator can hand out a different punishment than what is listed here - lenient or strict - based on the context of the situation in the server.\n\n4) First Impressions make Last Impressions. If the first thing you do in the server is violate rules, you will most likely be straightaway banned."
-            }
+                    "name": "Infractions",
+                    "value": "`Infraction 1`: 15m Mute\n`Infraction 2`: 1h Mute\n`Infraction 3`: 6h Mute\n`Infraction 4`: 24h Mute\n`Infraction 5`: Ban"
+                },
+                {
+                    "name": "Notes:",
+                    "value": "1) Certain rule violations will result in an instant ban from the server.\n\n2) Punishments are up to moderator discretion. Any attempts to find loopholes, bypass the rules or acting in bad faith in the server will result in a punishment as well.\n\n3) A moderator can hand out a different punishment than what is listed here - lenient or strict - based on the context of the situation in the server.\n\n4) First Impressions make Last Impressions. If the first thing you do in the server is violate rules, you will most likely be straightaway banned."
+                }
             ]
         }
 
@@ -953,21 +953,21 @@ client.on('message', message => {
             "description": "All Manual Moderation Punishments can be appealed to remove the infraction from your Moderation Logs. You can appeal each punishment ONCE. \nAuto-Moderation Infractions do not count towards your strike count, thus cannot be appealed.",
             "color": 2359049,
             "fields": [{
-                "name": "__Appeal a Strike/Mute/Kick__",
-                "value": "You must DM the <@575252669443211264> bot the punishment you are appealing for, and your appeal message."
-            },
-            {
-                "name": "__Appeal a Ban__",
-                "value": "You must file a ban appeal through the __[Ban Appeals Server](https://discord.gg/d4kCrjt)__."
-            },
-            {
-                "name": "__What is included in an appeal?__",
-                "value": "An appeal message can be but is not limited to: An explanation of what happened, an apology, or your justification for your actions if you felt they were fair."
-            },
-            {
-                "name": "__What happens once the appeal is filed?__",
-                "value": "Once you file an appeal, it will be gone over by the server staff - Moderators, Administrators and I Talk. \nIf the appeal is accepted, the punishment will be removed from the moderation logs. If it is rejected, it will stay on the logs, and you will be unable to appeal again.\n\`\`\` \`\`\`\n**You can DM <@575252669443211264> to get a list of your currently active punishments.**"
-            }
+                    "name": "__Appeal a Strike/Mute/Kick__",
+                    "value": "You must DM the <@575252669443211264> bot the punishment you are appealing for, and your appeal message."
+                },
+                {
+                    "name": "__Appeal a Ban__",
+                    "value": "You must file a ban appeal through the __[Ban Appeals Server](https://discord.gg/d4kCrjt)__."
+                },
+                {
+                    "name": "__What is included in an appeal?__",
+                    "value": "An appeal message can be but is not limited to: An explanation of what happened, an apology, or your justification for your actions if you felt they were fair."
+                },
+                {
+                    "name": "__What happens once the appeal is filed?__",
+                    "value": "Once you file an appeal, it will be gone over by the server staff - Moderators, Administrators and I Talk. \nIf the appeal is accepted, the punishment will be removed from the moderation logs. If it is rejected, it will stay on the logs, and you will be unable to appeal again.\n\`\`\` \`\`\`\n**You can DM <@575252669443211264> to get a list of your currently active punishments.**"
+                }
             ]
         }
 
@@ -997,7 +997,9 @@ client.on('message', message => {
                 .addField(`Infractions`, `\`Infraction 1\`: 15m Mute\n\`Infraction 2\`: 1h Mute\n\`Infraction 3\`: 6h Mute\n\`Infraction 4\`: 24h Mute\n\`Infraction 5\`: Ban`)
                 .setColor("ff0000")
 
-            message.channel.send({ embed: punishListEmbed });
+            message.channel.send({
+                embed: punishListEmbed
+            });
         }
     }
 });
@@ -1025,8 +1027,12 @@ client.on('message', message => {
 
         const command = message.content.split(" ")[1];
 
-        if (!command) return message.channel.send(`**[🚫] ${message.author.username}**, please provide a command name to disable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({ timeout: 5000 }));
-        if (!client.commands.get(command)) return message.channel.send(`**[🚫] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({ timeout: 5000 }));
+        if (!command) return message.channel.send(`**[🚫] ${message.author.username}**, please provide a command name to disable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({
+            timeout: 5000
+        }));
+        if (!client.commands.get(command)) return message.channel.send(`**[🚫] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({
+            timeout: 5000
+        }));
 
         disabledCommands.push(command);
         message.channel.send(`**[🚫] ${message.author.username}**, \`+${command}\` has been disabled and will no longer execute.`);
@@ -1036,8 +1042,12 @@ client.on('message', message => {
 
         const command = message.content.split(" ")[1];
 
-        if (!command) return message.channel.send(`**[✅] ${message.author.username}**, please provide a command name to enable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({ timeout: 5000 }));
-        if (!client.commands.get(command)) return message.channel.send(`**[✅] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({ timeout: 5000 }));
+        if (!command) return message.channel.send(`**[✅] ${message.author.username}**, please provide a command name to enable.\n*(Command aliases will not work with this.)*`).then(m => m.delete({
+            timeout: 5000
+        }));
+        if (!client.commands.get(command)) return message.channel.send(`**[✅] ${message.author.username}**, that command wasn't found. Ensure you aren't using an alias name?`).then(m => m.delete({
+            timeout: 5000
+        }));
 
         disabledCommands = disabledCommands.filter(filterE => filterE !== command);
         message.channel.send(`**[✅] ${message.author.username}**, \`+${command}\` has been enabled.`);

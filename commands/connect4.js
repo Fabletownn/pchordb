@@ -74,14 +74,14 @@ module.exports = {
             const gameMessage = await message.channel.send({
                 embed: initial
             });
-            
+
             message.channel.send(`Have fun the both of ya! This message will update accordingly to the game.\nPlease understand that if the games goes by too fast, Discord may ratelimit me, which will lead to longer response times.`).then(updateMsg => {
                 ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣"].forEach(async el => gameMessage.react(el));
 
                 const gameFilter = (reaction, user) => ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣"].includes(reaction.emoji.name) && (user.id === opponent.id || user.id === challenger.id);
-    
+
                 const gameCollector = gameMessage.createReactionCollector(gameFilter);
-    
+
                 const gameData = [{
                         member: challenger,
                         playerColor: "🔴"
@@ -91,12 +91,11 @@ module.exports = {
                         playerColor: "🟡"
                     }
                 ];
-    
+
                 let player = 0;
-    
-    
+
                 const checkFour = (a, b, c, d) => (a === b) && (b === c) && (c === d) && (a !== "⚪");
-    
+
                 const horizontalCheck = () => {
                     for (let i = 0; i < 6; i++) {
                         for (let j = 0; j < 4; j++) {
@@ -106,7 +105,7 @@ module.exports = {
                         }
                     }
                 }
-    
+
                 const verticalCheck = () => {
                     for (let j = 0; j < 7; j++) {
                         for (let i = 0; i < 3; i++) {
@@ -116,7 +115,7 @@ module.exports = {
                         }
                     }
                 }
-    
+
                 const diagonal1 = () => {
                     for (let col = 0; col < 4; col++) {
                         for (let row = 0; row < 3; row++) {
@@ -126,7 +125,7 @@ module.exports = {
                         }
                     }
                 }
-    
+
                 const diagonal2 = () => {
                     for (let col = 0; col < 4; col++) {
                         for (let row = 5; row > 2; row--) {
@@ -136,7 +135,7 @@ module.exports = {
                         }
                     }
                 }
-    
+
                 const tieCheck = () => {
                     let count = 0;
                     for (const el of board) {
@@ -147,14 +146,14 @@ module.exports = {
                     if (count === 42) return true;
                     else return false;
                 }
-    
+
                 const checks = [horizontalCheck, verticalCheck, diagonal1, diagonal2];
-    
+
                 gameCollector.on("collect", (reaction, user) => {
-    
+
                     if (user.id === gameData[player].member.id) {
                         const openSpaces = [];
-    
+
                         const userReactions = gameMessage.reactions.cache.filter(reaction => reaction.users.cache.has(user.id));
                         try {
                             for (const reaction of userReactions.values()) {
@@ -191,7 +190,7 @@ module.exports = {
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
                             case "3️⃣":
-    
+
                                 for (let i = 5; i > -1; i--) {
                                     if (board[i][2] === "⚪") openSpaces.push({
                                         i,
@@ -202,7 +201,7 @@ module.exports = {
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
                             case "4️⃣":
-    
+
                                 for (let i = 5; i > -1; i--) {
                                     if (board[i][3] === "⚪") openSpaces.push({
                                         i,
@@ -213,7 +212,7 @@ module.exports = {
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
                             case "5️⃣":
-    
+
                                 for (let i = 5; i > -1; i--) {
                                     if (board[i][4] === "⚪") openSpaces.push({
                                         i,
@@ -224,7 +223,7 @@ module.exports = {
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
                             case "6️⃣":
-    
+
                                 for (let i = 5; i > -1; i--) {
                                     if (board[i][5] === "⚪") openSpaces.push({
                                         i,
@@ -235,7 +234,7 @@ module.exports = {
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
                             case "7️⃣":
-    
+
                                 for (let i = 5; i > -1; i--) {
                                     if (board[i][6] === "⚪") openSpaces.push({
                                         i,
@@ -245,9 +244,9 @@ module.exports = {
                                 if (openSpaces.length === 0) return;
                                 else board[openSpaces[0].i][openSpaces[0].j] = gameData[player].playerColor;
                                 break;
-    
+
                         }
-    
+
                         if (tieCheck()) {
                             const TieEmbed = new MessageEmbed()
                                 .setDescription(renderBoard(board))
@@ -259,12 +258,12 @@ module.exports = {
                                 timeout: 30000
                             }));
                         }
-    
+
                         for (const func of checks) {
-    
+
                             const data = func();
                             if (data) {
-    
+
                                 const WinEmbed = new MessageEmbed()
                                     .setDescription(renderBoard(board))
                                 gameCollector.stop(`${gameData[player].member.id} won`);
@@ -276,9 +275,9 @@ module.exports = {
                                 }));
                             }
                         }
-    
+
                         player = (player + 1) % 2;
-    
+
                         const newEmbed = new MessageEmbed()
                             .setDescription(renderBoard(board))
                         gameMessage.edit("", {
