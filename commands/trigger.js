@@ -11,6 +11,7 @@ module.exports = {
     name: 'trigger',
     description: '[FUN] This will trigger a mentioned member\'s profile picture (or your own). <[setPrefix]trigger (<@member>)>',
     async execute(message) {
+        return message.channel.send(`Temporarily disabled while Discord figures out their issues.`)
         message.delete();
 
         let timeout = 30000;
