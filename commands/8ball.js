@@ -16,7 +16,7 @@ module.exports = {
         const eBallResult = eBallResponseArray[Math.floor(Math.random() * eBallResponseArray.length)];
 
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
-        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '780027707622424607') return;
+        if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
         if (!eBallQuestion) return message.channel.send(`**[❓] ${message.author.username}**, please ensure you're providing a question.`).then(m => m.delete({
             timeout: 10000
