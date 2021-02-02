@@ -29,13 +29,13 @@ module.exports = {
             let attachment = new MessageAttachment(triggered, "triggered.gif");
 
             cooldownVariable = Date.now();
-            return message.channel.send(`**<:zITSBTRage:784206691918675988> ${message.author.username}**, here is **${mentionedUser.tag}**, but triggered. This image will self-destruct in 1 minute. <:zITSBTRage:784206691918675988>`, { files: [attachment] }).then(m => m.delete({ timeout: 60000 }));
+            return message.channel.send(`<:zITFRage:667854648861917184> **${message.author.username}**, this will self-destruct in 1 minute. <:zITFRage:667854648861917184>`, { files: [attachment] }).then(m => m.delete({ timeout: 60000 }));
         } else {
             let triggered = await canvacord.Canvas.trigger(message.author.displayAvatarURL({ format: "png", dynamic: false }));
             let attachment = new MessageAttachment(triggered, "triggered.gif");
 
             cooldownVariable = Date.now();
-            return message.channel.send(`**<:zITSBTRage:784206691918675988> ${message.author.username}**, here is your triggered self. This image will self-destruct in 1 minute. <:zITSBTRage:784206691918675988>`, { files: [attachment] }).then(m => m.delete({ timeout: 60000 }));
+            return message.channel.send(`<:zITFRage:667854648861917184> **${message.author.username}**, this will self-destruct in 1 minute. <:zITFRage:667854648861917184>`, { files: [attachment] }).then(m => m.delete({ timeout: 60000 }));
         }
     }
 }
