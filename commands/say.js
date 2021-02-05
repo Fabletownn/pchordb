@@ -5,7 +5,7 @@ module.exports = {
     description: '[MODERATION] This will simply make Power Chord say the text you input. <[setPrefix]say <#channel> <content> (<ATTACHMENT>)>',
     execute(message) {
         let toChannel = message.mentions.channels.first();
-        let messageContent = message.content.split(toChannel)[1];
+        let messageContent = message.content.slice(27, 2048)
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
 
