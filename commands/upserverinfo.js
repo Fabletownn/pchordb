@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 "name": "I TALK CREATORS",
-                "value": "<#772175886031650827> - Promoting and showcasing creators and artists in the server.\n<#621834479228682250> - Sharing and posting art. \n<#802604142790443018> - Discussion and topics related to art.\n[Accessed with the <@&678294533552865299> role.]\n```\n \n```"
+                "value": "<#772175886031650827> - Promoting and showcasing creators and artists in the server.\n<#621834479228682250> - Sharing and posting art. [Accessed with the <@&678294533552865299> role.]\n<#802604142790443018> - Discussion and topics related to art.\n```\n \n```"
             },
             {
                 "name": "I TALK FORTNITE",
@@ -43,7 +43,7 @@ module.exports = {
             },
             {
                 "name": "I TALK VOICE CHANNELS",
-                "value": "<#774362075618869270> - General Voice Channel.\n<#614484127722373120> - Music Voice Channel for the <@235088799074484224> bot.\n<#757301388840665248> - Music Voice Channel for the <@235088799074484224> bot.\n<#664593167420489730> - Voice channel for Livestreaming.\n<#744952618878763088> - Voice Channel for In-Game Communication.\n<#614484562952585229> - Members AFK in a VC will be auto-moved here.\n```\n \n```"
+                "value": "<#774362075618869270> - General Voice Channel.\n<#614484127722373120> - Music Voice Channel for the <@235088799074484224> bot.\n<#757301388840665248> - Music Voice Channel for the <@252128902418268161> bot.\n<#664593167420489730> - Voice channel for Livestreaming.\n<#744952618878763088> - Voice Channel for In-Game Communication.\n<#614484562952585229> - Members AFK in a VC will be auto-moved here.\n```\n \n```"
             }
             ]
         }
