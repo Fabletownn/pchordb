@@ -21,7 +21,7 @@ module.exports = {
             const ping = Math.round(latency);
             var status;
 
-            if (ping < 50) {
+            if (ping <= 50) {
                 status = "great";
             } else if (ping > 50 && ping < 100) {
                 status = "fine";
@@ -31,12 +31,12 @@ module.exports = {
                 status = "bad";
             }
 
-            const embed = new Discord.MessageEmbed()
+            const pingEmbed = new Discord.MessageEmbed()
                 .setColor('eb4bc9')
                 .setDescription(`**Status**: Online and response time is ${status}.\n**Bot Latency**: ${Math.round(latency)} milliseconds.\n**API Latency**: ${Math.round(message.client.ws.ping)} milliseconds.`)
 
             msg.edit(`Fetched.`).then(() => {
-                msg.edit(embed)
+                msg.edit({ embed: pingEmbed })
             }).then(msg.delete({
                 timeout: 30000
             }));

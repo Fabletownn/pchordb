@@ -478,6 +478,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
 });
 
 client.on('guildMemberAdd', member => {
+    if (member.user.bot) return;
+
     WEL.findOne({
         guildID: member.guild.id,
     }, (err, data) => {
