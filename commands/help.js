@@ -7,7 +7,7 @@ module.exports = {
         message.delete();
 
         const client = message.client;
-        
+
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
@@ -751,7 +751,7 @@ module.exports = {
                 "color": 15420361,
                 "fields": [{
                     "name": "Creators",
-                    "value": "This bot is a collaboration between <@148807073948368896> and <@528759471514845194>.\nThe original Power Chord bot was created by <@148807073948368896>."
+                    "value": "This bot is a collaboration between <@148807073948368896> and <@528759471514845194> [the original Power Chord bot was created by <@148807073948368896>]."
                 },
                 {
                     "name": "Information",
@@ -759,7 +759,7 @@ module.exports = {
                 },
                 {
                     "name": "Contact",
-                    "value": "If you have any issues, concerns, __or__ feature suggestions, do not hesitate to contact either creators. We'd love to hear it.\n\nIf you'd like to invite anybody to I Talk Server, the invite URL is below (vanity).\nhttps://discord.gg/italkfortnite."
+                    "value": "If you have any issues, concerns, __or__ feature suggestions, do not hesitate to contact either creators. We'd love to hear it.\n\nIf you'd like to invite anybody to I Talk Server, the invite URL is below (vanity).\nhttps://discord.gg/italk."
                 }
                 ],
                 "author": {
