@@ -1,5 +1,4 @@
-const Discord = require("discord.js")
-const client = new Discord.Client();
+const Discord = require("discord.js");
 
 module.exports = {
     name: 'help',
@@ -7,6 +6,8 @@ module.exports = {
     execute(message) {
         message.delete();
 
+        const client = message.client;
+        
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
