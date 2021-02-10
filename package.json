@@ -1,0 +1,19 @@
+{
+  "name": "pchordb",
+  "version": "1.0.0",
+  "description": "The repository name 'pchordb' stands for \"Power Chord Bot\": this is the GitHub Repository & source code for the Power Chord Discord Bot.\r Considering this is a public repository, there are a few things worth mentioning.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabletownn/pchordb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabletownn/pchordb/issues"
+  },
+  "homepage": "https://github.com/Fabletownn/pchordb#readme"
+}
