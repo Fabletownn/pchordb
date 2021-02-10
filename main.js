@@ -45,7 +45,7 @@ client.once('ready', () => {
 });
 
 client.on('guildBanAdd', async (guild, user) => {
-    if (guild.id !== "614193406838571085") return console.log('not correct guild')
+    if (guild.id !== "614193406838571085") return console.log('not correct guild');
 
     const fetchedLogs = await guild.fetchAuditLogs({
         limit: 1,
@@ -55,8 +55,8 @@ client.on('guildBanAdd', async (guild, user) => {
     const banLog = fetchedLogs.entries.first();
     const { executor, target } = banLog;
 
-    if (executor.bot) return console.log('is bot')
-    if (!banLog) return console.log('no log')
+    if (executor.bot) return console.log('is bot');
+    if (!banLog) return console.log('no log');
 
     const banReason = await guild.fetchBan(user.id).then(thatBan => thatBan.reason);
 
@@ -71,7 +71,7 @@ client.on('guildBanAdd', async (guild, user) => {
 
         client.channels.cache.get("748952882702712873").send({ embed: banEmbed });
     } else {
-        return console.log('target !== user')
+        return console.log('target !== user');
     }
 });
 
