@@ -26,6 +26,7 @@
     "mongoose": "^5.11.15",
     "parse-ms": "^2.1.0",
     "superagent": "^6.1.0",
-    "weather": "^1.0.4"
+    "weather": "^1.0.4",
+    "weather-js": "^2.0.0"
   }
 }
