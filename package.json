@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/Fabletownn/pchordb#readme",
   "dependencies": {
+    "canvacord": "^5.0.8",
     "discord.js": "^12.5.1",
     "express": "^4.17.1",
+    "fortnite": "^4.3.2",
     "fs": "0.0.1-security",
-    "mongoose": "^5.11.15"
+    "jumble-words": "^1.0.1",
+    "mongoose": "^5.11.15",
+    "parse-ms": "^2.1.0",
+    "superagent": "^6.1.0",
+    "weather": "^1.0.4"
   }
 }
