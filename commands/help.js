@@ -224,6 +224,10 @@ module.exports = {
                 "value": "This will add Power Chord upvote and downvote emotes under specified message given the message ID."
             },
             {
+                "name": "`+react ({channel}) {message ID} {emoji}`, `+svote ({channel}) {message ID} {emoji}`",
+                "value": "This will react to the specified message with the given emoji."
+            },
+            {
                 "name": "`+edit {channel} {message ID} {edited content}`",
                 "value": "This will edit one of Power Chord's messages given the ID."
             },

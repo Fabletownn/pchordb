@@ -899,6 +899,8 @@ client.on('message', message => {
             client.commands.get('assistance').execute(message, args);
         } else if (command === 'eval') {
             client.commands.get('eval').execute(message, args);
+        } else if (command === 'react' || command === 'svote') {
+            client.commands.get('react').execute(message, args);
         }
     });
 });
