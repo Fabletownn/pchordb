@@ -22,7 +22,7 @@ module.exports = {
                 "inline": false
             }, {
                 "name": "__Permissions__",
-                "value": "`Level 10`\n- Access to <#673259309555253290>.\n- Image Permissions in \n\\> <#761997427111886908> \n\\> <#616739992798232624>\n\\> <#693169647217803316>\n\\> <#614550170478051349>\n\\> <#757307092263501975>\n\\> <#703294596914085989>\n\\> <#614563325556162572>\n\\> <#714511122157404231>\n`Level 20`\nNickname Permissions\n`Level 30`\n- Access to <#710916484427415602>\n- Priority to participate in Fortnite Customs\n`Level 40`\n- Access to <#711435929537085450>\n`Level 50`\n- Livestream Permissions in the <#664593167420489730> Voice Channel.\n`Level 60`\n- Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories.",
+                "value": "`Level 5`\n- Image Permissions in \n\\> <#761997427111886908> \n\\> <#616739992798232624>\n\\> <#693169647217803316>\n\\> <#614550170478051349>\n\\> <#757307092263501975>\n\\> <#703294596914085989>\n\\> <#614563325556162572>\n\\> <#714511122157404231>\n\\- Nickname Permissions\n`Level 10`\n- Access to Server Events and Fortnite Customs (accessed through a self-assign-role).\n`Level 15`\n- Livestream Permissions in the <#664593167420489730> Voice Channel.\n`Level 20`\n- Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories, except <#614193406842765375>.\n`Level 30`\n- Access to <#710916484427415602>.\n`Level 35`\n- Priority to participate in Fortnite Customs.\n`Level 40`\n- Access to <#711435929537085450>.",
                 "inline": false
             }],
             "title": "Level Roles",
