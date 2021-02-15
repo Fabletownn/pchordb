@@ -52,7 +52,7 @@ module.exports = {
                 "inline": false
             }, {
                 "name": "__Permissions__",
-                "value": "- Image Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories.\n- Early access to <#673259309555253290>.\n- Early access to Nickname Permissions.\n- Early access to Livestream Permissions in the <#664593167420489730> Voice Channel.\n- Early Access to Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories.",
+                "value": "- Image Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories.\n- Early access to <#673259309555253290>.\n- Early access to Nickname Permissions.\n- Early access to Livestream Permissions in the <#664593167420489730> Voice Channel.\n- Early Access to Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories, except <#614193406842765375>.",
                 "inline": false
             }],
             "title": "Exclusive Roles",
