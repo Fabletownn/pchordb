@@ -150,6 +150,76 @@ module.exports = {
             });
         });*/
 
+        message.channel.send(`**${message.author.username}**, updating the <#781814866779570236> channel.`).then(progMsg => {
+            roleChannel.messages.fetch("794852020871626772").then(embedOne => {
+                embedOne.edit({ embed: roleEmbed1 });
+                progMsg.edit(`Updated first message in channel.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed1 });
+                progMsg.edit(`I couldn't find the first message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852021244133386").then(embedTwo => {
+                embedTwo.edit({ embed: roleEmbed2 });
+                progMsg.edit(`Updated second message.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed2 });
+                progMsg.edit(`I couldn't find the second message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852021428682773").then(embedThree => {
+                embedThree.edit({ embed: roleEmbed3 });
+                progMsg.edit(`Updated third message.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed3 });
+                progMsg.edit(`I couldn't find the third message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852021538390018").then(embedFour => {
+                embedFour.edit({ embed: roleEmbed4 });
+                progMsg.edit(`Updated fourth message.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed4 });
+                progMsg.edit(`I couldn't find the fourth message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852037304123393").then(embedFive => {
+                embedFive.edit({ embed: roleEmbed5 });
+                progMsg.edit(`Updated fifth message.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed5 });
+                progMsg.edit(`I couldn't find the fifth message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852037758025728").then(embedSix => {
+                embedSix.edit({ embed: roleEmbed6 });
+                progMsg.edit(`Updated sixth message.`);
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed6 });
+                progMsg.edit(`I couldn't find the sixth message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            roleChannel.messages.fetch("794852036956520468").then(embedSeven => {
+                embedSeven.edit({ embed: roleEmbed7 });
+                progMsg.edit(`**${message.author.username}**, updated final message: the channel is now up-to-date.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }).catch(err => {
+                roleChannel.send({ embed: roleEmbed7 });
+                progMsg.edit(`I couldn't find the seventh message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+        });
+    }
+}
+
+/*
         roleChannel.messages.fetch("794852020871626772").then(embedOne => {
             embedOne.edit({ embed: roleEmbed1 });
         }).catch(err => {
@@ -198,5 +268,4 @@ module.exports = {
             roleChannel.send({ embed: roleEmbed7 });
             return console.log(err);
         });
-    }
-}
+*/

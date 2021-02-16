@@ -94,6 +94,40 @@ module.exports = {
             ]
         }
 
+        message.channel.send(`**${message.author.username}**, updating the <#614519517724278837> channel.`).then(progMsg => {
+            infoChannel.messages.fetch("798334900460716062").then(embedOne => {
+                embedOne.edit({ embed: serverEmbed1 });
+                progMsg.edit(`Updated first message in the channel.`);
+            }).catch(err => {
+                infoChannel.send({ embed: serverEmbed1 });
+                progMsg.edit(`I couldn't find the first message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+
+            infoChannel.messages.fetch("798334900930347029").then(embedTwo => {
+                embedTwo.edit({ embed: serverEmbed2 });
+                progMsg.edit(`Updated second message in the channel.`);
+            }).catch(err => {
+                infoChannel.send({ embed: serverEmbed2 });
+                progMsg.edit(`I couldn't find the second message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+
+            infoChannel.messages.fetch("798334901480325150").then(embedThree => {
+                embedThree.edit({ embed: serverEmbed3 });
+                progMsg.edit(`**${message.author.username}**, updated final message: the channel is now up-to-date.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }).catch(err => {
+                infoChannel.send({ embed: serverEmbed3 });
+                progMsg.edit(`I couldn't find the third message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+        })
+    }
+}
+
+/*
         infoChannel.messages.fetch("798334900460716062").then(embedOne => {
             embedOne.edit({ embed: serverEmbed1 });
         }).catch(err => {
@@ -114,5 +148,4 @@ module.exports = {
             infoChannel.send({ embed: serverEmbed3 });
             return console.log(err);
         });
-    }
-}
+*/
