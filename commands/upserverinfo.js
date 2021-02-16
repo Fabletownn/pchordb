@@ -81,7 +81,7 @@ module.exports = {
             },
             {
                 "name": "> __Why can't I send images in some channels?__",
-                "value": "You need to be Level 10 before you unlock image permissions in certain channels. The exact role permissions are mentioned in each channel's channel topic."
+                "value": "You need to be Level 5 before you unlock image permissions in certain channels. The exact role permissions are mentioned in each channel's channel topic."
             },
             {
                 "name": "> __What are the roles in the server? What perks do they grant? How do I obtain them?__",
