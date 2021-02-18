@@ -97,6 +97,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         .addField(`Channel`, `<#${newVoiceChannel.id}>`, true)
         .setFooter(`User ID: ${newState.member.id}`)
         .setTimestamp()
+        .setColor("23ff09")
 
         client.channels.cache.get("811955220162412596").send({ embed: joinEmbed });
     }
@@ -112,6 +113,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         .addField(`Channel`, `<#${oldVoiceChannel.id}>`, true)
         .setFooter(`User ID: ${oldState.member.id}`)
         .setTimestamp()
+        .setColor("ff0000")
 
         client.channels.cache.get("811955220162412596").send({ embed: leaveEmbed });
     }
@@ -126,6 +128,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         .addField(`To Channel`, `<#${newVoiceChannel.id}>`, true)
         .setFooter(`User ID: ${oldState.member.id}`)
         .setTimestamp()
+        .setColor("00ffff")
 
         client.channels.cache.get("811955220162412596").send({ embed: moveEmbed });
     }
