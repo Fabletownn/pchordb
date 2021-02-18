@@ -1094,13 +1094,25 @@ client.on('message', message => {
 
     if (message.attachments.size > 0) {
         message.attachments.forEach(videoIntro => {
+            const attachments = (message.attachments).array();
+            const attachment = attachments[0];
+
+            const nameArray = attachment.name.split('.');
+
+            const fileType = nameArray[nameArray.length - 1]
+            const fileTypes = ["jpeg", "jpg", "png", "gif"];
+
+            if (fileTypes.includes(fileType)) return;
+
             getVideoDurationInSeconds(videoIntro.proxyURL).then((videoDuration) => {
                 if (videoDuration > 9.999999) {
                     message.delete().then(() => {
                         console.log(`Video deleted - ${videoDuration} seconds in length.`);
-                        return message.channel.send(`${message.author}, video submissions must be **<** 10 seconds in length. Feel free to trim the clip and send it again.`).then(m => m.delete({ timeout: 10000 }));
+                        return message.channel.send(`${message.author}, your video was **${videoDuration}** seconds long. Video submissions must be **under 10 seconds** in length. Feel free to trim the clip and send it again.`).then(m => m.delete({ timeout: 15000 }));
                     });
                 }
+            }).catch(error => {
+                return console.log(error);
             });
         });
     }
