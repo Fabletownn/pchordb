@@ -78,6 +78,61 @@ client.on('guildBanAdd', async (guild, user) => {
 
 client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldState.guild === null || newState.guild === null) return;
+    if (oldState.guild.id !== "614193406838571085") return;
+    if (newState.guild.id !== "614193406838571085") return;
+    if (client.users.cache.get(oldState.member.id).bot) return;
+    if (client.users.cache.get(newState.member.id).bot) return;
+    
+    var oldVoiceChannel = oldState.channel;
+    var newVoiceChannel = newState.channel;
+
+    if (oldVoiceChannel === null && newVoiceChannel !== null) {
+        if (newVoiceChannel.id === "811738298396573706") return;
+        if (newVoiceChannel.id === "802975899065778226") return;
+        if (newVoiceChannel.id === "614197822593433600") return;
+
+        const joinEmbed = new Discord.MessageEmbed()    
+        .setAuthor(`Joined VC | ${client.users.cache.get(newState.member.id).tag}`, `${client.users.cache.get(newState.member.id).displayAvatarURL({ dynamic: true })}`)
+        .addField(`User`, newState.member, true)
+        .addField(`Channel`, `<#${newVoiceChannel.id}>`, true)
+        .setFooter(`User ID: ${newState.member.id}`)
+        .setTimestamp()
+
+        client.channels.cache.get("811955220162412596").send({ embed: joinEmbed });
+    }
+
+    if (oldVoiceChannel !== null && newVoiceChannel === null) {
+        if (oldVoiceChannel.id === "811738298396573706") return;
+        if (oldVoiceChannel.id === "802975899065778226") return;
+        if (oldVoiceChannel.id === "614197822593433600") return;
+
+        const leaveEmbed = new Discord.MessageEmbed()    
+        .setAuthor(`Left VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
+        .addField(`User`, oldState.member, true)
+        .addField(`Channel`, `<#${oldVoiceChannel.id}>`, true)
+        .setFooter(`User ID: ${oldState.member.id}`)
+        .setTimestamp()
+
+        client.channels.cache.get("811955220162412596").send({ embed: leaveEmbed });
+    }
+
+    if (oldVoiceChannel !== null && newVoiceChannel !== null) {
+        if (oldVoiceChannel.id === newVoiceChannel.id) return;
+
+        const moveEmbed = new Discord.MessageEmbed()    
+        .setAuthor(`Moved VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
+        .addField(`User`, oldState.member, true)
+        .addField(`From Channel`, `<#${oldVoiceChannel.id}>`, true)
+        .addField(`To Channel`, `<#${newVoiceChannel.id}>`, true)
+        .setFooter(`User ID: ${oldState.member.id}`)
+        .setTimestamp()
+
+        client.channels.cache.get("811955220162412596").send({ embed: moveEmbed });
+    }
+});
+
+client.on('voiceStateUpdate', (oldState, newState) => {
+    if (oldState.guild === null || newState.guild === null) return;
     if (oldState.guild.id !== "797142251712151583") return;
     if (newState.guild.id !== "797142251712151583") return;
     if (client.users.cache.get(oldState.member.id).bot) return;
