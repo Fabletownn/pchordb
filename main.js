@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const mongoose = require('mongoose');
+const { getVideoDurationInSeconds } = require('get-video-duration');
 
 const PRE = require('./models/prefix.js');
 const WEL = require('./models/welcome.js');
@@ -1084,6 +1085,24 @@ client.on('message', message => {
 
         disabledCommands = disabledCommands.filter(filterE => filterE !== command);
         message.channel.send(`**[✅] ${message.author.username}**, \`+${command}\` has been enabled.`);
+    }
+});
+
+client.on('message', message => {
+    if (message.guild === null) return;
+    if (message.channel.id !== "757307092263501975") return;
+
+    if (message.attachments.size > 0) {
+        message.attachments.forEach(videoIntro => {
+            getVideoDurationInSeconds(videoIntro.proxyURL).then((videoDuration) => {
+                if (videoDuration > 9.999999) {
+                    message.delete().then(() => {
+                        console.log(`Video deleted - ${videoDuration} seconds in length.`);
+                        return message.channel.send(`${message.author}, video submissions must be **<** 10 seconds in length. Feel free to trim the clip and send it again.`).then(m => m.delete({ timeout: 10000 }));
+                    });
+                }
+            });
+        });
     }
 });
 
