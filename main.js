@@ -82,7 +82,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (newState.guild.id !== "614193406838571085") return;
     if (client.users.cache.get(oldState.member.id).bot) return;
     if (client.users.cache.get(newState.member.id).bot) return;
-    
+
     var oldVoiceChannel = oldState.channel;
     var newVoiceChannel = newState.channel;
 
@@ -91,13 +91,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         if (newVoiceChannel.id === "802975899065778226") return;
         if (newVoiceChannel.id === "614197822593433600") return;
 
-        const joinEmbed = new Discord.MessageEmbed()    
-        .setAuthor(`Joined VC | ${client.users.cache.get(newState.member.id).tag}`, `${client.users.cache.get(newState.member.id).displayAvatarURL({ dynamic: true })}`)
-        .addField(`User`, newState.member, true)
-        .addField(`Channel`, `<#${newVoiceChannel.id}>`, true)
-        .setFooter(`User ID: ${newState.member.id}`)
-        .setTimestamp()
-        .setColor("23ff09")
+        const joinEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Joined VC | ${client.users.cache.get(newState.member.id).tag}`, `${client.users.cache.get(newState.member.id).displayAvatarURL({ dynamic: true })}`)
+            .addField(`User`, newState.member, true)
+            .addField(`Channel`, `<#${newVoiceChannel.id}>`, true)
+            .setFooter(`User ID: ${newState.member.id}`)
+            .setTimestamp()
+            .setColor("23ff09")
 
         client.channels.cache.get("811955220162412596").send({ embed: joinEmbed });
     }
@@ -107,13 +107,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         if (oldVoiceChannel.id === "802975899065778226") return;
         if (oldVoiceChannel.id === "614197822593433600") return;
 
-        const leaveEmbed = new Discord.MessageEmbed()    
-        .setAuthor(`Left VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
-        .addField(`User`, oldState.member, true)
-        .addField(`Channel`, `<#${oldVoiceChannel.id}>`, true)
-        .setFooter(`User ID: ${oldState.member.id}`)
-        .setTimestamp()
-        .setColor("ff0000")
+        const leaveEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Left VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
+            .addField(`User`, oldState.member, true)
+            .addField(`Channel`, `<#${oldVoiceChannel.id}>`, true)
+            .setFooter(`User ID: ${oldState.member.id}`)
+            .setTimestamp()
+            .setColor("ff0000")
 
         client.channels.cache.get("811955220162412596").send({ embed: leaveEmbed });
     }
@@ -121,14 +121,14 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     if (oldVoiceChannel !== null && newVoiceChannel !== null) {
         if (oldVoiceChannel.id === newVoiceChannel.id) return;
 
-        const moveEmbed = new Discord.MessageEmbed()    
-        .setAuthor(`Moved VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
-        .addField(`User`, oldState.member, true)
-        .addField(`From Channel`, `<#${oldVoiceChannel.id}>`, true)
-        .addField(`To Channel`, `<#${newVoiceChannel.id}>`, true)
-        .setFooter(`User ID: ${oldState.member.id}`)
-        .setTimestamp()
-        .setColor("00ffff")
+        const moveEmbed = new Discord.MessageEmbed()
+            .setAuthor(`Moved VC | ${client.users.cache.get(oldState.member.id).tag}`, `${client.users.cache.get(oldState.member.id).displayAvatarURL({ dynamic: true })}`)
+            .addField(`User`, oldState.member, true)
+            .addField(`From Channel`, `<#${oldVoiceChannel.id}>`, true)
+            .addField(`To Channel`, `<#${newVoiceChannel.id}>`, true)
+            .setFooter(`User ID: ${oldState.member.id}`)
+            .setTimestamp()
+            .setColor("00ffff")
 
         client.channels.cache.get("811955220162412596").send({ embed: moveEmbed });
     }
@@ -402,6 +402,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the General Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('789056873437331456').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         }
         if (newVoiceChannel.id === "614484127722373120") {
             var voiceChannel = newState.guild.channels.cache.get("777842963954270228");
@@ -438,6 +444,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('794626473734570025').send(`${newState.member}, use this channel for text communication for the Livestream Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('794626473734570025').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         }
         if (newVoiceChannel.id === "744952618878763088") {
             var voiceChannel = newState.guild.channels.cache.get("789057097508716555");
@@ -450,6 +462,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('789057097508716555').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         }
     }
 });
@@ -478,6 +496,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('789056873437331456').send(`${newState.member}, use this channel for text communication for the General Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('789056873437331456').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         } else if (newVoiceChannel.id === "614484127722373120") {
             const voiceChannel = newState.guild.channels.cache.get('777842963954270228');
             voiceChannel.updateOverwrite(newState.member.id, {
@@ -511,6 +535,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('794626473734570025').send(`${newState.member}, use this channel for text communication for the Livestream Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('794626473734570025').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         } else if (newVoiceChannel.id === "744952618878763088") {
             const voiceChannel = newState.guild.channels.cache.get('789057097508716555');
             voiceChannel.updateOverwrite(newState.member.id, {
@@ -522,6 +552,12 @@ client.on('voiceStateUpdate', (oldState, newState) => {
             client.channels.cache.get('789057097508716555').send(`${newState.member}, use this channel for text communication for the Gaming Voice Channel!`).then(m => m.delete({
                 timeout: 10000
             }));
+
+            if (!newState.member.roles.cache.has("615583350819913750") && !newState.member.roles.cache.has("615583518793400321") && !newState.member.roles.cache.has("615583627534794762") && !newState.member.roles.cache.has("615583720828829706") && !newState.member.roles.cache.has("615583787660869635") && !newState.member.roles.cache.has("615583961942327316") && !newState.member.roles.cache.has("615584030804672512") && !newState.member.roles.cache.has("615584087054483456") && !newState.member.roles.cache.has("615584213307097118") && !newState.member.roles.cache.has("615584329929850900") && !newState.member.roles.cache.has("615584451837296707") && !newState.member.roles.cache.has("615584518849429512") && !newState.member.roles.cache.has("615584610557886475") && !newState.member.roles.cache.has("615584694683172894") && !newState.member.roles.cache.has("615584779148066876") && !newState.member.roles.cache.has("615584884706115586") && !newState.member.roles.cache.has("615584949394866194") && !newState.member.roles.cache.has("615585052654436370") && !newState.member.roles.cache.has("683365440575242368") && !newState.member.roles.cache.has("615585157595791475")) {
+                client.channels.cache.get('789057097508716555').send(`**YOU MUST BE LEVEL 5 OR ABOVE IN THE SERVER TO BE ABLE TO TALK IN VC.** Type \`!rank\` in <#615594300108963867> to check your current level.`).then(m => m.delete({
+                    timeout: 10000
+                }));
+            }
         }
     } else
 
