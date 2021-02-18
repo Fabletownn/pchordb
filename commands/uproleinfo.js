@@ -22,7 +22,7 @@ module.exports = {
                 "inline": false
             }, {
                 "name": "__Permissions__",
-                "value": "`Level 5`\n- Image Permissions in \n\\> <#761997427111886908> \n\\> <#616739992798232624>\n\\> <#693169647217803316>\n\\> <#614550170478051349>\n\\> <#757307092263501975>\n\\> <#785618559236833361>\n\\> <#703294596914085989>\n\\> <#614563325556162572>\n\\> <#714511122157404231>\n\\- Nickname Permissions\n\\- Ability to unmute in VC.\n`Level 10`\n- Access to Server Events and Fortnite Customs (accessed through a self-assign-role).\n`Level 15`\n- Livestream Permissions in the <#664593167420489730> Voice Channel.\n`Level 20`\n- Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories, except <#614193406842765375>.\n`Level 30`\n- Access to <#710916484427415602>.\n`Level 35`\n- Priority to participate in Fortnite Customs.\n`Level 40`\n- Access to <#711435929537085450>.",
+                "value": "`Level 5`\n- Image Permissions in \n\\> <#761997427111886908> \n\\> <#616739992798232624>\n\\> <#693169647217803316>\n\\> <#614550170478051349>\n\\> <#757307092263501975>\n\\> <#785618559236833361>\n\\> <#703294596914085989>\n\\> <#614563325556162572>\n\\> <#714511122157404231>\n\\- Nickname Permissions\n\\- Ability to unmute in VC.\n`Level 10`\n- Access to Server Events and Fortnite Customs (accessed through a self-assign-role).\n`Level 15`\n- Livestream Permissions in the <#664593167420489730> Voice Channel.\n`Level 20`\n- Reaction Permissions in all channels under the `I TALK GENERAL` and `I TALK FORTNITE` channel categories, except <#614193406842765375>.\n`Level 30`\n- Access to <#710916484427415602>.\n`Level 35`\n- Priority to participate in Fortnite Customs.\n`Level 40`\n- Access to <#711435929537085450>.\n- Image Permissions in <#710916484427415602>.",
                 "inline": false
             }],
             "title": "Level Roles",
@@ -106,7 +106,7 @@ module.exports = {
             },
             {
                 "name": "General Event Roles",
-                "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&771395161129353248> - Winners of Fortnite Customs during the I Talk Christmas Event.\n<@&626803737595478046> - Given to winners of the <#626803019887018034> Minigame."
+                "value": "<@&708383263927828542>- Given to winners of Fortnite Customs hosted on the server.\n<@&663882877343367194> - Given to winners of Fortnite Fashion Shows hosted on the server.\n<@&771395161129353248> - Winners of Fortnite Customs during the I Talk Christmas Event.\n<@&626803737595478046> - Given to winners of the <#811376514271543317> Minigame."
             }
             ]
         }
