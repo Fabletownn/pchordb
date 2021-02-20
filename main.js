@@ -1199,7 +1199,7 @@ client.on('message', message => {
             if (fileTypes.includes(fileType)) return;
 
             getVideoDurationInSeconds(videoIntro.proxyURL).then((videoDuration) => {
-                if (videoDuration > 9.999999) {
+                if (videoDuration > 10.999999) {
                     message.delete().then(() => {
                         console.log(`Video deleted - ${videoDuration} seconds in length.`);
                         return message.channel.send(`${message.author}, your video was **${videoDuration.toLocaleString()}** seconds long. Video submissions must be **under 10 seconds** in length. Feel free to trim the clip and send it again.`).then(m => m.delete({ timeout: 15000 }));
