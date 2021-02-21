@@ -968,7 +968,7 @@ client.on('message', message => {
             client.commands.get('rules').execute(message, args);
         } else if (command === 'botpfp' || command === 'botxp') {
             client.commands.get('botpfp').execute(message, args);
-        } else if (command === 'credits') {
+        } else if (command === 'upcredits') {
             client.commands.get('credits').execute(message, args);
         } else if (command === 'say') {
             client.commands.get('say').execute(message, args);
