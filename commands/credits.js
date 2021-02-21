@@ -62,7 +62,7 @@ module.exports = {
         }
 
         message.channel.send(`**${message.author.username}**, updating the <#771606110389927946> channel.`).then(progMsg => {
-            creditsChannel.messages.fetch("813125765599854622").then(embedOne => {
+            creditsChannel.messages.fetch("813126784798556170").then(embedOne => {
                 embedOne.edit({ embed: creditsEmbed1 });
                 progMsg.edit(`Updated first message in channel.`);
             }).catch(err => {
@@ -71,7 +71,7 @@ module.exports = {
                 return console.log(err);
             });
     
-            creditsChannel.messages.fetch("813125765977341972").then(embedTwo => {
+            creditsChannel.messages.fetch("813126785290076160").then(embedTwo => {
                 embedTwo.edit({ embed: creditsEmbed2 });
                 progMsg.edit(`Updated second message.`);
             }).catch(err => {
@@ -80,7 +80,7 @@ module.exports = {
                 return console.log(err);
             });
     
-            creditsChannel.messages.fetch("794852021428682773").then(embedThree => {
+            creditsChannel.messages.fetch("813126786236809276").then(embedThree => {
                 embedThree.edit({ embed: creditsEmbed3 });
                 progMsg.edit(`Updated third message.`);
             }).catch(err => {
