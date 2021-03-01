@@ -16,7 +16,7 @@ module.exports = {
 
         const ruleEmbed1 = {
             "title": "General Code of Conduct",
-            "description": "General Code of Conduct\n➤ All conversations must be in **ENGLISH ONLY.** We respect everyone's diversity and understand that members are from all around the world and speak various languages, but since moderators cannot speak all languages, they cannot moderate them.\n\n➤ All of the Server's Rules apply to Text Channels, Voice Channels; Text Messages, Files (Images, Videos etc.); DMs with Server Members, Username/Nickname, Discord PFP and Custom Status as well. In case there are exceptions to the same, they have been listed.\n\n➤ All members must also abide by Discord's Terms of Service and Guidelins. This includes being 13 years old or above.\n:link: https://discord.com/terms | https://discord.com/guidelines",
+            "description": "➤ All conversations must be in **ENGLISH ONLY.** We respect everyone's diversity and understand that members are from all around the world and speak various languages, but since Moderators cannot speak all languages, they cannot moderate them.\n\n➤ All of the Server's Rules apply to Text Channels, Voice Channels; Text Messages, Files (Images, Videos etc.); DMs with Server Members, Username/Nickname, Discord PFP and Custom Status as well. In case there are exceptions to the same, they have been listed.\n\n➤ All members must also abide by Discord's Terms of Service and Guidelines. This includes being 13 years old or above.\n:link: https://discord.com/terms | https://discord.com/guidelines",
             "color": 16711680
         }
 
@@ -116,11 +116,32 @@ module.exports = {
             ]
         }
 
-        rulesChannel.send({ embed: ruleEmbed1 }).then(() => {
-            rulesChannel.send({ embed: ruleEmbed2 }).then(() => {
-                rulesChannel.send({ embed: ruleEmbed3 }).then(() => {
-                    rulesChannel.send("In case of any issues, contact a staff member by filing a <@575252669443211264> ticket.");
-                });
+        message.channel.send(`**${message.author.username}**, updating the <#625747090852544532> channel.`).then(progMsg => {
+            rulesChannel.messages.fetch("816021760633864244").then(embedOne => {
+                embedOne.edit({ embed: ruleEmbed1 });
+                progMsg.edit(`Updated first message in channel.`);
+            }).catch(err => {
+                rulesChannel.send({ embed: ruleEmbed1 });
+                progMsg.edit(`I couldn't find the first message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            rulesChannel.messages.fetch("816021761001783307").then(embedTwo => {
+                embedTwo.edit({ embed: ruleEmbed2 });
+                progMsg.edit(`Updated second message.`);
+            }).catch(err => {
+                rulesChannel.send({ embed: ruleEmbed2 });
+                progMsg.edit(`I couldn't find the second message, so I sent one in the channel.`);
+                return console.log(err);
+            });
+    
+            rulesChannel.messages.fetch("816021761652031508").then(embedThree => {
+                embedThree.edit({ embed: ruleEmbed3 });
+                progMsg.edit(`Updated third message. The channel is now up-to-date.`);
+            }).catch(err => {
+                rulesChannel.send({ embed: ruleEmbed3 });
+                progMsg.edit(`I couldn't find the third message, so I sent one in the channel.`);
+                return console.log(err);
             });
         });
     }

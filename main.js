@@ -918,7 +918,7 @@ client.on('message', message => {
             client.commands.get('uproleinfo').execute(message, args);
         } else if (command === 'upserverinfo') {
             client.commands.get('upserverinfo').execute(message, args);
-        } else if (command === 'colorlock') {
+        } else if (command === 'upcolorlock') {
             client.commands.get('colorlock').execute(message, args);
         } else if (command === 'trigger' || command === 'triggered') {
             client.commands.get('trigger').execute(message, args);
@@ -964,7 +964,7 @@ client.on('message', message => {
             client.commands.get('movevc').execute(message, args);
         } else if (command === 'pin' || command === 'pinmessage') {
             client.commands.get('pin').execute(message, args);
-        } else if (command === 'rules') {
+        } else if (command === 'uprules') {
             client.commands.get('rules').execute(message, args);
         } else if (command === 'botpfp' || command === 'botxp') {
             client.commands.get('botpfp').execute(message, args);
@@ -1172,7 +1172,7 @@ client.on('message', message => {
 
     if (message.content.startsWith(`+whitelisted-links`)) {
         if (message.channel.type !== "dm") return;
-        
+
         const wlEmbed = {
             "title": "Whitelisted Links",
             "description": "Certain links are whitelisted in certain channels of the server. Any other link shared inside the server will result in your message being auto-deleted.\n\nAny links apart from the links mentioned below will be auto-deleted by the auto-moderation.\n\nNote: GIFs sent through the GIF button count as links as well, and also trigger auto-moderation.",
