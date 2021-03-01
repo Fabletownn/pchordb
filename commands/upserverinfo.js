@@ -115,7 +115,7 @@ module.exports = {
 
             infoChannel.messages.fetch("798334901480325150").then(embedThree => {
                 embedThree.edit({ embed: serverEmbed3 });
-                progMsg.edit(`**${message.author.username}**, updated final message: the channel is now up-to-date.`).then(m => m.delete({
+                progMsg.edit(`**${message.author.username}**, successfully updated third message. The <#614519517724278837> channel is now up-to-date.`).then(m => m.delete({
                     timeout: 10000
                 }));
             }).catch(err => {

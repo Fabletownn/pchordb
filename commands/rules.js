@@ -137,7 +137,9 @@ module.exports = {
     
             rulesChannel.messages.fetch("816021761652031508").then(embedThree => {
                 embedThree.edit({ embed: ruleEmbed3 });
-                progMsg.edit(`Updated third message. The channel is now up-to-date.`);
+                progMsg.edit(`**${message.author.username}**, successfully updated third message. The <#625747090852544532> channel is now up-to-date.`).then(m => m.delete({
+                    timeout: 10000
+                }));
             }).catch(err => {
                 rulesChannel.send({ embed: ruleEmbed3 });
                 progMsg.edit(`I couldn't find the third message, so I sent one in the channel.`);

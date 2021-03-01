@@ -207,7 +207,7 @@ module.exports = {
     
             roleChannel.messages.fetch("794852036956520468").then(embedSeven => {
                 embedSeven.edit({ embed: roleEmbed7 });
-                progMsg.edit(`**${message.author.username}**, updated final message: the channel is now up-to-date.`).then(m => m.delete({
+                progMsg.edit(`**${message.author.username}**, successfully updated seventh message. The <#781814866779570236> channel is now up-to-date.`).then(m => m.delete({
                     timeout: 10000
                 }));
             }).catch(err => {
