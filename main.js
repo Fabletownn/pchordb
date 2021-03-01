@@ -1132,6 +1132,8 @@ client.on('message', message => {
     }
 
     if (message.content.startsWith(`+logging`)) {
+        if (message.channel.type !== "dm") return;
+
         const logEmbed = {
             "title": "Logging",
             "description": "Certain things are logged in the server for the purpose of Moderation. The logs are only visible to Moderators, Administrators, and <@152597531824619521>.\n\nThis information is provided to make the process of logging transparent to all members. \n\nThe following is the information which is logged inside of the server.\n\n\n_ _",
@@ -1167,8 +1169,10 @@ client.on('message', message => {
             logMsg.pin();
         });
     }
-    
+
     if (message.content.startsWith(`+whitelisted-links`)) {
+        if (message.channel.type !== "dm") return;
+        
         const wlEmbed = {
             "title": "Whitelisted Links",
             "description": "Certain links are whitelisted in certain channels of the server. Any other link shared inside the server will result in your message being auto-deleted.\n\nAny links apart from the links mentioned below will be auto-deleted by the auto-moderation.\n\nNote: GIFs sent through the GIF button count as links as well, and also trigger auto-moderation.",
