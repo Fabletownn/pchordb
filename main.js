@@ -1041,7 +1041,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith(`+blacklist`) || message.content.startsWith(`+blocklist`)) {
+    if (message.content.startsWith(`+blacklisted-words`) || message.content.startsWith(`+blocklisted-words`)) {
         if (message.channel.type !== "dm") return;
 
         const blacklistEmbed = new Discord.MessageEmbed()
@@ -1054,7 +1054,7 @@ client.on('message', message => {
         }).then(message => message.pin());
     }
 
-    if (message.content.startsWith(`+punishmentlist`) || message.content.startsWith(`+punishlist`)) {
+    if (message.content.startsWith(`+punishment-list`) || message.content.startsWith(`+punishmentlist`)) {
         const punishList1 = {
             "title": "Manual Moderation",
             "description": "A violation of the servers rules will result in a punishment being handed out by a server moderator/administrator. The severity of the punishment will be based on how many active infractions you have. \n\nAll strikes are permanent, unless appealed.",
@@ -1129,6 +1129,68 @@ client.on('message', message => {
                 embed: punishListEmbed
             });
         }
+    }
+
+    if (message.content.startsWith(`+logging`)) {
+        const logEmbed = {
+            "title": "Logging",
+            "description": "Certain things are logged in the server for the purpose of Moderation. The logs are only visible to Moderators, Administrators, and <@152597531824619521>.\n\nThis information is provided to make the process of logging transparent to all members. \n\nThe following is the information which is logged inside of the server.\n\n\n_ _",
+            "color": 2359049,
+            "fields": [{
+                    "name": "Manual Moderation Logs",
+                    "value": "Logs for when a Strike/Mute/Kick/Ban is handed out manually by a Moderator."
+                },
+                {
+                    "name": "Auto Moderation Logs",
+                    "value": "Logs for when an Auto-Moderation action is taken against a member. This includes - Blacklisted Word Usage, Sending a Link, Sending a Server Invite, Fast Message Spam, Mass Mentioning."
+                },
+                {
+                    "name": "Voice Channel Logs",
+                    "value": "Logs for when a user joins/leaves a voice channel or moves from one voice channel to another. Join/Leave Logs will not be logged for the `#👾 Server Events` and `#👾 Customs` VCs."
+                },
+                {
+                    "name": "Message Logs",
+                    "value": "Logs for Edited and Deleted Messages."
+                },
+                {
+                    "name": "Yunite Logs",
+                    "value": "Logs for members linking/unlinking themselves to Yunite, as well as logs for games hosted using Yunite."
+                },
+                {
+                    "name": "ModMail Logs.",
+                    "value": "Logs for ModMail Tickets filed, and ModMail Tickets closed. Does not log the ModMail conversation."
+                }
+            ]
+        }
+
+        message.channel.send({ embed: logEmbed }).then((logMsg) => {
+            logMsg.pin();
+        });
+    }
+    
+    if (message.content.startsWith(`+whitelisted-links`)) {
+        const wlEmbed = {
+            "title": "Whitelisted Links",
+            "description": "Certain links are whitelisted in certain channels of the server. Any other link shared inside the server will result in your message being auto-deleted.\n\nAny links apart from the links mentioned below will be auto-deleted by the auto-moderation.\n\nNote: GIFs sent through the GIF button count as links as well, and also trigger auto-moderation.",
+            "color": 2359049,
+            "fields": [{
+                    "name": "#🎧music-vc-chat-1 | #🎧music-vc-chat-2",
+                    "value": "`youtube.com` `youtu.be` `spotify.com` `soundcloud.com`"
+                },
+                {
+                    "name": "#🎨art-discussion",
+                    "value": "`https://discord.com/channels/614193406838571085/`"
+                },
+                {
+                    "name": "#🎁supporters",
+                    "value": "All links."
+                }
+            ]
+        }
+
+        message.channel.send({ embed: wlEmbed }).then((wlMsg) => {
+            wlMsg.pin();
+        });
     }
 });
 

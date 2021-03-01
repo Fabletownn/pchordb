@@ -82,10 +82,10 @@ module.exports = {
     
             creditsChannel.messages.fetch("813126786236809276").then(embedThree => {
                 embedThree.edit({ embed: creditsEmbed3 });
-                progMsg.edit(`Updated third message.`);
+                progMsg.edit(`Updated third message. The channel is now up-to-date.`);
             }).catch(err => {
                 creditsChannel.send({ embed: creditsEmbed3 });
-                progMsg.edit(`I couldn't find the third message, so I sent one in the channel.`);
+                progMsg.edit(`I couldn't find the third message, so I sent one in the channel. The channel is now up-to-date.`);
                 return console.log(err);
             });
         });

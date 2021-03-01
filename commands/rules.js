@@ -15,8 +15,14 @@ module.exports = {
         }));
 
         const ruleEmbed1 = {
+            "title": "General Code of Conduct",
+            "description": "General Code of Conduct\n➤ All conversations must be in **ENGLISH ONLY.** We respect everyone's diversity and understand that members are from all around the world and speak various languages, but since moderators cannot speak all languages, they cannot moderate them.\n\n➤ All of the Server's Rules apply to Text Channels, Voice Channels; Text Messages, Files (Images, Videos etc.); DMs with Server Members, Username/Nickname, Discord PFP and Custom Status as well. In case there are exceptions to the same, they have been listed.\n\n➤ All members must also abide by Discord's Terms of Service and Guidelins. This includes being 13 years old or above.\n:link: https://discord.com/terms | https://discord.com/guidelines",
+            "color": 16711680
+        }
+
+        const ruleEmbed2 = {
             "title": "Server Rules",
-            "color": 2359049,
+            "color": "00ffff",
             "fields": [{
                 "name": "1) __Don't be Toxic, Overly Negative or Mindlessly Argue.__",
                 "value": "```\nToxicity, being overly negative about something, arguing without a reason, or even general rudeness is not allowed in the server. If you have issues with a member, take it to DMs, block them, or contact a staff member about it.\n```\n_ _"
@@ -87,36 +93,35 @@ module.exports = {
             }
         }
 
-        const ruleEmbed2 = {
-            "title": "Miscellaneous Information",
-            "color": 2359049,
+        const ruleEmbed3 = {
+            "title": "Additional Resources",
+            "description": "DM <@363766977585479680> the highlighted text to receive the information specified. This includes information on specific topics based on how auto-moderation/manual-moderation function inside the server.",
+            "color": 65280,
             "fields": [{
-                "name": "1) __Blacklisted Words__",
-                "value": "DM the <@363766977585479680> bot `+blacklist` to view the full list of blacklisted words.\n```\nCertain words are blacklisted in the server, in respect with the server's rules. Using any of these words in a message will result in your message being deleted by the auto-moderation.\n```\n_ _"
-            },
-            {
-                "name": "2) __Sharing Links.__",
-                "value": "```\nUnless it is specified in the channel's topic that links are permitted, any links shared in a channel will be auto-deleted by the auto-moderation. GIFs sent through the GIF Button count as links as well, and will trigger auto-moderation.\n```\n_ _"
-            },
-            {
-                "name": "3) __Rule Violations and Punishments.__",
-                "value": "DM the <@363766977585479680> bot `+punishmentlist` to view a more detailed list on how punishments are handed out.\n```\nViolation of a rule will result in you receiving a punishment - ranging from a strike, mute, kick or a ban from the server.\n```"
-            }
+                    "name": "Blacklisted Words",
+                    "value": "`+blacklisted-words`"
+                },
+                {
+                    "name": "Whitelisted Links",
+                    "value": "`+whitelisted-links`"
+                },
+                {
+                    "name": "Logging",
+                    "value": "`+logging`"
+                },
+                {
+                    "name": "Punishment List",
+                    "value": "`+punishment-list`"
+                }
             ]
         }
 
-        rulesChannel.messages.fetch("793169334553411645").then(embedOne => {
-            embedOne.edit({ embed: ruleEmbed1 });
-        }).catch(err => {
-            rulesChannel.send({ embed: ruleEmbed1 });
-            return console.log(err);
-        });
-
-        rulesChannel.messages.fetch("793169334985687070").then(embedTwo => {
-            embedTwo.edit({ embed: ruleEmbed2 });
-        }).catch(err => {
-            rulesChannel.send({ embed: ruleEmbed2 });
-            return console.log(err);
+        rulesChannel.send({ embed: ruleEmbed1 }).then(() => {
+            rulesChannel.send({ embed: ruleEmbed2 }).then(() => {
+                rulesChannel.send({ embed: ruleEmbed3 }).then(() => {
+                    rulesChannel.send("In case of any issues, contact a staff member by filing a <@575252669443211264> ticket.");
+                });
+            });
         });
     }
 }
