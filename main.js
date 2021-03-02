@@ -87,7 +87,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     var newVoiceChannel = newState.channel;
 
     if (oldVoiceChannel === null && newVoiceChannel !== null) {
-        if (newVoiceChannel.id === "811738298396573706") return;
+        if (newVoiceChannel.id === "815790709646163968") return;
         if (newVoiceChannel.id === "802975899065778226") return;
         if (newVoiceChannel.id === "614197822593433600") return;
 
@@ -103,7 +103,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     }
 
     if (oldVoiceChannel !== null && newVoiceChannel === null) {
-        if (oldVoiceChannel.id === "811738298396573706") return;
+        if (oldVoiceChannel.id === "815790709646163968") return;
         if (oldVoiceChannel.id === "802975899065778226") return;
         if (oldVoiceChannel.id === "614197822593433600") return;
 
