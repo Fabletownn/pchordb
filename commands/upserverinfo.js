@@ -22,7 +22,7 @@ module.exports = {
             "thumbnail": {
                 "url": "https://cdn.discordapp.com/attachments/793520398137688154/793523562018242601/ServerIcon.png"
             }
-        },
+        }
 
         const serverEmbed2 = {
             "title": "Channel and Category Info",
