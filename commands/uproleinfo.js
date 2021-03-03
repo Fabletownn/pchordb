@@ -187,7 +187,9 @@ module.exports = {
     
             roleChannel.messages.fetch("794852036956520468").then(embedSix => {
                 embedSix.edit({ embed: roleEmbed6 });
-                progMsg.edit(`Updated sixth message.`);
+                progMsg.edit(`**${message.author.username}**, successfully updated sixth message. The <#781814866779570236> is now up-to-date.`).then(m => m.delete({
+                    timeout: 10000
+                }));
             }).catch(err => {
                 roleChannel.send({ embed: roleEmbed6 });
                 progMsg.edit(`I couldn't find the sixth message, so I sent one in the channel.`);
