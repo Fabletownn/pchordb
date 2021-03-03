@@ -22,7 +22,7 @@ module.exports = {
             VIEW_CHANNEL: true,
         }, `Activated for Discord Stream | ${message.author.tag} [2/2] (hi discord stream chat bye discord stream chat :dance:)..`);
 
-        client.channels.cache.get("815790709646163968").setName("👾 Discord Streams");
+        client.channels.cache.get("815790709646163968").setName("👾 Discord Streams").catch(console.error);
         client.channels.cache.get("720002083226386553").setName("stream-chat").then(() => {
             message.channel.send(`**[📹] ${message.author.username}**, opened and renamed both channels accordingly. Ping the role in <#816729850836156436> to notify members.`).then(m => m.delete({
                 timeout: 15000

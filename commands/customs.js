@@ -22,7 +22,7 @@ module.exports = {
             VIEW_CHANNEL: true,
         }, `Activated for Customs | ${message.author.tag} [2/2].`);
 
-        client.channels.cache.get("815790709646163968").setName("👾 Fortnite Customs");
+        client.channels.cache.get("815790709646163968").setName("👾 Fortnite Customs").catch(console.error);
         client.channels.cache.get("720002083226386553").setName("🎤customs-chat").then(() => {
             message.channel.send(`**[📹] ${message.author.username}**, opened and renamed both channels accordingly. Ping the role in <#777432257521909801> to notify members.`).then(m => m.delete({
                 timeout: 15000
