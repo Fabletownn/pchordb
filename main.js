@@ -998,7 +998,7 @@ client.on('message', message => {
             client.commands.get('react').execute(message, args);
         } else if (command === 'discord-streams' || command === 'discordstreams' || command === 'discord-stream' || command === 'discordstream') {
             client.commands.get('discordstreams').execute(message, args);
-        } else if (command === 'server-events' || command === 'serverevents' || command === 'server-event' || command === 'serverevents') {
+        } else if (command === 'server-events' || command === 'serverevents' || command === 'server-event' || command === 'serverevent') {
             client.commands.get('serverevents').execute(message, args);
         } else if (command === 'custom' || command === 'customs' || command === 'fortnitecustoms' || command === 'fortnitecustom') {
             client.commands.get('customs').execute(message, args);
