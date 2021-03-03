@@ -74,7 +74,7 @@ module.exports = {
         const roleEmbed5 = {
             "fields": [{
                 "name": "__Information__",
-                "value": "- You can select **one** out of the 40 role colors at a given moment of time.\n- The first 30 members to reach Level 50 got a customised role: these custom roles are no longer handed out under <#711435929537085450>.",
+                "value": "- You can select **one** out of the 40 role colors at a given moment of time.\n- The first 30 members to reach Level 50 got a customised role: these custom roles are no longer handed out.",
                 "inline": false
             }],
             "title": "Color Roles",
