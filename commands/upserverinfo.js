@@ -19,7 +19,10 @@ module.exports = {
             "title": "Server Owner",
             "description": "This server is owned by <@152597531824619521>, a YouTuber who creates commentaries on Fortnite and topics related to it! You can check out his socials by clicking on these links to support him!\n\n- [YouTube](https://www.youtube.com/channel/UCIZP6nCTyU9VV0zIhY7q1Aw)\n- [Twitch](https://www.twitch.tv/itsitalk)\n- [Twitter](https://twitter.com/ThisIsITalk)\n- [Trello](https://trello.com/b/KbYIp5kZ/videos)\n- [TikTok](https://www.tiktok.com/@imitalk?)\n- [Instagram](https://www.instagram.com/icantalkfortnite/)\n- [Reddit](https://www.reddit.com/user/ICanTalkFortnite/)\n- [Spotify](https://spoti.fi/2TWjhEh)\n\n- [I Talk Server Twitter](https://www.twitter.com/italkserver)\n\nIf you would like to support him when purchasing things from any Epic Games affiliated game, you can use:\n\nSupport-A-Creator Code: __ITF__ **(#ad #EpicPartner)**",
             "color": '23ff09',
-        }
+            "thumbnail": {
+                "url": "https://cdn.discordapp.com/attachments/793520398137688154/793523562018242601/ServerIcon.png"
+            }
+        },
 
         const serverEmbed2 = {
             "title": "Channel and Category Info",
