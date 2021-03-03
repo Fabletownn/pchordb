@@ -78,7 +78,7 @@ module.exports = {
                 "inline": false
             }],
             "title": "Color Roles",
-            "description": "[Accessible at Level 40 through <#711435929537085450>].\n\nChoose a role color between 40 different roles!\n\n_ _",
+            "description": "[Accessible at Level 40 through <#673259309555253290>].\n\nChoose a role color between 40 different roles!\n\n_ _",
             "color": 2359049
         }
 
