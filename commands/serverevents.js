@@ -20,8 +20,11 @@ module.exports = {
             VIEW_CHANNEL: true,
         }, `Activated for Server Event | ${message.author.tag} [2/2] (hi events chat bye events chat :dance:).`);
 
-        message.channel.send(`**[📹] ${message.author.username}**, opened both channels accordingly. Ping the role in <#731380572189884436> to notify members.`).then(m => m.delete({
-            timeout: 15000
-        }));
+        client.channels.cache.get("815790709646163968").setName("👾 Server Events");
+        client.channels.cache.get("720002083226386553").setName("🎤events-chat").then(() => {
+            message.channel.send(`**[📹] ${message.author.username}**, opened and renamed both channels accordingly. Ping the role in <#731380572189884436> to notify members.`).then(m => m.delete({
+                timeout: 15000
+            }));
+        });
     }
 }
