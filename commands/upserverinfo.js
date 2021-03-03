@@ -59,7 +59,7 @@ module.exports = {
                 "value": "You need to be atleast Level 10 to be eligible to participate in these. Once you do so, you get access to <#673259309555253290>, through where you can choose what all you wish to participate in!"
             },
             {
-                "name": "> __**How do I become a Staff Member (Moderator/Administrator)**__",
+                "name": "> __**How do I become a Staff Member (Moderator/Administrator)?**__",
                 "value": "We do not have a system of applications for staff members. If we feel like we need more staff, and we feel you will be a good staff member, we will grant you the <@&672857887894274058> role for some time, and then take a decision later on whether we think you should be a staff member or not.\n\nWe look for friendliness, helpfulness, etc. However, do not mini-moderate to try and get moderator/administrator."
             },
             {
