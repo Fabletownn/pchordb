@@ -4,6 +4,8 @@ module.exports = {
     name: 'eventclose',
     description: '[MODERATION] This command will make the Server Events VC and Events Chat Channel invisible to those with the @Fortnite Customs, @Server Events and/or @Discord Streams role(s). <[setPrefix]eventclose>',
     execute(message) {
+        const client = message.client;
+        
         if (message.guild.id !== '614193406838571085') return;
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
         
