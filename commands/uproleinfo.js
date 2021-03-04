@@ -61,11 +61,6 @@ module.exports = {
         }
 
         const roleEmbed4 = {
-            "fields": [{
-                "name": "__Information__",
-                "value": "- As these roles are tied with Events hosted in the server, they are restricted to members Level 10 and above.\n- To obtain the role, simply click on the reaction. Unreact to revoke the role.\n",
-                "inline": false
-            }],
             "title": "Self Assign Roles",
             "description": "Self Assign Roles members can assign to themselves roles using reactions.\nChannels: <#673259309555253290> | <#816685387535220846>\n\n➤ React to assign the role.\n➤ Unreact to remove the role.\n\n_ _",
             "color": 2359049
