@@ -62,7 +62,7 @@ module.exports = {
 
         const roleEmbed4 = {
             "title": "Self Assign Roles",
-            "description": "Self Assign Roles members can assign to themselves roles using reactions.\nChannels: <#673259309555253290> | <#816685387535220846>\n\n➤ React to assign the role.\n➤ Unreact to remove the role.\n\n_ _",
+            "description": "Self Assign Roles members can assign to themselves roles using reactions.\nChannels: <#673259309555253290> | <#816685387535220846>\n\n➤ React to assign the role.\n➤ Unreact to remove the role.",
             "color": 2359049
         }
 
