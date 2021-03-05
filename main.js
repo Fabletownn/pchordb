@@ -1254,10 +1254,6 @@ client.on('message', message => {
         disabledCommands = disabledCommands.filter(filterE => filterE !== command);
         message.channel.send(`**[✅] ${message.author.username}**, \`+${command}\` has been enabled.`);
     }
-
-    if (message.channel.id === "614193406842765375" && message.author.id === "528759471514845194" && message.content.toLowerCase().includes("Wish them a very happy birthday!")) {
-        message.pin();
-    }
 });
 
 client.on('message', message => {
@@ -1288,6 +1284,12 @@ client.on('message', message => {
             });
         });
     }
+});
+
+client.on('message', message => {
+    if (message.guild === null) return;
+
+    if (message.channel.id === "614193406842765375" && message.author.id === "528759471514845194" && message.content.includes("Wish them a very happy birthday!")) message.pin();
 });
 
 client.login(process.env.token);
