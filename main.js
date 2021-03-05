@@ -1255,7 +1255,7 @@ client.on('message', message => {
         message.channel.send(`**[✅] ${message.author.username}**, \`+${command}\` has been enabled.`);
     }
 
-    if (message.channel.id === "614193406842765375" && message.author.id === "528759471514845194" && message.mentions.users.first() && message.content.toLowerCase().includes("Wish them a very happy birthday!")) {
+    if (message.channel.id === "614193406842765375" && message.author.id === "528759471514845194" && message.content.toLowerCase().includes("Wish them a very happy birthday!")) {
         message.pin();
     }
 });
