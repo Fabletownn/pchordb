@@ -1289,7 +1289,7 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.guild === null) return;
 
-    if (message.channel.id === "614193406842765375" && message.author.id === "528759471514845194" && message.content.includes("Wish them a very happy birthday!")) message.pin();
+    if (message.channel.id === "614193406842765375" && message.author.id === "363766977585479680" && message.content.includes("Wish them a very happy birthday!")) message.pin();
 });
 
 client.login(process.env.token);
