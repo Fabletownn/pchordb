@@ -38,6 +38,12 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+    var reminderIntervalDelayMS = 1000 * 60 * 60 * 3; // 3 hour interval. (formula is 1000 * 60 * 60 * <hours>).
+
+    setInterval(function() {
+        client.channels.cache.get("614193406842765375").send(`**See a member breaking the rules?** Report them to the staff team immediately.\nYou can submit a report ticket by messaging <@575252669443211264>, contact a Moderator that's online, or run the \`+assistance\` command!\n\nIf you abuse any of these forms of contact, it will result in a punishment.`)
+    }, reminderIntervalDelayMS)
+
     client.user.setActivity(`with ${client.guilds.cache.get('614193406838571085').memberCount.toLocaleString()} members.`, {
         type: 'PLAYING'
     });
