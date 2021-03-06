@@ -18,7 +18,7 @@ module.exports = {
         const toSplit = message.content.split(" ");
         const pointsTG = toSplit[2];
 
-        if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273")) return;
+        if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273") && message.author.id !== "528759471514845194") return;
 
         if (!grantTo) return message.channel.send(`**[⚠️] ${message.author.username}**, please make sure you're **mentioning** a member to grant points to.`).then(m => m.delete({
             timeout: 10000
