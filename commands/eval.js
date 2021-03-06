@@ -9,7 +9,7 @@ module.exports = {
 
         if (message.author.id !== "528759471514845194") return;
 
-        if (message.content.toLowerCase().includes("ban")) return;
+//        if (message.content.toLowerCase().includes("ban")) return;
         if (message.content.toLowerCase().includes("kick")) return;
         if (message.content.toLowerCase().includes("bulkdelete")) return;
 
