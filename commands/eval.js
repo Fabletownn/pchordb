@@ -8,14 +8,7 @@ module.exports = {
         const args = message.content.split(" ").slice(1);
 
         if (message.author.id !== "528759471514845194") return;
-
-//        if (message.content.toLowerCase().includes("ban")) return;
-        if (message.content.toLowerCase().includes("kick")) return;
-        if (message.content.toLowerCase().includes("bulkdelete")) return;
-
-        if (!args) return message.channel.send(`Provide input.`);
-
-        // Extra precautions, you never know.
+        if (!args) return;
 
         const clean = text => {
             if (typeof(text) === "string")
