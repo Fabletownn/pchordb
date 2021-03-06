@@ -18,7 +18,7 @@ module.exports = {
         const serverEmbed1 = {
             "title": "Server Owner",
             "description": "This server is owned by <@152597531824619521>, a YouTuber who creates commentaries on Fortnite and topics related to it! You can check out his socials by clicking on these links to support him!\n\n- [YouTube](https://www.youtube.com/channel/UCIZP6nCTyU9VV0zIhY7q1Aw)\n- [Twitch](https://www.twitch.tv/itsitalk)\n- [Twitter](https://twitter.com/ThisIsITalk)\n- [Trello](https://trello.com/b/KbYIp5kZ/videos)\n- [TikTok](https://www.tiktok.com/@imitalk?)\n- [Instagram](https://www.instagram.com/icantalkfortnite/)\n- [Reddit](https://www.reddit.com/user/ICanTalkFortnite/)\n- [Spotify](https://spoti.fi/2TWjhEh)\n\n- [I Talk Server Twitter](https://www.twitter.com/italkserver)\n\nIf you would like to support him when purchasing things from any Epic Games affiliated game, you can use:\n\nSupport-A-Creator Code: __ITF__ **(#ad #EpicPartner)**",
-            "color": '23ff09',
+            "color": 'c020cf',
             "thumbnail": {
                 "url": "https://cdn.discordapp.com/attachments/793520398137688154/793523562018242601/ServerIcon.png"
             }
@@ -27,7 +27,7 @@ module.exports = {
         const serverEmbed2 = {
             "title": "Channel and Category Info",
             "description": "Short info on the channels and categories in the server. It is advised to read each channel's channel topic to get a more detailed info on what each channel is for.",
-            "color": 2359049,
+            "color": '00ffff',
             "fields": [{
                 "name": "I TALK INFO",
                 "value": "<#614193679778709517> - Sends a message when someone joins the server.\n<#625747090852544532> -  The server's rules.\n<#614519517724278837> -  Information and FAQ about the server.\n<#781814866779570236> - Information and FAQ about the server's roles.\n<#771606110389927946> - Credits and Information of Server Art, emojis, etc.\n<#614500763997175824> -  Updates for the server.\n<#614193604277043228> -  Notifications for <@152597531824619521>'s socials.\n<#735534103352574052> - Updates on Fortnite Tweets, Item Shop and Challenge CheatSheets.\n<#793868857638912020> - STW Daily Llamas, Mission Resets, Event and Weekly Shop Resets.\n<#673259309555253290> -  Roles members can assign themselves using reactions.\n<#738819371069079622> - Feedback and Questions regarding this server.\n<#615594300108963867> - Channel for using Bot Commands.\n```\n \n```"
