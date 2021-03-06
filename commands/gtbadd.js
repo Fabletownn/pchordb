@@ -12,8 +12,6 @@ module.exports = {
     name: 'gtb-addcosmetic',
     description: '[GTB] This will add any cosmetic with the cosmetic name provided. <[setPrefix]gtb-addcosmetic <cosmetic number> <cosmetic answer/name> { ATTACHMENT }>',
     execute(message) {
-        message.delete();
-        
         var answerC1 = message.content.split("cosmetic ");
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273") && message.author.id !== "528759471514845194") return;
