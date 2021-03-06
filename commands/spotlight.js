@@ -109,13 +109,13 @@ module.exports = {
                                         collected.first().delete();
 
                                         if (collected.first().content.toLowerCase().startsWith("yes")) {
-                                            client.channels.cache.get('803711612548284426').send(`✨ Creator for this Week: <@${userID}>\n\n${userDesc}`, {
+                                            client.channels.cache.get('772175886031650827').send(`✨ Creator for this Week: <@${userID}>\n\n${userDesc}`, {
                                                 files: [attachment1]
                                             }).then(() => {
-                                                client.channels.cache.get('803711612548284426').send(`${artResult}`, {
+                                                client.channels.cache.get('772175886031650827').send(`${artResult}`, {
                                                     files: [attachment2]
                                                 }).then(() => {
-                                                    client.channels.cache.get('803711612548284426').send(`${artResult}`, {
+                                                    client.channels.cache.get('772175886031650827').send(`${artResult}`, {
                                                         files: [attachment3]
                                                     });
                                                 });
