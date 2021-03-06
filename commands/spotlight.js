@@ -99,7 +99,7 @@ module.exports = {
 
                                     msg.delete();
                                     message.channel.send(`**[🎭] ${message.author.username}**, please confirm the details below by saying "yes" or "no." Please understand URLs will not be provided.\nSpotlight: <@${userID}>\nDescription & Socials: ${userDesc}\n\nArtwork #1 (URL): ${attachment1}\nArtwork #2 (URL): ${attachment2}\nArtwork #3 (URL): ${attachment3}\nFleet Card (URL): ${fleetCard}`);
-    
+
                                     const confirmQuestion = m => m.author.id === message.author.id && (m.content.toLowerCase().startsWith("yes") || m.content.toLowerCase().startsWith("no"));
                                     message.channel.awaitMessages(confirmQuestion, {
                                         max: 1,
@@ -107,7 +107,7 @@ module.exports = {
                                         errors: ['time']
                                     }).then(collected => {
                                         collected.first().delete();
-    
+
                                         if (collected.first().content.toLowerCase().startsWith("yes")) {
                                             client.channels.cache.get('803711612548284426').send(`✨ Creator for this Week: <@${userID}>\n\n${userDesc}`, {
                                                 files: [attachment1]
@@ -120,19 +120,19 @@ module.exports = {
                                                     });
                                                 });
                                             });
-    
-                                            client.channels.cache.get('614500763997175824').send(`- Our new Server Spotlight, <@${userID}>!\nCheck out <#772175886031650827> for more information! <:zITFHype:680882437894701083>`, { files: [fleetCard]}).then(toPin => {
+
+                                            client.channels.cache.get('614500763997175824').send(`<@&816704985214615582>\nOur new Server Spotlight, <@${userID}>!\nCheck out <#772175886031650827> for more information! <:zITFHype:680882437894701083>`, { files: [fleetCard] });
+
+                                            client.channels.cache.get('614193406842765375').send(`Our new Server Spotlight, <@${userID}>!\nCheck out <#772175886031650827> for more information! <:zITFHype:680882437894701083>`, { files: [fleetCard] }).then(toPin => {
                                                 toPin.pin();
                                             });
-    
-                                            client.channels.cache.get('614193406842765375').send(`- Our new Server Spotlight, <@${userID}>!\nCheck out <#772175886031650827> for more information! <:zITFHype:680882437894701083>`, { files: [fleetCard]});
-    
+
                                             var toMember = message.guild.members.cache.get(userID);
                                             toMember.roles.add('772176660958281737');
-    
+
                                             message.channel.send(`**[🎭] ${message.author.username}**, the Server Spotlight, **${client.users.cache.get(userID).username}**, has been announced!\n\nyay amazing great excellent exceptional favorable great marvelous positive satisfactory satisfying superb valuable wonderful ace boss bully capital choice crack nice pleasing prime rad sound spanking sterling super superior welcome worthy admirable agreeable commendable congenial deluxe first-class first-rate gnarly gratifying honorable neat precious recherché reputable select shipshape splendid stupendous super-eminent super-excellent tip-top up to snuff sheesh`).then(m => m.delete({ timeout: 15000 }));
                                         } else {
-                                            return message.channel.send(`Cancelled. Feel free to readjust and make any changes.`);
+                                            return message.channel.send(`**[❌] ${message.author.username}**, successfully cancelled the request. Feel free to readjust and make any changes.`);
                                         }
                                     });
                                 });
