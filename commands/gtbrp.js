@@ -1,9 +1,3 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const mongoose = require('mongoose');
-const ms = require('parse-ms')
-var cooldownVar = "";
-
 const PNT = require("../models/points.js");
 
 module.exports = {
@@ -13,8 +7,6 @@ module.exports = {
         message.delete();
 
         if (!message.member.roles.cache.has("614196214078111745") && !message.member.roles.cache.has("685878871748378644") && !message.member.roles.cache.has("797145089297350736") && !message.member.roles.cache.has("614195872347062273") && message.author.id !== "528759471514845194") return;
-
-        let timeout = 7000;
 
         const grantTo = message.mentions.users.first();
         const toSplit = message.content.split(" ");
@@ -33,20 +25,11 @@ module.exports = {
             timeout: 10000
         }));
 
-        if (timeout - (Date.now() - cooldownVar) > 0) {
-            let time = ms(timeout - (Date.now() - cooldownVar));
-            return message.channel.send(`**[🌬️] ${message.author.username}**, this command is on cooldown: you'll be able to use it again in \`${time.seconds} seconds\`.`).then(m => m.delete({
-                timeout: 10000
-            }));
-        }
-
-        cooldownVar = Date.now();
         PNT.findOne({
             userID: grantTo.id
         }, (err, data) => {
-            if (err) {
-                return message.channel.send(`**[⚠️] ${message.author.username}**, an error occurred trying to save that user's data. Please report this to Farah ASAP.\n\`\`\`${err}\`\`\``)
-            }
+            if (err) return message.channel.send(`**[⚠️] ${message.author.username}**, an error occurred trying to save that user's data.`);
+            
             if (!data) {
                 const newPNT = new PNT({
                     serverID: message.guild.id,
@@ -61,12 +44,12 @@ module.exports = {
                 }));
             } else {
                 if ((data.points - parseInt(pointsTR) < 0)) {
-                    return message.channel.send(`**[⚠️] ${message.author.username}**, please give a **reasonable** amount of points to revoke from this user. Proper syntax would be; \`-rp [@member] [amt of points]\`.\nFor further assistance with syntax, use \`-syntax rp\`.`).then(m => m.delete({
+                    return message.channel.send(`**[⚠️] ${message.author.username}**, please give a **reasonable** amount of points to revoke from this user.`).then(m => m.delete({
                         timeout: 10000
                     }));
                 }
                 data.points -= parseInt(pointsTR);
-                data.save().catch(err => message.reply(`An error occurred. Please contact Farah ASAP.\n\`\`\`${err}\`\`\``));
+                data.save().catch(err => console.log(err));
                 message.channel.send(`**[💸] ${message.author.username}**, revoked ${parseInt(pointsTR).toLocaleString()} points from \`${grantTo.tag}\`: their point balance is now ${data.points.toLocaleString()}.`).then(m => m.delete({
                     timeout: 10000
                 }));

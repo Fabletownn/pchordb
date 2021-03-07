@@ -28,7 +28,7 @@ module.exports = {
                 var page = Math.ceil(res.length / 10);
                 const endEmbed = new MessageEmbed()
                     .setTitle(`GUESS THE BLANK : Points Leaderboard`)
-                    .setThumbnail('https://alphanerdsguild.com/wp-content/uploads/2018/03/11724-video-game.png')
+                    .setThumbnail('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png')
                     .setAuthor(`Game Ended : ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
                     .setColor('eb4bc9')
                     .setTimestamp()
@@ -58,7 +58,7 @@ module.exports = {
                     }
                 }
 
-                message.channel.send(`[🏆] This game's **Guess The Blank** leaderboard is below. [${new Date().toLocaleTimeString()}]\n[ℹ️] All users with 3 points or higher will be granted the \`Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({ embed: endEmbed }));
+                message.channel.send(`**[🏆] Players**, this game's **Guess The Blank** leaderboard is below. [${new Date().toLocaleTimeString()}]\n**[ℹ️]** All users with 3 points or higher will be granted the \`@Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({ embed: endEmbed }));
                 setTimeout(() => {
                     message.guild.members.cache.forEach(winners => {
                             PNT.findOne({
@@ -71,20 +71,18 @@ module.exports = {
                                     if (data.points >= 3) {
                                         feCount += 1;
                                         winners.roles.add('626803737595478046');
-                                        message.author.send(`[${new Date().toLocaleTimeString()}] Added \`Guess The Blank Champion\` role to member \`${winners.user.tag}\`. [${data.points.toLocaleString()} points]`).catch(() => console.log('An error occurred.'))
+                                        message.author.send(`[${new Date().toLocaleTimeString()}] Added \`@Guess The Blank Champion\` role to member \`${winners.user.tag}\`. [${data.points.toLocaleString()} points]`).catch(() => console.log('An error occurred.'))
                                     } else {
                                         return;
                                     }
                                 }
                             });
-                        }, message.channel.send(`**[${new Date().toLocaleTimeString()}]**: Task complete.`)
-                        .then(() => PNT.deleteMany()).then(setTimeout(() => {
-                            process.exit();
-                        }, 5000)));
+                        }, message.channel.send(`**[${new Date().toLocaleTimeString()}]**: Task complete.`).then(m => m.delete({ timeout: 10000 }))
+                        .then(() => PNT.deleteMany()));
                 }, 5000)
             });
         } catch (err) {
-            message.channel.send(`An error occurred. Please contact Farah ASAP.\n\`\`\`\n${err}\`\`\``)
+            return console.log(err);
         }
     }
 }

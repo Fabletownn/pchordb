@@ -1,9 +1,3 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const mongoose = require('mongoose');
-const ms = require('parse-ms')
-var cooldownVar = "";
-
 const PNT = require("../models/points.js");
 
 module.exports = {
@@ -11,8 +5,6 @@ module.exports = {
     description: '[GTB] This will add a specified amount of Guess The Blank points to the mentioned member. <[setPrefix]gtb-addpoints <@member>>',
     execute(message) {
         message.delete();
-
-        let timeout = 7000;
 
         const grantTo = message.mentions.users.first();
         const toSplit = message.content.split(" ");
@@ -32,15 +24,6 @@ module.exports = {
         if (pointsTG.length > 9) return message.channel.send(`**[⚠️] ${message.author.username}**, please make sure you're giving a **reasonable** amount of points to grant to this member.`).then(m => m.delete({
             timeout: 10000
         }));
-
-        if (timeout - (Date.now() - cooldownVar) > 0) {
-            let time = ms(timeout - (Date.now() - cooldownVar));
-            return message.channel.send(`**[🌬️] ${message.author.username}**, this command is on cooldown: you'll be able to use it again in \`${time.seconds} seconds\`.`).then(m => m.delete({
-                timeout: 10000
-            }));
-        }
-
-        cooldownVar = Date.now();
 
         PNT.findOne({
             userID: grantTo.id

@@ -18,13 +18,13 @@ module.exports = {
 
         let argsNum = message.content.split(" ");
 
-        if (isNaN(argsNum[1])) return message.channel.send(`[⚠️] **${message.author.username}**, please make sure you're including what **number question** this cosmetic is first.`).then(m => m.delete({
+        if (isNaN(argsNum[1])) return message.channel.send(`**[⚠️] ${message.author.username}**, please make sure you're including what **number question** this cosmetic is first.`).then(m => m.delete({
             timeout: 10000
         }));
-        if (message.attachments.size === 0) return message.channel.send(`[⚠️] **${message.author.username}**, please make sure you're including an **image** to use for the cosmetic.`).then(m => m.delete({
+        if (message.attachments.size === 0) return message.channel.send(`**[⚠️] ${message.author.username}**, please make sure you're including an **image** to use for the cosmetic.`).then(m => m.delete({
             timeout: 10000
         }));
-        if (!answerC1[1].slice(2).match(/^[ A-Za-z]+$/)) return message.channel.send(`[⚠️] **${message.author.username}**, please make sure your answers only include **letters**.`).then(m => m.delete({
+        if (!answerC1[1].slice(2).match(/^[ A-Za-z]+$/)) return message.channel.send(`**[⚠️] ${message.author.username}**, please make sure your answers only include **letters**.`).then(m => m.delete({
             timeout: 10000
         }));
 

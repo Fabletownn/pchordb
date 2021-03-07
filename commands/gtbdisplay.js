@@ -21,7 +21,7 @@ module.exports = {
 
             if (timeout - (Date.now() - cooldownVar) > 0) {
                 let time = ms(timeout - (Date.now() - cooldownVar));
-                return message.channel.send(`[<:gtbWarn:758808111879421972>] **${message.author.username}**, since displaying cosmetics takes up response time, you've been restricted from using this command for \`${time.seconds} seconds\`.`).then(m => m.delete({
+                return message.channel.send(`**[⚠️] ${message.author.username}**, since displaying cosmetics takes up response time, you've been restricted from using this command for \`${time.seconds} seconds\`.`).then(m => m.delete({
                     timeout: 10000
                 }));
             }
@@ -39,9 +39,7 @@ module.exports = {
                     timeout: 10000
                 }));
             } catch (err) {
-                message.reply(`An error occurred. Please contact creators ASAP:\n\`\`\`\n${err}\`\`\``).then(m => m.delete({
-                    timeout: 5000
-                }));
+                return console.log(err);
             }
         });
     }

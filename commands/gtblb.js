@@ -24,8 +24,8 @@ module.exports = {
 
             const leaderEmbed = new MessageEmbed()
                 .setTitle(`Guess The Blank: Points Leaderboard`)
-                .setThumbnail('https://media.discordapp.net/attachments/778258285689569340/778298324146847764/ServerIcon.jpeg?width=676&height=676')
-                .setAuthor(`Showcased : ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
+                .setThumbnail('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png')
+                .setAuthor(`Showcased by: ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
                 .setColor('eb4bc9')
                 .setTimestamp()
 
@@ -54,9 +54,7 @@ module.exports = {
                     leaderEmbed.addField(`[#${i + 1}] ${res[i].name}`, `${res[i].points.toLocaleString()} points`);
                 }
             }
-            message.channel.send(`The current Guess The Blank leaderboard is shown below.`, { embed: leaderEmbed }).then(m => m.delete({
-                timeout: 15000
-            }));
+            message.channel.send(`The current Guess The Blank leaderboard is shown below.`, { embed: leaderEmbed });
         });
     }
 }
