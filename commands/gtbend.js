@@ -70,7 +70,7 @@ module.exports = {
                                 } else {
                                     if (data.points >= 3) {
                                         feCount += 1;
-                                        winners.roles.add('776824463114371084');
+                                        winners.roles.add('626803737595478046');
                                         message.author.send(`[${new Date().toLocaleTimeString()}] Added \`Guess The Blank Champion\` role to member \`${winners.user.tag}\`. [${data.points.toLocaleString()} points]`).catch(() => console.log('An error occurred.'))
                                     } else {
                                         return;

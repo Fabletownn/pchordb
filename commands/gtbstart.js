@@ -9,7 +9,6 @@ OMEGALUL
 const Discord = require("discord.js");
 const gameStatus = [];
 const gameChannel = [];
-const timeout = [];
 
 let questResp = ["Name the cosmetic.", "What do you see?", "What's the name of this cosmetic?", "Take a shot; name the cosmetic."]
 const respo = questResp[Math.floor(Math.random() * questResp.length)];
@@ -27,9 +26,6 @@ module.exports = {
         if (gameStatus.includes(message.guild.id)) {
             message.delete();
             return message.channel.send(`[⚠️] There is already a current **Guess The Blank** game being hosted in <#${gameChannel}>.`).then(m => m.delete({ timeout: 5000 }))
-        }
-        if (timeout.includes(message.author.id)) {
-            return;
         }
 
         ATT.findOne({
@@ -61,6 +57,8 @@ module.exports = {
                             const L1R2 = collected.last().author.id
                             collected.first().react('✅')
                             collected.last().react('✅')
+
+                            if (L1R1 === L1R2) return;
 
                             PNT.findOne({
                                 userID: L1R1
@@ -121,6 +119,9 @@ module.exports = {
                                     .then(collected => {
                                         const L2R1 = collected.first().author.id
                                         const L2R2 = collected.last().author.id
+
+                                        if (L2R1 === L2R2) return;
+
                                         collected.first().react('✅')
                                         collected.last().react('✅')
                                         PNT.findOne({
@@ -181,6 +182,9 @@ module.exports = {
                                                 .then(collected => {
                                                     const L3R1 = collected.first().author.id
                                                     const L3R2 = collected.last().author.id
+
+                                                    if (L3R1 === L3R2) return;
+
                                                     collected.first().react('✅')
                                                     collected.last().react('✅')
                                                     PNT.findOne({
@@ -241,6 +245,9 @@ module.exports = {
                                                             .then(collected => {
                                                                 const L4R1 = collected.first().author.id
                                                                 const L4R2 = collected.last().author.id
+
+                                                                if (L4R1 === L4R2) return;
+
                                                                 collected.first().react('✅')
                                                                 collected.last().react('✅')
                                                                 PNT.findOne({
@@ -301,6 +308,9 @@ module.exports = {
                                                                         .then(collected => {
                                                                             const L5R1 = collected.first().author.id
                                                                             const L5R2 = collected.last().author.id
+
+                                                                            if (L5R1 === L5R2) return;
+
                                                                             collected.first().react('✅')
                                                                             collected.last().react('✅')
                                                                             PNT.findOne({
@@ -361,6 +371,9 @@ module.exports = {
                                                                                     .then(collected => {
                                                                                         const L6R1 = collected.first().author.id
                                                                                         const L6R2 = collected.last().author.id
+
+                                                                                        if (L6R1 === L6R2) return;
+
                                                                                         collected.first().react('✅')
                                                                                         collected.last().react('✅')
                                                                                         PNT.findOne({
@@ -421,6 +434,9 @@ module.exports = {
                                                                                                 .then(collected => {
                                                                                                     const L7R1 = collected.first().author.id
                                                                                                     const L7R2 = collected.last().author.id
+
+                                                                                                    if (L7R1 === L7R2) return;
+
                                                                                                     collected.first().react('✅')
                                                                                                     collected.last().react('✅')
                                                                                                     PNT.findOne({
@@ -480,6 +496,9 @@ module.exports = {
                                                                                                             .then(collected => {
                                                                                                                 const L8R1 = collected.first().author.id
                                                                                                                 const L8R2 = collected.last().author.id
+
+                                                                                                                if (L8R1 === L1R2) return;
+
                                                                                                                 collected.first().react('✅')
                                                                                                                 collected.last().react('✅')
                                                                                                                 PNT.findOne({
@@ -539,6 +558,9 @@ module.exports = {
                                                                                                                         .then(collected => {
                                                                                                                             const L9R1 = collected.first().author.id
                                                                                                                             const L9R2 = collected.last().author.id
+
+                                                                                                                            if (L9R1 === L9R2) return;
+
                                                                                                                             collected.first().react('✅')
                                                                                                                             collected.last().react('✅')
                                                                                                                             PNT.findOne({
@@ -598,6 +620,9 @@ module.exports = {
                                                                                                                                     .then(collected => {
                                                                                                                                         const L10R1 = collected.first().author.id
                                                                                                                                         const L10R2 = collected.last().author.id
+
+                                                                                                                                        if (L10R1 === L10R2) return;
+
                                                                                                                                         collected.first().react('✅')
                                                                                                                                         collected.last().react('✅')
                                                                                                                                         PNT.findOne({
@@ -657,6 +682,9 @@ module.exports = {
                                                                                                                                                 .then(collected => {
                                                                                                                                                     const L11R1 = collected.first().author.id
                                                                                                                                                     const L11R2 = collected.last().author.id
+
+                                                                                                                                                    if (L11R1 === L11R2) return;
+
                                                                                                                                                     collected.first().react('✅')
                                                                                                                                                     collected.last().react('✅')
                                                                                                                                                     PNT.findOne({
@@ -716,6 +744,9 @@ module.exports = {
                                                                                                                                                             .then(collected => {
                                                                                                                                                                 const L12R1 = collected.first().author.id
                                                                                                                                                                 const L12R2 = collected.last().author.id
+
+                                                                                                                                                                if (L12R1 === L12R2) return;
+
                                                                                                                                                                 collected.first().react('✅')
                                                                                                                                                                 collected.last().react('✅')
                                                                                                                                                                 PNT.findOne({
@@ -775,6 +806,9 @@ module.exports = {
                                                                                                                                                                         .then(collected => {
                                                                                                                                                                             const L13R1 = collected.first().author.id
                                                                                                                                                                             const L13R2 = collected.last().author.id
+
+                                                                                                                                                                            if (L13R1 === L13R2) return;
+
                                                                                                                                                                             collected.first().react('✅')
                                                                                                                                                                             collected.last().react('✅')
                                                                                                                                                                             PNT.findOne({
@@ -834,6 +868,9 @@ module.exports = {
                                                                                                                                                                                     .then(collected => {
                                                                                                                                                                                         const L14R1 = collected.first().author.id
                                                                                                                                                                                         const L14R2 = collected.last().author.id
+
+                                                                                                                                                                                        if (L14R1 === L14R2) return;
+
                                                                                                                                                                                         collected.first().react('✅')
                                                                                                                                                                                         collected.last().react('✅')
                                                                                                                                                                                         PNT.findOne({
