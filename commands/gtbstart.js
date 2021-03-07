@@ -5,6 +5,7 @@ Looking back at this, I'm glad of the progress I've made as a coder & hobbyist.
 
 OMEGALUL
 */
+
 let questResp = ["Name the cosmetic.", "What do you see?", "What's the name of this cosmetic?", "What cosmetic do you see?", "Name the cosmetic!"];
 const respo = questResp[Math.floor(Math.random() * questResp.length)];
 
@@ -1220,7 +1221,7 @@ module.exports = {
                                                                                                                                                                                                                                                                     message.channel.updateOverwrite(message.guild.id, {
                                                                                                                                                                                                                                                                         SEND_MESSAGES: false,
                                                                                                                                                                                                                                                                     }, `GUESS THE BLANK: Chat Time & Game End | [${new Date().toLocaleTimeString()}]`);
-                                                                                                                                                                                                                                                                    message.channel.send(`**[⚠️]** Chat has been locked.`);
+                                                                                                                                                                                                                                                                    message.channel.send(`**[🔒]** Chat has been locked.`);
                                                                                                                                                                                                                                                                 }, 120000)
 
                                                                                                                                                                                                                                                             })
