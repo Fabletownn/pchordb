@@ -5,7 +5,7 @@ Looking back at this, I'm glad of the progress I've made as a coder & hobbyist.
 
 OMEGALUL
 */
-let questResp = ["Name the cosmetic.", "What do you see?", "What's the name of this cosmetic?"]
+let questResp = ["Name the cosmetic.", "What do you see?", "What's the name of this cosmetic?", "What cosmetic do you see?", "Name the cosmetic!"];
 const respo = questResp[Math.floor(Math.random() * questResp.length)];
 
 const ATT = require("../models/attachs.js");
@@ -33,7 +33,7 @@ module.exports = {
                     }, `GUESS THE BLANK: Initiated by ${message.author.username}#${message.author.discriminator} | [${new Date().toLocaleTimeString()}]`);
 
                     // LEVEL 1
-                    message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs1));
+                    message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 1**: ${respo}`).then(message.channel.send(data.attachs1));
                     const LV1 = m => (m.content.toLowerCase().startsWith(data.answer1.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer1.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                     message.channel.awaitMessages(LV1, {
                             max: 2,
@@ -95,7 +95,7 @@ module.exports = {
                                     SEND_MESSAGES: true,
                                 }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                 // LEVEL 2
-                                message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs2));
+                                message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 2**: ${respo}`).then(message.channel.send(data.attachs2));
                                 const LV2 = m => (m.content.toLowerCase().startsWith(data.answer2.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer2.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                 message.channel.awaitMessages(LV2, {
                                         max: 2,
@@ -155,7 +155,7 @@ module.exports = {
                                                 SEND_MESSAGES: true,
                                             }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                             // LEVEL 3
-                                            message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs3));
+                                            message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 3**: ${respo}`).then(message.channel.send(data.attachs3));
                                             const LV3 = m => (m.content.toLowerCase().startsWith(data.answer3.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer3.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                             message.channel.awaitMessages(LV3, {
                                                     max: 2,
@@ -215,7 +215,7 @@ module.exports = {
                                                             SEND_MESSAGES: true,
                                                         }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                         // LEVEL 4
-                                                        message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs4));
+                                                        message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 4**: ${respo}`).then(message.channel.send(data.attachs4));
                                                         const LV4 = m => (m.content.toLowerCase().startsWith(data.answer4.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer4.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                         message.channel.awaitMessages(LV4, {
                                                                 max: 2,
@@ -275,7 +275,7 @@ module.exports = {
                                                                         SEND_MESSAGES: true,
                                                                     }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                     // LEVEL 5
-                                                                    message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs5));
+                                                                    message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 5**: ${respo}`).then(message.channel.send(data.attachs5));
                                                                     const LV5 = m => (m.content.toLowerCase().startsWith(data.answer5.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer5.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                     message.channel.awaitMessages(LV5, {
                                                                             max: 2,
@@ -335,7 +335,7 @@ module.exports = {
                                                                                     SEND_MESSAGES: true,
                                                                                 }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                 // LEVEL 6
-                                                                                message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs6));
+                                                                                message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 6**: ${respo}`).then(message.channel.send(data.attachs6));
                                                                                 const LV6 = m => (m.content.toLowerCase().startsWith(data.answer6.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer6.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                 message.channel.awaitMessages(LV6, {
                                                                                         max: 2,
@@ -395,7 +395,7 @@ module.exports = {
                                                                                                 SEND_MESSAGES: true,
                                                                                             }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                             // LEVEL 7
-                                                                                            message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs7));
+                                                                                            message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 7**: ${respo}`).then(message.channel.send(data.attachs7));
                                                                                             const LV7 = m => (m.content.toLowerCase().startsWith(data.answer7.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer7.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                             message.channel.awaitMessages(LV7, {
                                                                                                     max: 2,
@@ -454,7 +454,7 @@ module.exports = {
                                                                                                             SEND_MESSAGES: true,
                                                                                                         }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                         // LEVEL 8
-                                                                                                        message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs8));
+                                                                                                        message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 8**: ${respo}`).then(message.channel.send(data.attachs8));
                                                                                                         const LV8 = m => (m.content.toLowerCase().startsWith(data.answer8.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer8.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                         message.channel.awaitMessages(LV8, {
                                                                                                                 max: 2,
@@ -513,7 +513,7 @@ module.exports = {
                                                                                                                         SEND_MESSAGES: true,
                                                                                                                     }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                     // LEVEL 9
-                                                                                                                    message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs9));
+                                                                                                                    message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 9**: ${respo}`).then(message.channel.send(data.attachs9));
                                                                                                                     const LV9 = m => (m.content.toLowerCase().startsWith(data.answer9.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer9.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                     message.channel.awaitMessages(LV9, {
                                                                                                                             max: 2,
@@ -572,7 +572,7 @@ module.exports = {
                                                                                                                                     SEND_MESSAGES: true,
                                                                                                                                 }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                 // LEVEL 10
-                                                                                                                                message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs10));
+                                                                                                                                message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 10**: ${respo}`).then(message.channel.send(data.attachs10));
                                                                                                                                 const LV10 = m => (m.content.toLowerCase().startsWith(data.answer10.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer10.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                 message.channel.awaitMessages(LV10, {
                                                                                                                                         max: 2,
@@ -631,7 +631,7 @@ module.exports = {
                                                                                                                                                 SEND_MESSAGES: true,
                                                                                                                                             }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                             // LEVEL 11
-                                                                                                                                            message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs11));
+                                                                                                                                            message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 11**: ${respo}`).then(message.channel.send(data.attachs11));
                                                                                                                                             const LV11 = m => (m.content.toLowerCase().startsWith(data.answer11.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer11.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                             message.channel.awaitMessages(LV11, {
                                                                                                                                                     max: 2,
@@ -690,7 +690,7 @@ module.exports = {
                                                                                                                                                             SEND_MESSAGES: true,
                                                                                                                                                         }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                         // LEVEL 12
-                                                                                                                                                        message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs12));
+                                                                                                                                                        message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 12**: ${respo}`).then(message.channel.send(data.attachs12));
                                                                                                                                                         const LV12 = m => (m.content.toLowerCase().startsWith(data.answer12.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer12.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                         message.channel.awaitMessages(LV12, {
                                                                                                                                                                 max: 2,
@@ -749,7 +749,7 @@ module.exports = {
                                                                                                                                                                         SEND_MESSAGES: true,
                                                                                                                                                                     }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                     // LEVEL 13
-                                                                                                                                                                    message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs13));
+                                                                                                                                                                    message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 13**: ${respo}`).then(message.channel.send(data.attachs13));
                                                                                                                                                                     const LV13 = m => (m.content.toLowerCase().startsWith(data.answer13.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer13.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                     message.channel.awaitMessages(LV13, {
                                                                                                                                                                             max: 2,
@@ -808,7 +808,7 @@ module.exports = {
                                                                                                                                                                                     SEND_MESSAGES: true,
                                                                                                                                                                                 }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                 // LEVEL 14
-                                                                                                                                                                                message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs14));
+                                                                                                                                                                                message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 14**: ${respo}`).then(message.channel.send(data.attachs14));
                                                                                                                                                                                 const LV14 = m => (m.content.toLowerCase().startsWith(data.answer14.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer14.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                 message.channel.awaitMessages(LV14, {
                                                                                                                                                                                         max: 2,
@@ -867,7 +867,7 @@ module.exports = {
                                                                                                                                                                                                 SEND_MESSAGES: true,
                                                                                                                                                                                             }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                             // LEVEL 15
-                                                                                                                                                                                            message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs15));
+                                                                                                                                                                                            message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 15**: ${respo}`).then(message.channel.send(data.attachs15));
                                                                                                                                                                                             const LV15 = m => (m.content.toLowerCase().startsWith(data.answer15.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer15.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                             message.channel.awaitMessages(LV15, {
                                                                                                                                                                                                     max: 2,
@@ -926,7 +926,7 @@ module.exports = {
                                                                                                                                                                                                             SEND_MESSAGES: true,
                                                                                                                                                                                                         }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                                         // LEVEL 16
-                                                                                                                                                                                                        message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs16));
+                                                                                                                                                                                                        message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 16**: ${respo}`).then(message.channel.send(data.attachs16));
                                                                                                                                                                                                         const LV16 = m => (m.content.toLowerCase().startsWith(data.answer16.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer16.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                                         message.channel.awaitMessages(LV16, {
                                                                                                                                                                                                                 max: 2,
@@ -985,7 +985,7 @@ module.exports = {
                                                                                                                                                                                                                         SEND_MESSAGES: true,
                                                                                                                                                                                                                     }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                                                     // LEVEL 17
-                                                                                                                                                                                                                    message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs17));
+                                                                                                                                                                                                                    message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 17**: ${respo}`).then(message.channel.send(data.attachs17));
                                                                                                                                                                                                                     const LV17 = m => (m.content.toLowerCase().startsWith(data.answer17.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer17.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                                                     message.channel.awaitMessages(LV17, {
                                                                                                                                                                                                                             max: 2,
@@ -1044,7 +1044,7 @@ module.exports = {
                                                                                                                                                                                                                                     SEND_MESSAGES: true,
                                                                                                                                                                                                                                 }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                                                                 // LEVEL 18
-                                                                                                                                                                                                                                message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs18));
+                                                                                                                                                                                                                                message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 18**: ${respo}`).then(message.channel.send(data.attachs18));
                                                                                                                                                                                                                                 const LV18 = m => (m.content.toLowerCase().startsWith(data.answer18.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer18.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                                                                 message.channel.awaitMessages(LV18, {
                                                                                                                                                                                                                                         max: 2,
@@ -1103,7 +1103,7 @@ module.exports = {
                                                                                                                                                                                                                                                 SEND_MESSAGES: true,
                                                                                                                                                                                                                                             }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                                                                             // LEVEL 19
-                                                                                                                                                                                                                                            message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs19));
+                                                                                                                                                                                                                                            message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 19**: ${respo}`).then(message.channel.send(data.attachs19));
                                                                                                                                                                                                                                             const LV19 = m => (m.content.toLowerCase().startsWith(data.answer19.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer19.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                                                                             message.channel.awaitMessages(LV19, {
                                                                                                                                                                                                                                                     max: 2,
@@ -1162,7 +1162,7 @@ module.exports = {
                                                                                                                                                                                                                                                             SEND_MESSAGES: true,
                                                                                                                                                                                                                                                         }, `GUESS THE BLANK: Round Start | [${new Date().toLocaleTimeString()}]`);
                                                                                                                                                                                                                                                         // LEVEL 20 / FINAL
-                                                                                                                                                                                                                                                        message.channel.send(`[<:zITFGaming:778318624163102723>] ${respo}`).then(message.channel.send(data.attachs20));
+                                                                                                                                                                                                                                                        message.channel.send(`**[<:zITFGaming:778318624163102723>] Round 20**: ${respo}`).then(message.channel.send(data.attachs20));
                                                                                                                                                                                                                                                         const LV20 = m => (m.content.toLowerCase().startsWith(data.answer20.toLowerCase()) || m.content.toLowerCase().startsWith(data.answer20.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g, ""))) && !m.member.roles.cache.has(champR.id);
                                                                                                                                                                                                                                                         message.channel.awaitMessages(LV20, {
                                                                                                                                                                                                                                                                 max: 2,
@@ -1211,7 +1211,7 @@ module.exports = {
                                                                                                                                                                                                                                                                         data.save().catch(err => console.log(err));
                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                 });
-                                                                                                                                                                                                                                                                message.channel.send(`[<:zITFGaming:778318624163102723>] This marks the end of **Guess The Blank**. Thank you all for participating.\nA staff member may run the \`+gtb-end\` command to show leaderboards and further instruction. Chat will be opened for 2 minutes for additional conversations.`);
+                                                                                                                                                                                                                                                                message.channel.send(`**[<:zITFGaming:778318624163102723>]** GGs! This marks the end of **Guess The Blank**. Thank you all for participating.\nA staff member may run the \`+gtb-end\` command to show leaderboards and further instruction. Chat will be opened for 2 minutes for additional conversations.`);
                                                                                                                                                                                                                                                                 message.channel.updateOverwrite(message.guild.id, {
                                                                                                                                                                                                                                                                     SEND_MESSAGES: true,
                                                                                                                                                                                                                                                                 }, `GUESS THE BLANK: Game End | 2 MINUTE CHAT TIME`);
