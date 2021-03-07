@@ -1,10 +1,4 @@
 const Discord = require("discord.js");
-const {
-    Client,
-    MessageEmbed
-} = require("discord.js");
-const client = new Discord.Client();
-const mongoose = require('mongoose');
 const PNT = require('../models/points.js');
 
 let feCount = 0;
@@ -26,7 +20,7 @@ module.exports = {
                 if (err) console.log(err);
 
                 var page = Math.ceil(res.length / 10);
-                const endEmbed = new MessageEmbed()
+                const endEmbed = new Discord.MessageEmbed()
                     .setTitle(`GUESS THE BLANK : Points Leaderboard`)
                     .setThumbnail('https://cdn.discordapp.com/attachments/730960122221690954/793177649601314826/NormalVer.png')
                     .setAuthor(`Game Ended : ` + message.author.username + `#` + message.author.discriminator, message.author.displayAvatarURL())
@@ -58,28 +52,30 @@ module.exports = {
                     }
                 }
 
-                message.channel.send(`**[<:zITFGG:667854871579590696>] Players**, this game's **Guess The Blank** leaderboard is below. [${new Date().toLocaleTimeString()}]\nAll users with 3 points or higher will be granted the \`@Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({ embed: endEmbed }));
-                setTimeout(() => {
-                    message.guild.members.cache.forEach(winners => {
-                            PNT.findOne({
-                                userID: winners.user.id,
-                            }, (err, data) => {
-                                if (err) return console.log(err);
-                                if (!data || data.userID === null) {
-                                    return;
+                message.channel.send(`**[<:zITFGG:667854871579590696>] Players**, this game's **Guess The Blank** leaderboard is below.\nAll users with 3 points or higher will be granted the \`@Guess The Blank Champion\` role. This role will be slowly rolled out.`).then(message.channel.send({
+                    embed: endEmbed
+                }));
+                message.guild.members.cache.forEach(winners => {
+                        PNT.findOne({
+                            userID: winners.user.id,
+                        }, (err, data) => {
+                            if (err) return console.log(err);
+                            if (!data || data.userID === null) {
+                                return;
+                            } else {
+                                if (data.points >= 3) {
+                                    feCount += 1;
+                                    winners.roles.add('626803737595478046');
+                                    message.author.send(`[${new Date().toLocaleTimeString()}] Added \`@Guess The Blank Champion\` role to member \`${winners.user.tag}\`. [${data.points.toLocaleString()} points]`).catch(() => console.log('An error occurred.'))
                                 } else {
-                                    if (data.points >= 3) {
-                                        feCount += 1;
-                                        winners.roles.add('626803737595478046');
-                                        message.author.send(`[${new Date().toLocaleTimeString()}] Added \`@Guess The Blank Champion\` role to member \`${winners.user.tag}\`. [${data.points.toLocaleString()} points]`).catch(() => console.log('An error occurred.'))
-                                    } else {
-                                        return;
-                                    }
+                                    return;
                                 }
-                            });
-                        }, message.channel.send(`**[${new Date().toLocaleTimeString()}]**: Task complete.`).then(m => m.delete({ timeout: 10000 }))
-                        .then(() => PNT.deleteMany()));
-                }, 5000)
+                            }
+                        });
+                    }, message.channel.send(`**[${new Date().toLocaleTimeString()}]**: Task complete.`).then(m => m.delete({
+                        timeout: 10000
+                    }))
+                    .then(() => PNT.deleteMany()));
             });
         } catch (err) {
             return console.log(err);
