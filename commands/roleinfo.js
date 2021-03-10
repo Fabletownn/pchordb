@@ -9,12 +9,8 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
-        if (!message.mentions.roles.first() && !message.content.split(" ")[1]) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving providing a role ID for me to give information about.`).then(m => m.delete({
-            timeout: 10000
-        }));
-        if (!message.mentions.roles.first() && !message.guild.roles.cache.get(message.content.split(" ")[1])) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're providing a valid role ID: role ID wasn't found.`).then(m => m.delete({
-            timeout: 10000
-        }));
+        if (!message.mentions.roles.first() && !message.content.split(" ")[1]) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving providing a role ID for me to give information about.`);
+        if (!message.mentions.roles.first() && !message.guild.roles.cache.get(message.content.split(" ")[1])) return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're providing a valid role ID: role ID wasn't found.`);
 
         let mentionable;
         let hoisted;
@@ -48,13 +44,9 @@ module.exports = {
 
             message.channel.send({
                 embed: roleEmbed
-            }).then(m => m.delete({
-                timeout: 30000
-            }));
+            });
         } else {
-            return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving me a role to give information about!`).then(m => m.delete({
-                timeout: 10000
-            }));
+            return message.channel.send(`**[❌] ${message.author.username}**, please ensure you're giving me a role to give information about!`).then(m => m.delete({ timeout: 10000 }));
         }
     }
 }

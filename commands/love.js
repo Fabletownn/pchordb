@@ -24,9 +24,7 @@ module.exports = {
                 newLUVData.save().catch(err => console.log(err))
                 message.channel.send(`<:yNickLove:798240179894222859> **${message.author.tag}** contributed the first ever Nick Love! <:yNickLove:798240179894222859>\n\nTotal <:yNickLove:798240179894222859>s: 1`);
             } else {
-                if (data.latestMember === message.author.id) return message.channel.send(`**[<:yNickLove:798240179894222859>] ${message.author.username}**, you cannot give an Nick Love twice in a row!`).then(m => m.delete({
-                    timeout: 5000
-                }));
+                if (data.latestMember === message.author.id) return message.channel.send(`**[<:yNickLove:798240179894222859>] ${message.author.username}**, you cannot give an Nick Love twice in a row!`).then(m => m.delete({ timeout: 10000 }));
 
                 data.guildID = message.guild.id;
                 data.latestMember = message.author.id;

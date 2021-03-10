@@ -18,9 +18,7 @@ module.exports = {
         let moderatorR = message.guild.roles.cache.find(role => role.name === "Moderator");
         if (!message.member.roles.cache.has(moderatorR.id) && message.channel.id !== '615594300108963867') return;
 
-        if (!eBallQuestion) return message.channel.send(`**[❓] ${message.author.username}**, please ensure you're providing a question.`).then(m => m.delete({
-            timeout: 10000
-        }));
+        if (!eBallQuestion) return message.channel.send(`**[❓] ${message.author.username}**, please ensure you're providing a question.`).then(m => m.delete({ timeout: 10000 }));
 
         if (blacklistedWords.some(v => message.content.includes(v))) return;
 
@@ -59,9 +57,7 @@ module.exports = {
                 setTimeout(() => {
                     eBallMessage.edit({
                         embed: eBallEmbed
-                    }).then(m => m.delete({
-                        timeout: 30000
-                    }));
+                    });
                 }, 3000);
             });
             return;
@@ -72,9 +68,7 @@ module.exports = {
                 setTimeout(() => {
                     eBallMessage.edit({
                         embed: eBallEmbedWO
-                    }).then(m => m.delete({
-                        timeout: 30000
-                    }));
+                    });
                 }, 3000);
             });
             return;

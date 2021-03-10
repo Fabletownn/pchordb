@@ -11,9 +11,7 @@ module.exports = {
 
         request.get('https://catfact.ninja/fact').end((err, res) => {
             if (!err && res.status === 200) {
-                message.channel.send(`**[🐱] ${message.author.username}**, here's your random cat fact.\n"${res.body.fact}"`).then(m => m.delete({
-                    timeout: 15000
-                }));
+                message.channel.send(`**[🐱] ${message.author.username}**, here's your random cat fact.\n"${res.body.fact}"`);
             } else {
                 console.log(`REST call failed: ${err}`);
             }

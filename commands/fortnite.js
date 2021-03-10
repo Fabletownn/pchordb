@@ -16,16 +16,12 @@ module.exports = {
         let fortniteUsername = messageArgs[1];
         let fortnitePlatform = messageArgs[2];
 
-        if (!fortniteUsername) return message.channel.send(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, please input an EPIC username to look up Fortnite statistics for.`).then(m => m.delete({
-            timeout: 10000
-        }));
+        if (!fortniteUsername) return message.channel.send(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, please input an EPIC username to look up Fortnite statistics for.`).then(m => m.delete({ timeout: 10000 }));
 
         message.channel.send(`Fetching..`).then(msg => {
             if (!fortnitePlatform || fortnitePlatform.toLowerCase() === "pc") {
                 let data = fortnite.user(fortniteUsername, "pc").then(data => {
-                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
 
                     msg.react(`<:statsChordLifetime:788889424086958110>`);
                     msg.react(`<:pcPLACEHOLDER:786598522001817630>`);
@@ -215,15 +211,11 @@ module.exports = {
                     });
                 }).catch(err => {
                     console.log(err);
-                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
                 });
             } else if (fortnitePlatform.toLowerCase() === "xbl") {
                 let data = fortnite.user(fortniteUsername, "xbl").then(data => {
-                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
 
                     msg.react(`<:statsChordLifetime:788889424086958110>`);
                     msg.react(`<:pcPLACEHOLDER:786598522001817630>`);
@@ -413,15 +405,11 @@ module.exports = {
                     });
                 }).catch(err => {
                     console.log(err);
-                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
                 });
             } else if (fortnitePlatform === "psn") {
                 let data = fortnite.user(fortniteUsername, "psn").then(data => {
-                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    if (!data.username || data.username === undefined) return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
 
                     msg.react(`<:statsChordLifetime:788889424086958110>`);
                     msg.react(`<:pcPLACEHOLDER:786598522001817630>`);
@@ -611,12 +599,10 @@ module.exports = {
                     });
                 }).catch(err => {
                     console.log(err);
-                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`).then(m => m.delete({
-                        timeout: 10000
-                    }));
+                    return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that username was not found within the Fortnite Tracker database.\nPlease ensure you're providing EPIC usernames and not PSN or XBox Tags.\n\n*(Unfortunately for right now, EPIC usernames with spaces cannot be looked up).*`);
                 });
             } else {
-                return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that input (${fortnitePlatform}) was not recognized as a platform.\nPlease ensure you're either inputting \`pc\`, \`psn\` or \`xbl\` as a platform. EPIC usernames with spaces are not yet recognized.`).then(m => m.delete({ timeout: 10000 }));
+                return msg.edit(`**[<:statsChordSixString:788870454035087370>] ${message.author.username}**, that input (${fortnitePlatform}) was not recognized as a platform.\nPlease ensure you're either inputting \`pc\`, \`psn\` or \`xbl\` as a platform. EPIC usernames with spaces are not yet recognized.`);
             }
         });
     }

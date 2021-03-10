@@ -60,7 +60,7 @@ module.exports = {
                             .setTimestamp()
                         
                         answer.delete();
-                        return msg.edit(`**${message.author.username}**, nice try. Run the command to play again.`, { embed: incorrectEmbed }).then(m => m.delete({ timeout: 5000 }));
+                        return msg.edit(`**${message.author.username}**, nice try. Run the command to play again.`, { embed: incorrectEmbed });
                         }
                         const correctEmbed = new Discord.MessageEmbed()
                             .setAuthor(`Jumble Words | ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -70,12 +70,10 @@ module.exports = {
                             .setTimestamp()
                         
                         answer.delete();
-                        return msg.edit(`**${message.author.username}**, nice work! Run the command to play again.`, { embed: correctEmbed }).then(m => m.delete({ timeout: 5000 }));
+                        return msg.edit(`**${message.author.username}**, nice work! Run the command to play again.`, { embed: correctEmbed });
                     })
                     .catch(() => {
-                        message.channel.send(`Tiiiiime's up! You couldn't answer in time: the correct answer was "**${word[0].word}**"! RIP.`).then(m => m.delete({
-                            timeout: 5000
-                        }));
+                        message.channel.send(`Tiiiiime's up! You couldn't answer in time: the correct answer was "**${word[0].word}**"! RIP.`);
                         return msg.delete();
                     });
             }, 3000);

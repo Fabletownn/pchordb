@@ -11,9 +11,7 @@ module.exports = {
 
         request.get('https://dog-api.kinduff.com/api/facts').end((err, res) => {
             if (!err && res.status === 200) {
-                message.channel.send(`**[🐶] ${message.author.username}**, here's your random dog fact.\n"${res.body.facts[0]}"`).then(m => m.delete({
-                    timeout: 15000
-                }));
+                message.channel.send(`**[🐶] ${message.author.username}**, here's your random dog fact.\n"${res.body.facts[0]}"`);
             } else {
                 console.log(`REST call failed: ${err}`);
             }

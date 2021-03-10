@@ -47,21 +47,15 @@ module.exports = {
                         side = collected.first().content;
                         msg.delete()
 
-                        message.channel.send(`Flipping the coin, and it landed on..`).then(result => {
+                        message.channel.send(`Flipping the coin, and..`).then(result => {
                             setTimeout(() => {
                                 const betResult = bets[Math.floor(Math.random() * bets.length)];
                                 if (betResult.toLowerCase() === "heads") {
-                                    result.edit(`**HEADS**! The circumstance for Heads was, "${heads}".`).then(m => m.delete({
-                                        timeout: 30000
-                                    }));
+                                    result.edit(`The coin landed on **HEADS**! The circumstance for Heads was, "${heads}".`);
                                 } else if (betResult.toLowerCase() === "tails") {
-                                    result.edit(`**TAILS**! The circumstance for Tails was, "${tails}".`).then(m => m.delete({
-                                        timeout: 30000
-                                    }));
+                                    result.edit(`The coin landed on **TAILS**! The circumstance for Tails was, "${tails}".`);
                                 } else if (betResult.toLowerCase() === "the side") {
-                                    result.edit(`**THE SIDE**! The circumstance for the Side was, "${side}".`).then(m => m.delete({
-                                        timeout: 30000
-                                    }));
+                                    result.edit(`The coin landed on **THE SIDE**! The circumstance for the Side was, "${side}".`);
                                 }
                             }, 3000)
                         });

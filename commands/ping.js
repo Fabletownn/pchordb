@@ -37,9 +37,7 @@ module.exports = {
 
             msg.edit(`Fetched.`).then(() => {
                 msg.edit({ embed: pingEmbed })
-            }).then(msg.delete({
-                timeout: 30000
-            }));
+            });
         });
     }
 }

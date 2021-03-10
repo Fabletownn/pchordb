@@ -33,9 +33,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${message.author.tag}**:`, {
                     embed: ownerInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else
             if (message.member.roles.cache.has(administratorR.id)) {
                 const administratorInfoEmbed = new Discord.MessageEmbed()
@@ -53,9 +51,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${message.author.tag}**:`, {
                     embed: administratorInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else
             if (message.member.roles.cache.has(moderatorR.id)) {
                 const moderatorInfoEmbed = new Discord.MessageEmbed()
@@ -73,9 +69,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${message.author.tag}**:`, {
                     embed: moderatorInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else {
                 const memberInfoEmbed = new Discord.MessageEmbed()
                     .setTitle(`User Information | ${message.author.tag}`)
@@ -92,9 +86,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${message.author.tag}**:`, {
                     embed: memberInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             }
         } else if (mentionedUser) {
             var mentionedMember = message.guild.member(mentionedUser);
@@ -115,9 +107,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
                     embed: ownerInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else
             if (mentionedMember.roles.cache.has(administratorR.id)) {
                 const administratorInfoEmbed = new Discord.MessageEmbed()
@@ -135,9 +125,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
                     embed: administratorInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else
             if (mentionedMember.roles.cache.has(moderatorR.id)) {
                 const moderatorInfoEmbed = new Discord.MessageEmbed()
@@ -155,9 +143,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
                     embed: moderatorInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else
             if (mentionedUser.bot) {
                 const botInfoEmbed = new Discord.MessageEmbed()
@@ -175,9 +161,7 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
                     embed: botInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             } else {
                 const memberInfoEmbed = new Discord.MessageEmbed()
                     .setTitle(`User Information | ${mentionedUser.tag}`)
@@ -194,14 +178,10 @@ module.exports = {
 
                 message.channel.send(`Displaying user information for **${mentionedUser.tag}**:`, {
                     embed: memberInfoEmbed
-                }).then(m => m.delete({
-                    timeout: 30000
-                }));
+                });
             }
         } else {
-            message.channel.send(`**[❌] ${message.author.username}**, an error occurred trying to fetch User Data.`).then(m => m.delete({
-                timeout: 5000
-            }));
+            message.channel.send(`**[❌] ${message.author.username}**, an error occurred trying to fetch User Data.`).then(m => m.delete({ timeout: 10000 }));
         }
     }
 }

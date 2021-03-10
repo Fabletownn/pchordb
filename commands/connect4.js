@@ -25,9 +25,7 @@ module.exports = {
         const challenger = message.member;
         const opponent = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-        if (!opponent || opponent === challenger || opponent.user.bot) return message.channel.send(`**[<:zITFGaming:778318624163102723>] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({
-            timeout: 5000
-        }));
+        if (!opponent || opponent === challenger || opponent.user.bot) return message.channel.send(`**[<:zITFGaming:778318624163102723>] ${message.author.username}**, please make sure you're mentioning somebody you want to play Connect 4 with!`).then(m => m.delete({ timeout: 10000 }));
 
         const question = await message.channel.send(`**[<:zITFGaming:778318624163102723>]**: **${opponent}**, would you like to play Connect 4 with **${message.author.tag}**? Please interact with the reactions accordingly.`);
 
@@ -41,9 +39,7 @@ module.exports = {
 
         const reaction = response.first();
 
-        if (reaction.emoji.name === "zzITFDownvote") return question.edit(`**[<:zITFGaming:778318624163102723>] ${message.author.tag}**, looks like they didn't want to play.`).then(m => m.delete({
-            timeout: 10000
-        }));
+        if (reaction.emoji.name === "zzITFDownvote") return question.edit(`**[<:zITFGaming:778318624163102723>] ${message.author.tag}**, looks like they didn't want to play.`);
         else {
             await question.delete();
 
@@ -254,9 +250,7 @@ module.exports = {
                             updateMsg.delete();
                             return gameMessage.edit(`**[🎌]**: 'Tis a tied game! GGs. <:zITFGG:667854871579590696>`, {
                                 embed: TieEmbed
-                            }).then(m => m.delete({
-                                timeout: 30000
-                            }));
+                            });
                         }
 
                         for (const func of checks) {
@@ -270,9 +264,7 @@ module.exports = {
                                 updateMsg.delete();
                                 return gameMessage.edit(`**[🏆]: ${gameData[player].member}** won this **Connect 4** game! GGs. <:zITFGG:667854871579590696>`, {
                                     embed: WinEmbed
-                                }).then(m => m.delete({
-                                    timeout: 30000
-                                }));
+                                });
                             }
                         }
 

@@ -13,27 +13,23 @@ module.exports = {
         const mentionedUser = message.guild.member(avatarUser);
         
         if (avatarUser) {
-            const embed = new Discord.MessageEmbed()
+            const PFPEmbed = new Discord.MessageEmbed()
                 .setTitle(avatarUser.tag)
                 .setColor(mentionedUser.displayColor)
                 .setImage(avatarUser.displayAvatarURL({
                     dynamic: true
                 }));
 
-            message.channel.send(embed).then(m => m.delete({
-                timeout: 30000
-            }));
+                message.channel.send({ embed: PFPEmbed });
         } else {
-            const embed2 = new Discord.MessageEmbed()
+            const PFPEmbed2 = new Discord.MessageEmbed()
                 .setTitle(message.author.tag)
                 .setColor(message.member.displayColor)
                 .setImage(message.author.displayAvatarURL({
                     dynamic: true
                 }));
 
-            message.channel.send(embed2).then(m => m.delete({
-                timeout: 30000
-            }));
+            message.channel.send({ embed: PFPEmbed2 });
         }
     }
 }
